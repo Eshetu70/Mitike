@@ -1,0 +1,233 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Guidance for First-Time Homebuyers | Mitike Realty Group" />
+  <title>Mitike Realty Group</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; font-family: 'Inter', sans-serif; background-color: #f9f9f9; color: #333; }
+    header { position: relative; height: 500px; overflow: hidden; color: white; }
+    header video { position: absolute; top: 50%; left: 50%; width: 100%; height: 100%; transform: translate(-50%, -50%); object-fit: cover; z-index: -1; }
+    header .overlay { position: relative; text-align: center; padding: 8rem 2rem; background: rgba(0,0,0,0.4); height: 100%; }
+    header h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+    .topbar { position: absolute; top: 0; width: 100%; display: flex; justify-content: space-between; align-items: center; background: rgba(0, 0, 0, 0.5); padding: 1rem; z-index: 2; }
+    .menu-icon { font-size: 1.5rem; color: white; cursor: pointer; padding: 0.5rem; }
+    .dropdown { display: none; position: absolute; top: 60px; left: 10px; background: #fff; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 1rem; border-radius: 6px; z-index: 1000; }
+    .dropdown a { display: block; padding: 0.5rem 1rem; color: #1a73e8; text-decoration: none; font-weight: 600; }
+    .dropdown a:hover { background-color: #f1f1f1; }
+    .google-translate { background: white; border-radius: 5px; padding: 0.2rem 0.5rem; }
+    nav { background-color: #fff; display: flex; justify-content: center; flex-wrap: wrap; padding: 1rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    nav a { margin: 0.5rem 1rem; text-decoration: none; color: #1a73e8; font-weight: 600; cursor: pointer; transition: color 0.3s ease; }
+    nav a:hover { color: #0c47a1; }
+    section { padding: 2rem; max-width: 1000px; margin: auto; display: none; animation: fadeIn 0.5s ease; }
+    section.active { display: block; }
+    @keyframes fadeIn { from {opacity: 0; transform: translateY(20px);} to {opacity: 1; transform: translateY(0);} }
+    h2 { border-bottom: 2px solid #1a73e8; padding-bottom: 0.5rem; margin-bottom: 1rem; }
+    ul { list-style-type: square; padding-left: 1.5rem; }
+    footer { background: linear-gradient(to right, #1a73e8, #0c47a1); color: white; text-align: center; padding: 2rem 1rem; margin-top: 4rem; font-size: 0.95rem; box-shadow: inset 0 1px 0 rgba(255,255,255,0.1); }
+    footer p { margin: 0.3rem 0; }
+  </style>
+</head>
+<body>
+  <header id="SITE_HEADER">
+    <div class="topbar">
+      <div class="menu-icon" onclick="toggleDropdown()">☰</div>
+      <div class="google-translate" id="google_translate_element"></div>
+    </div>
+    <div class="dropdown" id="dropdownMenu">
+      <a onclick="selectTab('about')">About Us</a>
+      <a onclick="selectTab('services')">Buying Process</a>
+      <a onclick="selectTab('lenders')">Lenders</a>
+      <a onclick="selectTab('programs')">Loan Programs</a>
+      <a onclick="selectTab('whatNotToDo')">What Not To Do</a>
+      <a onclick="selectTab('contact')">Contact</a>
+    </div>
+    <div>
+      <video autoplay muted loop playsinline>
+        <source src="https://video.wixstatic.com/video/11062b_8f14374b6fe149aab751d12c94c2676f/720p/mp4/file.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="overlay">
+      <h1>Mitike Realty Group</h1>
+      <p>Your Trusted Real Estate Partner</p>
+    </div>
+  </header>
+
+  <section id="about" class="active">
+    <h2>About Us</h2>
+    <div style="background: linear-gradient(to right, #e3f2fd, #ffffff); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+      <h3 style="color: #1a73e8;">Welcome to Your Homebuying Journey</h3>
+      <p>Hello, my name is Shig, and I’ve had the privilege of working with first-time homebuyers for over four years. During that time, I’ve met and worked with many wonderful people, and I’m excited to help guide you on this journey toward purchasing your first home.</p>
+      <p>If you're reading this section, you're likely at a point in your life where you're considering buying a home, curious about the process, or ready to get organized for your first step. Whatever the case may be, I created this platform with you in mind — to provide useful information and help you make informed decisions as you move forward.</p>
+    </div>
+    <div style="margin-top: 2rem; background: linear-gradient(to left, #f3f9ff, #ffffff); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+      <h3 style="color: #1a73e8;">Empowering Your Decisions</h3>
+      <p>Many first-time buyers ask me common questions like: Is now a good time to buy? How’s the market? Should I wait for rates to drop? Are there any programs that can help with my down payment? These are all important questions, and I understand that they can feel overwhelming.</p>
+      <p>While there’s no one-size-fits-all answer, the right time to buy is when you're ready — both financially and personally. The market can be unpredictable, but the most important factor is having the right information.</p>
+      <p>One thing I want to emphasize is that you’re not limited to working with the lender or bank that an agent refers you to. You have the freedom to shop around for the lender that best suits your needs, whether that’s someone you find on your own or based on recommendations from me or family.</p>
+    </div>
+    <div style="margin-top: 2rem; background: linear-gradient(to right, #ffffff, #e3f2fd); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+      <h3 style="color: #1a73e8;">What This Site Covers</h3>
+      <p>I look forward to the opportunity to work with you. This platform covers the basics — from selecting your agent and lender, to finding the right home, making an offer, scheduling inspections, and finally, closing the deal and receiving the keys to your new home.</p>
+      <p>I hope this information helps you feel more comfortable and confident as you move forward in the process. Your homebuying journey starts here, and I’m honored to be part of it.</p>
+    </div>
+  </section>
+
+  <section id="services">
+  <h2>Buying Process</h2>
+  <div style="background: linear-gradient(to right, #e3f2fd, #ffffff); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+    <h3 style="color: #1a73e8;">1. Before Applying for a Loan</h3>
+    <p>Buying a home involves more than just a down payment. It’s important to budget for inspections, closing costs, appraisals, and unexpected home maintenance. Consider putting aside funds for essential tools, appliances, and emergency repairs.</p>
+    <p>Most of my clients aim to put 20% down to avoid PMI, though 3.5% options exist. PMI can often be removed once you’ve paid off 20%. Online mortgage calculators are a great tool to estimate what extra monthly payments can help you reach that goal faster.</p>
+    <p><strong>Credit score is also critical:</strong></p>
+    <ul>
+      <li><strong>Poor:</strong> 579 or below</li>
+      <li><strong>Fair:</strong> 580–669</li>
+      <li><strong>Good:</strong> 670–739</li>
+      <li><strong>Very Good:</strong> 740–799</li>
+      <li><strong>Excellent:</strong> 800+</li>
+    </ul>
+    <p>By knowing your score and improving it, you unlock better rates and lower monthly payments.</p>
+  </div>
+  <div style="margin-top: 2rem; background: linear-gradient(to left, #f3f9ff, #ffffff); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+    <h3 style="color: #1a73e8;">2. Additional Steps</h3>
+    <ul style="line-height: 1.8;">
+      <li><strong>Improving Credit Score:</strong> Crucial for qualifying better rates and terms.</li>
+      <li><strong>Loan Documents Required:</strong> Tax returns, pay stubs, W2s/1099s, bank statements, ID, and more.</li>
+      <li><strong>What Not To Do:</strong> Avoid job changes, large financial moves, new debt, or changing marital status before closing.</li>
+      <li><strong>Finding Your Home & Making an Offer:</strong> Your agent will help strategize your offer. Earnest money (typically 1%-3%) is submitted after acceptance and held by the title company.</li>
+      <li><strong>Inspections:</strong> Types include General, Termite, Sewer, Foundation, and Radon. Use findings to negotiate repairs or credits.</li>
+      <li><strong>Title & Closing:</strong> The title company clears liens and coordinates closing. You’ll bring a cashier’s check and ID. Utilities should be transferred 3–4 days ahead.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="lenders">
+    <h2>Finding a Lender</h2>
+    <div style="background: linear-gradient(to right, #e8f5e9, #ffffff); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+      <h3 style="color: #2e7d32;">Trusted Lending Partners</h3>
+      <p>As mentioned in my introduction, you’re not limited to the lenders I refer, but the professionals I recommend are ones I’ve personally worked with, closed deals with, and have consistently received positive feedback from my clients.</p>
+      <p>Feel free to compare lenders and evaluate your options — terms can vary by lender and by state. I’ll also provide contact info for qualified professionals who can assist you with confidence.</p>
+      <p>It's important to go beyond pre-qualification — a pre-approval or preliminary approval strengthens your offer by showing sellers you are financially ready and serious.</p>
+    </div>
+    <div style="margin-top: 2rem; background: linear-gradient(to left, #f1f8e9, #ffffff); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+      <h3 style="color: #2e7d32;">Required Documents</h3>
+      <ul style="line-height: 1.8;">
+        <li>Personal Information: Full name, address, birthdate, and SSN</li>
+        <li>Income Documentation: Pay stubs, W-2 forms, 1099s, 2 years of tax returns</li>
+        <li>Bank Records: 2-3 months of bank statements</li>
+      </ul>
+      <p><strong>Important:</strong> Avoid unsourced deposits or large withdrawals during the loan process — sources like EKUBE, EDIR, etc. can cause delays or denials.</p>
+      <p>Do not apply for new credit cards, auto loans, or make large purchases during this time, as they affect your credit report and overall loan approval.</p>
+    </div>
+    <div style="margin-top: 2rem; background: linear-gradient(to right, #ffffff, #e8f5e9); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+      <h3 style="color: #2e7d32;">Available Loan Programs</h3>
+      <p>You are free to choose your lender—whether recommended or personally researched. Getting pre-qualified and then pre-approved significantly improves your chances of acceptance.</p>
+      <ul style="line-height: 1.8;">
+        <li><strong>VA Loans:</strong> For veterans and active military personnel</li>
+        <li><strong>FHA Loans:</strong> Ideal for lower credit scores or smaller down payments</li>
+        <li><strong>Conventional Loans:</strong> Typically require higher credit scores and larger down payments</li>
+        <li><strong>Portfolio Loans:</strong> Offered by private banks and lenders outside conventional guidelines</li>
+        <li><strong>Local Programs:</strong> MHDC (Missouri), KHRC (Kansas) – down payment and closing cost support</li>
+        <li><strong>MCC (Mortgage Credit Certificate):</strong> Annual tax credit for qualified first-time homebuyers</li>
+        <li><strong>Down Payment Toward Equity Act:</strong> Up to $25K – pending federal legislation</li>
+        <li><strong>Gift Funds:</strong> From family with documentation and gift letter</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="programs">
+    <h2>Loan Programs</h2>
+    <ul>
+      <li>VA Loans: For veterans and active military personnel</li>
+      <li>FHA Loans: Ideal for lower credit scores or smaller down payments</li>
+      <li>Conventional Loans: Requires higher scores and more down payment</li>
+      <li>MHDC & KHRC: State-specific programs for down payment help</li>
+      <li>MCC: Mortgage Credit Certificate for annual tax credit</li>
+      <li>Portfolio Loans: Non-traditional loans held by private institutions</li>
+      <li>First-Time Buyer Assistance & Grants</li>
+    </ul>
+  </section>
+
+  <section id="whatNotToDo">
+    <h2>What Not To Do & Final Steps</h2>
+    <div style="background: linear-gradient(to right, #fff3e0, #ffffff); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+      <h3 style="color: #ef6c00;">Avoid These Common Mistakes</h3>
+      <ul style="line-height: 1.8;">
+        <li>Do not change your name during the process</li>
+        <li>Do not quit your job or change employment</li>
+        <li>Do not renew your lease unexpectedly</li>
+        <li>Do not assume you need 20% down – ask about your options</li>
+        <li>Do not assume your rate is locked unless you’ve confirmed it</li>
+        <li>Do not shop with another agent while under contract</li>
+        <li>Do not deposit or withdraw large amounts of cash</li>
+        <li>Do not change your marital status mid-transaction</li>
+        <li>Do not open or max out new credit cards</li>
+        <li>Do not add new debt or miss payments</li>
+        <li>Do not shop for furniture or home goods before closing</li>
+      </ul>
+    </div>
+  
+    <div style="margin-top: 2rem; background: linear-gradient(to left, #fffde7, #ffffff); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+      <h3 style="color: #ef6c00;">Inspections & Offers</h3>
+      <p>Once you’ve found the right home, we’ll structure an offer. Earnest money (1–3% of the offer) is due within 3 days and applied to closing. Next, schedule inspections:</p>
+      <ul>
+        <li>General home inspection</li>
+        <li>Termite inspection</li>
+        <li>Sewer/septic inspection</li>
+        <li>Foundation inspection</li>
+        <li>Radon inspection</li>
+      </ul>
+      <p>After inspection, you can negotiate repairs or credits. Be mindful of timelines to keep the transaction on track.</p>
+    </div>
+  
+    <div style="margin-top: 2rem; background: linear-gradient(to right, #ffffff, #fff3e0); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+      <h3 style="color: #ef6c00;">Appraisal, Closing & Safety</h3>
+      <p>Once past inspection, your lender will order an appraisal to confirm the home’s value. If it appraises below the offer price, we’ll negotiate or determine how to cover the difference.</p>
+      <p>Be vigilant with your information and avoid scams. Don’t respond to unexpected emails about wiring funds—always confirm with your lender, title company, or agent.</p>
+      <p>Three days before closing, you’ll receive final instructions. Transfer utilities into your name 3–4 days in advance. Bring your photo ID and cashier’s check to the appointment. Then… congratulations — you're a homeowner!</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: <a href="mailto:shignya.sm@gmail.com">shignya.sm@gmail.com</a></p>
+    <p>Phone (C): 913-306-5216 | (O): 888-220-0988</p>
+    
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Mitike Realty Group. All Rights Reserved.</p>
+    <p>Developed by <strong>Next Synergy Tech</strong> — Powered by Modern Web Technologies</p>
+    <p>Contact: <strong>Shig</strong> | Phone (C): 913-306-5216 | Office: 888-220-0988 | <a style="color: #fff; text-decoration: underline;" href="mailto:shignya.sm@gmail.com">shignya.sm@gmail.com</a></p>
+  </footer>
+
+  <script>
+    function showTab(id) {
+      document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+    function selectTab(id) {
+      showTab(id);
+      document.getElementById('dropdownMenu').style.display = 'none';
+    }
+    function toggleDropdown() {
+      const dropdown = document.getElementById('dropdownMenu');
+      dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+    }
+  </script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
+
+
