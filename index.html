@@ -43,10 +43,20 @@
 </head>
 <body>
   <header id="SITE_HEADER">
-    <div class="topbar">
-      <div class="menu-icon" onclick="toggleDropdown()">☰</div>
+    <!-- Top Contact Bar -->
+    <div style="background: #0a1f3c; color: #8b949e; text-align: center; padding: 0.5rem 1rem; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; border-bottom: 1px solid #1f6feb;">
+      <p style="margin: 0; font-size: 0.95rem;">📞 Phone: 913-306-5216 | 🏢 Office: 888-220-0988 | ✉️ 
+        <a href="mailto:shignya.sm@gmail.com" style="color: #79c0ff; text-decoration: underline;">shignya.sm@gmail.com</a>
+      </p>
+    </div>
+  
+    <!-- Top Bar with Menu and Translate -->
+    <div class="topbar" style="display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 1rem; background-color: rgba(10, 31, 60, 0.8); backdrop-filter: blur(5px);">
+      <div class="menu-icon" onclick="toggleDropdown()" style="font-size: 1.5rem; cursor: pointer;">☰</div>
       <div class="google-translate" id="google_translate_element"></div>
     </div>
+  
+    <!-- Dropdown Menu -->
     <div class="dropdown" id="dropdownMenu">
       <a onclick="selectTab('about')">About Us</a>
       <a onclick="selectTab('services')">Buying Process</a>
@@ -61,18 +71,43 @@
       <a onclick="selectTab('trustedLenders')">🏦 Trusted Loan Partners</a>
       <a onclick="selectTab('contact')">Contact</a>
     </div>
-    
+  
+    <!-- Background Video -->
     <div>
-      <video autoplay muted loop playsinline>
+      <video autoplay muted loop playsinline style="width: 100%; height: auto;">
         <source src="https://video.wixstatic.com/video/11062b_8f14374b6fe149aab751d12c94c2676f/720p/mp4/file.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
     </div>
-    <div class="overlay">
-      <h1>MITIKE</h1>
-      <p>Your Trusted Real Estate Partner</p>
+  
+    <!-- Overlay Content -->
+    <div class="overlay" style="position: absolute; top: 30%; left: 50%; transform: translateX(-50%); text-align: center; color: #fff; width: 100%;">
+      <h1 style="font-size: 3rem; font-weight: bold; text-shadow: 0 0 15px #1f6feb;">MITIKE</h1>
+      <p style="font-size: 1.2rem; color: #79c0ff; text-shadow: 0 0 10px #000;">Your Trusted Real Estate Partner</p>
+      <p style="font-size: 1rem; color: #79c0ff; text-shadow: 0 0 10px #000;">Guiding You Through the Homebuying Process</p>
     </div>
+    <br>
+    <div style="background: linear-gradient(135deg, #0a1f3c, #1f2d50); padding: 1rem; text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; border-bottom: 1px solid rgba(121, 192, 255, 0.4); box-shadow: 0 0 10px rgba(121,192,255,0.2); animation: glowPulse 5s infinite ease-in-out;">
+  <p style="margin: 0.2rem 0; font-size: 1.1rem; color: #79c0ff;">
+    📞 <strong style="color: #c9d1d9;">Phone:</strong> 913-306-5216 &nbsp;|&nbsp; 🏢 <strong style="color: #c9d1d9;">Office:</strong> 888-220-0988
+  </p>
+  <p style="margin: 0.2rem 0; font-size: 1.1rem; color: #79c0ff;">
+    ✉️ <strong style="color: #c9d1d9;">Email:</strong> 
+    <a href="mailto:shignya.sm@gmail.com" style="color: #58a6ff; text-decoration: underline;">shignya.sm@gmail.com</a>
+  </p>
+  <p style="margin-top: 0.3rem; font-size: 0.95rem; color: #8b949e;">🔧 Powered by NextSynergyTech – Innovating Real Estate with Future-Ready Technologies</p>
+</div>
+
+<!-- Add this animation to your CSS or <style> tag -->
+<style>
+@keyframes glowPulse {
+  0% { box-shadow: 0 0 5px rgba(121,192,255,0.2); }
+  50% { box-shadow: 0 0 15px rgba(121,192,255,0.5); }
+  100% { box-shadow: 0 0 5px rgba(121,192,255,0.2); }
+}
+</style>
   </header>
+  
 
   <section id="about" class="active" style="padding: 4rem 2rem; background: radial-gradient(circle at top left, #0f2027, #203a43, #2c5364); color: white; font-family: 'Inter', sans-serif;">
     <h2 style="text-align: center; font-size: 2.8rem; margin-bottom: 2.5rem; color: #00fff7; letter-spacing: 1px; text-shadow: 0 2px 10px rgba(0, 255, 247, 0.3);">🏠 About Us</h2>
@@ -129,110 +164,182 @@
   </div>
 </section>
 
-<section id="lenders">
-    <h2>Finding a Lender</h2>
-    <div style="background: linear-gradient(to right, #e8f5e9, #ffffff); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-      <h3 style="color: #2e7d32;">Trusted Lending Partners</h3>
-      <p>As mentioned in my introduction, you’re not limited to the lenders I refer, but the professionals I recommend are ones I’ve personally worked with, closed deals with, and have consistently received positive feedback from my clients.</p>
-      <p>Feel free to compare lenders and evaluate your options — terms can vary by lender and by state. I’ll also provide contact info for qualified professionals who can assist you with confidence.</p>
-      <p>It's important to go beyond pre-qualification — a pre-approval or preliminary approval strengthens your offer by showing sellers you are financially ready and serious.</p>
-    </div>
-    <div style="margin-top: 2rem; background: linear-gradient(to left, #f1f8e9, #ffffff); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
-      <h3 style="color: #2e7d32;">Required Documents</h3>
-      <ul style="line-height: 1.8;">
-        <li>Personal Information: Full name, address, birthdate, and SSN</li>
-        <li>Income Documentation: Pay stubs, W-2 forms, 1099s, 2 years of tax returns</li>
-        <li>Bank Records: 2-3 months of bank statements</li>
-      </ul>
-      <p><strong>Important:</strong> Avoid unsourced deposits or large withdrawals during the loan process — sources like EKUBE, EDIR, etc. can cause delays or denials.</p>
-      <p>Do not apply for new credit cards, auto loans, or make large purchases during this time, as they affect your credit report and overall loan approval.</p>
-    </div>
-    <div style="margin-top: 2rem; background: linear-gradient(to right, #ffffff, #e8f5e9); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-      <h3 style="color: #2e7d32;">Available Loan Programs</h3>
-      <p>You are free to choose your lender—whether recommended or personally researched. Getting pre-qualified and then pre-approved significantly improves your chances of acceptance.</p>
-      <ul style="line-height: 1.8;">
-        <li><strong>VA Loans:</strong> For veterans and active military personnel</li>
-        <li><strong>FHA Loans:</strong> Ideal for lower credit scores or smaller down payments</li>
-        <li><strong>Conventional Loans:</strong> Typically require higher credit scores and larger down payments</li>
-        <li><strong>Portfolio Loans:</strong> Offered by private banks and lenders outside conventional guidelines</li>
-        <li><strong>Local Programs:</strong> MHDC (Missouri), KHRC (Kansas) – down payment and closing cost support</li>
-        <li><strong>MCC (Mortgage Credit Certificate):</strong> Annual tax credit for qualified first-time homebuyers</li>
-        <li><strong>Down Payment Toward Equity Act:</strong> Up to $25K – pending federal legislation</li>
-        <li><strong>Gift Funds:</strong> From family with documentation and gift letter</li>
-      </ul>
-    </div>
-  </section>
+<section id="lenders" style="padding: 4rem 1rem; background: linear-gradient(180deg, #f9fdfb, #ffffff); font-family: 'Segoe UI', sans-serif;">
+  <h2 style="text-align: center; font-size: 2.5rem; color: #1b5e20; margin-bottom: 2rem; text-shadow: 0 1px 6px rgba(46, 125, 50, 0.3);">💼 Finding a Lender</h2>
 
-  <section id="programs">
-    <h2>Loan Programs</h2>
-    <ul>
-      <li>VA Loans: For veterans and active military personnel</li>
-      <li>FHA Loans: Ideal for lower credit scores or smaller down payments</li>
-      <li>Conventional Loans: Requires higher scores and more down payment</li>
-      <li>MHDC & KHRC: State-specific programs for down payment help</li>
-      <li>MCC: Mortgage Credit Certificate for annual tax credit</li>
-      <li>Portfolio Loans: Non-traditional loans held by private institutions</li>
-      <li>First-Time Buyer Assistance & Grants</li>
+  <!-- Trusted Lending Partners -->
+  <div style="background: #ffffff; border-left: 5px solid #66bb6a; padding: 2rem; border-radius: 16px; margin-bottom: 2rem; box-shadow: 0 8px 30px rgba(0,0,0,0.06);">
+    <h3 style="color: #2e7d32; font-size: 1.6rem;">🤝 Trusted Lending Partners</h3>
+    <p>These are lenders I’ve worked with, closed deals with, and trust based on consistent positive results for my clients. However, you’re always free to compare and choose your own.</p>
+    <p>🧠 <strong>Tip:</strong> Terms vary by lender and state. I’ll guide you toward professionals you can rely on — and provide contact info for confidence and clarity.</p>
+    <p>✅ Going beyond pre-qualification with a <strong>pre-approval</strong> shows sellers you're financially ready, making your offer stronger and more credible.</p>
+  </div>
+
+  <!-- Required Documents -->
+  <div style="background: #ffffff; border-left: 5px solid #aed581; padding: 2rem; border-radius: 16px; margin-bottom: 2rem; box-shadow: 0 8px 30px rgba(0,0,0,0.05);">
+    <h3 style="color: #558b2f; font-size: 1.6rem;">📑 Required Documents</h3>
+    <ul style="line-height: 1.8; padding-left: 1.2rem;">
+      <li>🪪 <strong>Personal Info:</strong> Full name, address, birthdate, SSN</li>
+      <li>📄 <strong>Income:</strong> Pay stubs, W-2s/1099s, tax returns (2 yrs)</li>
+      <li>🏦 <strong>Bank Records:</strong> 2–3 months of statements</li>
     </ul>
-  </section>
+    <p style="margin-top: 1rem;"><strong>⚠️ Important:</strong> Avoid unsourced deposits or large cash movements — sources like EKUBE, EDIR, etc. may cause underwriting delays.</p>
+    <p>🛑 Avoid new credit cards, auto loans, or large purchases during the process — these affect your credit profile and approval chances.</p>
+  </div>
 
-  <section id="whatNotToDo">
-    <h2>What Not To Do & Final Steps</h2>
-    <div style="background: linear-gradient(to right, #fff3e0, #ffffff); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-      <h3 style="color: #ef6c00;">Avoid These Common Mistakes</h3>
-      <ul style="line-height: 1.8;">
-        <li>Do not change your name during the process</li>
-        <li>Do not quit your job or change employment</li>
-        <li>Do not renew your lease unexpectedly</li>
-        <li>Do not assume you need 20% down – ask about your options</li>
-        <li>Do not assume your rate is locked unless you’ve confirmed it</li>
-        <li>Do not shop with another agent while under contract</li>
-        <li>Do not deposit or withdraw large amounts of cash</li>
-        <li>Do not change your marital status mid-transaction</li>
-        <li>Do not open or max out new credit cards</li>
-        <li>Do not add new debt or miss payments</li>
-        <li>Do not shop for furniture or home goods before closing</li>
-      </ul>
-    </div>
-  
-    <div style="margin-top: 2rem; background: linear-gradient(to left, #fffde7, #ffffff); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
-      <h3 style="color: #ef6c00;">Inspections & Offers</h3>
-      <p>Once you’ve found the right home, we’ll structure an offer. Earnest money (1–3% of the offer) is due within 3 days and applied to closing. Next, schedule inspections:</p>
-      <ul>
-        <li>General home inspection</li>
-        <li>Termite inspection</li>
-        <li>Sewer/septic inspection</li>
-        <li>Foundation inspection</li>
-        <li>Radon inspection</li>
-      </ul>
-      <p>After inspection, you can negotiate repairs or credits. Be mindful of timelines to keep the transaction on track.</p>
-    </div>
-  
-    <div style="margin-top: 2rem; background: linear-gradient(to right, #ffffff, #fff3e0); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-      <h3 style="color: #ef6c00;">Appraisal, Closing & Safety</h3>
-      <p>Once past inspection, your lender will order an appraisal to confirm the home’s value. If it appraises below the offer price, we’ll negotiate or determine how to cover the difference.</p>
-      <p>Be vigilant with your information and avoid scams. Don’t respond to unexpected emails about wiring funds—always confirm with your lender, title company, or agent.</p>
-      <p>Three days before closing, you’ll receive final instructions. Transfer utilities into your name 3–4 days in advance. Bring your photo ID and cashier’s check to the appointment. Then… congratulations — you're a homeowner!</p>
-    </div>
-  </section>
+  <!-- Loan Programs -->
+  <div style="background: #ffffff; border-left: 5px solid #81c784; padding: 2rem; border-radius: 16px; box-shadow: 0 8px 30px rgba(0,0,0,0.07);">
+    <h3 style="color: #2e7d32; font-size: 1.6rem;">🏡 Available Loan Programs</h3>
+    <p>You are free to choose your lender — whether it's one I refer or one you’ve researched. Getting pre-qualified and then pre-approved improves your position dramatically.</p>
+    <ul style="line-height: 1.8; padding-left: 1.2rem;">
+      <li>🎖️ <strong>VA Loans:</strong> For veterans and active military</li>
+      <li>🏠 <strong>FHA Loans:</strong> Ideal for lower credit or small down payments</li>
+      <li>💰 <strong>Conventional Loans:</strong> For stronger credit and larger down payments</li>
+      <li>🏦 <strong>Portfolio Loans:</strong> Offered by private banks outside conventional standards</li>
+      <li>📍 <strong>Local Programs:</strong> MHDC (MO), KHRC (KS) — assistance for down payment & closing costs</li>
+      <li>🧾 <strong>MCC:</strong> Mortgage Credit Certificate — tax credit for first-time buyers</li>
+      <li>📊 <strong>Down Payment Toward Equity Act:</strong> Up to $25K — pending federal legislation</li>
+      <li>🎁 <strong>Gift Funds:</strong> From family — must include proper documentation and gift letter</li>
+    </ul>
+  </div>
+</section>
 
 
-  <section id="zillowProfile" style="padding: 2rem; background: #f3f4f6; border-top: 1px solid #e0e0e0;">
-    <h2 style="text-align: center; color: #1a73e8;">📇 Connect with Shignya on Zillow</h2>
-    <div style="max-width: 800px; margin: auto; display: flex; flex-wrap: wrap; align-items: center; background: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); padding: 1.5rem;">
+<section id="programs" style="padding: 4rem 1rem; background: radial-gradient(circle at top right, #0a192f, #0c1c36); color: #e0f7fa; font-family: 'Segoe UI', sans-serif;">
+  <h2 style="text-align: center; font-size: 2.5rem; color: #64ffda; margin-bottom: 2.5rem; text-shadow: 0 0 15px rgba(100, 255, 218, 0.3);">
+    💡 Loan Programs for Future-Ready Buyers
+  </h2>
+
+  <div style="max-width: 900px; margin: auto; backdrop-filter: blur(12px); background: rgba(255,255,255,0.06); border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 8px 32px rgba(0,0,0,0.3); padding: 2rem;">
+    <ul style="list-style: none; padding-left: 0; line-height: 2; font-size: 1.1rem;">
+      <li>🎖️ <strong style="color: #80cbc4;">VA Loans:</strong> For veterans & active military</li>
+      <li>🏠 <strong style="color: #80cbc4;">FHA Loans:</strong> Lower credit & down payment</li>
+      <li>💰 <strong style="color: #80cbc4;">Conventional Loans:</strong> Higher credit & more down</li>
+      <li>📍 <strong style="color: #80cbc4;">MHDC / KHRC:</strong> Down payment help (MO/KS)</li>
+      <li>🧾 <strong style="color: #80cbc4;">MCC:</strong> Tax credits for 1st-time buyers</li>
+      <li>🏦 <strong style="color: #80cbc4;">Portfolio Loans:</strong> Private non-traditional options</li>
+      <li>🎁 <strong style="color: #80cbc4;">Grants & Assistance:</strong> Gift funds, state & federal help</li>
+    </ul>
+  </div>
+</section>
+
+
+
+<section id="whatNotToDo" style="padding: 4rem 1rem; background: linear-gradient(135deg, #1c2331, #0f172a); color: #e0f2f1; font-family: 'Segoe UI', sans-serif;">
+  <h2 style="text-align: center; font-size: 2.5rem; color: #ffb74d; margin-bottom: 2.5rem; text-shadow: 0 0 10px rgba(255, 183, 77, 0.4);">
+    🚫 What Not To Do & Final Steps
+  </h2>
+
+  <!-- Mistakes -->
+  <div style="max-width: 900px; margin: auto; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-left: 5px solid #ff9800; border-radius: 16px; padding: 2rem; backdrop-filter: blur(10px); box-shadow: 0 6px 30px rgba(0,0,0,0.4); margin-bottom: 2rem;">
+    <h3 style="color: #ffcc80;">⚠️ Avoid These Common Mistakes</h3>
+    <ul style="line-height: 2;">
+      <li>💼 Don’t switch jobs mid-process</li>
+      <li>💳 Avoid opening new credit or maxing out cards</li>
+      <li>💸 Don’t make unexplained deposits/withdrawals</li>
+      <li>🏠 Don’t buy furniture until you close!</li>
+      <li>🔗 Always confirm rate lock status</li>
+    </ul>
+  </div>
+
+  <!-- Inspection Steps -->
+  <div style="max-width: 900px; margin: auto; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-left: 5px solid #ffca28; border-radius: 16px; padding: 2rem; backdrop-filter: blur(10px); box-shadow: 0 6px 30px rgba(0,0,0,0.4); margin-bottom: 2rem;">
+    <h3 style="color: #ffe082;">🔍 Inspections & Offers</h3>
+    <p>After submitting your offer and earnest deposit (1–3%), schedule key inspections:</p>
+    <ul style="line-height: 1.8;">
+      <li>🏚️ Home</li>
+      <li>🐜 Termite</li>
+      <li>🚽 Sewer/Septic</li>
+      <li>🏗️ Foundation</li>
+      <li>☢️ Radon</li>
+    </ul>
+    <p>Negotiate repairs and credits after results.</p>
+  </div>
+
+  <!-- Appraisal & Final Steps -->
+  <div style="max-width: 900px; margin: auto; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-left: 5px solid #4caf50; border-radius: 16px; padding: 2rem; backdrop-filter: blur(10px); box-shadow: 0 6px 30px rgba(0,0,0,0.4);">
+    <h3 style="color: #a5d6a7;">🏁 Appraisal, Closing & Safety</h3>
+    <p>Your lender will order an appraisal. If the value’s low, we’ll renegotiate or discuss gap coverage.</p>
+    <p>🚨 <strong>Tech Alert:</strong> Be cautious of wire fraud. Always call your lender before sending money!</p>
+    <p>✅ Transfer utilities, prep your photo ID, and bring your certified funds to closing. Then — you own your home!</p>
+    <p style="margin-top: 1.5rem; font-weight: bold; font-size: 1.1rem; color: #64ffda;">🎉 Welcome to homeownership — powered by smart technology and smarter decisions!</p>
+  </div>
+</section>
+
+
+
+
+<section id="zillowProfile" style="padding: 4rem 1rem; background: radial-gradient(circle at top right, #0a192f, #0c1c36); font-family: 'Segoe UI', sans-serif;">
+  <h2 style="text-align: center; font-size: 2.5rem; color: #64ffda; margin-bottom: 2.5rem; text-shadow: 0 0 12px rgba(100, 255, 218, 0.4);">
+    📇 Connect with Shignya on Zillow
+  </h2>
+
+  <div style="
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(12px);
+  ">
+
+    <!-- Profile Image -->
+    <img src="image/Screenshot.png" alt="Shignya Profile" style="
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 1rem;
+      border: 2px solid #64ffda;
+      box-shadow: 0 0 12px rgba(100, 255, 218, 0.3);
+    ">
+
+    <!-- Agent Info -->
+    <div style="flex: 1; min-width: 280px; color: #e0f7fa; padding: 1rem;">
+      <h3 style="margin: 0; color: #64ffda;">Shignya S.M</h3>
+      <p style="margin: 0.2rem 0 1rem; color: #b2ebf2;">Real Estate Agent | First-Time Buyer Specialist</p>
       
-      <!-- Replace with actual Zillow profile image -->
-      <img src="image/Screenshot.png" alt="Shignya Profile" style="width: 160px; height: 160px; border-radius: 50%; object-fit: cover; margin-right: 2rem;">
-  
-      <div style="flex: 1;">
-        <h3 style="margin: 0 0 0.5rem; color: #0c47a1;">Shignya S.M</h3>
-        <p style="margin: 0 0 1rem; color: #555;">Real Estate Agent | First-Time Buyer Specialist</p>
-        <a href="https://www.zillow.com/profile/shignya" target="_blank" style="display: inline-block; padding: 0.5rem 1rem; background: #1a73e8; color: white; border-radius: 8px; text-decoration: none; font-weight: bold;">
-          🔗 View Zillow Profile
-        </a>
-      </div>
+      <!-- Contact Info -->
+      <p style="margin: 0.3rem 0;"><strong>📞 Phone:</strong> 913-306-5216 | <strong>Office:</strong> 888-220-0988</p>
+      <p style="margin: 0.3rem 0;"><strong>📧 Email:</strong> <a href="mailto:shignya.sm@gmail.com" style="color: #58a6ff; text-decoration: underline;">shignya.sm@gmail.com</a></p>
+      
+      <!-- CTA Button -->
+      <a href="https://www.zillow.com/profile/shignya" target="_blank" style="
+        display: inline-block;
+        margin-top: 1rem;
+        padding: 0.7rem 1.4rem;
+        background: linear-gradient(to right, #64ffda, #1a73e8);
+        color: #0a192f;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        box-shadow: 0 0 10px rgba(100, 255, 218, 0.4);
+      " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        🔗 View Zillow Profile
+      </a>
     </div>
-  </section>
+
+    <!-- House Image (replace src) -->
+    <img src="image/house1.jpg" alt="Sample Listing" style="
+      width: 280px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 16px;
+      margin: 1rem;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      border: 1px solid rgba(255,255,255,0.1);
+    ">
+
+  </div>
+</section>
+
   <section id="trustedLenders" style="padding: 3rem 1.5rem; background: linear-gradient(145deg, #0f2027, #203a43, #2c5364); color: white; font-family: 'Inter', sans-serif;">
     <h2 style="text-align: center; font-size: 2.4rem; margin-bottom: 2.5rem; color: #66fcf1; letter-spacing: 1px;">🚀 Trusted Loan Experts</h2>
   
