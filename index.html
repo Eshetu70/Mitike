@@ -536,60 +536,107 @@
   <div style="max-width: 1100px; margin: auto;">
 
     <!-- ⭐️ Zillow Profile Section -->
-    <div style="
-    background: linear-gradient(135deg, rgba(10, 25, 47, 0.95), rgba(25, 55, 109, 0.9));
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 20px;
-    padding: 2rem;
-    margin-bottom: 3rem;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.3), inset 0 0 1px rgba(255,255,255,0.2);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  "
-  onmouseover="this.style.transform='scale(1.015)'; this.style.boxShadow='0 14px 40px rgba(0,0,0,0.4)'"
-  onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 12px 30px rgba(0,0,0,0.3)'"
-  >
-  
-    <img src="image/Screenshot 2025-04-17 110636.png" alt="Shignya Mitike Profile" style="
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-right: 2rem;
-      border: 4px solid #1a73e8;
-      box-shadow: 0 0 12px rgba(26, 115, 232, 0.6);
-    ">
-  
-    <div style="flex: 1; text-align: left;">
-      <h3 style="margin: 0 0 0.5rem; color: #58a6ff; font-size: 1.6rem;">📇 Connect with Shignya Mitike on Zillow</h3>
-      <p style="margin: 0 0 0.5rem; color: #cbd5e1; font-weight: 500;">Real Estate Agent | First-Time Buyer Specialist</p>
-      <p style="margin-bottom: 1rem; color: #d1d5db; line-height: 1.6; font-size: 1rem;">
-        I am proud to call Kansas City my home for the past 23+ years. I’m more than optimistic that I can find a place you will call home.
-        With years of sales experience, I am committed to giving my clients the best home-buying and selling experience possible.
-        I continue to volunteer in a number of community initiatives and charities, and I am excited to continue doing my part
-        to make Kansas City a great place for families and businesses.
-      </p>
-      <a href="https://www.zillow.com/profile/shignya" target="_blank" style="
-        display: inline-block;
-        padding: 0.75rem 1.5rem;
-        background: linear-gradient(90deg, #1a73e8, #1976d2);
-        color: white;
-        border-radius: 10px;
-        font-weight: 600;
-        text-decoration: none;
-        box-shadow: 0 4px 12px rgba(26, 115, 232, 0.4);
-        transition: background 0.3s ease, transform 0.3s ease;
-      "
-      onmouseover="this.style.background='linear-gradient(90deg, #1976d2, #0d47a1)'; this.style.transform='scale(1.05)'"
-      onmouseout="this.style.background='linear-gradient(90deg, #1a73e8, #1976d2)'; this.style.transform='scale(1)'">
-        🔗 View Zillow Profile
-      </a>
+    <style>
+      .zillow-card {
+        background: linear-gradient(135deg, rgba(10, 25, 47, 0.95), rgba(25, 55, 109, 0.9));
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 2rem;
+        margin-bottom: 3rem;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        box-shadow: 0 12px 30px rgba(0,0,0,0.3), inset 0 0 1px rgba(255,255,255,0.2);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+    
+      .zillow-card:hover {
+        transform: scale(1.015);
+        box-shadow: 0 14px 40px rgba(0, 0, 0, 0.4);
+      }
+    
+      .zillow-img {
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid #1a73e8;
+        box-shadow: 0 0 12px rgba(26, 115, 232, 0.6);
+        margin-bottom: 1rem;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+      }
+    
+      .zillow-info {
+        flex: 1;
+        text-align: left;
+        display: none;
+        animation: fadeIn 0.3s ease;
+      }
+    
+      .zillow-info.show {
+        display: block;
+      }
+    
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    
+      @media (max-width: 768px) {
+        .zillow-card {
+          flex-direction: column;
+          text-align: center;
+          padding: 1.5rem;
+        }
+    
+        .zillow-info {
+          text-align: center;
+        }
+      }
+    </style>
+    
+    <div class="zillow-card">
+      <div style="width: 100%; text-align: center;">
+        <img src="image/Screenshot 2025-04-17 110636.png" alt="Shignya Mitike Profile" class="zillow-img" onclick="toggleZillowInfo()" />
+      </div>
+    
+      <div class="zillow-info" id="zillowDetails">
+        <h3 style="margin: 0 0 0.5rem; color: #58a6ff; font-size: 1.6rem;">📇 Connect with Shignya Mitike on Zillow</h3>
+        <p style="margin: 0 0 0.5rem; color: #cbd5e1; font-weight: 500;">Real Estate Agent | First-Time Buyer Specialist</p>
+        <p style="margin-bottom: 1rem; color: #d1d5db; line-height: 1.6; font-size: 1rem;">
+          I am proud to call Kansas City my home for the past 23+ years. I’m more than optimistic that I can find a place you will call home.
+          With years of sales experience, I am committed to giving my clients the best home-buying and selling experience possible.
+          I continue to volunteer in a number of community initiatives and charities, and I am excited to continue doing my part
+          to make Kansas City a great place for families and businesses.
+        </p>
+        <a href="https://www.zillow.com/profile/shignya" target="_blank" style="
+          display: inline-block;
+          padding: 0.75rem 1.5rem;
+          background: linear-gradient(90deg, #1a73e8, #1976d2);
+          color: white;
+          border-radius: 10px;
+          font-weight: 600;
+          text-decoration: none;
+          box-shadow: 0 4px 12px rgba(26, 115, 232, 0.4);
+          transition: background 0.3s ease, transform 0.3s ease;
+        "
+        onmouseover="this.style.background='linear-gradient(90deg, #1976d2, #0d47a1)'; this.style.transform='scale(1.05)'"
+        onmouseout="this.style.background='linear-gradient(90deg, #1a73e8, #1976d2)'; this.style.transform='scale(1)'">
+          🔗 View Zillow Profile
+        </a>
+      </div>
     </div>
-  </div>
+    
+    <script>
+      function toggleZillowInfo() {
+        const info = document.getElementById('zillowDetails');
+        info.classList.toggle('show');
+      }
+    </script>
+    
   
 
 
