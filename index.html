@@ -7,7 +7,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Guidance for First-Time Homebuyers | Mitike Realty Group" />
   <title>Mitike Realty Group</title>
+
+  <link rel="icon" type="image/png" href="image/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="image/favicon.svg" />
+  <link rel="shortcut icon" href="image/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="image/apple-touch-icon.png" />
+  <link rel="manifest" href="image/site.webmanifest" />
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/fontawesome.min.css">
   <style>
     body { margin: 0; font-family: 'Inter', sans-serif; background-color: #f9f9f9; color: #333; }
     header { position: relative; height: 500px; overflow: hidden; color: white; }
@@ -44,15 +53,15 @@
       <a onclick="selectTab('lenders')">Lenders</a>
       <a onclick="selectTab('programs')">Loan Programs</a>
       <a onclick="selectTab('whatNotToDo')">What Not To Do</a>
-      <a onclick="selectTab('mortgageListings')">mortgageListings</a>
+      <a onclick="selectTab('mortgageListings')">Mortgage Listings</a>
       <a onclick="selectTab('zillowSearch')">Search Listings</a>
       <a onclick="selectTab('mortgageConsultant')">Mortgage Experts</a>
       <a onclick="selectTab('mortgageCalculator')">Mortgage Calculator</a>
-
-     
-      
+      <a onclick="selectTab('zillowProfile')">📇 Zillow Profile</a>
+      <a onclick="selectTab('trustedLenders')">🏦 Trusted Loan Partners</a>
       <a onclick="selectTab('contact')">Contact</a>
     </div>
+    
     <div>
       <video autoplay muted loop playsinline>
         <source src="https://video.wixstatic.com/video/11062b_8f14374b6fe149aab751d12c94c2676f/720p/mp4/file.mp4" type="video/mp4">
@@ -65,45 +74,51 @@
     </div>
   </header>
 
-  <section id="about" class="active">
-    <h2>About Us</h2>
-    <div style="background: linear-gradient(to right, #e3f2fd, #ffffff); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-      <h3 style="color: #1a73e8;">Welcome to Your Homebuying Journey</h3>
-      <p>Hello, my name is Shig, and I’ve had the privilege of working with first-time homebuyers for over four years. During that time, I’ve met and worked with many wonderful people, and I’m excited to help guide you on this journey toward purchasing your first home.</p>
-      <p>If you're reading this section, you're likely at a point in your life where you're considering buying a home, curious about the process, or ready to get organized for your first step. Whatever the case may be, I created this platform with you in mind — to provide useful information and help you make informed decisions as you move forward.</p>
+  <section id="about" class="active" style="padding: 4rem 2rem; background: radial-gradient(circle at top left, #0f2027, #203a43, #2c5364); color: white; font-family: 'Inter', sans-serif;">
+    <h2 style="text-align: center; font-size: 2.8rem; margin-bottom: 2.5rem; color: #00fff7; letter-spacing: 1px; text-shadow: 0 2px 10px rgba(0, 255, 247, 0.3);">🏠 About Us</h2>
+  
+    <div style="background: linear-gradient(145deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03)); padding: 2rem; border-radius: 18px; box-shadow: 0 12px 32px rgba(0,0,0,0.4);">
+      <h3 style="color: #00bcd4; font-size: 1.6rem;">Welcome to Your Homebuying Journey</h3>
+      <p style="color: #d0e8f2; line-height: 1.7; font-size: 1.05rem;">Hello, my name is Shig, and I’ve had the privilege of working with first-time homebuyers for over four years. During that time, I’ve met and worked with many wonderful people, and I’m excited to help guide you on this journey toward purchasing your first home.</p>
+      <p style="color: #d0e8f2; line-height: 1.7; font-size: 1.05rem;">If you're reading this section, you're likely at a point in your life where you're considering buying a home, curious about the process, or ready to get organized for your first step. Whatever the case may be, I created this platform with you in mind — to provide useful information and help you make informed decisions as you move forward.</p>
     </div>
-    <div style="margin-top: 2rem; background: linear-gradient(to left, #f3f9ff, #ffffff); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
-      <h3 style="color: #1a73e8;">Empowering Your Decisions</h3>
-      <p>Many first-time buyers ask me common questions like: Is now a good time to buy? How’s the market? Should I wait for rates to drop? Are there any programs that can help with my down payment? These are all important questions, and I understand that they can feel overwhelming.</p>
-      <p>While there’s no one-size-fits-all answer, the right time to buy is when you're ready — both financially and personally. The market can be unpredictable, but the most important factor is having the right information.</p>
-      <p>One thing I want to emphasize is that you’re not limited to working with the lender or bank that an agent refers you to. You have the freedom to shop around for the lender that best suits your needs, whether that’s someone you find on your own or based on recommendations from me or family.</p>
+  
+    <div style="margin-top: 2rem; background: linear-gradient(145deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); padding: 2rem; border-radius: 18px; box-shadow: 0 12px 32px rgba(0,0,0,0.35);">
+      <h3 style="color: #00bcd4; font-size: 1.6rem;">Empowering Your Decisions</h3>
+      <p style="color: #d0e8f2; line-height: 1.7; font-size: 1.05rem;">Many first-time buyers ask me common questions like: Is now a good time to buy? How’s the market? Should I wait for rates to drop? Are there any programs that can help with my down payment? These are all important questions, and I understand that they can feel overwhelming.</p>
+      <p style="color: #d0e8f2; line-height: 1.7; font-size: 1.05rem;">While there’s no one-size-fits-all answer, the right time to buy is when you're ready — both financially and personally. The market can be unpredictable, but the most important factor is having the right information.</p>
+      <p style="color: #d0e8f2; line-height: 1.7; font-size: 1.05rem;">One thing I want to emphasize is that you’re not limited to working with the lender or bank that an agent refers you to. You have the freedom to shop around for the lender that best suits your needs, whether that’s someone you find on your own or based on recommendations from me or family.</p>
     </div>
-    <div style="margin-top: 2rem; background: linear-gradient(to right, #ffffff, #e3f2fd); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-      <h3 style="color: #1a73e8;">What This Site Covers</h3>
-      <p>I look forward to the opportunity to work with you. This platform covers the basics — from selecting your agent and lender, to finding the right home, making an offer, scheduling inspections, and finally, closing the deal and receiving the keys to your new home.</p>
-      <p>I hope this information helps you feel more comfortable and confident as you move forward in the process. Your homebuying journey starts here, and I’m honored to be part of it.</p>
+  
+    <div style="margin-top: 2rem; background: linear-gradient(145deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); padding: 2rem; border-radius: 18px; box-shadow: 0 12px 32px rgba(0,0,0,0.35);">
+      <h3 style="color: #00bcd4; font-size: 1.6rem;">What This Site Covers</h3>
+      <p style="color: #d0e8f2; line-height: 1.7; font-size: 1.05rem;">I look forward to the opportunity to work with you. This platform covers the basics — from selecting your agent and lender, to finding the right home, making an offer, scheduling inspections, and finally, closing the deal and receiving the keys to your new home.</p>
+      <p style="color: #d0e8f2; line-height: 1.7; font-size: 1.05rem;">I hope this information helps you feel more comfortable and confident as you move forward in the process. Your homebuying journey starts here, and I’m honored to be part of it.</p>
     </div>
   </section>
 
-  <section id="services">
-  <h2>Buying Process</h2>
-  <div style="background: linear-gradient(to right, #e3f2fd, #ffffff); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-    <h3 style="color: #1a73e8;">1. Before Applying for a Loan</h3>
-    <p>Buying a home involves more than just a down payment. It’s important to budget for inspections, closing costs, appraisals, and unexpected home maintenance. Consider putting aside funds for essential tools, appliances, and emergency repairs.</p>
-    <p>Most of my clients aim to put 20% down to avoid PMI, though 3.5% options exist. PMI can often be removed once you’ve paid off 20%. Online mortgage calculators are a great tool to estimate what extra monthly payments can help you reach that goal faster.</p>
-    <p><strong>Credit score is also critical:</strong></p>
-    <ul>
+  
+<section id="services" style="padding: 4rem 2rem; background: radial-gradient(circle at top left, #0f2027, #203a43, #2c5364); color: white; font-family: 'Inter', sans-serif;">
+  <h2 style="text-align: center; font-size: 2.6rem; margin-bottom: 2.5rem; color: #00fff7; letter-spacing: 1px; text-shadow: 0 2px 10px rgba(0, 255, 247, 0.25);">📋 Buying Process</h2>
+
+  <div style="background: linear-gradient(145deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03)); padding: 2rem; border-radius: 18px; box-shadow: 0 12px 32px rgba(0,0,0,0.4);">
+    <h3 style="color: #00bcd4; font-size: 1.6rem;">1. Before Applying for a Loan</h3>
+    <p style="color: #d0e8f2; line-height: 1.7; font-size: 1.05rem;">Buying a home involves more than just a down payment. It’s important to budget for inspections, closing costs, appraisals, and unexpected home maintenance. Consider putting aside funds for essential tools, appliances, and emergency repairs.</p>
+    <p style="color: #d0e8f2; line-height: 1.7; font-size: 1.05rem;">Most of my clients aim to put 20% down to avoid PMI, though 3.5% options exist. PMI can often be removed once you’ve paid off 20%. Online mortgage calculators are a great tool to estimate what extra monthly payments can help you reach that goal faster.</p>
+    <p style="color: #ffffff; font-weight: bold; margin-top: 1rem;">Credit score is also critical:</p>
+    <ul style="color: #c2e9fb; line-height: 1.8; padding-left: 1.2rem;">
       <li><strong>Poor:</strong> 579 or below</li>
       <li><strong>Fair:</strong> 580–669</li>
       <li><strong>Good:</strong> 670–739</li>
       <li><strong>Very Good:</strong> 740–799</li>
       <li><strong>Excellent:</strong> 800+</li>
     </ul>
-    <p>By knowing your score and improving it, you unlock better rates and lower monthly payments.</p>
+    <p style="color: #d0e8f2;">By knowing your score and improving it, you unlock better rates and lower monthly payments.</p>
   </div>
-  <div style="margin-top: 2rem; background: linear-gradient(to left, #f3f9ff, #ffffff); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
-    <h3 style="color: #1a73e8;">2. Additional Steps</h3>
-    <ul style="line-height: 1.8;">
+
+  <div style="margin-top: 2rem; background: linear-gradient(145deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); padding: 2rem; border-radius: 18px; box-shadow: 0 12px 32px rgba(0,0,0,0.35);">
+    <h3 style="color: #00bcd4; font-size: 1.6rem;">2. Additional Steps</h3>
+    <ul style="line-height: 1.8; color: #d0e8f2; padding-left: 1.2rem;">
       <li><strong>Improving Credit Score:</strong> Crucial for qualifying better rates and terms.</li>
       <li><strong>Loan Documents Required:</strong> Tax returns, pay stubs, W2s/1099s, bank statements, ID, and more.</li>
       <li><strong>What Not To Do:</strong> Avoid job changes, large financial moves, new debt, or changing marital status before closing.</li>
@@ -200,6 +215,88 @@
       <p>Three days before closing, you’ll receive final instructions. Transfer utilities into your name 3–4 days in advance. Bring your photo ID and cashier’s check to the appointment. Then… congratulations — you're a homeowner!</p>
     </div>
   </section>
+
+
+  <section id="zillowProfile" style="padding: 2rem; background: #f3f4f6; border-top: 1px solid #e0e0e0;">
+    <h2 style="text-align: center; color: #1a73e8;">📇 Connect with Shignya on Zillow</h2>
+    <div style="max-width: 800px; margin: auto; display: flex; flex-wrap: wrap; align-items: center; background: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); padding: 1.5rem;">
+      
+      <!-- Replace with actual Zillow profile image -->
+      <img src="https://via.placeholder.com/160" alt="Shignya Profile" style="width: 160px; height: 160px; border-radius: 50%; object-fit: cover; margin-right: 2rem;">
+  
+      <div style="flex: 1;">
+        <h3 style="margin: 0 0 0.5rem; color: #0c47a1;">Shignya S.M</h3>
+        <p style="margin: 0 0 1rem; color: #555;">Real Estate Agent | First-Time Buyer Specialist</p>
+        <a href="https://www.zillow.com/profile/shignya" target="_blank" style="display: inline-block; padding: 0.5rem 1rem; background: #1a73e8; color: white; border-radius: 8px; text-decoration: none; font-weight: bold;">
+          🔗 View Zillow Profile
+        </a>
+      </div>
+    </div>
+  </section>
+  <section id="trustedLenders" style="padding: 3rem 1.5rem; background: linear-gradient(145deg, #0f2027, #203a43, #2c5364); color: white; font-family: 'Inter', sans-serif;">
+    <h2 style="text-align: center; font-size: 2.4rem; margin-bottom: 2.5rem; color: #66fcf1; letter-spacing: 1px;">🚀 Trusted Loan Experts</h2>
+  
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2.5rem;">
+  
+      <!-- Lance Richards -->
+      <div style="
+        background: radial-gradient(circle at top left, #1a1a2e, #16213e);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 20px;
+        padding: 2rem;
+        max-width: 480px;
+        box-shadow: 0 20px 30px rgba(0,0,0,0.4);
+        transition: all 0.3s ease;
+      " onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+  
+        <img src="image/fedility5.png" alt="First Fidelis Logo" style="width: 140px; margin-bottom: 1rem;">
+  
+        <h3 style="color: #66fcf1; margin-bottom: 0.4rem;">Lance Richards</h3>
+        <p style="color: #c5c6c7; font-weight: 500;">Mortgage Specialist | NMLS# 991357</p>
+  
+        <p style="margin: 1rem 0; color: #dcdde1; line-height: 1.7; font-size: 0.95rem;">
+          📍 Kansas: 6025 Metcalf Ln, Suite 210A<br>
+          📍 Missouri: 4520 Main St, Suite 700<br>
+          📞 913-205-9978 | 📠 913-384-1806<br>
+          📧 <a href="mailto:lancerichards@live.com" style="color: #45aaf2;">lancerichards@live.com</a>
+        </p>
+  
+        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+          <a href="https://www.firstfidelis.com" target="_blank" style="background: #0abde3; color: white; padding: 0.5rem 1rem; border-radius: 8px; font-weight: 600; text-decoration: none;">🌐 Website</a>
+          <a href="https://nftydoor.com/remn/first-fidelis-llc/lance-richards/signup" target="_blank" style="background: #10ac84; color: white; padding: 0.5rem 1rem; border-radius: 8px; font-weight: 600; text-decoration: none;">📝 Apply</a>
+          <a href="https://popl.co/card/OenF7Nun/2/txt" target="_blank" style="background: #341f97; color: white; padding: 0.5rem 1rem; border-radius: 8px; font-weight: 600; text-decoration: none;">📲 Digital Card</a>
+        </div>
+      </div>
+  
+      <!-- Dusty Manuel -->
+      <div style="
+        background: radial-gradient(circle at bottom right, #1f4068, #16213e);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 20px;
+        padding: 2rem;
+        max-width: 480px;
+        box-shadow: 0 20px 30px rgba(0,0,0,0.4);
+        transition: all 0.3s ease;
+      " onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+  
+        <img src="image/bells.png" alt="Bell Bank Logo" style="width: 140px; margin-bottom: 1rem;">
+  
+        <h3 style="color: #66fcf1; margin-bottom: 0.4rem;">Dusty Manuel</h3>
+        <p style="color: #c5c6c7; font-weight: 500;">Mortgage Loan Officer | NMLS# 1205453</p>
+  
+        <p style="margin: 1rem 0; color: #dcdde1; line-height: 1.7; font-size: 0.95rem;">
+          🏢 Bell Bank Mortgage<br>
+          📍 11095 Metcalf Ave, Overland Park, KS 66211
+        </p>
+  
+        <a href="https://bell.bank/mortgage" target="_blank" style="background: #0fbcf9; color: white; padding: 0.5rem 1rem; border-radius: 8px; font-weight: 600; text-decoration: none;">🔗 Bell Bank Mortgage</a>
+      </div>
+  
+    </div>
+  </section>
+  
+  
+  
 
   <section id="contact">
     <h2>Contact Us</h2>
@@ -435,9 +532,68 @@
   
 
 
-<footer style="background: #0d1117; color: white; padding: 3rem 1rem; text-align: center; font-family: 'Inter', sans-serif;">
+<footer style="background: #0d1117; color: white; padding: 3rem 1rem 1rem; text-align: center; font-family: 'Inter', sans-serif;">
   <div style="max-width: 1100px; margin: auto;">
-    
+
+    <!-- ⭐️ Zillow Profile Section -->
+    <div style="
+    background: linear-gradient(135deg, rgba(10, 25, 47, 0.95), rgba(25, 55, 109, 0.9));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 3rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.3), inset 0 0 1px rgba(255,255,255,0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  "
+  onmouseover="this.style.transform='scale(1.015)'; this.style.boxShadow='0 14px 40px rgba(0,0,0,0.4)'"
+  onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 12px 30px rgba(0,0,0,0.3)'"
+  >
+  
+    <img src="image/Screenshot 2025-04-17 110636.png" alt="Shignya Mitike Profile" style="
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 2rem;
+      border: 4px solid #1a73e8;
+      box-shadow: 0 0 12px rgba(26, 115, 232, 0.6);
+    ">
+  
+    <div style="flex: 1; text-align: left;">
+      <h3 style="margin: 0 0 0.5rem; color: #58a6ff; font-size: 1.6rem;">📇 Connect with Shignya Mitike on Zillow</h3>
+      <p style="margin: 0 0 0.5rem; color: #cbd5e1; font-weight: 500;">Real Estate Agent | First-Time Buyer Specialist</p>
+      <p style="margin-bottom: 1rem; color: #d1d5db; line-height: 1.6; font-size: 1rem;">
+        I am proud to call Kansas City my home for the past 23+ years. I’m more than optimistic that I can find a place you will call home.
+        With years of sales experience, I am committed to giving my clients the best home-buying and selling experience possible.
+        I continue to volunteer in a number of community initiatives and charities, and I am excited to continue doing my part
+        to make Kansas City a great place for families and businesses.
+      </p>
+      <a href="https://www.zillow.com/profile/shignya" target="_blank" style="
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        background: linear-gradient(90deg, #1a73e8, #1976d2);
+        color: white;
+        border-radius: 10px;
+        font-weight: 600;
+        text-decoration: none;
+        box-shadow: 0 4px 12px rgba(26, 115, 232, 0.4);
+        transition: background 0.3s ease, transform 0.3s ease;
+      "
+      onmouseover="this.style.background='linear-gradient(90deg, #1976d2, #0d47a1)'; this.style.transform='scale(1.05)'"
+      onmouseout="this.style.background='linear-gradient(90deg, #1a73e8, #1976d2)'; this.style.transform='scale(1)'">
+        🔗 View Zillow Profile
+      </a>
+    </div>
+  </div>
+  
+
+
+    <!-- Mission Statement -->
     <h2 style="font-size: 1.8rem; margin-bottom: 0.5rem; color: #58a6ff;">Rooted in Culture. United by Purpose.</h2>
     <p style="font-size: 1.05rem; margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto; color: #c9d1d9;">
       A vibrant fusion of Ethiopian heritage and American opportunity — empowering our community through real estate, culture, and trust.
@@ -445,19 +601,27 @@
 
     <!-- Vertical Navigation List -->
     <ul style="list-style: none; padding: 0; margin-bottom: 2rem; display: inline-block; text-align: left;">
-      <li><a onclick="selectTab('about')" style="color: #58a6ff; text-decoration: none; display: block; padding: 0.4rem 0; font-weight: 600; transition: color 0.3s;" onmouseover="this.style.color='#79c0ff'" onmouseout="this.style.color='#58a6ff'">📘 About Us</a></li>
-      <li><a onclick="selectTab('services')" style="color: #58a6ff; text-decoration: none; display: block; padding: 0.4rem 0; font-weight: 600; transition: color 0.3s;" onmouseover="this.style.color='#79c0ff'" onmouseout="this.style.color='#58a6ff'">🛒 Buying Process</a></li>
-      <li><a onclick="selectTab('lenders')" style="color: #58a6ff; text-decoration: none; display: block; padding: 0.4rem 0; font-weight: 600; transition: color 0.3s;" onmouseover="this.style.color='#79c0ff'" onmouseout="this.style.color='#58a6ff'">🏦 Lenders</a></li>
-      <li><a onclick="selectTab('programs')" style="color: #58a6ff; text-decoration: none; display: block; padding: 0.4rem 0; font-weight: 600; transition: color 0.3s;" onmouseover="this.style.color='#79c0ff'" onmouseout="this.style.color='#58a6ff'">📂 Loan Programs</a></li>
-      <li><a onclick="selectTab('whatNotToDo')" style="color: #58a6ff; text-decoration: none; display: block; padding: 0.4rem 0; font-weight: 600; transition: color 0.3s;" onmouseover="this.style.color='#79c0ff'" onmouseout="this.style.color='#58a6ff'">🚫 What Not To Do</a></li>
-      <li><a onclick="selectTab('mortgageListings')" style="color: #58a6ff; text-decoration: none; display: block; padding: 0.4rem 0; font-weight: 600; transition: color 0.3s;" onmouseover="this.style.color='#79c0ff'" onmouseout="this.style.color='#58a6ff'">📋 Mortgage Listings</a></li>
-      <li><a onclick="selectTab('zillowSearch')" style="color: #58a6ff; text-decoration: none; display: block; padding: 0.4rem 0; font-weight: 600; transition: color 0.3s;" onmouseover="this.style.color='#79c0ff'" onmouseout="this.style.color='#58a6ff'">🔍 Search Listings</a></li>
-      <li><a onclick="selectTab('mortgageConsultant')" style="color: #58a6ff; text-decoration: none; display: block; padding: 0.4rem 0; font-weight: 600; transition: color 0.3s;" onmouseover="this.style.color='#79c0ff'" onmouseout="this.style.color='#58a6ff'">👨‍💼 Mortgage Experts</a></li>
-      <li><a onclick="selectTab('mortgageCalculator')" style="color: #58a6ff; text-decoration: none; display: block; padding: 0.4rem 0; font-weight: 600; transition: color 0.3s;" onmouseover="this.style.color='#79c0ff'" onmouseout="this.style.color='#58a6ff'">🧮 Mortgage Calculator</a></li>
+      <li><a onclick="selectTab('about')" style="color: #58a6ff;" class="nav-link">📘 About Us</a></li>
+      <li><a onclick="selectTab('services')" style="color: #58a6ff;" class="nav-link">🛒 Buying Process</a></li>
+      <li><a onclick="selectTab('lenders')" style="color: #58a6ff;" class="nav-link">🏦 Lenders</a></li>
+      <li><a onclick="selectTab('programs')" style="color: #58a6ff;" class="nav-link">📂 Loan Programs</a></li>
+      <li><a onclick="selectTab('whatNotToDo')" style="color: #58a6ff;" class="nav-link">🚫 What Not To Do</a></li>
+      <li><a onclick="selectTab('mortgageListings')" style="color: #58a6ff;" class="nav-link">📋 Mortgage Listings</a></li>
+      <li><a onclick="selectTab('zillowSearch')" style="color: #58a6ff;" class="nav-link">🔍 Search Listings</a></li>
+      <li><a onclick="selectTab('mortgageConsultant')" style="color: #58a6ff;" class="nav-link">👨‍💼 Mortgage Experts</a></li>
+      <li><a onclick="selectTab('mortgageCalculator')" style="color: #58a6ff;" class="nav-link">🧮 Mortgage Calculator</a></li>
     </ul>
 
-    <!-- Decorative Divider -->
+    <!-- Divider -->
     <div style="height: 1px; width: 60%; background: #30363d; margin: 2rem auto;"></div>
+
+    <!-- Social Icons -->
+    <div style="margin-bottom: 2rem;">
+      <a href="https://www.instagram.com/azsandiego" target="_blank" style="margin: 0 10px; color: #79c0ff; font-size: 1.5rem;" title="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/zeremortgage" target="_blank" style="margin: 0 10px; color: #79c0ff; font-size: 1.5rem;" title="Facebook"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.linkedin.com/in/azsandiego" target="_blank" style="margin: 0 10px; color: #79c0ff; font-size: 1.5rem;" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://www.tiktok.com/@yourmortgageanswer" target="_blank" style="margin: 0 10px; color: #79c0ff; font-size: 1.5rem;" title="TikTok"><i class="fab fa-tiktok"></i></a>
+    </div>
 
     <!-- Contact Info -->
     <p style="margin-bottom: 0.3rem; color: #8b949e;">Developed by <strong>Next Synergy Tech</strong> | Mitike Realty Group © 2025</p>
@@ -465,6 +629,8 @@
     <p style="color: #8b949e;">Email: <a href="mailto:shignya.sm@gmail.com" style="color: #79c0ff; text-decoration: underline;">shignya.sm@gmail.com</a></p>
   </div>
 </footer>
+
+
 
 
   
@@ -486,10 +652,15 @@
   </script>
   <script type="text/javascript">
     function googleTranslateElementInit() {
-      new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,es,om,am,ti', // English, Spanish, Oromo, Amharic, Tigrinya
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
     }
   </script>
   <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  
 
 
   
