@@ -22,6 +22,7 @@
       font-family: 'Inter', sans-serif;
       background-color: #f9f9f9;
       color: #333;
+      position: relative;
     }
 
     header {
@@ -83,7 +84,7 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       padding: 1rem;
       border-radius: 6px;
-      z-index: 1000;
+      z-index: 99999;
     }
 
     .dropdown a {
@@ -92,6 +93,7 @@
       color: #1a73e8;
       text-decoration: none;
       font-weight: 600;
+      z-index: 999;
     }
 
     .dropdown a:hover {
@@ -133,6 +135,7 @@
       margin: auto;
       display: none;
       animation: fadeIn 0.5s ease;
+      z-index: -1;
     }
 
     section.active {
@@ -216,6 +219,7 @@
       flex-direction: column;
       background: #0a1f3c;
       padding: 0.5rem;
+      z-index: 9999;
     }
 
     .dropdown a {
@@ -223,6 +227,7 @@
       text-decoration: none;
       padding: 0.5rem 0;
       border-bottom: 1px solid #1f6feb;
+      z-index: 999;
     }
 
     .dropdown a:last-child {
@@ -390,7 +395,7 @@
       <a onclick="selectTab('whatNotToDo')">What Not To Do</a>
       <a onclick="selectTab('mortgageListings')">Mortgage Listings</a>
       <a onclick="selectTab('zillowSearch')">Search Listings</a>
-      <a onclick="selectTab('mortgageConsultant')">Mortgage Experts</a>
+    <!--  <a onclick="selectTab('mortgageConsultant')">Mortgage Experts</a> -->  
       <a onclick="selectTab('mortgageCalculator')">Mortgage Calculator</a>
       <a onclick="selectTab('zillowProfile')">📇 Zillow Profile</a>
       <a onclick="selectTab('trustedLenders')">🏦 Trusted Loan Partners</a>
