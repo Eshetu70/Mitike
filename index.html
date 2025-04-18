@@ -440,6 +440,28 @@
       .submenu a:hover {
         background: rgba(255, 255, 255, 0.05);
       }
+
+
+      /* Remove gap between header and first section */
+#SITE_HEADER {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+section {
+  margin-top: 0 !important;
+}
+
+/* Optional: prevent double spacing from <video> tag if needed */
+#SITE_HEADER video {
+  display: block;
+  margin-bottom: -4px; /* closes any invisible gap under video */
+}
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
       
     </style>
 
