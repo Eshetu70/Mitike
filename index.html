@@ -381,26 +381,78 @@
           margin: 0.3rem 0;
         }
       }
+
+
+      .submenu-container {
+        position: relative;
+      }
+      
+      .submenu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        left: 100%;
+        top: 0;
+        background: #0a1f3c;
+        border: 1px solid #1f6feb;
+        border-radius: 6px;
+        padding: 0.5rem;
+        z-index: 9999;
+        min-width: 200px;
+      }
+      
+      .submenu a {
+        color: #79c0ff;
+        text-decoration: none;
+        padding: 0.4rem 1rem;
+        border-bottom: 1px solid #1f6feb;
+      }
+      
+      .submenu a:last-child {
+        border-bottom: none;
+      }
+      
+      .submenu a:hover {
+        background: rgba(255, 255, 255, 0.05);
+      }
+      
     </style>
 
 
 
 
     <!-- Dropdown Menu -->
-    <div class="dropdown" id="dropdownMenu">
-      <a onclick="selectTab('about')">About Us</a>
-      <a onclick="selectTab('services')">Buying Process</a>
-      <a onclick="selectTab('lenders')">Lenders</a>
-      <a onclick="selectTab('programs')">Loan Programs</a>
-      <a onclick="selectTab('whatNotToDo')">What Not To Do</a>
-      <a onclick="selectTab('mortgageListings')">Mortgage Listings</a>
-      <a onclick="selectTab('zillowSearch')">Search Listings</a>
-    <!--  <a onclick="selectTab('mortgageConsultant')">Mortgage Experts</a> -->  
-      <a onclick="selectTab('mortgageCalculator')">Mortgage Calculator</a>
-      <a onclick="selectTab('zillowProfile')">📇 Zillow Profile</a>
-      <a onclick="selectTab('trustedLenders')">🏦 Trusted Loan Partners</a>
-      <a onclick="selectTab('contact')">Contact</a>
+   <!-- Dropdown Menu -->
+   <div class="dropdown" id="dropdownMenu">
+    <div class="submenu-container">
+      <a onclick="toggleHomeSubmenu()" style="cursor: pointer;">🏠 Home ▾</a>
+      <div class="submenu" id="homeSubmenu">
+        <a onclick="selectTab('homeIntro')">🏡 Home Intro</a>
+        <a onclick="selectTab('about')">About Us</a>
+        <a onclick="selectTab('services')">Buying Process</a>
+        <a onclick="selectTab('sellingProcess')">Selling Process</a>
+      </div>
     </div>
+  
+    <div class="submenu-container">
+      <a onclick="toggleSubmenu()" style="cursor: pointer;">🏦 Lenders ▾</a>
+      <div class="submenu" id="lenderSubmenu">
+        <a onclick="selectTab('lenders')">Lenders</a>
+        <a onclick="selectTab('programs')">Loan Programs</a>
+        <a onclick="selectTab('whatNotToDo')">What Not To Do</a>
+        <a onclick="selectTab('mortgageListings')">Mortgage Listings</a>
+      </div>
+    </div>
+  
+    <a onclick="selectTab('zillowSearch')">Search Listings</a>
+    <!-- <a onclick="selectTab('mortgageConsultant')">Mortgage Experts</a> -->
+    <a onclick="selectTab('mortgageCalculator')">Mortgage Calculator</a>
+    <a onclick="selectTab('zillowProfile')">📇 Zillow Profile</a>
+    <a onclick="selectTab('trustedLenders')">🏦 Trusted Loan Partners</a>
+    <a onclick="selectTab('contact')">Contact</a>
+  </div>
+  
+
 
     <!-- Background Video -->
     <div>
@@ -455,10 +507,73 @@
         }
       }
     </style>
+
+    <script>
+      function toggleHomeSubmenu() {
+        const submenu = document.getElementById('homeSubmenu');
+        submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+      }
+      function toggleSubmenu() {
+        const submenu = document.getElementById('lenderSubmenu');
+        submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+      }
+      
+    </script>
   </header>
 
 
-  <section id="about" class="active"
+
+  <section id="homeIntro" class="active"
+
+  style="padding: 4rem 2rem; background: radial-gradient(circle at top right, #0f2027, #203a43, #2c5364); color: white; font-family: 'Inter', sans-serif;">
+
+  <h2
+    style="text-align: center; font-size: 2.8rem; margin-bottom: 2rem; color: #00fff7; letter-spacing: 1px; text-shadow: 0 2px 10px rgba(0, 255, 247, 0.3);">
+    🏡 Welcome to MITIKEKC.COM</h2>
+
+  <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 2rem; background: linear-gradient(145deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); padding: 2rem; border-radius: 18px; box-shadow: 0 12px 32px rgba(0,0,0,0.35);">
+
+    <img src="image/homesss.jpg" alt="Helping Community" style="width: 300px; border-radius: 16px; box-shadow: 0 0 12px rgba(0,0,0,0.3); object-fit: cover;">
+
+    <div style="flex: 1;">
+      <h3 style="color: #00bcd4; font-size: 1.6rem; margin-bottom: 1rem;">Empowering Communities Through Real Estate</h3>
+      <p style="line-height: 1.8; color: #d0e8f2;">
+        MITIKEKC.COM is more than a platform—it’s a trusted partner for homebuyers, sellers, and families navigating the real estate journey. We connect our community with valuable resources including mortgage guidance, bank and consultant info, loan programs, and tailored real estate strategies.
+      </p>
+      <p style="line-height: 1.8; color: #d0e8f2;">
+        Whether you're buying your first home or planning to sell, we offer personalized insights and curated tools designed to make your experience smoother and more successful.
+      </p>
+    </div>
+  </div>
+
+  <div style="margin-top: 2rem; display: flex; flex-wrap: wrap; align-items: center; gap: 2rem; background: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015)); padding: 2rem; border-radius: 18px; box-shadow: 0 12px 30px rgba(0,0,0,0.3);">
+
+    <div style="flex: 1;">
+      <h3 style="color: #00bcd4; font-size: 1.6rem; margin-bottom: 1rem;">Multilingual Support for Every Buyer</h3>
+      <p style="line-height: 1.8; color: #d0e8f2;">
+        We believe that language should never be a barrier when making one of the biggest decisions of your life. That’s why our site integrates smart translation tools, allowing every user to read content in their preferred language—whether it’s English, Spanish, Amharic, Oromo, or Tigrinya.
+      </p>
+      <p style="line-height: 1.8; color: #d0e8f2;">
+        This ensures full understanding of every step—no guesswork, no confusion—just confident, informed decisions.
+      </p>
+    </div>
+
+    <video autoplay muted loop playsinline style="width: 100%; max-width: 480px; border-radius: 16px; box-shadow: 0 0 16px rgba(0,0,0,0.3);">
+      <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+      <img src="image/home-visual.jpg" alt="MITIKEKC Intro" style="width: 100%; border-radius: 16px;" />
+    </video>
+  </div>
+
+  <div style="margin-top: 2rem; background: rgba(255,255,255,0.04); border-radius: 16px; padding: 2rem; text-align: center;">
+    <h3 style="color: #00bcd4; font-size: 1.5rem;">💡 Our Mission</h3>
+    <p style="color: #c2e9fb; font-size: 1.1rem; line-height: 1.8; max-width: 800px; margin: auto;">
+      To empower every family with knowledge, confidence, and the right connections to navigate real estate—whether buying, selling, or just exploring the journey. Your success is our purpose.
+    </p>
+  </div>
+</section>
+
+
+  <section id="about"
   style="padding: 4rem 2rem; background: radial-gradient(circle at top left, #0f2027, #203a43, #2c5364); color: white; font-family: 'Inter', sans-serif;">
 
   <h2 style="text-align: center; font-size: 2.8rem; margin-bottom: 2.5rem; color: #00fff7; letter-spacing: 1px; text-shadow: 0 2px 10px rgba(0, 255, 247, 0.3);">
@@ -586,6 +701,66 @@
     </div>
   </div>
 </section>
+
+<style>
+  #sellingProcess ul, li {
+    list-style-type: none;
+   
+   
+  }
+</style>
+<section id="sellingProcess"
+  style="padding: 4rem 2rem; background: radial-gradient(circle at top left, #0f2027, #203a43, #2c5364); color: white; font-family: 'Inter', sans-serif;">
+  <h2 style="text-align: center; font-size: 2.6rem; margin-bottom: 2.5rem; color: #00fff7; letter-spacing: 1px; text-shadow: 0 2px 10px rgba(0, 255, 247, 0.25);">
+    🏡 Selling Process</h2>
+
+  <!-- Block 1: Preparing Your Home -->
+  <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 2rem; background: linear-gradient(145deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03)); padding: 2rem; border-radius: 18px; box-shadow: 0 12px 32px rgba(0,0,0,0.4);">
+    
+    <div style="flex: 1;">
+      <h3 style="color: #00bcd4; font-size: 1.6rem;">1. Preparing Your Home for Sale</h3>
+      <p style="color: #d0e8f2; font-size: 1.05rem; line-height: 1.7;">First impressions matter. Start with cleaning, decluttering, and making necessary repairs. Small upgrades can also boost your home’s value.</p>
+      <ul style="color: #c2e9fb; padding-left: 1.2rem;">
+        <li>🏠 Clean and declutter each room</li>
+        <li>🧰 Complete any minor repairs</li>
+        <li>🎨 Consider neutral paint colors</li>
+        <li>🌿 Enhance curb appeal</li>
+      </ul>
+      <p style="color: #d0e8f2;">We’ll walk through your home together and give staging tips or refer a stager if needed.</p>
+    </div>
+
+    <!-- Video 1 -->
+    <iframe width="320" height="180" src="https://www.youtube.com/embed/mUc1NEGalRU" 
+      title="How to Sell Your Home | The 5 Biggest Mistakes People Make" frameborder="0"
+      style="border-radius: 16px; box-shadow: 0 0 12px rgba(0,0,0,0.3);"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+    </iframe>
+  </div>
+
+  <!-- Block 2: Pricing, Marketing & Closing -->
+  <div style="margin-top: 2rem; display: flex; flex-wrap: wrap; align-items: center; gap: 2rem; background: linear-gradient(145deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); padding: 2rem; border-radius: 18px; box-shadow: 0 12px 32px rgba(0,0,0,0.35);">
+
+    <!-- Video 2 -->
+    <iframe width="320" height="180" src="https://www.youtube.com/embed/1Zg5fx9_Sf0" 
+      title="A Step-by-Step Guide to Selling Your Home - The Timeline" frameborder="0"
+      style="border-radius: 16px; box-shadow: 0 0 12px rgba(0,0,0,0.3);"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+    </iframe>
+
+    <div style="flex: 1;">
+      <h3 style="color: #00bcd4; font-size: 1.6rem;">2. Pricing, Marketing & Closing</h3>
+      <ul style="line-height: 1.8; color: #d0e8f2; padding-left: 1.2rem;">
+        <li><strong>🏷️ Pricing:</strong> We analyze local comps and market trends to set a competitive price.</li>
+        <li><strong>📸 Marketing:</strong> Includes professional photography, online listings, and open houses.</li>
+        <li><strong>📝 Offers:</strong> I’ll help you evaluate and negotiate offers to get the best deal.</li>
+        <li><strong>🏁 Closing:</strong> We work with the title company to ensure a smooth closing and final walkthrough.</li>
+      </ul>
+      <p style="color: #d0e8f2;">Let’s schedule a free consultation and see how much your home is worth today.</p>
+      <p style="color: #79c0ff;">📞 <strong>Phone:</strong> 913-306-5216 | 🏢 <strong>Office:</strong> 888-220-0988 | ✉️ <strong>Email:</strong> <a href="mailto:shignya.sm@gmail.com" style="color: #00ffff;">shignya.sm@gmail.com</a></p>
+    </div>
+  </div>
+</section>
+
 
 
 
@@ -854,7 +1029,7 @@
           📍 11095 Metcalf Ave, Overland Park, KS 66211
         </p>
 
-        <a href="https://bell.bank/mortgage" target="_blank"
+        <a href="https://bell.bank/mortgage/loan-officer/manuelmortgages" target="_blank"
           style="background: #0fbcf9; color: white; padding: 0.5rem 1rem; border-radius: 8px; font-weight: 600; text-decoration: none;">🔗
           Bell Bank Mortgage</a>
       </div>
@@ -1334,19 +1509,19 @@ transition: all 0.3s ease;
       <div style="height: 1px; width: 60%; background: #30363d; margin: 2rem auto;"></div>
 
       <!-- Social Icons -->
-      <div style="margin-bottom: 2rem;">
-        <a href="https://www.instagram.com/azsandiego" target="_blank"
+   <div style="margin-bottom: 2rem;">
+         <!--<a href="https://www.instagram.com/azsandiego" target="_blank"
           style="margin: 0 10px; color: #79c0ff; font-size: 1.5rem;" title="Instagram"><i
-            class="fab fa-instagram"></i></a>
+            class="fab fa-instagram"></i></a>   --> 
         <a href="https://www.facebook.com/share/1NqSaFCf7i/?mibextid=wwXIfr
 " target="_blank"
           style="margin: 0 10px; color: #79c0ff; font-size: 1.5rem;" title="Facebook"><i
             class="fab fa-facebook"></i></a>
-        <a href="https://www.linkedin.com/in/azsandiego" target="_blank"
+      <!--  <a href="https://www.linkedin.com/in/azsandiego" target="_blank"
           style="margin: 0 10px; color: #79c0ff; font-size: 1.5rem;" title="LinkedIn"><i
             class="fab fa-linkedin"></i></a>
         <a href="https://www.tiktok.com/@yourmortgageanswer" target="_blank"
-          style="margin: 0 10px; color: #79c0ff; font-size: 1.5rem;" title="TikTok"><i class="fab fa-tiktok"></i></a>
+          style="margin: 0 10px; color: #79c0ff; font-size: 1.5rem;" title="TikTok"><i class="fab fa-tiktok"></i></a>   --> 
       </div>
 
       <!-- Contact Info -->
