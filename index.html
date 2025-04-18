@@ -27,9 +27,13 @@
 
     header {
       position: relative;
-      height: 500px;
+      height: 500px; 
       overflow: hidden;
       color: white;
+
+      
+      
+      
     }
 
     header video {
@@ -241,7 +245,10 @@
       /* Adjust for header height */
       /* Adjust for header height */
     }
-
+    section:first-of-type {
+      margin-top: 0 !important;
+    }
+    
     .overlay {
       position: absolute;
       top: 30%;
@@ -454,7 +461,9 @@
           padding: 0 !important;
           overflow-x: hidden;
         }
-
+        header{
+          height: 100vh; /* fills full viewport height */
+        }
         #SITE_HEADER {
           margin: 0 !important;
           padding: 0 !important;
