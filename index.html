@@ -158,42 +158,7 @@
   </style>
 
 
-  <style>
-    .mobile-overlay-container {
-      display: none;
-    }
-  
-    @media screen and (max-width: 768px) {
-      .mobile-overlay-container {
-        display: block;
-        position: absolute;
-        bottom: 10%;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 90%;
-        color: #79c0ff;
-        font-family: 'Courier New', monospace;
-        font-size: 1rem;
-        text-align: center;
-        background: rgba(0, 0, 0, 0.7);
-        padding: 1rem;
-        border-radius: 12px;
-        box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
-        z-index: 10;
-      }
-  
-      .mobile-line {
-        display: block;
-        opacity: 0;
-      }
-  
-      .mobile-line.visible {
-        opacity: 1;
-        transition: opacity 0.3s ease-in;
-      }
-    }
-  </style>
-  
+ 
   
   
   
@@ -308,30 +273,9 @@
 </style>
 
 
-    <!-- Mobile Auto-Typing Tech Overlay -->
-
-    <div class="mobile-overlay-container">
-      <span class="mobile-line">Initializing...</span>
-      <span class="mobile-line">Agent: Shignya S.M | Real Estate Specialist</span>
-      <span class="mobile-line">Phone: 913-306-5216</span>
-      <span class="mobile-line">Email: shignya.sm@gmail.com</span>
-      <span class="mobile-line">System: NextSynergyTech v2.0</span>
-      <span class="mobile-line">Secure Connection Established ✅</span>
-    </div>
+    
     
 
-    <script>
-      window.addEventListener("DOMContentLoaded", () => {
-        const lines = document.querySelectorAll(".mobile-overlay-container .mobile-line");
-        let delay = 500;
-    
-        lines.forEach((line, i) => {
-          setTimeout(() => {
-            line.classList.add("visible");
-          }, delay * (i + 1));
-        });
-      });
-    </script>
     
 
 <!-- Add this animation to your CSS or <style> tag -->
