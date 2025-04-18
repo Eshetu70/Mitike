@@ -180,17 +180,65 @@
 <body>
   <header id="SITE_HEADER">
     <!-- Top Contact Bar -->
-    <div style="background: #0a1f3c; color: #8b949e; text-align: center; padding: 0.5rem 1rem; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; border-bottom: 1px solid #1f6feb;">
-      <p style="margin: 0; font-size: 0.95rem;">📞 Phone: 913-306-5216 | 🏢 Office: 888-220-0988 | ✉️ 
-        <a href="mailto:shignya.sm@gmail.com" style="color: #79c0ff; text-decoration: underline;">shignya.sm@gmail.com</a>
-      </p>
-    </div>
-  
-    <!-- Top Bar with Menu and Translate -->
-    <div class="topbar" style="display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 1rem; background-color: rgba(10, 31, 60, 0.8); backdrop-filter: blur(5px);">
-      <div class="menu-icon" onclick="toggleDropdown()" style="font-size: 1.5rem; cursor: pointer;">☰</div>
-      <div class="google-translate" id="google_translate_element"></div>
-    </div>
+  <!-- Combined Header Top Section -->
+<!-- One Unified Top Bar -->
+<!-- One Unified Top Bar with Increased Height -->
+<div style="
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1.2rem; /* Increased padding */
+  background: linear-gradient(135deg, #0a1f3c, #1f2d50);
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  color: #79c0ff;
+  font-size: 1rem;
+  box-shadow: 0 0 10px rgba(121,192,255,0.2);
+  border-bottom: 1px solid rgba(121, 192, 255, 0.4);
+  animation: glowPulse 5s infinite ease-in-out;
+  position: relative;
+  z-index: 999;
+  min-height: 64px; /* Ensures enough bar height */
+">
+
+  <!-- Left: Menu Icon -->
+  <div style="flex: 0 0 auto; font-size: 1.6rem; cursor: pointer;" onclick="toggleDropdown()">☰</div>
+
+  <!-- Center: Contact Info -->
+  <div style="flex: 1 1 auto; text-align: center; padding: 0 1rem;">
+    📞 <strong style="color: #c9d1d9;">Phone:</strong> 913-306-5216 &nbsp;|&nbsp;
+    🏢 <strong style="color: #c9d1d9;">Office:</strong> 888-220-0988 &nbsp;|&nbsp;
+    ✉️ <strong style="color: #c9d1d9;">Email:</strong>
+    <a href="mailto:shignya.sm@gmail.com" style="color: #58a6ff; text-decoration: underline;">shignya.sm@gmail.com</a>
+  </div>
+
+  <!-- Right: Google Translate -->
+  <div style="flex: 0 0 auto;" id="google_translate_element"></div>
+</div>
+
+<!-- Glow Animation -->
+<style>
+  @keyframes glowPulse {
+    0% { box-shadow: 0 0 5px rgba(121,192,255,0.2); }
+    50% { box-shadow: 0 0 15px rgba(121,192,255,0.5); }
+    100% { box-shadow: 0 0 5px rgba(121,192,255,0.2); }
+  }
+
+  @media screen and (max-width: 768px) {
+    /* Stack items and center-align on mobile */
+    .topbar-flex {
+      flex-direction: column !important;
+      align-items: center;
+      text-align: center;
+    }
+    .topbar-flex > div {
+      margin: 0.3rem 0;
+    }
+  }
+</style>
+
+
+
   
     <!-- Dropdown Menu -->
     <div class="dropdown" id="dropdownMenu">
@@ -222,17 +270,8 @@
       <p style="font-size: 1.2rem; color: #79c0ff; text-shadow: 0 0 10px #000;">Your Trusted Real Estate Partner</p>
       <p style="font-size: 1rem; color: #79c0ff; text-shadow: 0 0 10px #000;">Guiding You Through the Homebuying Process</p>
     </div>
-    <br>
-    <div style="background: linear-gradient(135deg, #0a1f3c, #1f2d50); padding: 1rem; text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; border-bottom: 1px solid rgba(121, 192, 255, 0.4); box-shadow: 0 0 10px rgba(121,192,255,0.2); animation: glowPulse 5s infinite ease-in-out;">
-  <p style="margin: 0.2rem 0; font-size: 1.1rem; color: #79c0ff;">
-    📞 <strong style="color: #c9d1d9;">Phone:</strong> 913-306-5216 &nbsp;|&nbsp; 🏢 <strong style="color: #c9d1d9;">Office:</strong> 888-220-0988
-  </p>
-  <p style="margin: 0.2rem 0; font-size: 1.1rem; color: #79c0ff;">
-    ✉️ <strong style="color: #c9d1d9;">Email:</strong> 
-    <a href="mailto:shignya.sm@gmail.com" style="color: #58a6ff; text-decoration: underline;">shignya.sm@gmail.com</a>
-  </p>
-  <p style="margin-top: 0.3rem; font-size: 0.95rem; color: #8b949e;">🔧 Powered by NextSynergyTech – Innovating Real Estate with Future-Ready Technologies</p>
-</div>
+    
+   
 
 <!-- Add this animation to your CSS or <style> tag -->
 <style>
