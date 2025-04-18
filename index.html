@@ -565,9 +565,10 @@
       <h1 style="font-size: 3rem; font-weight: bold; text-shadow: 0 0 15px #1f6feb;">MITIKE</h1>
 
       <!-- Paragraphs hidden on mobile -->
-      <div class="quote-rotator hide-on-mobile">
+      <div class="quote-rotator">
         <p id="quoteText" class="glow-quote"></p>
       </div>
+      
       
     </div>
     <style>
@@ -584,24 +585,23 @@
         text-shadow: 0 0 10px #000;
         transition: opacity 0.6s ease-in-out;
         font-weight: 500;
+        padding: 0 1rem;
       }
       
       .quote-rotator {
-        min-height: 2.2rem;
-        padding-top: 0.5rem;
+        min-height: 2.4rem;
+        padding-top: 1rem;
         animation: fadeIn 1s ease-in-out;
+        text-align: center;
       }
       
-      @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-      
-      @media screen and (max-width: 768px) {
-        .hide-on-mobile {
-          display: none !important;
+      /* Optional: Make smaller font on small phones */
+      @media screen and (max-width: 480px) {
+        .glow-quote {
+          font-size: 0.95rem;
         }
       }
+      
       
     </style>
 
@@ -633,10 +633,10 @@
         }, 500);
       }
     
-      // Start the rotation
       rotateQuote();
       setInterval(rotateQuote, 4000);
     </script>
+    
     
 
 
