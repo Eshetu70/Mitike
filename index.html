@@ -20,7 +20,7 @@
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background-color: #f9f9f9;
+      background-color: #8b949e;
       color: #333;
       position: relative;
     }
@@ -244,12 +244,15 @@
 
     .overlay {
       position: absolute;
+      top: 30%;
       left: 50%;
-      transform: translateX(-50%);
+      transform: translate(-50%, -30%);
       text-align: center;
-      color: white;
       width: 100%;
+      pointer-events: none; /* prevents it from affecting layout */
+      z-index: 2;
     }
+    
 
     .overlay h1 {
       font-size: 2.5rem;
