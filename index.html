@@ -480,7 +480,22 @@
         }
       }
       
+   /* Mobile-specific: Increase video height */
+@media screen and (max-width: 768px) {
+  .video-wrapper video {
+    height: 80vh !important; /* Increase video height on phones */
+  }
 
+  section {
+    margin-top: 0 !important;
+    padding-top: 2rem !important;
+  }
+
+  #SITE_HEADER {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+}
       
     </style>
 
