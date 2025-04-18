@@ -443,24 +443,43 @@
 
 
       /* Remove gap between header and first section */
-#SITE_HEADER {
-  margin-bottom: 0;
-  padding-bottom: 0;
-}
-
-section {
-  margin-top: 0 !important;
-}
-
-/* Optional: prevent double spacing from <video> tag if needed */
-#SITE_HEADER video {
-  display: block;
-  margin-bottom: -4px; /* closes any invisible gap under video */
-}
-body, html {
-  margin: 0;
-  padding: 0;
-}
+      @media screen and (max-width: 768px) {
+        html, body {
+          margin: 0 !important;
+          padding: 0 !important;
+          overflow-x: hidden;
+        }
+      
+        #SITE_HEADER {
+          margin: 0 !important;
+          padding: 0 !important;
+          border: none !important;
+          box-shadow: none !important;
+        }
+      
+        #SITE_HEADER video {
+          margin: 0 !important;
+          padding: 0 !important;
+          display: block;
+          width: 100%;
+          height: auto;
+          vertical-align: bottom;
+        }
+      
+        .overlay {
+          position: absolute !important;
+          top: 30% !important;
+          left: 50%;
+          transform: translateX(-50%);
+          pointer-events: none;
+        }
+      
+        section {
+          margin-top: -1px !important;
+          padding-top: 2rem;
+        }
+      }
+      
 
       
     </style>
