@@ -135,7 +135,7 @@
       margin: auto;
       display: none;
       animation: fadeIn 0.5s ease;
-      z-index: -1;
+      z-index: 10;
     }
 
     section.active {
@@ -237,7 +237,7 @@
     .header-video video {
       width: 100%;
       height: auto;
-      padding-top: -100px;
+      margin-top: -67px; /* Adjust for header height */
       /* Adjust for header height */
     }
 
@@ -459,50 +459,72 @@
 
 
   <section id="about" class="active"
-    style="padding: 4rem 2rem; background: radial-gradient(circle at top left, #0f2027, #203a43, #2c5364); color: white; font-family: 'Inter', sans-serif;">
-    <h2
-      style="text-align: center; font-size: 2.8rem; margin-bottom: 2.5rem; color: #00fff7; letter-spacing: 1px; text-shadow: 0 2px 10px rgba(0, 255, 247, 0.3);">
-      🏠 About Us</h2>
+  style="padding: 4rem 2rem; background: radial-gradient(circle at top left, #0f2027, #203a43, #2c5364); color: white; font-family: 'Inter', sans-serif;">
 
-    <div
-      style="background: linear-gradient(145deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03)); padding: 2rem; border-radius: 18px; box-shadow: 0 12px 32px rgba(0,0,0,0.4);">
-      <h3 style="color: #00bcd4; font-size: 1.6rem;">Welcome to Your Homebuying Journey</h3>
-      <p style="color: #d0e8f2; line-height: 1.7; font-size: 1.05rem;">Hello, my name is Shig, and I’ve had the
-        privilege of working with first-time homebuyers for over four years. During that time, I’ve met and worked with
-        many wonderful people, and I’m excited to help guide you on this journey toward purchasing your first home.</p>
-      <p style="color: #d0e8f2; line-height: 1.7; font-size: 1.05rem;">If you're reading this section, you're likely at
-        a point in your life where you're considering buying a home, curious about the process, or ready to get
-        organized for your first step. Whatever the case may be, I created this platform with you in mind — to provide
-        useful information and help you make informed decisions as you move forward.</p>
-    </div>
+  <h2 style="text-align: center; font-size: 2.8rem; margin-bottom: 2.5rem; color: #00fff7; letter-spacing: 1px; text-shadow: 0 2px 10px rgba(0, 255, 247, 0.3);">
+    🏠 About Us</h2>
 
-    <div
-      style="margin-top: 2rem; background: linear-gradient(145deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); padding: 2rem; border-radius: 18px; box-shadow: 0 12px 32px rgba(0,0,0,0.35);">
-      <h3 style="color: #00bcd4; font-size: 1.6rem;">Empowering Your Decisions</h3>
-      <p style="color: #d0e8f2; line-height: 1.7; font-size: 1.05rem;">Many first-time buyers ask me common questions
-        like: Is now a good time to buy? How’s the market? Should I wait for rates to drop? Are there any programs that
-        can help with my down payment? These are all important questions, and I understand that they can feel
-        overwhelming.</p>
-      <p style="color: #d0e8f2; line-height: 1.7; font-size: 1.05rem;">While there’s no one-size-fits-all answer, the
-        right time to buy is when you're ready — both financially and personally. The market can be unpredictable, but
-        the most important factor is having the right information.</p>
-      <p style="color: #d0e8f2; line-height: 1.7; font-size: 1.05rem;">One thing I want to emphasize is that you’re not
-        limited to working with the lender or bank that an agent refers you to. You have the freedom to shop around for
-        the lender that best suits your needs, whether that’s someone you find on your own or based on recommendations
-        from me or family.</p>
+  <!-- Block 1 -->
+  <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 2rem; background: linear-gradient(145deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03)); padding: 2rem; border-radius: 18px; box-shadow: 0 12px 32px rgba(0,0,0,0.4);">
+  
+    <video autoplay muted loop playsinline
+      style="width: 280px; border-radius: 16px; box-shadow: 0 0 12px rgba(0,0,0,0.3); object-fit: cover;">
+      <source src="image/3773486-hd_1920_1080_30fps.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  
+    <div style="flex: 1;">
+      <h3 style="color: #00bcd4; font-size: 1.6rem;">Welcome to Your <span style="color: #00ffff; font-weight: 600;">Homebuying Journey</span></h3>
+      <p>Hello, my name is <span style="color: #00ffff; font-weight: 600;">Shig</span>, and I’ve had the privilege of working with
+        <span style="color: #00ffff; font-weight: 600;">first-time homebuyers</span> for over four years. I’m excited to help guide you on this journey toward <span style="color: #00ffff; font-weight: 600;">purchasing your first home</span>.</p>
+      <p>Whether you're <span style="color: #00ffff; font-weight: 600;">curious about the process</span>, already preparing, or just
+        exploring — this platform was built with you in mind to offer <span style="color: #00ffff; font-weight: 600;">guidance and clarity</span>.</p>
     </div>
+  </div>
 
-    <div
-      style="margin-top: 2rem; background: linear-gradient(145deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); padding: 2rem; border-radius: 18px; box-shadow: 0 12px 32px rgba(0,0,0,0.35);">
-      <h3 style="color: #00bcd4; font-size: 1.6rem;">What This Site Covers</h3>
-      <p style="color: #d0e8f2; line-height: 1.7; font-size: 1.05rem;">I look forward to the opportunity to work with
-        you. This platform covers the basics — from selecting your agent and lender, to finding the right home, making
-        an offer, scheduling inspections, and finally, closing the deal and receiving the keys to your new home.</p>
-      <p style="color: #d0e8f2; line-height: 1.7; font-size: 1.05rem;">I hope this information helps you feel more
-        comfortable and confident as you move forward in the process. Your homebuying journey starts here, and I’m
-        honored to be part of it.</p>
+  <!-- Block 2 -->
+  <div style="margin-top: 2rem; display: flex; flex-wrap: wrap; align-items: center; gap: 2rem; background: linear-gradient(145deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); padding: 2rem; border-radius: 18px; box-shadow: 0 12px 32px rgba(0,0,0,0.35);">
+  
+    <div style="flex: 1;">
+      <h3 style="color: #00bcd4; font-size: 1.6rem;">Empowering Your <span style="color: #00ffff; font-weight: 600;">Decisions</span></h3>
+      <p>Many first-time buyers ask me questions like: 
+        <span style="color: #00ffff; font-weight: 600;">“Is now a good time to buy?”</span>,
+        <span style="color: #00ffff; font-weight: 600;">“Should I wait for rates to drop?”</span>, and
+        <span style="color: #00ffff; font-weight: 600;">“Are there programs to help with down payments?”</span>
+      </p>
+      <p>These are <span style="color: #00ffff; font-weight: 600;">great questions</span>, and while there’s no universal answer,
+        <span style="color: #00ffff; font-weight: 600;">being informed</span> and ready is always the best move.</p>
+      <p><span style="color: #00ffff; font-weight: 600;">You’re not limited</span> to any specific lender — feel free to
+        <span style="color: #00ffff; font-weight: 600;">shop around</span> and choose what suits your needs best.</p>
     </div>
-  </section>
+  
+    <!-- YouTube Video Embed -->
+    <iframe width="280" height="157" src="https://www.youtube.com/embed/-mBcMD1rLLk" 
+      title="How AI Will Revolutionize Home Buying" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
+      encrypted-media; gyroscope; picture-in-picture" allowfullscreen 
+      style="border-radius: 16px; box-shadow: 0 0 12px rgba(0,0,0,0.3);">
+    </iframe>
+  
+  </div>
+  
+
+  <!-- Block 3 -->
+  <div style="margin-top: 2rem; display: flex; flex-wrap: wrap; align-items: center; gap: 2rem; background: linear-gradient(145deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); padding: 2rem; border-radius: 18px; box-shadow: 0 12px 32px rgba(0,0,0,0.35);">
+    <img src="image/key.jpg" alt="Receiving House Keys" style="width: 280px; border-radius: 16px; box-shadow: 0 0 12px rgba(0,0,0,0.3);" />
+    <div style="flex: 1;">
+      <h3 style="color: #00bcd4; font-size: 1.6rem;">What This Site <span style="color: #00ffff; font-weight: 600;">Covers</span></h3>
+      <p>This platform walks you through <span style="color: #00ffff; font-weight: 600;">each step</span> — from
+        <span style="color: #00ffff; font-weight: 600;">choosing your agent and lender</span>, to
+        <span style="color: #00ffff; font-weight: 600;">submitting an offer</span>,
+        <span style="color: #00ffff; font-weight: 600;">inspections</span>, and finally
+        <span style="color: #00ffff; font-weight: 600;">closing on your dream home</span>.</p>
+      <p>Your journey to <span style="color: #00ffff; font-weight: 600;">homeownership</span> starts right here —
+        and I’m honored to be part of it. Let’s make it <span style="color: #00ffff; font-weight: 600;">stress-free</span> and
+        <span style="color: #00ffff; font-weight: 600;">successful</span>.</p>
+    </div>
+  </div>
+</section>
+
 
 
   <section id="services"
