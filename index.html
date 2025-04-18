@@ -565,12 +565,10 @@
       <h1 style="font-size: 3rem; font-weight: bold; text-shadow: 0 0 15px #1f6feb;">MITIKE</h1>
 
       <!-- Paragraphs hidden on mobile -->
-      <p class="hide-on-mobile" style="font-size: 1.2rem; color: #79c0ff; text-shadow: 0 0 10px #000;">
-        Your Trusted Real Estate Partner
-      </p>
-      <p class="hide-on-mobile" style="font-size: 1rem; color: #79c0ff; text-shadow: 0 0 10px #000;">
-        Guiding You Through the Homebuying Process
-      </p>
+      <div class="quote-rotator hide-on-mobile">
+        <p id="quoteText" class="glow-quote"></p>
+      </div>
+      
     </div>
     <style>
       @media screen and (max-width: 768px) {
@@ -578,11 +576,68 @@
           display: none !important;
         }
       }
+
+
+      .glow-quote {
+        font-size: 1.1rem;
+        color: #79c0ff;
+        text-shadow: 0 0 10px #000;
+        transition: opacity 0.6s ease-in-out;
+        font-weight: 500;
+      }
+      
+      .quote-rotator {
+        min-height: 2.2rem;
+        padding-top: 0.5rem;
+        animation: fadeIn 1s ease-in-out;
+      }
+      
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      
+      @media screen and (max-width: 768px) {
+        .hide-on-mobile {
+          display: none !important;
+        }
+      }
+      
     </style>
 
 
 
-
+    <script>
+      const quotes = [
+        "🏡 Your Trusted Real Estate Partner",
+        "💡 Guiding You Through the Homebuying Journey",
+        "📈 Tech-Driven Strategies for Modern Home Sellers",
+        "🔍 Personalized Listings & Local Expertise",
+        "📋 Smart Decisions Start with the Right Guidance",
+        "🤝 Connecting You with the Right Loan Experts",
+        "🌐 Multilingual Support for Every Homebuyer",
+        "🧠 Educating Buyers with the Power of Technology",
+        "💰 Discover Grants & Smart Mortgage Options",
+        "🧭 Navigate Every Step with Confidence"
+      ];
+    
+      let currentIndex = 0;
+      const quoteElement = document.getElementById("quoteText");
+    
+      function rotateQuote() {
+        quoteElement.style.opacity = 0;
+        setTimeout(() => {
+          quoteElement.textContent = quotes[currentIndex];
+          quoteElement.style.opacity = 1;
+          currentIndex = (currentIndex + 1) % quotes.length;
+        }, 500);
+      }
+    
+      // Start the rotation
+      rotateQuote();
+      setInterval(rotateQuote, 4000);
+    </script>
+    
 
 
 
