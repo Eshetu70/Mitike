@@ -523,7 +523,8 @@
         background: #1e2a38;
         padding: 1rem;
         border-radius: 12px;
-        width: 280px;
+        width: 100%;
+        max-width: 320px;
         font-family: 'Segoe UI', sans-serif;
         color: #d0e8f2;
         box-shadow: 0 4px 12px rgba(0,0,0,0.2);
@@ -545,10 +546,6 @@
         background: #2f3e54;
       }
     
-      .dropdown i {
-        margin-right: 0.5rem;
-      }
-    
       .submenu-container {
         position: relative;
       }
@@ -567,48 +564,51 @@
         display: none;
         flex-direction: column;
         margin-left: 1.5rem;
+        width: 100%;
       }
     
       .submenu.show {
         display: flex;
       }
-
-      /* 🔧 Mobile Fixes */
-  @media (max-width: 480px) {
-    .dropdown {
-      width: 100%;
-      padding: 1rem 0.5rem;
-    }
-
-    .dropdown a {
-      font-size: 0.95rem;
-      padding: 0.6rem 0.8rem;
-    }
-
-    .submenu {
-      padding-left: 1.2rem;
-    }
-  }
+    
+      @media (max-width: 480px) {
+        .dropdown {
+          width: 100%;
+          padding: 1rem;
+        }
+    
+        .dropdown a {
+          font-size: 1rem;
+          flex-wrap: wrap;
+          word-break: break-word;
+        }
+    
+        .submenu {
+          margin-left: 1rem;
+          padding-left: 0.5rem;
+        }
+      }
     </style>
+    
     
     <div class="dropdown" id="dropdownMenu">
       <div class="submenu-container" id="homeContainer">
-        <a class="submenu-toggle" onclick="toggleSubmenu('home')">🏠 Home</a>
+        <a class="submenu-toggle" onclick="toggleExclusiveSubmenu('home')">🏠 Home</a>
         <div class="submenu" id="homeSubmenu">
-          <a onclick="selectTab('homeIntro')">🏡 Home Intro</a>
-          <a onclick="selectTab('about')">ℹ️ About Us</a>
-          <a onclick="selectTab('services')">🛒 Buying Process</a>
-          <a onclick="selectTab('sellingProcess')">📤 Selling Process</a>
+          <a onclick="selectTabAndClose('homeIntro')">🏡 Home Intro</a>
+          <a onclick="selectTabAndClose('about')">ℹ️ About Us</a>
+          <a onclick="selectTabAndClose('services')">🛒 Buying Process</a>
+          <a onclick="selectTabAndClose('sellingProcess')">📤 Selling Process</a>
         </div>
       </div>
     
       <div class="submenu-container" id="lenderContainer">
-        <a class="submenu-toggle" onclick="toggleSubmenu('lender')">🏦 Lenders</a>
+        <a class="submenu-toggle" onclick="toggleExclusiveSubmenu('lender')">🏦 Lenders</a>
         <div class="submenu" id="lenderSubmenu">
-          <a onclick="selectTab('lenders')">🏛️ Lenders</a>
-          <a onclick="selectTab('programs')">📋 Loan Programs</a>
-          <a onclick="selectTab('whatNotToDo')">❌ What Not To Do</a>
-          <a onclick="selectTab('mortgageListings')">📊 Mortgage Listings</a>
+          <a onclick="selectTabAndClose('lenders')">🏛️ Lenders</a>
+          <a onclick="selectTabAndClose('programs')">📋 Loan Programs</a>
+          <a onclick="selectTabAndClose('whatNotToDo')">❌ What Not To Do</a>
+          <a onclick="selectTabAndClose('mortgageListings')">📊 Mortgage Listings</a>
         </div>
       </div>
     
@@ -620,28 +620,33 @@
     </div>
     
     <script>
-      function toggleSubmenu(type) {
-        const container = document.getElementById(type + 'Container');
-        const submenu = document.getElementById(type + 'Submenu');
+      function toggleExclusiveSubmenu(type) {
+        const submenuId = type + 'Submenu';
+        const containerId = type + 'Container';
+        const clickedSubmenu = document.getElementById(submenuId);
+        const clickedContainer = document.getElementById(containerId);
     
-        const isOpen = submenu.classList.contains('show');
+        const isOpen = clickedSubmenu.classList.contains('show');
+    
+        // Close all
         document.querySelectorAll('.submenu').forEach(menu => menu.classList.remove('show'));
         document.querySelectorAll('.submenu-container').forEach(c => c.classList.remove('open'));
     
+        // If not already open, open the clicked one
         if (!isOpen) {
-          submenu.classList.add('show');
-          container.classList.add('open');
+          clickedSubmenu.classList.add('show');
+          clickedContainer.classList.add('open');
         }
       }
     
       function selectTab(tabId) {
-        console.log("Navigating to:", tabId);
-        // Your tab-switching logic here...
-        closeAllSubmenus();
+        console.log("Navigating to tab:", tabId);
+        // Your custom logic here (e.g., scroll, load, etc.)
       }
     
       function selectTabAndClose(tabId) {
         selectTab(tabId);
+        closeAllSubmenus();
       }
     
       function closeAllSubmenus() {
@@ -649,6 +654,7 @@
         document.querySelectorAll('.submenu-container').forEach(c => c.classList.remove('open'));
       }
     </script>
+    
     
 
 
