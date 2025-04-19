@@ -524,7 +524,7 @@
         padding: 1rem;
         border-radius: 12px;
         width: 100%;
-        max-width: 320px;
+        max-width: 310px;
         font-family: 'Segoe UI', sans-serif;
         color: #d0e8f2;
         box-shadow: 0 4px 12px rgba(0,0,0,0.2);
@@ -547,7 +547,7 @@
       }
     
       .submenu-container {
-        position: relative;
+        margin-bottom: 0.5rem;
       }
     
       .submenu-toggle::after {
@@ -564,7 +564,7 @@
         display: none;
         flex-direction: column;
         margin-left: 1.5rem;
-        width: 100%;
+        padding-top: 0.3rem;
       }
     
       .submenu.show {
@@ -574,7 +574,6 @@
       @media (max-width: 480px) {
         .dropdown {
           width: 100%;
-          padding: 1rem;
         }
     
         .dropdown a {
@@ -590,10 +589,9 @@
       }
     </style>
     
-    
     <div class="dropdown" id="dropdownMenu">
       <div class="submenu-container" id="homeContainer">
-        <a class="submenu-toggle" onclick="toggleExclusiveSubmenu('home')">🏠 Home</a>
+        <a class="submenu-toggle" onclick="toggleSubmenu('home')">🏠 Home</a>
         <div class="submenu" id="homeSubmenu">
           <a onclick="selectTabAndClose('homeIntro')">🏡 Home Intro</a>
           <a onclick="selectTabAndClose('about')">ℹ️ About Us</a>
@@ -603,7 +601,7 @@
       </div>
     
       <div class="submenu-container" id="lenderContainer">
-        <a class="submenu-toggle" onclick="toggleExclusiveSubmenu('lender')">🏦 Lenders</a>
+        <a class="submenu-toggle" onclick="toggleSubmenu('lender')">🏦 Lenders</a>
         <div class="submenu" id="lenderSubmenu">
           <a onclick="selectTabAndClose('lenders')">🏛️ Lenders</a>
           <a onclick="selectTabAndClose('programs')">📋 Loan Programs</a>
@@ -620,28 +618,21 @@
     </div>
     
     <script>
-      function toggleExclusiveSubmenu(type) {
-        const submenuId = type + 'Submenu';
-        const containerId = type + 'Container';
-        const clickedSubmenu = document.getElementById(submenuId);
-        const clickedContainer = document.getElementById(containerId);
+      function toggleSubmenu(type) {
+        const submenu = document.getElementById(type + 'Submenu');
+        const container = document.getElementById(type + 'Container');
     
-        const isOpen = clickedSubmenu.classList.contains('show');
+        const isShown = submenu.classList.contains('show');
     
-        // Close all
+        // Close all submenus first
         document.querySelectorAll('.submenu').forEach(menu => menu.classList.remove('show'));
         document.querySelectorAll('.submenu-container').forEach(c => c.classList.remove('open'));
     
-        // If not already open, open the clicked one
-        if (!isOpen) {
-          clickedSubmenu.classList.add('show');
-          clickedContainer.classList.add('open');
+        // Toggle the selected one
+        if (!isShown) {
+          submenu.classList.add('show');
+          container.classList.add('open');
         }
-      }
-    
-      function selectTab(tabId) {
-        console.log("Navigating to tab:", tabId);
-        // Your custom logic here (e.g., scroll, load, etc.)
       }
     
       function selectTabAndClose(tabId) {
@@ -649,11 +640,18 @@
         closeAllSubmenus();
       }
     
+      function selectTab(tabId) {
+        console.log("Navigating to tab:", tabId);
+        // Add scroll or tab load logic here
+      }
+    
       function closeAllSubmenus() {
         document.querySelectorAll('.submenu').forEach(menu => menu.classList.remove('show'));
         document.querySelectorAll('.submenu-container').forEach(c => c.classList.remove('open'));
       }
     </script>
+    
+    
     
     
 
