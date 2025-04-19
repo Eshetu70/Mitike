@@ -27,13 +27,13 @@
 
     header {
       position: relative;
-      height: 500px; 
+      height: 500px;
       overflow: hidden;
       color: white;
 
-      
-      
-      
+
+
+
     }
 
     header video {
@@ -245,10 +245,11 @@
       /* Adjust for header height */
       /* Adjust for header height */
     }
+
     section:first-of-type {
       margin-top: 0 !important;
     }
-    
+
     .overlay {
       position: absolute;
       top: 30%;
@@ -256,10 +257,11 @@
       transform: translate(-50%, -30%);
       text-align: center;
       width: 100%;
-      pointer-events: none; /* prevents it from affecting layout */
+      pointer-events: none;
+      /* prevents it from affecting layout */
       z-index: 2;
     }
-    
+
 
     .overlay h1 {
       font-size: 2.5rem;
@@ -371,7 +373,6 @@
   min-height: 67px; /* Ensures enough bar height */
 ">
 
-
       <!-- Left: Menu Icon -->
       <div style="flex: 0 0 auto; font-size: 1.6rem; cursor: pointer;" onclick="toggleDropdown()">☰</div>
 
@@ -462,7 +463,7 @@
           padding: 0 !important;
           overflow-x: hidden;
         }
-       
+
         #SITE_HEADER {
           margin: 0 !important;
           padding: 0 !important;
@@ -567,15 +568,8 @@
       <div class="quote-rotator">
         <p id="quoteText" class="glow-quote"></p>
       </div>
-      <div style="
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 40px;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,1));
-  z-index: 1;
-"></div>
-      
+
+
     </div>
     <style>
       @media screen and (max-width: 768px) {
@@ -585,7 +579,7 @@
       }
 
 
-     #quoteText.glow-quote {
+      #quoteText.glow-quote {
         font-size: 1.2rem;
         color: cyan;
         text-shadow: 0 0 10px #000;
@@ -593,29 +587,27 @@
         font-weight: 500;
         padding: 0 1rem;
       }
-      
+
       .quote-rotator {
         min-height: 2.4rem;
         padding-top: 1rem;
         animation: fadeIn 1s ease-in-out;
         text-align: center;
       }
-      
+
       /* Optional: Make smaller font on small phones */
       @media screen and (max-width: 480px) {
         .glow-quote {
           font-size: 0.95rem;
         }
       }
-      
-      
     </style>
 
 
 
     <script>
       const quotes = [
-      "🌐 Multilingual Support for Every Homebuyer",
+        "🌐 Multilingual Support for Every Homebuyer",
         "🏡 Your Trusted Real Estate Partner",
         "💡 Guiding You Through the Homebuying Journey",
         "📈 Tech-Driven Strategies for Modern Home Sellers",
@@ -627,10 +619,10 @@
         "💰 Discover Grants & Smart Mortgage Options",
         "🧭 Navigate Every Step with Confidence"
       ];
-    
+
       let currentIndex = 0;
       const quoteElement = document.getElementById("quoteText");
-    
+
       function rotateQuote() {
         quoteElement.style.opacity = 0;
         setTimeout(() => {
@@ -639,12 +631,12 @@
           currentIndex = (currentIndex + 1) % quotes.length;
         }, 500);
       }
-    
+
       rotateQuote();
       setInterval(rotateQuote, 6000);
     </script>
-    
-    
+
+
 
 
 
