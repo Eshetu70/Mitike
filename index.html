@@ -524,15 +524,17 @@
         padding: 1rem;
         border-radius: 12px;
         width: 100%;
-        max-width: 310px;
+        max-width: 360px;
         font-family: 'Segoe UI', sans-serif;
         color: #d0e8f2;
         box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        box-sizing: border-box;
       }
     
       .dropdown a {
         display: flex;
         align-items: center;
+        justify-content: space-between;
         padding: 0.6rem 1rem;
         color: inherit;
         text-decoration: none;
@@ -546,129 +548,122 @@
         background: #2f3e54;
       }
     
-      .submenu-container {
-        margin-bottom: 0.5rem;
-      }
-    
-      .submenu-toggle::after {
-        content: "▸";
-        margin-left: auto;
-        transition: transform 0.3s ease;
-      }
-    
-      .submenu-container.open .submenu-toggle::after {
-        transform: rotate(90deg);
-      }
-    
       .submenu {
         display: none;
         flex-direction: column;
-        margin-left: 1.5rem;
-        padding-top: 0.3rem;
       }
     
       .submenu.show {
         display: flex;
       }
     
+      .main-menu,
+      .submenu-wrapper {
+        transition: all 0.3s ease;
+      }
+    
+      .submenu-header {
+        display: flex;
+        align-items: center;
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+        color: #89c9ff;
+        margin-bottom: 0.5rem;
+        cursor: pointer;
+        width: fit-content;
+      }
+    
+      .submenu-header:hover {
+        text-decoration: underline;
+      }
+    
+      .arrow {
+        transition: transform 0.3s ease;
+        margin-left: 8px;
+      }
+    
+      .rotated {
+        transform: rotate(90deg);
+      }
+    
       @media (max-width: 480px) {
         .dropdown {
-          width: 100%;
-          padding: 1rem;
           max-width: 100vw;
-          box-sizing: border-box;
         }
     
         .dropdown a {
           font-size: 1rem;
-          flex-wrap: wrap;
-          word-break: break-word;
-        }
-    
-        .submenu {
-          margin-left: 0.5rem;
-          padding-left: 0.5rem;
-          max-height: 250px;
-          overflow-y: auto;
-          border-left: 2px solid rgba(255, 255, 255, 0.1);
-        }
-    
-        .submenu::-webkit-scrollbar {
-          width: 6px;
-        }
-    
-        .submenu::-webkit-scrollbar-thumb {
-          background-color: #556;
-          border-radius: 3px;
-        }
-    
-        .submenu::-webkit-scrollbar-track {
-          background: transparent;
         }
       }
     </style>
     
     <div class="dropdown" id="dropdownMenu">
-      <div class="submenu-container" id="homeContainer">
-        <a class="submenu-toggle" onclick="toggleSubmenu('home')">🏠 Home</a>
-        <div class="submenu" id="homeSubmenu">
-          <a onclick="selectTabAndClose('homeIntro')">🏡 Home Intro</a>
-          <a onclick="selectTabAndClose('about')">ℹ️ About Us</a>
-          <a onclick="selectTabAndClose('services')">🛒 Buying Process</a>
-          <a onclick="selectTabAndClose('sellingProcess')">📤 Selling Process</a>
+      <!-- Main Menu -->
+      <div class="main-menu" id="mainMenu">
+        <a onclick="showSubmenu('home')">🏠 Home <span id="arrow-home" class="arrow">▶</span></a>
+        <a onclick="showSubmenu('lender')">🏦 Lenders <span id="arrow-lender" class="arrow">▶</span></a>
+        <a onclick="selectTab('zillowSearch')">🔍 Search Listings</a>
+        <a onclick="selectTab('mortgageCalculator')">🧮 Mortgage Calculator</a>
+        <a onclick="selectTab('zillowProfile')">📇 Zillow Profile</a>
+        <a onclick="selectTab('trustedLenders')">🤝 Trusted Loan Partners</a>
+        <a onclick="selectTab('contact')">📞 Contact</a>
+      </div>
+    
+      <!-- Submenu: Home -->
+      <div class="submenu-wrapper" id="homeSubmenu" style="display: none;">
+        <div class="submenu-header" onclick="backToMain()">⬅ Back</div>
+        <div class="submenu show">
+          <a onclick="selectTab('homeIntro')">🏡 Home Intro</a>
+          <a onclick="selectTab('about')">ℹ️ About Us</a>
+          <a onclick="selectTab('services')">🛒 Buying Process</a>
+          <a onclick="selectTab('sellingProcess')">📤 Selling Process</a>
         </div>
       </div>
     
-      <div class="submenu-container" id="lenderContainer">
-        <a class="submenu-toggle" onclick="toggleSubmenu('lender')">🏦 Lenders</a>
-        <div class="submenu" id="lenderSubmenu">
-          <a onclick="selectTabAndClose('lenders')">🏛️ Lenders</a>
-          <a onclick="selectTabAndClose('programs')">📋 Loan Programs</a>
-          <a onclick="selectTabAndClose('whatNotToDo')">❌ What Not To Do</a>
-          <a onclick="selectTabAndClose('mortgageListings')">📊 Mortgage Listings</a>
+      <!-- Submenu: Lenders -->
+      <div class="submenu-wrapper" id="lenderSubmenu" style="display: none;">
+        <div class="submenu-header" onclick="backToMain()">⬅ Back</div>
+        <div class="submenu show">
+          <a onclick="selectTab('lenders')">🏛️ Lenders</a>
+          <a onclick="selectTab('programs')">📋 Loan Programs</a>
+          <a onclick="selectTab('whatNotToDo')">❌ What Not To Do</a>
+          <a onclick="selectTab('mortgageListings')">📊 Mortgage Listings</a>
         </div>
       </div>
-    
-      <a onclick="selectTabAndClose('zillowSearch')">🔍 Search Listings</a>
-      <a onclick="selectTabAndClose('mortgageCalculator')">🧮 Mortgage Calculator</a>
-      <a onclick="selectTabAndClose('zillowProfile')">📇 Zillow Profile</a>
-      <a onclick="selectTabAndClose('trustedLenders')">🤝 Trusted Loan Partners</a>
-      <a onclick="selectTabAndClose('contact')">📞 Contact</a>
     </div>
     
     <script>
-      function toggleSubmenu(type) {
+      function showSubmenu(type) {
+        // Hide all
+        document.getElementById('mainMenu').style.display = 'none';
+        document.getElementById('homeSubmenu').style.display = 'none';
+        document.getElementById('lenderSubmenu').style.display = 'none';
+    
+        // Reset all arrows
+        document.querySelectorAll('.arrow').forEach(arrow => arrow.classList.remove('rotated'));
+    
+        // Show only relevant submenu
         const submenu = document.getElementById(type + 'Submenu');
-        const container = document.getElementById(type + 'Container');
-    
-        const isShown = submenu.classList.contains('show');
-    
-        // Close all submenus first
-        document.querySelectorAll('.submenu').forEach(menu => menu.classList.remove('show'));
-        document.querySelectorAll('.submenu-container').forEach(c => c.classList.remove('open'));
-    
-        // Toggle the selected one
-        if (!isShown) {
-          submenu.classList.add('show');
-          container.classList.add('open');
-        }
+        const arrow = document.getElementById('arrow-' + type);
+        submenu.style.display = 'block';
+        arrow.classList.add('rotated');
       }
     
-      function selectTabAndClose(tabId) {
-        selectTab(tabId);
-        closeAllSubmenus();
+      function backToMain() {
+        document.getElementById('mainMenu').style.display = 'block';
+        document.getElementById('homeSubmenu').style.display = 'none';
+        document.getElementById('lenderSubmenu').style.display = 'none';
+        document.querySelectorAll('.arrow').forEach(arrow => arrow.classList.remove('rotated'));
       }
     
       function selectTab(tabId) {
-        console.log("Navigating to tab:", tabId);
-        // Add scroll or tab load logic here
-      }
-    
-      function closeAllSubmenus() {
-        document.querySelectorAll('.submenu').forEach(menu => menu.classList.remove('show'));
-        document.querySelectorAll('.submenu-container').forEach(c => c.classList.remove('open'));
+        console.log("Navigating to:", tabId);
+        // your navigation logic here (scroll, tab switch, etc.)
+        backToMain();
       }
     </script>
+    
+    
     
     
     
