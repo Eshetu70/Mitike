@@ -561,7 +561,7 @@
     <!-- Overlay Content -->
     <!-- Overlay Content -->
     <div class="overlay"
-      style="position: absolute; top: 30%; left: 50%; transform: translateX(-50%); text-align: center; color: #fff; width: 100%;">
+      style="position: absolute; top: 10%; left: 50%; transform: translateX(-50%); text-align: center; color: #fff; width: 100%;">
       <h1 style="font-size: 3rem; font-weight: bold; text-shadow: 0 0 15px #1f6feb;">MITIKE</h1>
 
       <!-- Paragraphs hidden on mobile -->
@@ -1334,7 +1334,7 @@ transition: all 0.3s ease;
 
 
   <!-- Contact Section -->
-<section id="contact" style="
+  <section id="contact" style="
 padding: 3rem 1rem;
 background: linear-gradient(135deg, #141e30, #243b55);
 color: #fff;
@@ -1343,23 +1343,25 @@ text-align: center;
 position: relative;
 overflow: hidden;
 ">
-<h2 style="
+    <h2 style="
   font-size: 2.5rem;
   color: #79c0ff;
   margin-bottom: 1.5rem;
   text-shadow: 0 0 15px rgba(121,192,255,0.5);
 ">📞 Contact Us</h2>
 
-<p style="font-size: 1.2rem; margin-bottom: 0.5rem;">
-  ✉️ Email: <a href="mailto:shignya.sm@gmail.com" style="color: #a2d2ff; text-decoration: underline;">shignya.sm@gmail.com</a>
-</p>
-<p style="font-size: 1.2rem;">
-  📱 Phone (C): <span style="color: #a2d2ff;">913-306-5216</span> | ☎️ (O): <span style="color: #a2d2ff;">888-220-0988</span>
-</p>
-</section>
+    <p style="font-size: 1.2rem; margin-bottom: 0.5rem;">
+      ✉️ Email: <a href="mailto:shignya.sm@gmail.com"
+        style="color: #a2d2ff; text-decoration: underline;">shignya.sm@gmail.com</a>
+    </p>
+    <p style="font-size: 1.2rem;">
+      📱 Phone (C): <span style="color: #a2d2ff;">913-306-5216</span> | ☎️ (O): <span
+        style="color: #a2d2ff;">888-220-0988</span>
+    </p>
+  </section>
 
-<!-- Mortgage Listings Section -->
-<section id="mortgageListings" style="
+  <!-- Mortgage Listings Section -->
+  <section id="mortgageListings" style="
 padding: 3rem 1rem;
 background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
 color: #fff;
@@ -1367,24 +1369,24 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 background-size: cover;
 overflow: hidden;
 ">
-<h2 style="
+    <h2 style="
   text-align: center;
   font-size: 2.3rem;
   color: #79c0ff;
   margin-bottom: 2rem;
   text-shadow: 0 0 15px rgba(121,192,255,0.5);
 ">
-  🏠 Featured Mortgage Listings & Estimated Monthly Payments
-</h2>
+      🏠 Featured Mortgage Listings & Estimated Monthly Payments
+    </h2>
 
-<div id="listingsContainer" style="
+    <div id="listingsContainer" style="
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
 ">
-  <!-- Example Listing Card -->
-  <div style="
+      <!-- Example Listing Card -->
+      <div style="
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(8px);
     border-radius: 16px;
@@ -1392,17 +1394,15 @@ overflow: hidden;
     width: 300px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.4), inset 0 0 1px rgba(121,192,255,0.2);
     transition: transform 0.3s ease;
-  " 
-  onmouseover="this.style.transform='scale(1.03)'"
-  onmouseout="this.style.transform='scale(1)'">
-    <h3 style="color: #a2d2ff; margin-bottom: 0.5rem;">1234 Elm St, KS</h3>
-    <p style="margin: 0.3rem 0;">💵 Price: $320,000</p>
-    <p style="margin: 0.3rem 0;">📅 Est. Monthly: $2,050</p>
-    <p style="margin: 0.3rem 0;">📐 3 Bed · 2 Bath · 1,800 sqft</p>
-  </div>
-  <!-- End Card -->
-</div>
-</section>
+  " onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+        <h3 style="color: #a2d2ff; margin-bottom: 0.5rem;">1234 Elm St, KS</h3>
+        <p style="margin: 0.3rem 0;">💵 Price: $320,000</p>
+        <p style="margin: 0.3rem 0;">📅 Est. Monthly: $2,050</p>
+        <p style="margin: 0.3rem 0;">📐 3 Bed · 2 Bath · 1,800 sqft</p>
+      </div>
+      <!-- End Card -->
+    </div>
+  </section>
 
 
   <section id="zillowSearch" style="margin-top: 3rem; padding: 2rem; background: #f1f8e9; border-radius: 12px;">
@@ -1462,7 +1462,7 @@ overflow: hidden;
     function renderListings() {
       const container = document.getElementById("listingsContainer");
       container.innerHTML = "";
-    
+
       propertyListings.forEach(listing => {
         const monthly = calculateMonthlyPayment(listing.price, listing.rate);
         const card = `
