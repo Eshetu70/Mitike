@@ -20,7 +20,7 @@
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background-color: #8b949e;
+      background-color: #333;
       color: #333;
       position: relative;
     }
@@ -708,31 +708,49 @@
     </div>
 
     <div
-      style="margin-top: 2rem; display: flex; flex-wrap: wrap; align-items: center; gap: 2rem; background: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015)); padding: 2rem; border-radius: 18px; box-shadow: 0 12px 30px rgba(0,0,0,0.3);">
+      style="margin-top: 2rem; display: flex; flex-wrap: wrap; align-items: flex-start; gap: 2rem; background: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015)); padding: 2rem; border-radius: 18px; box-shadow: 0 12px 30px rgba(0,0,0,0.3);">
+
+      <!-- Text Column -->
       <div style="flex: 1;">
         <h3 style="color: #00bcd4; font-size: 1.6rem; margin-bottom: 1rem;">
           <span style="color: gold;">Multilingual Support</span> for Every Buyer
         </h3>
         <p style="line-height: 1.8; color: #d0e8f2;">
           We believe that <span style="color: gold;">language</span> should never be a barrier when making one of the
-          biggest decisions of your life.
-          That’s why our site integrates <span style="color: #00fff7;">smart translation tools</span>, allowing every
-          user to read content in their preferred language—
-          whether it’s English, Spanish, Amharic, Oromo, or Tigrinya.
+          biggest decisions of your life. That’s why our site integrates
+          <span style="color: #00fff7;">smart translation tools</span>, allowing every user to read content in their
+          preferred language—whether it’s English, Spanish, Amharic, Oromo, or Tigrinya.
         </p>
         <p style="line-height: 1.8; color: #d0e8f2;">
           This ensures <span style="color: gold;">full understanding</span> of every step—no guesswork, no
-          confusion—just
-          <span style="color: gold;">confident</span>, <span style="color: gold;">informed decisions</span>.
+          confusion—just <span style="color: gold;">confident</span>, <span style="color: gold;">informed
+            decisions</span>.
         </p>
       </div>
 
-      <video autoplay muted loop playsinline
-        style="width: 100%; max-width: 480px; border-radius: 16px; box-shadow: 0 0 16px rgba(0,0,0,0.3);">
-        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-        <img src="image/home-visual.jpg" alt="MITIKEKC Intro" style="width: 100%; border-radius: 16px;" />
-      </video>
+      <!-- Right Column: Images + Video -->
+      <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 1rem;">
+
+        <!-- First Image -->
+        <img src="image/lan.png" alt="Language Support Visual"
+          style="width: 100%; max-width: 480px; border-radius: 16px; box-shadow: 0 0 16px rgba(0,0,0,0.3);" />
+
+
+
+        <!-- YouTube Video Embed -->
+        <iframe width="100%" height="280"
+          style="max-width: 480px; border-radius: 16px; box-shadow: 0 0 16px rgba(0,0,0,0.3);"
+          src="https://www.youtube.com/embed/jZzHk9adBAM"
+          title="Mortgage Translations: Resources for Professionals Working with..." frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+
+      </div>
     </div>
+
+
+
 
     <div
       style="margin-top: 2rem; background: rgba(255,255,255,0.04); border-radius: 16px; padding: 2rem; text-align: center;">
