@@ -572,6 +572,23 @@
       .submenu.show {
         display: flex;
       }
+
+      /* 🔧 Mobile Fixes */
+  @media (max-width: 480px) {
+    .dropdown {
+      width: 100%;
+      padding: 1rem 0.5rem;
+    }
+
+    .dropdown a {
+      font-size: 0.95rem;
+      padding: 0.6rem 0.8rem;
+    }
+
+    .submenu {
+      padding-left: 1.2rem;
+    }
+  }
     </style>
     
     <div class="dropdown" id="dropdownMenu">
