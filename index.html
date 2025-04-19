@@ -388,7 +388,27 @@
       </div>
 
       <!-- Right: Google Translate -->
-      <div style="flex: 0 0 auto;" id="google_translate_element"></div>
+     <!-- Right: Google Translate -->
+<div style="flex: 0 0 auto;">
+  <div style="
+    display: inline-block;
+    background: linear-gradient(135deg, rgba(255,215,0,0.05), rgba(255,215,0,0.1));
+    border: 1px solid gold;
+    border-radius: 10px;
+    padding: 0.4rem 0.7rem;
+    color: gold;
+    font-weight: bold;
+    font-size: 0.95rem;
+    box-shadow: 0 0 10px rgba(255,215,0,0.3);
+    transition: all 0.3s ease;
+    cursor: pointer;
+  " onmouseover="this.style.boxShadow='0 0 15px gold'"
+     onmouseout="this.style.boxShadow='0 0 10px rgba(255,215,0,0.3)'">
+    🌐 Language:
+    <span id="google_translate_element" style="margin-left: 0.4rem;"></span>
+  </div>
+</div>
+
     </div>
 
     <!-- Dropdown Menu -->
@@ -699,7 +719,7 @@
           <span style="color: #00fff7;">smart translation tools</span>, allowing every user to read content in their
           preferred language.
         </p>
-        <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 1rem;">
+         <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 1rem;">
         <img src="image/lan.png" alt="Language Support Visual"
           style="width: 100%; max-width: 480px; border-radius: 16px; box-shadow: 0 0 16px rgba(0,0,0,0.3);" />
 
