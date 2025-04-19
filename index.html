@@ -518,34 +518,121 @@
 
     <!-- Dropdown Menu -->
     <!-- Dropdown Menu -->
+    <style>
+      .dropdown {
+        background: #1e2a38;
+        padding: 1rem;
+        border-radius: 12px;
+        width: 280px;
+        font-family: 'Segoe UI', sans-serif;
+        color: #d0e8f2;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      }
+    
+      .dropdown a {
+        display: flex;
+        align-items: center;
+        padding: 0.6rem 1rem;
+        color: inherit;
+        text-decoration: none;
+        border-radius: 8px;
+        transition: background 0.3s ease;
+        cursor: pointer;
+        font-size: 1rem;
+      }
+    
+      .dropdown a:hover {
+        background: #2f3e54;
+      }
+    
+      .dropdown i {
+        margin-right: 0.5rem;
+      }
+    
+      .submenu-container {
+        position: relative;
+      }
+    
+      .submenu-toggle::after {
+        content: "▸";
+        margin-left: auto;
+        transition: transform 0.3s ease;
+      }
+    
+      .submenu-container.open .submenu-toggle::after {
+        transform: rotate(90deg);
+      }
+    
+      .submenu {
+        display: none;
+        flex-direction: column;
+        margin-left: 1.5rem;
+      }
+    
+      .submenu.show {
+        display: flex;
+      }
+    </style>
+    
     <div class="dropdown" id="dropdownMenu">
-      <div class="submenu-container">
-        <a onclick="toggleHomeSubmenu()" style="cursor: pointer;">🏠 Home ▾</a>
+      <div class="submenu-container" id="homeContainer">
+        <a class="submenu-toggle" onclick="toggleSubmenu('home')">🏠 Home</a>
         <div class="submenu" id="homeSubmenu">
           <a onclick="selectTab('homeIntro')">🏡 Home Intro</a>
-          <a onclick="selectTab('about')">About Us</a>
-          <a onclick="selectTab('services')">Buying Process</a>
-          <a onclick="selectTab('sellingProcess')">Selling Process</a>
+          <a onclick="selectTab('about')">ℹ️ About Us</a>
+          <a onclick="selectTab('services')">🛒 Buying Process</a>
+          <a onclick="selectTab('sellingProcess')">📤 Selling Process</a>
         </div>
       </div>
-
-      <div class="submenu-container">
-        <a onclick="toggleSubmenu()" style="cursor: pointer;">🏦 Lenders ▾</a>
+    
+      <div class="submenu-container" id="lenderContainer">
+        <a class="submenu-toggle" onclick="toggleSubmenu('lender')">🏦 Lenders</a>
         <div class="submenu" id="lenderSubmenu">
-          <a onclick="selectTab('lenders')">Lenders</a>
-          <a onclick="selectTab('programs')">Loan Programs</a>
-          <a onclick="selectTab('whatNotToDo')">What Not To Do</a>
-          <a onclick="selectTab('mortgageListings')">Mortgage Listings</a>
+          <a onclick="selectTab('lenders')">🏛️ Lenders</a>
+          <a onclick="selectTab('programs')">📋 Loan Programs</a>
+          <a onclick="selectTab('whatNotToDo')">❌ What Not To Do</a>
+          <a onclick="selectTab('mortgageListings')">📊 Mortgage Listings</a>
         </div>
       </div>
-
-      <a onclick="selectTab('zillowSearch')">Search Listings</a>
-      <!-- <a onclick="selectTab('mortgageConsultant')">Mortgage Experts</a> -->
-      <a onclick="selectTab('mortgageCalculator')">Mortgage Calculator</a>
-      <a onclick="selectTab('zillowProfile')">📇 Zillow Profile</a>
-      <a onclick="selectTab('trustedLenders')">🏦 Trusted Loan Partners</a>
-      <a onclick="selectTab('contact')">Contact</a>
+    
+      <a onclick="selectTabAndClose('zillowSearch')">🔍 Search Listings</a>
+      <a onclick="selectTabAndClose('mortgageCalculator')">🧮 Mortgage Calculator</a>
+      <a onclick="selectTabAndClose('zillowProfile')">📇 Zillow Profile</a>
+      <a onclick="selectTabAndClose('trustedLenders')">🤝 Trusted Loan Partners</a>
+      <a onclick="selectTabAndClose('contact')">📞 Contact</a>
     </div>
+    
+    <script>
+      function toggleSubmenu(type) {
+        const container = document.getElementById(type + 'Container');
+        const submenu = document.getElementById(type + 'Submenu');
+    
+        const isOpen = submenu.classList.contains('show');
+        document.querySelectorAll('.submenu').forEach(menu => menu.classList.remove('show'));
+        document.querySelectorAll('.submenu-container').forEach(c => c.classList.remove('open'));
+    
+        if (!isOpen) {
+          submenu.classList.add('show');
+          container.classList.add('open');
+        }
+      }
+    
+      function selectTab(tabId) {
+        console.log("Navigating to:", tabId);
+        // Your tab-switching logic here...
+        closeAllSubmenus();
+      }
+    
+      function selectTabAndClose(tabId) {
+        selectTab(tabId);
+      }
+    
+      function closeAllSubmenus() {
+        document.querySelectorAll('.submenu').forEach(menu => menu.classList.remove('show'));
+        document.querySelectorAll('.submenu-container').forEach(c => c.classList.remove('open'));
+      }
+    </script>
+    
 
 
 
@@ -657,17 +744,7 @@
       }
     </style>
 
-    <script>
-      function toggleHomeSubmenu() {
-        const submenu = document.getElementById('homeSubmenu');
-        submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
-      }
-      function toggleSubmenu() {
-        const submenu = document.getElementById('lenderSubmenu');
-        submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
-      }
-
-    </script>
+   
   </header>
 
 
