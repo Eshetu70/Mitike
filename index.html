@@ -1350,13 +1350,77 @@ transition: all 0.3s ease;
 
 
 
+<!-- Contact Section -->
+<section id="contact" style="
+  padding: 3rem 1rem;
+  background: linear-gradient(135deg, #141e30, #243b55);
+  color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+">
+  <h2 style="
+    font-size: 2.5rem;
+    color: #79c0ff;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 15px rgba(121,192,255,0.5);
+  ">📞 Contact Us</h2>
 
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p>Email: <a href="mailto:shignya.sm@gmail.com">shignya.sm@gmail.com</a></p>
-    <p>Phone (C): 913-306-5216 | (O): 888-220-0988</p>
+  <p style="font-size: 1.2rem; margin-bottom: 0.5rem;">
+    ✉️ Email: <a href="mailto:shignya.sm@gmail.com" style="color: #a2d2ff; text-decoration: underline;">shignya.sm@gmail.com</a>
+  </p>
+  <p style="font-size: 1.2rem;">
+    📱 Phone (C): <span style="color: #a2d2ff;">913-306-5216</span> | ☎️ (O): <span style="color: #a2d2ff;">888-220-0988</span>
+  </p>
+</section>
 
-  </section>
+<!-- Mortgage Listings Section -->
+<section id="mortgageListings" style="
+  padding: 3rem 1rem;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-size: cover;
+  overflow: hidden;
+">
+  <h2 style="
+    text-align: center;
+    font-size: 2.3rem;
+    color: #79c0ff;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 15px rgba(121,192,255,0.5);
+  ">
+    🏠 Featured Mortgage Listings & Estimated Monthly Payments
+  </h2>
+
+  <div id="listingsContainer" style="
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+  ">
+    <!-- Example Listing Card -->
+    <div style="
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(8px);
+      border-radius: 16px;
+      padding: 1.5rem;
+      width: 300px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4), inset 0 0 1px rgba(121,192,255,0.2);
+      transition: transform 0.3s ease;
+    " 
+    onmouseover="this.style.transform='scale(1.03)'"
+    onmouseout="this.style.transform='scale(1)'">
+      <h3 style="color: #a2d2ff; margin-bottom: 0.5rem;">1234 Elm St, KS</h3>
+      <p style="margin: 0.3rem 0;">💵 Price: $320,000</p>
+      <p style="margin: 0.3rem 0;">📅 Est. Monthly: $2,050</p>
+      <p style="margin: 0.3rem 0;">📐 3 Bed · 2 Bath · 1,800 sqft</p>
+    </div>
+    <!-- End Card -->
+  </div>
+</section>
+
 
   <section id="mortgageListings" style="padding: 2rem;">
     <h2 style="color: #1a73e8;">🏠 Featured Mortgage Listings & Estimated Monthly Payments</h2>
@@ -1420,31 +1484,51 @@ transition: all 0.3s ease;
     function renderListings() {
       const container = document.getElementById("listingsContainer");
       container.innerHTML = "";
-
+    
       propertyListings.forEach(listing => {
         const monthly = calculateMonthlyPayment(listing.price, listing.rate);
         const card = `
           <div style="
             flex: 1 1 300px;
-            background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            padding: 1.5rem;
-            transition: transform 0.3s;
-          " onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
-            <h3 style="color: #1a73e8; margin-bottom: 0.5rem;">${listing.title}</h3>
-            <p><strong>Price:</strong> $${listing.price.toLocaleString()}</p>
-            <p><strong>Estimated Monthly:</strong> $${monthly.toLocaleString()} @ ${listing.rate}%</p>
-            <ul style="padding-left: 1.2rem; margin-top: 1rem; line-height: 1.6;">
-              <li>${listing.sqft} sq ft</li>
-              <li>Built in ${listing.built}</li>
-              <li>30-Year Fixed Mortgage</li>
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            border-radius: 16px;
+            padding: 1.8rem;
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5), inset 0 0 1px rgba(121,192,255,0.2);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            border: 1px solid rgba(255,255,255,0.1);
+            overflow: hidden;
+          "
+          onmouseover="this.style.transform='scale(1.04)'; this.style.boxShadow='0 12px 30px rgba(0,0,0,0.6)'"
+          onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.5)'">
+            <h3 style="
+              color: #79c0ff;
+              font-size: 1.4rem;
+              margin-bottom: 0.7rem;
+              text-shadow: 0 0 8px rgba(121,192,255,0.6);
+            ">${listing.title}</h3>
+    
+            <p style="margin: 0.2rem 0;"><strong style="color:#a2d2ff;">💰 Price:</strong> $${listing.price.toLocaleString()}</p>
+            <p style="margin: 0.2rem 0;"><strong style="color:#a2d2ff;">📅 Est. Monthly:</strong> $${monthly.toLocaleString()} @ ${listing.rate}%</p>
+    
+            <ul style="
+              padding-left: 1.2rem; 
+              margin-top: 1rem; 
+              line-height: 1.6; 
+              list-style: none;
+            ">
+              <li>📏 ${listing.sqft} sq ft</li>
+              <li>🏗️ Built in ${listing.built}</li>
+              <li>📃 30-Year Fixed Mortgage</li>
             </ul>
           </div>
         `;
         container.innerHTML += card;
       });
     }
+    
 
     // Zillow search redirect
     function searchZillow(event) {
@@ -1484,51 +1568,92 @@ transition: all 0.3s ease;
   <!-- Chart.js CDN -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-  <section id="mortgageCalculator" style="padding: 2rem; background: #f9f9f9;">
-    <h2 style="color: #1a73e8;">📊 Mortgage Payment Calculator</h2>
-    <div
-      style="max-width: 700px; margin: auto; background: #fff; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-      <form onsubmit="calculateMortgage(event)">
-        <label>Home Price ($):</label>
-        <input type="number" id="homePrice" value="300000" style="width:100%; margin-bottom:1rem;" />
+  <section id="mortgageCalculator" style="
+  padding: 3rem 1rem; 
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); 
+  color: #fff; 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+">
+  <h2 style="
+    color: #79c0ff; 
+    text-align: center; 
+    font-size: 2.5rem; 
+    margin-bottom: 2rem; 
+    text-shadow: 0 0 15px rgba(121,192,255,0.5);
+  ">
+    📊 Mortgage Payment Calculator
+  </h2>
 
-        <label>Loan Term (years):</label>
-        <select id="loanTerm" style="width:100%; margin-bottom:1rem;">
-          <option>10</option>
-          <option>15</option>
-          <option>20</option>
-          <option selected>30</option>
-        </select>
+  <div style="
+    max-width: 720px; 
+    margin: auto; 
+    background: rgba(255, 255, 255, 0.05); 
+    padding: 2rem; 
+    border-radius: 16px; 
+    backdrop-filter: blur(10px); 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4), inset 0 0 2px rgba(121,192,255,0.2);
+    transition: transform 0.3s ease;
+  "
+  onmouseover="this.style.transform='scale(1.02)'"
+  onmouseout="this.style.transform='scale(1)'"
+  >
 
-        <label>Down Payment ($):</label>
-        <input type="number" id="downPayment" value="60000" style="width:100%; margin-bottom:1rem;" />
+    <form onsubmit="calculateMortgage(event)">
+      <label>Home Price ($):</label>
+      <input type="number" id="homePrice" value="300000" style="width:100%; margin-bottom:1rem; padding:0.5rem; border-radius:8px; border:none;" />
 
-        <label>Interest Rate (%):</label>
-        <input type="number" id="interestRate" value="6.5" step="0.01" style="width:100%; margin-bottom:1rem;" />
+      <label>Loan Term (years):</label>
+      <select id="loanTerm" style="width:100%; margin-bottom:1rem; padding:0.5rem; border-radius:8px; border:none;">
+        <option>10</option>
+        <option>15</option>
+        <option>20</option>
+        <option selected>30</option>
+      </select>
 
-        <label>Home Insurance (yearly, $):</label>
-        <input type="number" id="insurance" value="1200" style="width:100%; margin-bottom:1rem;" />
+      <label>Down Payment ($):</label>
+      <input type="number" id="downPayment" value="60000" style="width:100%; margin-bottom:1rem; padding:0.5rem; border-radius:8px; border:none;" />
 
-        <label>Property Tax (yearly, $):</label>
-        <input type="number" id="taxes" value="0" style="width:100%; margin-bottom:1rem;" />
+      <label>Interest Rate (%):</label>
+      <input type="number" id="interestRate" value="6.5" step="0.01" style="width:100%; margin-bottom:1rem; padding:0.5rem; border-radius:8px; border:none;" />
 
-        <label>PMI Rate (e.g., 0.005 for 0.5%):</label>
-        <input type="number" id="pmi" step="0.001" value="0.005" style="width:100%; margin-bottom:1rem;" />
+      <label>Home Insurance (yearly, $):</label>
+      <input type="number" id="insurance" value="1200" style="width:100%; margin-bottom:1rem; padding:0.5rem; border-radius:8px; border:none;" />
 
-        <label>HOA Dues ($/month):</label>
-        <input type="number" id="hoa" value="0" style="width:100%; margin-bottom:1rem;" />
+      <label>Property Tax (yearly, $):</label>
+      <input type="number" id="taxes" value="0" style="width:100%; margin-bottom:1rem; padding:0.5rem; border-radius:8px; border:none;" />
 
-        <button type="submit"
-          style="background:#1a73e8; color:white; padding:0.75rem 1.5rem; border:none; border-radius:6px; cursor:pointer;">
-          Calculate
-        </button>
-      </form>
+      <label>PMI Rate (e.g., 0.005 for 0.5%):</label>
+      <input type="number" id="pmi" step="0.001" value="0.005" style="width:100%; margin-bottom:1rem; padding:0.5rem; border-radius:8px; border:none;" />
 
-      <div id="result" style="margin-top:2rem; font-weight:bold;"></div>
+      <label>HOA Dues ($/month):</label>
+      <input type="number" id="hoa" value="0" style="width:100%; margin-bottom:1rem; padding:0.5rem; border-radius:8px; border:none;" />
 
-      <canvas id="mortgageChart" style="margin-top:2rem;"></canvas>
-    </div>
-  </section>
+      <button type="submit" style="
+        background: #79c0ff; 
+        color: #0f1c2e; 
+        padding: 0.75rem 1.5rem; 
+        border: none; 
+        border-radius: 8px; 
+        cursor: pointer; 
+        font-weight: bold;
+        width: 100%;
+        transition: background 0.3s;
+      " 
+      onmouseover="this.style.background='#a2d2ff'" 
+      onmouseout="this.style.background='#79c0ff'">
+        Calculate
+      </button>
+    </form>
+
+    <div id="result" style="margin-top:2rem; font-weight:bold; color: #79c0ff;"></div>
+    <canvas id="mortgageChart" style="margin-top:2rem;"></canvas>
+  </div>
+</section>
+
 
   <script>
     let chart;
