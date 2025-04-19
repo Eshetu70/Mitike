@@ -352,172 +352,39 @@
 <body>
   <header id="SITE_HEADER">
     <!-- Top Contact Bar -->
-    <!-- Combined Header Top Section -->
-    <!-- One Unified Top Bar -->
-    <!-- One Unified Top Bar with Increased Height -->
     <div style="
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.8rem 1.2rem; /* Increased padding */
-  background: linear-gradient(135deg, #0a1f3c, #1f2d50);
-  font-family: 'Segoe UI', Tahoma, sans-serif;
-  color: #79c0ff;
-  font-size: 1rem;
-  box-shadow: 0 0 10px rgba(121,192,255,0.2);
-  border-bottom: 1px solid rgba(121, 192, 255, 0.4);
-  animation: glowPulse 5s infinite ease-in-out;
-  position: relative;
-  z-index: 999;
-  min-height: 67px; /* Ensures enough bar height */
-">
-
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.8rem 1.2rem;
+      background: linear-gradient(135deg, #0a1f3c, #1f2d50);
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      color: #79c0ff;
+      font-size: 1rem;
+      box-shadow: 0 0 10px rgba(121,192,255,0.2);
+      border-bottom: 1px solid rgba(121, 192, 255, 0.4);
+      animation: glowPulse 5s infinite ease-in-out;
+      position: relative;
+      z-index: 999;
+      min-height: 67px;
+    ">
       <!-- Left: Menu Icon -->
       <div style="flex: 0 0 auto; font-size: 1.6rem; cursor: pointer;" onclick="toggleDropdown()">☰</div>
-
+  
       <!-- Center: Contact Info -->
       <div style="flex: 1 1 auto; text-align: center; padding: 0 1rem;">
         📞 <strong style="color: #c9d1d9;">Phone:</strong> 913-306-5216 &nbsp;|&nbsp;
         🏢 <strong style="color: #c9d1d9;">Office:</strong> 888-220-0988 &nbsp;|&nbsp;
         ✉️ <strong style="color: #c9d1d9;">Email:</strong>
-        <a href="mailto:shignya.sm@gmail.com"
-          style="color: #58a6ff; text-decoration: underline;">shignya.sm@gmail.com</a>
+        <a href="mailto:shignya.sm@gmail.com" style="color: #58a6ff; text-decoration: underline;">shignya.sm@gmail.com</a>
       </div>
-
-      <!-- Right: Google Translate -->
+  
+      <!-- Right: Google Translate or any additional info -->
       <div style="flex: 0 0 auto;" id="google_translate_element"></div>
     </div>
-
-    <!-- Glow Animation -->
-    <style>
-      @keyframes glowPulse {
-        0% {
-          box-shadow: 0 0 5px rgba(121, 192, 255, 0.2);
-        }
-
-        50% {
-          box-shadow: 0 0 15px rgba(121, 192, 255, 0.5);
-        }
-
-        100% {
-          box-shadow: 0 0 5px rgba(121, 192, 255, 0.2);
-        }
-      }
-
-      @media screen and (max-width: 768px) {
-
-        /* Stack items and center-align on mobile */
-        .topbar-flex {
-          flex-direction: column !important;
-          align-items: center;
-          text-align: center;
-        }
-
-        .topbar-flex>div {
-          margin: 0.3rem 0;
-        }
-      }
-
-
-      .submenu-container {
-        position: relative;
-      }
-
-      .submenu {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        left: 100%;
-        top: 0;
-        background: #0a1f3c;
-        border: 1px solid #1f6feb;
-        border-radius: 6px;
-        padding: 0.5rem;
-        z-index: 9999;
-        min-width: 200px;
-      }
-
-      .submenu a {
-        color: #79c0ff;
-        text-decoration: none;
-        padding: 0.4rem 1rem;
-        border-bottom: 1px solid #1f6feb;
-      }
-
-      .submenu a:last-child {
-        border-bottom: none;
-      }
-
-      .submenu a:hover {
-        background: rgba(255, 255, 255, 0.05);
-      }
-
-
-      /* Remove gap between header and first section */
-      @media screen and (max-width: 768px) {
-
-        html,
-        body {
-          margin: 0 !important;
-          padding: 0 !important;
-          overflow-x: hidden;
-        }
-
-        #SITE_HEADER {
-          margin: 0 !important;
-          padding: 0 !important;
-          border: none !important;
-          box-shadow: none !important;
-        }
-
-        #SITE_HEADER video {
-          margin: 0 !important;
-          padding: 0 !important;
-          display: block;
-          width: 100%;
-          height: auto;
-          vertical-align: bottom;
-        }
-
-        .overlay {
-          position: absolute !important;
-          top: 30% !important;
-          left: 50%;
-          transform: translateX(-50%);
-          pointer-events: none;
-        }
-
-        section {
-          margin-top: -1px !important;
-          padding-top: 2rem;
-        }
-      }
-
-      /* Mobile-specific: Increase video height */
-      @media screen and (max-width: 768px) {
-        .video-wrapper video {
-          height: 80vh !important;
-          /* Increase video height on phones */
-        }
-
-        section {
-          margin-top: 0 !important;
-          padding-top: 2rem !important;
-        }
-
-        #SITE_HEADER {
-          margin-bottom: 0 !important;
-          padding-bottom: 0 !important;
-        }
-      }
-    </style>
-
-
-
-
-    <!-- Dropdown Menu -->
-    <!-- Dropdown Menu -->
+  
+    <!-- Dropdown Menu (Mobile-Friendly) -->
     <style>
       .dropdown {
         background: #1e2a38;
@@ -529,7 +396,7 @@
         color: #d0e8f2;
         box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         box-sizing: border-box;
-        margin: auto;
+        margin: 1rem auto 0 auto;
       }
     
       .dropdown a {
@@ -550,20 +417,15 @@
         background: #2f3e54;
       }
     
-      .submenu-wrapper {
+      .main-menu, .submenu-wrapper {
         display: none;
         flex-direction: column;
         gap: 0.2rem;
       }
     
+      .main-menu.show,
       .submenu-wrapper.show {
         display: flex;
-      }
-    
-      .main-menu {
-        display: flex;
-        flex-direction: column;
-        gap: 0.2rem;
       }
     
       .back-button {
@@ -600,11 +462,26 @@
           font-size: 0.8rem;
         }
       }
+    
+      /* Optional Glow Animation (same as provided) */
+      @keyframes glowPulse {
+        0% {
+          box-shadow: 0 0 5px rgba(121, 192, 255, 0.2);
+        }
+    
+        50% {
+          box-shadow: 0 0 15px rgba(121, 192, 255, 0.5);
+        }
+    
+        100% {
+          box-shadow: 0 0 5px rgba(121, 192, 255, 0.2);
+        }
+      }
     </style>
     
     <div class="dropdown" id="dropdownMenu">
       <!-- Main Menu -->
-      <div class="main-menu" id="mainMenu">
+      <div class="main-menu show" id="mainMenu">
         <a onclick="showSubmenu('home')">🏠 Home <span id="arrow-home" class="arrow">▶</span></a>
         <a onclick="showSubmenu('lender')">🏦 Lenders <span id="arrow-lender" class="arrow">▶</span></a>
         <a onclick="selectTab('zillowSearch')">🔍 Search Listings</a>
@@ -634,72 +511,71 @@
     </div>
     
     <script>
+      // Toggle dropdown display from the menu icon in the top header
+      function toggleDropdown() {
+        const dropdown = document.getElementById('dropdownMenu');
+        if (dropdown.style.display === 'block') {
+          dropdown.style.display = 'none';
+        } else {
+          dropdown.style.display = 'block';
+        }
+      }
+    
+      // Show submenu for the given type
       function showSubmenu(type) {
-        // Hide all
-        document.getElementById('mainMenu').style.display = 'none';
+        document.getElementById('mainMenu').classList.remove('show');
         document.getElementById('homeSubmenu').classList.remove('show');
         document.getElementById('lenderSubmenu').classList.remove('show');
-    
-        // Reset all arrows
         document.querySelectorAll('.arrow').forEach(arrow => arrow.classList.remove('rotated'));
     
-        // Show selected submenu
         document.getElementById(type + 'Submenu').classList.add('show');
         document.getElementById('arrow-' + type).classList.add('rotated');
       }
     
+      // Back to main menu
       function backToMain() {
-        document.getElementById('mainMenu').style.display = 'flex';
+        document.getElementById('mainMenu').classList.add('show');
         document.getElementById('homeSubmenu').classList.remove('show');
         document.getElementById('lenderSubmenu').classList.remove('show');
         document.querySelectorAll('.arrow').forEach(arrow => arrow.classList.remove('rotated'));
       }
     
+      // Example navigation function
       function selectTab(tabId) {
         console.log("Navigating to:", tabId);
+        // Your navigation logic goes here
         backToMain();
+        // For mobile, you might want to hide the dropdown after selection:
+        document.getElementById('dropdownMenu').style.display = 'none';
       }
     </script>
     
-    
-    
-    
-    
-    
-    
-
-
-
-    <!-- Background Video -->
+    <!-- Optional: Background Video and Overlay (if needed) -->
     <div>
       <video autoplay muted loop playsinline style="width: 100%; height: auto;">
-        <source src="https://video.wixstatic.com/video/11062b_8f14374b6fe149aab751d12c94c2676f/720p/mp4/file.mp4"
-          type="video/mp4">
+        <source src="https://video.wixstatic.com/video/11062b_8f14374b6fe149aab751d12c94c2676f/720p/mp4/file.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
     </div>
-
+    
     <!-- Overlay Content -->
-    <!-- Overlay Content -->
-    <div class="overlay"
-      style="position: absolute; top: 30%; left: 50%; transform: translateX(-50%); text-align: center; color: #fff; width: 100%;">
+    <div class="overlay" style="
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      color: #fff;
+      width: 100%;
+    ">
       <h1 style="font-size: 3rem; font-weight: bold; text-shadow: 0 0 15px #1f6feb;">MITIKE</h1>
-
-      <!-- Paragraphs hidden on mobile -->
       <div class="quote-rotator">
         <p id="quoteText" class="glow-quote"></p>
       </div>
-
-
     </div>
+    
     <style>
-      @media screen and (max-width: 768px) {
-        .hide-on-mobile {
-          display: none !important;
-        }
-      }
-
-
+      /* Overlay and Quote Styles */
       #quoteText.glow-quote {
         font-size: 1.2rem;
         color: cyan;
@@ -708,25 +584,29 @@
         font-weight: 500;
         padding: 0 1rem;
       }
-
+    
       .quote-rotator {
         min-height: 2.4rem;
         padding-top: 1rem;
         animation: fadeIn 1s ease-in-out;
         text-align: center;
       }
-
-      /* Optional: Make smaller font on small phones */
+    
+      @media screen and (max-width: 768px) {
+        .hide-on-mobile {
+          display: none !important;
+        }
+      }
+    
       @media screen and (max-width: 480px) {
         .glow-quote {
           font-size: 0.95rem;
         }
       }
     </style>
-
-
-
+    
     <script>
+      // Quote Rotator
       const quotes = [
         "🌐 Multilingual Support for Every Homebuyer",
         "🏡 Your Trusted Real Estate Partner",
@@ -740,10 +620,10 @@
         "💰 Discover Grants & Smart Mortgage Options",
         "🧭 Navigate Every Step with Confidence"
       ];
-
+    
       let currentIndex = 0;
       const quoteElement = document.getElementById("quoteText");
-
+    
       function rotateQuote() {
         quoteElement.style.opacity = 0;
         setTimeout(() => {
@@ -752,35 +632,12 @@
           currentIndex = (currentIndex + 1) % quotes.length;
         }, 500);
       }
-
+    
       rotateQuote();
       setInterval(rotateQuote, 6000);
     </script>
-
-
-
-
-
-    <!-- Add this animation to your CSS or <style> tag -->
-    <style>
-      @keyframes glowPulse {
-        0% {
-          box-shadow: 0 0 5px rgba(121, 192, 255, 0.2);
-        }
-
-        50% {
-          box-shadow: 0 0 15px rgba(121, 192, 255, 0.5);
-        }
-
-        100% {
-          box-shadow: 0 0 5px rgba(121, 192, 255, 0.2);
-        }
-      }
-    </style>
-
-   
   </header>
-
+  
 
 
   <section id="homeIntro" class="active"
