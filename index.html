@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/fontawesome.min.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
   <style>
     body {
       margin: 0;
@@ -1062,26 +1063,91 @@
 
 
 
-  <section id="programs"
-    style="padding: 4rem 1rem; background: radial-gradient(circle at top right, #0a192f, #0c1c36); color: #e0f7fa; font-family: 'Segoe UI', sans-serif;">
-    <h2
-      style="text-align: center; font-size: 2.5rem; color: #64ffda; margin-bottom: 2.5rem; text-shadow: 0 0 15px rgba(100, 255, 218, 0.3);">
-      💡 Loan Programs for Future-Ready Buyers
-    </h2>
+  <!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <div
-      style="max-width: 900px; margin: auto; backdrop-filter: blur(12px); background: rgba(255,255,255,0.06); border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 8px 32px rgba(0,0,0,0.3); padding: 2rem;">
-      <ul style="list-style: none; padding-left: 0; line-height: 2; font-size: 1.1rem;">
-        <li>🎖️ <strong style="color: #80cbc4;">VA Loans:</strong> For veterans & active military</li>
-        <li>🏠 <strong style="color: #80cbc4;">FHA Loans:</strong> Lower credit & down payment</li>
-        <li>💰 <strong style="color: #80cbc4;">Conventional Loans:</strong> Higher credit & more down</li>
-        <li>📍 <strong style="color: #80cbc4;">MHDC / KHRC:</strong> Down payment help (MO/KS)</li>
-        <li>🧾 <strong style="color: #80cbc4;">MCC:</strong> Tax credits for 1st-time buyers</li>
-        <li>🏦 <strong style="color: #80cbc4;">Portfolio Loans:</strong> Private non-traditional options</li>
-        <li>🎁 <strong style="color: #80cbc4;">Grants & Assistance:</strong> Gift funds, state & federal help</li>
+<section id="programs"
+  style="padding: 4rem 1rem; background: radial-gradient(circle at top right, #0a192f, #0c1c36); color: #e0f7fa; font-family: 'Segoe UI', sans-serif;">
+  <h2 style="text-align: center; font-size: 2.5rem; color: #64ffda; margin-bottom: 2.5rem; text-shadow: 0 0 15px rgba(100, 255, 218, 0.3);">
+    💡 Loan Programs for Future-Ready Buyers
+  </h2>
+
+  <div style="max-width: 900px; margin: auto; backdrop-filter: blur(12px); background: rgba(255,255,255,0.06); border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 8px 32px rgba(0,0,0,0.3); padding: 2rem;">
+    <ul style="list-style: none; padding-left: 0; line-height: 2; font-size: 1.1rem;">
+      <li>🎖️ <strong style="color: #80cbc4;">VA Loans:</strong> For veterans & active military</li>
+      <li>🏠 <strong style="color: #80cbc4;">FHA Loans:</strong> Lower credit & down payment</li>
+      <li>💰 <strong style="color: #80cbc4;">Conventional Loans:</strong> Higher credit & more down</li>
+      <li>📍 <strong style="color: #80cbc4;">MHDC / KHRC:</strong> Down payment help (MO/KS)</li>
+      <li>🧾 <strong style="color: #80cbc4;">MCC:</strong> Tax credits for 1st-time buyers</li>
+      <li>🏦 <strong style="color: #80cbc4;">Portfolio Loans:</strong> Private non-traditional options</li>
+      <li>🎁 <strong style="color: #80cbc4;">Grants & Assistance:</strong> Gift funds, state & federal help</li>
+    </ul>
+
+    <!-- FHA Loan Collapsible Sections -->
+    <h3 class="toggle-title" style="cursor:pointer; margin-top:2rem; color:#4dd0e1;">📘 Types Of FHA Loans</h3>
+    <div class="toggle-content" style="display:none;">
+      Both fixed-rate and adjustable-rate options are available for FHA loans—which one fits you best will depend on your situation. You can also get an FHA refinance or take on renovation projects with an FHA 203K loan.
+    </div>
+
+    <h3 class="toggle-title" style="cursor:pointer; margin-top:1.5rem; color:#4dd0e1;">🏗️ Fixed-Rate FHA Loans</h3>
+    <div class="toggle-content" style="display:none;">
+      Building a 3D-printed house can take 30% less time than the construction time of a traditionally built home.
+      <ul>
+        <li>30-year fixed-rate FHA</li>
+        <li>25-year fixed-rate FHA</li>
+        <li>20-year fixed-rate FHA</li>
+        <li>15-year fixed-rate FHA</li>
+      </ul>
+      These options offer rate stability. Shorter terms work best if you’ll move soon, longer terms offer lower monthly payments.
+    </div>
+
+    <h3 class="toggle-title" style="cursor:pointer; margin-top:1.5rem; color:#4dd0e1;">🔄 Adjustable-Rate FHA Loans</h3>
+    <div class="toggle-content" style="display:none;">
+      Adjustable FHA mortgages offer a low intro rate for a few years. After that, rates adjust with the market. Ideal if you’ll move before the rate changes.
+      <br><br>PrimeLending offers a 5-year hybrid ARM.
+    </div>
+
+    <h3 class="toggle-title" style="cursor:pointer; margin-top:1.5rem; color:#4dd0e1;">♻️ FHA Refinance Loan</h3>
+    <div class="toggle-content" style="display:none;">
+      Already have an FHA loan but want different terms? You can refinance!
+      <ul>
+        <li>Fixed-rate FHA refinance</li>
+        <li>Adjustable-rate FHA refinance</li>
+        <li>FHA cash-out refinance*</li>
+      </ul>
+      You may also refinance non-FHA loans into FHA if eligible.
+    </div>
+
+    <h3 class="toggle-title" style="cursor:pointer; margin-top:1.5rem; color:#4dd0e1;">🔧 FHA 203K Renovation Loan</h3>
+    <div class="toggle-content" style="display:none;">
+      Want to upgrade a home or renovate a fixer-upper? FHA 203K loans finance both purchase and improvement costs.
+      <br><br><strong>FHA 203K Full/Standard:</strong>
+      <ul>
+        <li>Add a room or open layout</li>
+        <li>Replace foundation, roof, or plumbing</li>
+        <li>Energy-efficient upgrades</li>
+      </ul>
+      <strong>FHA 203K Limited:</strong>
+      <ul>
+        <li>Update HVAC, electrical or plumbing</li>
+        <li>Non-structural basement remodel</li>
+        <li>Install efficient windows, appliances, or insulation</li>
       </ul>
     </div>
-  </section>
+  </div>
+</section>
+
+<!-- jQuery Accordion Script -->
+<script>
+  $(document).ready(function () {
+    $('.toggle-title').click(function () {
+      const content = $(this).next('.toggle-content');
+      content.slideToggle(300);
+      $('.toggle-title').not(this).next('.toggle-content').slideUp(300); // close others
+    });
+  });
+</script>
+
 
 
 
