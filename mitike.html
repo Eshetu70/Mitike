@@ -354,36 +354,169 @@
                 margin: 0 auto;
             }
         }
+
+        .flex-responsive {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 2rem;
+          align-items: flex-start;
+          justify-content: center;
+        }
+        
+        /* Children stack vertically on mobile */
+        .flex-responsive > div,
+        .flex-responsive > img,
+        .flex-responsive > video,
+        .flex-responsive > iframe {
+          flex: 1 1 100%;
+          max-width: 100%;
+        }
+        
+        /* Side-by-side on tablets/desktops */
+        @media (min-width: 768px) {
+          .flex-responsive {
+            flex-wrap: nowrap;
+          }
+        
+          .flex-responsive > div,
+          .flex-responsive > img,
+          .flex-responsive > video,
+          .flex-responsive > iframe {
+            flex: 1 1 50%;
+            max-width: 50%;
+          }
+        }
+        
+       
     </style>
 </head>
 
 <body> <!-- Header with Logo and Navigation -->
     <header> <a href="#" class="logo">MITIKE</a>
-        <nav>
-            <ul style="list-style: none; display: flex; flex-direction: row; gap: 1.5rem;">
-              <li style="position: relative;">
-                <a href="#" class="active" aria-current="page" onclick="toggleMenu('home-submenu')">Home ▾</a>
-                <ul id="home-submenu" class="submenu">
-                  <li><a href="#homeIntro" onclick="showSection('homeIntro')">Home Intro</a></li>
-                  <li><a href="#services" onclick="showSection('services')">Buying Process</a></li>
-                  <li><a href="#sellingProcess" onclick="showSection('sellingProcess')">Selling Process</a></li>
-                  <li><a href="#about" onclick="showSection('about')">About</a></li>
-                </ul>
-              </li>
-          
-              <li style="position: relative;">
-                <a href="#" onclick="toggleMenu('listing-submenu')">Listings ▾</a>
-                <ul id="listing-submenu" class="submenu">
-                  <li><a href="#lenders" onclick="showSection('lenders')">Lenders</a></li>
-                  <li><a href="#programs" onclick="showSection('programs')">Loan Programs</a></li>
-                  <li><a href="#whatNotToDo" onclick="showSection('whatNotToDo')">What Not To Do</a></li>
-                  <li><a href="#trustedLenders" onclick="showSection('trustedLenders')">Trusted Lenders</a></li>
-                </ul>
-              </li>
-          
-              <li><a href="#contact" onclick="showSection('contact')">Contact</a></li>
+      <style>
+        nav ul {
+          list-style: none;
+          display: flex;
+          flex-direction: row;
+          gap: 1.5rem;
+          padding: 0;
+          margin: 0;
+        }
+      
+      
+        #services,
+        #sellingProcess,
+    
+        #lenders,
+        #programs,
+        #whatNotToDo,
+        #trustedLenders {
+          display: none;
+        }
+        nav li {
+          position: relative;
+        }
+      
+        nav a {
+          text-decoration: none;
+          color: #0b5394;
+          font-weight: 600;
+          cursor: pointer;
+        }
+      
+        .submenu {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          background-color: #ffffff;
+          border: 1px solid #ccc;
+          padding: 0.5rem 1rem;
+          border-radius: 8px;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+          z-index: 1000;
+        }
+      
+        .submenu li {
+          margin-bottom: 0.5rem;
+        }
+      
+        .submenu li:last-child {
+          margin-bottom: 0;
+        }
+      
+        .submenu.show {
+          display: block;
+        }
+      </style>
+      
+      <nav>
+        <ul>
+          <li>
+            <a onclick="toggleMenu('home-submenu')">Home ▾</a>
+            <ul id="home-submenu" class="submenu">
+              <li><a href="#homeIntro" onclick="goToSection('homeIntro')">Home Intro</a></li>
+              <li><a href="#about" onclick="goToSection('about')">About</a></li>
+              <li><a href="#services" onclick="goToSection('services')">Buying Process</a></li>
+              <li><a href="#sellingProcess" onclick="goToSection('sellingProcess')">Selling Process</a></li>
+             
             </ul>
-          </nav>
+          </li>
+      
+          <li>
+            <a onclick="toggleMenu('listing-submenu')">Listings ▾</a>
+            <ul id="listing-submenu" class="submenu">
+              <li><a href="#lenders" onclick="goToSection('lenders')">Lenders</a></li>
+              <li><a href="#programs" onclick="goToSection('programs')">Loan Programs</a></li>
+              <li><a href="#whatNotToDo" onclick="goToSection('whatNotToDo')">What Not To Do</a></li>
+              <li><a href="#trustedLenders" onclick="goToSection('trustedLenders')">Trusted Lenders</a></li>
+            </ul>
+          </li>
+      
+          <li>
+            <a href="#contact" onclick="goToSection('contact')">Contact</a>
+          </li>
+        </ul>
+      </nav>
+      
+      <script>
+        function toggleMenu(id) {
+          // Close other open menus first
+          document.querySelectorAll('.submenu').forEach(menu => {
+            if (menu.id !== id) {
+              menu.classList.remove('show');
+            }
+          });
+      
+          // Toggle the clicked submenu
+          const submenu = document.getElementById(id);
+          if (submenu) {
+            submenu.classList.toggle('show');
+          }
+        }
+      
+        function goToSection(id) {
+          // Close all submenus on navigation
+          document.querySelectorAll('.submenu').forEach(menu => {
+            menu.classList.remove('show');
+          });
+      
+          // Scroll to section or trigger any custom logic
+          const section = document.getElementById(id);
+          if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      
+        // Optional: hide submenus when clicking outside nav
+        document.addEventListener('click', function (event) {
+          if (!event.target.closest('nav')) {
+            document.querySelectorAll('.submenu').forEach(menu => menu.classList.remove('show'));
+          }
+        });
+      </script>
+      
+      
           
     </header> <!-- Hero Section: rich background, high-contrast text -->
     <section class="hero">
@@ -874,6 +1007,33 @@
         <p><a href="#home">Home</a> | <a href="#listings">Listings</a> | <a href="#contact">Contact</a></p>
     </footer>
     <!-- Accessibility & Contrast: - All text is set in colors with sufficient contrast against backgrounds (at least 4.5:1 for normal text). - Navigation uses color and an underline to indicate the current page, not relying on color alone. - Active nav item indicated both visually (underline)&#8203;:contentReference[oaicite:1]{index=1} and via aria-current for screen readers. - Each section has a distinct background (blue/cyan gradient, white, light cyan, gold, dark blue) to create clear visual separation. - Sections separated by color difference, borders, or shadows for clarity. Responsive Design: - The layout is mobile-first and adapts to different screen sizes (navigation stacks on small screens)&#8203;:contentReference[oaicite:2]{index=2}. - The design maintains readability on all devices with legible font sizes and adequate spacing. -->
-</body>
+
+   
+<script>
+  function goToSection(id) {
+    // List all toggleable sections
+    const sectionIds = [
+      'services', 'sellingProcess', 'about',
+      'lenders', 'programs', 'whatNotToDo', 'trustedLenders'
+    ];
+  
+    // Hide all of them first
+    sectionIds.forEach(secId => {
+      const sec = document.getElementById(secId);
+      if (sec) sec.style.display = 'none';
+    });
+  
+    // Show the clicked one
+    const sectionToShow = document.getElementById(id);
+    if (sectionToShow) {
+      sectionToShow.style.display = 'block';
+      sectionToShow.scrollIntoView({ behavior: 'smooth' });
+    }
+  
+    // Close all dropdowns
+    document.querySelectorAll('.submenu').forEach(menu => menu.classList.remove('show'));
+  }
+</script>    
+  </body>
 
 </html>
