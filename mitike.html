@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MITIKE – Find Your Dream Home</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
         /* Base Styles and Color Scheme */
         :root {
@@ -273,6 +274,32 @@
             text-decoration: underline;
         }
 
+        .submenu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            border: 1px solid #ccc;
+            list-style: none;
+            padding: 0.5rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            z-index: 10;
+            min-width: 200px;
+          }
+          
+          .submenu li a {
+            display: block;
+            padding: 0.5rem;
+            color: var(--primary-blue);
+            text-decoration: none;
+          }
+          
+          .submenu li a:hover {
+            background: rgba(0, 115, 200, 0.1);
+          }
+          
+
         /* Responsive Design: Adjust layout for larger screens */
         @media (min-width: 600px) {
             header {
@@ -333,12 +360,31 @@
 <body> <!-- Header with Logo and Navigation -->
     <header> <a href="#" class="logo">MITIKE</a>
         <nav>
-            <ul>
-                <li><a href="#" class="active" aria-current="page">Home</a></li>
-                <li><a href="#listings">Listings</a></li>
-                <li><a href="#contact">Contact</a></li>
+            <ul style="list-style: none; display: flex; flex-direction: row; gap: 1.5rem;">
+              <li style="position: relative;">
+                <a href="#" class="active" aria-current="page" onclick="toggleMenu('home-submenu')">Home ▾</a>
+                <ul id="home-submenu" class="submenu">
+                  <li><a href="#homeIntro" onclick="showSection('homeIntro')">Home Intro</a></li>
+                  <li><a href="#services" onclick="showSection('services')">Buying Process</a></li>
+                  <li><a href="#sellingProcess" onclick="showSection('sellingProcess')">Selling Process</a></li>
+                  <li><a href="#about" onclick="showSection('about')">About</a></li>
+                </ul>
+              </li>
+          
+              <li style="position: relative;">
+                <a href="#" onclick="toggleMenu('listing-submenu')">Listings ▾</a>
+                <ul id="listing-submenu" class="submenu">
+                  <li><a href="#lenders" onclick="showSection('lenders')">Lenders</a></li>
+                  <li><a href="#programs" onclick="showSection('programs')">Loan Programs</a></li>
+                  <li><a href="#whatNotToDo" onclick="showSection('whatNotToDo')">What Not To Do</a></li>
+                  <li><a href="#trustedLenders" onclick="showSection('trustedLenders')">Trusted Lenders</a></li>
+                </ul>
+              </li>
+          
+              <li><a href="#contact" onclick="showSection('contact')">Contact</a></li>
             </ul>
-        </nav>
+          </nav>
+          
     </header> <!-- Hero Section: rich background, high-contrast text -->
     <section class="hero">
         <h1>Find Your Dream Home</h1>
@@ -614,7 +660,215 @@
         </div>
       </section>
       
-    
+      <section id="programs" class="listings" style="padding-top: 2rem;">
+        <h2 style="color: var(--accent-cyan); text-align: center;">
+          💡 Loan Programs for <span style="color: var(--accent-gold);">Future-Ready Buyers</span>
+        </h2>
+      
+        <div class="property-card" style="margin: 2rem auto; max-width: 900px; background: var(--light-cyan-bg); border-left: 5px solid var(--accent-gold); padding: 2rem;">
+          <h3 style="color: var(--primary-blue); font-size: 1.4rem;">🔎 Available Loan Types</h3>
+          <ul style="list-style: none; padding-left: 0; line-height: 2; font-size: 1rem;">
+            <li>🎖️ <strong style="color: var(--primary-blue);">VA Loans:</strong> For veterans and active duty</li>
+            <li>🏠 <strong style="color: var(--primary-blue);">FHA Loans:</strong> Lower credit & down payment</li>
+            <li>💰 <strong style="color: var(--primary-blue);">Conventional Loans:</strong> Stronger credit, more down</li>
+            <li>📍 <strong style="color: var(--primary-blue);">MHDC / KHRC:</strong> Local assistance (MO/KS)</li>
+            <li>🧾 <strong style="color: var(--primary-blue);">MCC:</strong> First-time buyer tax credits</li>
+            <li>🏦 <strong style="color: var(--primary-blue);">Portfolio Loans:</strong> Flexible private lending</li>
+            <li>🎁 <strong style="color: var(--primary-blue);">Grants & Assistance:</strong> Gift funds and programs</li>
+          </ul>
+        </div>
+      
+        <div class="property-card" style="margin: 2rem auto; max-width: 900px; background: var(--light-bg); padding: 1.5rem; box-shadow: 0 2px 10px rgba(0,0,0,0.15);">
+          <h3 class="toggle-title" style="cursor:pointer; color: var(--primary-blue);">📘 Types Of FHA Loans</h3>
+          <div class="toggle-content" style="display:none;">
+            Fixed and adjustable-rate FHA loans are available, including refinance and renovation options (203K).
+          </div>
+      
+          <h3 class="toggle-title" style="cursor:pointer; margin-top: 1.2rem; color: var(--primary-blue);">🏗️ Fixed-Rate FHA Loans</h3>
+          <div class="toggle-content" style="display:none;">
+            <ul style="padding-left: 1.2rem;">
+              <li>30-year fixed</li>
+              <li>25-year fixed</li>
+              <li>20-year fixed</li>
+              <li>15-year fixed</li>
+            </ul>
+            These offer stable rates. Shorter terms = less interest. Longer terms = lower payments.
+          </div>
+      
+          <h3 class="toggle-title" style="cursor:pointer; margin-top: 1.2rem; color: var(--primary-blue);">🔄 Adjustable-Rate FHA Loans</h3>
+          <div class="toggle-content" style="display:none;">
+            Lower initial rate for a few years, then adjusts. Best if you plan to move or refinance early.
+          </div>
+      
+          <h3 class="toggle-title" style="cursor:pointer; margin-top: 1.2rem; color: var(--primary-blue);">♻️ FHA Refinance Loan</h3>
+          <div class="toggle-content" style="display:none;">
+            <ul style="padding-left: 1.2rem;">
+              <li>FHA fixed refinance</li>
+              <li>FHA ARM refinance</li>
+              <li>FHA cash-out refinance*</li>
+            </ul>
+            Also allows refinancing from conventional into FHA.
+          </div>
+      
+          <h3 class="toggle-title" style="cursor:pointer; margin-top: 1.2rem; color: var(--primary-blue);">🔧 FHA 203K Renovation Loan</h3>
+          <div class="toggle-content" style="display:none;">
+            Finance both purchase and home improvements:
+            <br><br><strong>Standard 203K:</strong>
+            <ul style="padding-left: 1.2rem;">
+              <li>Add new rooms or open layout</li>
+              <li>Major plumbing, roof, foundation</li>
+              <li>Energy upgrades</li>
+            </ul>
+            <strong>Limited 203K:</strong>
+            <ul style="padding-left: 1.2rem;">
+              <li>Minor HVAC or electrical fixes</li>
+              <li>Non-structural remodeling</li>
+              <li>Energy-efficient installations</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      
+      <script>
+        $('.toggle-title').on('click', function () {
+          $(this).next('.toggle-content').slideToggle();
+          $(this).toggleClass('active');
+        });
+      </script>
+
+
+      <section id="whatNotToDo" class="listings" style="padding-top: 2rem;">
+        <h2 style="color: var(--accent-gold); text-align: center;">
+          🚫 What Not To Do & Final Steps
+        </h2>
+      
+        <!-- Common Mistakes -->
+        <div class="property-card" style="margin: 2rem auto; max-width: 900px; background: var(--light-cyan-bg); border-left: 5px solid var(--accent-gold); padding: 2rem;">
+          <h3 style="color: var(--primary-blue); font-size: 1.4rem;">⚠️ Avoid These Common Mistakes</h3>
+          <ul style="line-height: 2; list-style: none; padding-left: 0;">
+            <li>💼 Do not switch jobs during the mortgage process</li>
+            <li>💳 Avoid opening new credit accounts or maxing out cards</li>
+            <li>💸 Don’t deposit or withdraw large amounts without documentation</li>
+            <li>🛋️ Wait to buy furniture or large items until after you close</li>
+            <li>🔗 Confirm that your rate is locked with your lender</li>
+          </ul>
+        </div>
+      
+        <!-- Inspections & Offers -->
+        <div class="property-card" style="margin: 2rem auto; max-width: 900px; background: var(--light-bg); border-left: 5px solid var(--accent-cyan); padding: 2rem;">
+          <h3 style="color: var(--primary-blue); font-size: 1.4rem;">🔍 Inspections & Offers</h3>
+          <p>Once your offer is accepted and earnest money (typically 1%–3%) is submitted, it’s time to schedule key inspections:</p>
+          <ul style="line-height: 1.8; padding-left: 1.2rem;">
+            <li>🏚️ General Home Inspection</li>
+            <li>🐜 Termite Inspection</li>
+            <li>🚽 Sewer or Septic Inspection</li>
+            <li>🏗️ Foundation Check</li>
+            <li>☢️ Radon Test</li>
+          </ul>
+          <p>Use the results to negotiate repairs or credits before closing.</p>
+        </div>
+      
+        <!-- Final Steps -->
+        <div class="property-card" style="margin: 2rem auto; max-width: 900px; background: var(--light-cyan-bg); border-left: 5px solid var(--accent-gold); padding: 2rem;">
+          <h3 style="color: var(--primary-blue); font-size: 1.4rem;">🏁 Appraisal, Closing & Final Safety Tips</h3>
+          <p>🔍 Your lender will order an appraisal. If the home appraises lower than expected, we’ll discuss renegotiation or out-of-pocket options.</p>
+          <p>🚨 <strong>Security Tip:</strong> Always verify wire instructions by phone — wire fraud is real. Call before sending any funds.</p>
+          <p>💡 Before closing, be sure to:</p>
+          <ul style="padding-left: 1.2rem;">
+            <li>Transfer utilities to your name</li>
+            <li>Prepare your government-issued photo ID</li>
+            <li>Bring certified closing funds (cashier’s check or wire)</li>
+          </ul>
+          <p style="margin-top: 1.5rem; font-weight: bold; font-size: 1.1rem; color: var(--accent-cyan);">
+            🎉 Congratulations — welcome to homeownership powered by confidence, clarity, and smart decisions!
+          </p>
+        </div>
+      </section>
+      
+      <section id="zillowProfile" class="listings" style="padding-top: 2rem;">
+        <h2 style="color: var(--accent-cyan); text-align: center;">
+          📇 Connect with <span style="color: var(--accent-gold);">Shignya</span> on Zillow
+        </h2>
+      
+        <div class="listing-grid" style="margin-top: 2rem; align-items: center; justify-content: center; gap: 2rem;">
+          
+          <!-- Profile Card -->
+          <div style="flex: 1; max-width: 400px; text-align: center;">
+            <img src="image/Screenshot.png" alt="Shignya Profile"
+              style="width: 160px; height: 160px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent-cyan); box-shadow: 0 0 12px rgba(100, 255, 218, 0.3); margin-bottom: 1rem;" />
+            <h3 style="color: var(--primary-blue); margin-bottom: 0.2rem;">Shignya S.M</h3>
+            <p style="color: var(--accent-cyan); margin-bottom: 1rem;">Real Estate Agent | First-Time Buyer Specialist</p>
+            <p style="margin: 0.2rem 0;"><strong>📞 Phone:</strong> 913-306-5216</p>
+            <p style="margin: 0.2rem 0;"><strong>🏢 Office:</strong> 888-220-0988</p>
+            <p style="margin: 0.2rem 0;"><strong>📧 Email:</strong>
+              <a href="mailto:shignya.sm@gmail.com" style="color: var(--accent-cyan); text-decoration: underline;">
+                shignya.sm@gmail.com
+              </a>
+            </p>
+            <a href="https://www.zillow.com/profile/shignya" target="_blank" style="
+              display: inline-block;
+              margin-top: 1rem;
+              padding: 0.6rem 1.2rem;
+              background: linear-gradient(to right, var(--accent-cyan), var(--primary-blue));
+              color: white;
+              border-radius: 10px;
+              text-decoration: none;
+              font-weight: bold;
+              box-shadow: 0 0 10px rgba(100, 255, 218, 0.4);
+              transition: all 0.3s ease;" 
+              onmouseover="this.style.transform='scale(1.05)'" 
+              onmouseout="this.style.transform='scale(1)'">
+              🔗 View Zillow Profile
+            </a>
+          </div>
+      
+          <!-- Listing Image or Example -->
+          <div style="flex: 1; max-width: 480px;">
+            <img src="image/house.jpg" alt="Sample Listing"
+              style="width: 100%; height: auto; object-fit: cover; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.3); border: 1px solid rgba(0,0,0,0.1);" />
+          </div>
+        </div>
+      </section>
+
+      <section id="trustedLenders" class="listings" style="padding-top: 2rem;">
+        <h2 style="color: var(--accent-cyan); text-align: center;">
+          🚀 Trusted Loan Experts
+        </h2>
+      
+        <!-- Lance Richards -->
+        <div class="property-card" style="margin: 2rem auto; max-width: 900px; background: var(--light-cyan-bg); border-left: 5px solid var(--accent-gold); padding: 2rem;">
+          <img src="image/fedility5.png" alt="First Fidelis Logo" style="width: 140px; margin-bottom: 1rem;">
+          <h3 style="color: var(--primary-blue); margin-bottom: 0.5rem;">Lance Richards</h3>
+          <p style="color: var(--dark-text); margin-bottom: 0.5rem;">Mortgage Specialist | NMLS# 991357</p>
+          <p style="line-height: 1.7;">
+            📍 KS: 6025 Metcalf Ln, Suite 210A<br>
+            📍 MO: 4520 Main St, Suite 700<br>
+            📞 913-205-9978 | 📰 913-384-1806<br>
+            📧 <a href="mailto:lancerichards@live.com" style="color: var(--accent-cyan);">lancerichards@live.com</a>
+          </p>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem;">
+            <a href="https://www.firstfidelis.com" target="_blank" style="background: var(--primary-blue); color: white; padding: 0.5rem 1rem; border-radius: 6px; text-decoration: none; font-weight: 600;">🌐 Website</a>
+            <a href="https://nftydoor.com/remn/first-fidelis-llc/lance-richards/signup" target="_blank" style="background: var(--accent-cyan); color: white; padding: 0.5rem 1rem; border-radius: 6px; text-decoration: none; font-weight: 600;">📝 Apply</a>
+            <a href="https://popl.co/card/OenF7Nun/2/txt" target="_blank" style="background: var(--accent-gold); color: #1c1c1c; padding: 0.5rem 1rem; border-radius: 6px; text-decoration: none; font-weight: 600;">📲 Digital Card</a>
+          </div>
+        </div>
+      
+        <!-- Dusty Manuel -->
+        <div class="property-card" style="margin: 2rem auto; max-width: 900px; background: var(--light-bg); border-left: 5px solid var(--accent-cyan); padding: 2rem;">
+          <img src="image/bells.png" alt="Bell Bank Logo" style="width: 140px; margin-bottom: 1rem;">
+          <h3 style="color: var(--primary-blue); margin-bottom: 0.5rem;">Dusty Manuel</h3>
+          <p style="color: var(--dark-text); margin-bottom: 0.5rem;">Mortgage Loan Officer | NMLS# 1205453</p>
+          <p style="line-height: 1.7;">
+            🏢 Bell Bank Mortgage<br>
+            📍 11095 Metcalf Ave, Overland Park, KS 66211
+          </p>
+          <a href="https://bell.bank/mortgage/loan-officer/manuelmortgages" target="_blank"
+            style="display: inline-block; margin-top: 1rem; background: var(--accent-cyan); color: white; padding: 0.5rem 1rem; border-radius: 6px; text-decoration: none; font-weight: 600;">🔗 Bell Bank Mortgage</a>
+        </div>
+      </section>
+      
+      
+      
     <footer>
         <p>&copy; 2025 BlueEstate. All rights reserved.</p>
         <p><a href="#home">Home</a> | <a href="#listings">Listings</a> | <a href="#contact">Contact</a></p>
