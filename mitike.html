@@ -25,6 +25,34 @@
             /* Very light cyan background for contrast */
         }
 
+       /* Make Google Translate look like a button */
+.cta-translate {
+  min-width: 160px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 2px solid var(--accent-gold);
+  background: white;
+  color: var(--primary-blue);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Target Google Translate dropdown inside */
+#google_translate_element select {
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  background: transparent;
+  color: var(--primary-blue);
+  outline: none;
+  cursor: pointer;
+}
+        
+
         html {
             font-size: 100%;
         }
@@ -386,7 +414,41 @@
             max-width: 50%;
           }
         }
+        .logo {
+          font-size: 2rem;
+          font-weight: 800;
+          text-decoration: none;
+          color: var(--primary-blue); /* Strong brand color for contrast */
+          text-transform: uppercase;
+          letter-spacing: 1.5px;
+          font-family: 'Segoe UI', Tahoma, sans-serif;
+          position: relative;
+          transition: all 0.3s ease-in-out;
+        }
         
+        /* Optional underline or glow */
+        .logo::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          bottom: -4px;
+          width: 100%;
+          height: 3px;
+          background: var(--accent-gold); /* Golden underline for premium feel */
+          border-radius: 2px;
+          transition: width 0.3s ease-in-out;
+        }
+        
+        .logo:hover {
+          color: var(--accent-cyan);
+          transform: scale(1.03);
+        }
+        
+        .logo:hover::after {
+          width: 60%;
+        }
+        
+          
        
     </style>
 </head>
@@ -520,10 +582,19 @@
           
     </header> <!-- Hero Section: rich background, high-contrast text -->
     <section class="hero">
-        <h1>Find Your Dream Home</h1>
-        <p>Discover the best properties with our trusted real estate experts. We offer homes that fit your lifestyle and
-            budget with ease.</p> <a href="#listings" class="cta-button">Browse Listings</a>
-    </section> <!-- Featured Listings Section: clear background contrast and separated content -->
+      <h1>Find Your Dream Home</h1>
+      <p>Discover the best properties with our trusted real estate experts. We offer homes that fit your lifestyle and
+        budget with ease.</p>
+    
+        <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-top: 1.5rem;">
+          <a href="#listings" class="cta-button">Browse Listings</a> 
+        
+          <!-- Google Translate Widget -->
+          <div id="google_translate_element" class="cta-translate"></div>
+        </div>
+        
+    </section>
+    
     <section id="listings" class="listings">
         <h2>Featured Listings</h2>
         <div class="listing-grid"> <!-- Property Card 1 -->
@@ -1034,6 +1105,19 @@
     document.querySelectorAll('.submenu').forEach(menu => menu.classList.remove('show'));
   }
 </script>    
+
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'en,es,am,ar,fr',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+  }
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
   </body>
 
 </html>
