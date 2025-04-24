@@ -493,15 +493,14 @@
     <!-- Video Header -->
     <div class="header-video-wrapper">
       <video autoplay muted loop class="header-video">
-        <source src="https://video.wixstatic.com/video/11062b_8f14374b6fe149aab751d12c94c2676f/720p/mp4/file.mp4"
-          type="video/mp4">
+        <source src="https://video.wixstatic.com/video/11062b_8f14374b6fe149aab751d12c94c2676f/720p/mp4/file.mp4" type="video/mp4">
       </video>
-
+  
       <!-- Logo and Navbar -->
       <div class="nav-container">
         <a href="#" class="logo">MITIKE</a>
         <nav>
-          <ul>
+          <ul class="main-nav">
             <li>
               <a onclick="toggleMenu('home-submenu')">Home</a>
               <ul id="home-submenu" class="submenu">
@@ -511,7 +510,7 @@
             </li>
             <li><a href="#services" onclick="goToSection('services')">Buying</a></li>
             <li><a href="#sellingProcess" onclick="goToSection('sellingProcess')">Selling</a></li>
-            <li>
+            <li class="desktop-only">
               <a onclick="toggleMenu('lenders-submenu')">Lenders</a>
               <ul id="lenders-submenu" class="submenu">
                 <li><a href="#lenders" onclick="goToSection('lenders')">Lenders</a></li>
@@ -520,12 +519,25 @@
                 <li><a href="#trustedLenders" onclick="goToSection('trustedLenders')">Trusted Lenders</a></li>
               </ul>
             </li>
-            <li>
+            <li class="desktop-only">
               <a onclick="toggleMenu('more-submenu')">More</a>
               <ul id="more-submenu" class="submenu">
                 <li><a href="#contact" onclick="goToSection('contact')">Contact</a></li>
-                <li><a href="#affordabilityCalculator" onclick="goToSection('affordabilityCalculator')">Calculator</a>
-                </li>
+                <li><a href="#affordabilityCalculator" onclick="goToSection('affordabilityCalculator')">Calculator</a></li>
+                <li><a href="#zillowProfile" onclick="goToSection('zillowProfile')">Zillow Profile</a></li>
+                <li><a href="#joinTeamSection" onclick="goToSection('joinTeamSection')">Join Our Team</a></li>
+              </ul>
+            </li>
+            <li class="mobile-only">
+              <a onclick="toggleMenu('mobileMenu')">☰ Menu</a>
+              <ul id="mobileMenu" class="submenu">
+                <li><a href="#about" onclick="goToSection('about')">About</a></li>
+                <li><a href="#lenders" onclick="goToSection('lenders')">Lenders</a></li>
+                <li><a href="#programs" onclick="goToSection('programs')">Loan Programs</a></li>
+                <li><a href="#whatNotToDo" onclick="goToSection('whatNotToDo')">What Not To Do</a></li>
+                <li><a href="#trustedLenders" onclick="goToSection('trustedLenders')">Trusted Lenders</a></li>
+                <li><a href="#contact" onclick="goToSection('contact')">Contact</a></li>
+                <li><a href="#affordabilityCalculator" onclick="goToSection('affordabilityCalculator')">Calculator</a></li>
                 <li><a href="#zillowProfile" onclick="goToSection('zillowProfile')">Zillow Profile</a></li>
                 <li><a href="#joinTeamSection" onclick="goToSection('joinTeamSection')">Join Our Team</a></li>
               </ul>
@@ -534,150 +546,149 @@
         </nav>
       </div>
     </div>
-
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      .header-video-wrapper {
-        position: relative;
-        width: 100%;
-        height: 400px;
-        /* Standard header height */
-        overflow: visible;
-        /* allow dropdowns to overflow */
-        z-index: 10;
-
-      }
-
-      .header-video {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 0;
-      }
-
-      .nav-container {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        background: rgba(255, 255, 255, 0.95);
-        padding: 1rem 10rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        z-index: 1;
-      }
-
-      .logo {
-        font-size: 1.5rem;
-        font-weight: bold;
-        color: #0b5394;
-        text-decoration: none;
-      }
-
-      nav ul {
-        list-style: none;
-        display: flex;
-        flex-direction: row;
-        gap: 1.5rem;
-      }
-
-      nav li {
-        position: relative;
-        text-align: left;
-      }
-
-      nav a {
-        text-decoration: none;
-        color: #0b5394;
-        font-weight: 600;
-        cursor: pointer;
-      }
-
-      .submenu {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        min-width: 200px;
-        background-color: #ffffff;
-        border: 1px solid #ccc;
-        padding: 0.5rem 0;
-        border-radius: 8px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        z-index: 9999;
-      }
-
-      .submenu li {
-        padding: 0 1rem;
-        margin: 0.3rem 0;
-        white-space: nowrap;
-      }
-
-      .submenu li:last-child {
-        margin-bottom: 0.3rem;
-      }
-
-      .submenu.show {
-        display: block;
-      }
-
-      #services,
-      #sellingProcess,
-      #lenders,
-      #programs,
-      #whatNotToDo,
-      #trustedLenders,
-      #affordabilityCalculator,
-      #joinTeamSection {
+  </header>
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+  
+    .header-video-wrapper {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      overflow: visible;
+      z-index: 10;
+    }
+  
+    .header-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+  
+    .nav-container {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 1rem 10rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1;
+    }
+  
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #0b5394;
+      text-decoration: none;
+    }
+  
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-direction: row;
+      gap: 1.5rem;
+    }
+  
+    nav li {
+      position: relative;
+      text-align: left;
+    }
+  
+    nav a {
+      text-decoration: none;
+      color: #0b5394;
+      font-weight: 600;
+      cursor: pointer;
+    }
+  
+    .submenu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 200px;
+      background-color: #ffffff;
+      border: 1px solid #ccc;
+      padding: 0.5rem 0;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      z-index: 9999;
+    }
+  
+    .submenu li {
+      padding: 0 1rem;
+      margin: 0.3rem 0;
+      white-space: nowrap;
+    }
+  
+    .submenu li:last-child {
+      margin-bottom: 0.3rem;
+    }
+  
+    .submenu.show {
+      display: block;
+    }
+  
+    @media (min-width: 768px) {
+      .mobile-only {
         display: none;
       }
-    </style>
-
-    <script>
-      const sectionIds = [
-        'homeIntro', 'about', 'services', 'sellingProcess',
-        'lenders', 'programs', 'whatNotToDo', 'trustedLenders',
-        'contact', 'affordabilityCalculator', 'joinTeamSection'
-      ];
-
-      function toggleMenu(id) {
-        document.querySelectorAll('.submenu').forEach(menu => {
-          if (menu.id !== id) menu.classList.remove('show');
-        });
-        const submenu = document.getElementById(id);
-        if (submenu) submenu.classList.toggle('show');
+    }
+  
+    @media (max-width: 767px) {
+      .desktop-only {
+        display: none;
       }
-
-      function goToSection(id) {
-        sectionIds.forEach(secId => {
-          const sec = document.getElementById(secId);
-          if (sec) sec.style.display = 'none';
-        });
-
-        const selected = document.getElementById(id);
-        if (selected) {
-          selected.style.display = 'block';
-          selected.scrollIntoView({ behavior: 'smooth' });
-        }
-
+    }
+  </style>
+  
+  <script>
+    const sectionIds = [
+      'homeIntro', 'about', 'services', 'sellingProcess',
+      'lenders', 'programs', 'whatNotToDo', 'trustedLenders',
+      'contact', 'affordabilityCalculator', 'zillowProfile', 'joinTeamSection'
+    ];
+  
+    function toggleMenu(id) {
+      document.querySelectorAll('.submenu').forEach(menu => {
+        if (menu.id !== id) menu.classList.remove('show');
+      });
+      const submenu = document.getElementById(id);
+      if (submenu) submenu.classList.toggle('show');
+    }
+  
+    function goToSection(id) {
+      sectionIds.forEach(secId => {
+        const sec = document.getElementById(secId);
+        if (sec) sec.style.display = 'none';
+      });
+  
+      const selected = document.getElementById(id);
+      if (selected) {
+        selected.style.display = 'block';
+        selected.scrollIntoView({ behavior: 'smooth' });
+      }
+  
+      document.querySelectorAll('.submenu').forEach(menu => menu.classList.remove('show'));
+    }
+  
+    document.addEventListener('click', function (event) {
+      if (!event.target.closest('nav')) {
         document.querySelectorAll('.submenu').forEach(menu => menu.classList.remove('show'));
       }
-
-      document.addEventListener('click', function (event) {
-        if (!event.target.closest('nav')) {
-          document.querySelectorAll('.submenu').forEach(menu => menu.classList.remove('show'));
-        }
-      });
-    </script>
-  </header>
+    });
+  </script>
+  
 
 
   <!-- Hero Section: rich background, high-contrast text -->
