@@ -558,20 +558,31 @@
   
     .header-video-wrapper {
       position: relative;
-      width: 100%;
+      width: 100vw;
       height: 400px;
       overflow: visible;
       z-index: 10;
     }
   
     .header-video {
-      width: 100%;
+      width: 100vw;
       height: 100%;
       object-fit: cover;
       position: absolute;
       top: 0;
       left: 0;
       z-index: 0;
+    }
+  
+    .nav-container {
+      position: absolute;
+      bottom: 0;
+      width: 100vw;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 0.5rem 0rem;
+      display: flex;
+      justify-content: flex-start;
+      z-index: 1;
     }
   
     .logo-absolute {
@@ -586,16 +597,7 @@
       text-decoration: none;
     }
   
-    .nav-container {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      background: rgba(255, 255, 255, 0.95);
-      padding: 0.5rem 0.5rem;
-      display: flex;
-      justify-content: flex-start;
-      z-index: 1;
-    }
+    
   
     nav ul {
       list-style: none;
