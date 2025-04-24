@@ -498,7 +498,9 @@
   
       <!-- Logo and Navbar -->
       <div class="nav-container">
-        <a href="#" class="logo">MITIKE</a>
+        <div class="logo-container">
+          <a href="#" class="logo">MITIKE</a>
+        </div>
         <nav>
           <ul class="main-nav">
             <li>
@@ -578,11 +580,15 @@
       bottom: 0;
       width: 100%;
       background: rgba(255, 255, 255, 0.95);
-      padding: 1rem 10rem;
+      padding: 1rem 2rem;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      flex-direction: column;
+      gap: 0.5rem;
       z-index: 1;
+    }
+  
+    .logo-container {
+      align-self: flex-start;
     }
   
     .logo {
@@ -597,6 +603,8 @@
       display: flex;
       flex-direction: row;
       gap: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
     }
   
     nav li {
@@ -642,6 +650,13 @@
     @media (min-width: 768px) {
       .mobile-only {
         display: none;
+      }
+  
+      .nav-container {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 10rem;
       }
     }
   
