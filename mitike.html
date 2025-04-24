@@ -501,7 +501,13 @@
       <div class="nav-container">
         <nav>
           <ul class="main-nav">
-            <li><a href="#homeIntro" onclick="goToSection('homeIntro')">Home</a></li>
+            <li>
+              <a onclick="toggleMenu('home-submenu')">Home</a>
+              <ul id="home-submenu" class="submenu">
+                <li><a href="#homeIntro" onclick="goToSection('homeIntro')">Home Intro</a></li>
+                <li><a href="#about" onclick="goToSection('about')">About</a></li>
+              </ul>
+            </li>
             <li><a href="#services" onclick="goToSection('services')">Buying</a></li>
             <li><a href="#sellingProcess" onclick="goToSection('sellingProcess')">Selling</a></li>
             <li class="desktop-only">
@@ -525,6 +531,7 @@
             <li class="mobile-only">
               <a onclick="toggleMenu('mobileMenu')">☰ Menu</a>
               <ul id="mobileMenu" class="submenu">
+                <li><a href="#homeIntro" onclick="goToSection('homeIntro')">Home Intro</a></li>
                 <li><a href="#about" onclick="goToSection('about')">About</a></li>
                 <li><a href="#lenders" onclick="goToSection('lenders')">Lenders</a></li>
                 <li><a href="#programs" onclick="goToSection('programs')">Loan Programs</a></li>
