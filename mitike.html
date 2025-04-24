@@ -133,11 +133,11 @@
 
     nav li {
       /* Provide visual separation between nav items on mobile */
-     /* border-top: 1px solid #ddd;*/
-     
+      /* border-top: 1px solid #ddd;*/
+
       border-top: none;
-    
-    
+
+
 
     }
 
@@ -186,7 +186,7 @@
       position: relative;
       /* Subtle shadow to emphasize separation from next section */
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    
+
     }
 
     .hero h1 {
@@ -390,7 +390,7 @@
       .hero {
         text-align: left;
         padding: 6rem 4rem;
-        
+
       }
 
       .hero h1 {
@@ -493,9 +493,10 @@
     <!-- Video Header -->
     <div class="header-video-wrapper">
       <video autoplay muted loop class="header-video">
-        <source src="https://video.wixstatic.com/video/11062b_8f14374b6fe149aab751d12c94c2676f/720p/mp4/file.mp4" type="video/mp4">
+        <source src="https://video.wixstatic.com/video/11062b_8f14374b6fe149aab751d12c94c2676f/720p/mp4/file.mp4"
+          type="video/mp4">
       </video>
-  
+
       <!-- Logo and Navbar -->
       <div class="nav-container">
         <a href="#" class="logo">MITIKE</a>
@@ -523,7 +524,8 @@
               <a onclick="toggleMenu('more-submenu')">More</a>
               <ul id="more-submenu" class="submenu">
                 <li><a href="#contact" onclick="goToSection('contact')">Contact</a></li>
-                <li><a href="#affordabilityCalculator" onclick="goToSection('affordabilityCalculator')">Calculator</a></li>
+                <li><a href="#affordabilityCalculator" onclick="goToSection('affordabilityCalculator')">Calculator</a>
+                </li>
                 <li><a href="#zillowProfile" onclick="goToSection('zillowProfile')">Zillow Profile</a></li>
                 <li><a href="#joinTeamSection" onclick="goToSection('joinTeamSection')">Join Our Team</a></li>
               </ul>
@@ -532,23 +534,25 @@
         </nav>
       </div>
     </div>
-  
+
     <style>
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
       }
-  
+
       .header-video-wrapper {
         position: relative;
         width: 100%;
-        height: 400px; /* Standard header height */
-        overflow: visible; /* allow dropdowns to overflow */
+        height: 400px;
+        /* Standard header height */
+        overflow: visible;
+        /* allow dropdowns to overflow */
         z-index: 10;
-        
+
       }
-  
+
       .header-video {
         width: 100%;
         height: 100%;
@@ -558,7 +562,7 @@
         left: 0;
         z-index: 0;
       }
-  
+
       .nav-container {
         position: absolute;
         bottom: 0;
@@ -570,33 +574,33 @@
         align-items: center;
         z-index: 1;
       }
-  
+
       .logo {
         font-size: 1.5rem;
         font-weight: bold;
         color: #0b5394;
         text-decoration: none;
       }
-  
+
       nav ul {
         list-style: none;
         display: flex;
         flex-direction: row;
         gap: 1.5rem;
       }
-  
+
       nav li {
         position: relative;
         text-align: left;
       }
-  
+
       nav a {
         text-decoration: none;
         color: #0b5394;
         font-weight: 600;
         cursor: pointer;
       }
-  
+
       .submenu {
         display: none;
         position: absolute;
@@ -610,21 +614,21 @@
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         z-index: 9999;
       }
-  
+
       .submenu li {
         padding: 0 1rem;
         margin: 0.3rem 0;
         white-space: nowrap;
       }
-  
+
       .submenu li:last-child {
         margin-bottom: 0.3rem;
       }
-  
+
       .submenu.show {
         display: block;
       }
-  
+
       #services,
       #sellingProcess,
       #lenders,
@@ -636,14 +640,14 @@
         display: none;
       }
     </style>
-  
+
     <script>
       const sectionIds = [
         'homeIntro', 'about', 'services', 'sellingProcess',
         'lenders', 'programs', 'whatNotToDo', 'trustedLenders',
         'contact', 'affordabilityCalculator', 'joinTeamSection'
       ];
-  
+
       function toggleMenu(id) {
         document.querySelectorAll('.submenu').forEach(menu => {
           if (menu.id !== id) menu.classList.remove('show');
@@ -651,22 +655,22 @@
         const submenu = document.getElementById(id);
         if (submenu) submenu.classList.toggle('show');
       }
-  
+
       function goToSection(id) {
         sectionIds.forEach(secId => {
           const sec = document.getElementById(secId);
           if (sec) sec.style.display = 'none';
         });
-  
+
         const selected = document.getElementById(id);
         if (selected) {
           selected.style.display = 'block';
           selected.scrollIntoView({ behavior: 'smooth' });
         }
-  
+
         document.querySelectorAll('.submenu').forEach(menu => menu.classList.remove('show'));
       }
-  
+
       document.addEventListener('click', function (event) {
         if (!event.target.closest('nav')) {
           document.querySelectorAll('.submenu').forEach(menu => menu.classList.remove('show'));
@@ -674,14 +678,14 @@
       });
     </script>
   </header>
-  
-  
-   <!-- Hero Section: rich background, high-contrast text -->
+
+
+  <!-- Hero Section: rich background, high-contrast text -->
   <section class="hero" id="dynamicHero">
     <img id="heroImage" src="" alt="Section Image"
       style="width: 100%; max-height: 360px; object-fit: cover; border-radius: 10px; margin-bottom: 1.5rem; display: none;" />
 
-    <h1 id="heroTitle"  style= "font-size: 1.8rem">Find Your Dream Home</h1>
+    <h1 id="heroTitle" style="font-size: 1.8rem">Find Your Dream Home</h1>
     <p id="heroSubtitle">
       Discover the best properties with our trusted real estate experts. We offer homes that fit your lifestyle and
       budget with ease.
@@ -694,7 +698,7 @@
 
 
   <section id="listings" class="listings">
-    <h2  style= "font-size: 1.8rem">Featured Listings</h2>
+    <h2 style="font-size: 1.8rem">Featured Listings</h2>
     <div class="listing-grid">
       <!-- Property Card 1 -->
       <div class="property-card">
@@ -728,7 +732,7 @@
   </section>
 
   <section id="contact" class="cta-section">
-    <h2 style= "font-size: 1.8rem">Your New Home Awaits</h2>
+    <h2 style="font-size: 1.8rem">Your New Home Awaits</h2>
     <p>Ready to take the next step? Our team is here to guide you through the process. Get in touch today to
       schedule a viewing or ask any questions.</p> <a href="mailto:shignya.sm@gmail.com" class="cta-link">Contact
       Us</a>
@@ -878,14 +882,16 @@
     <h2 style="color: var(--accent-cyan); text-align: center; font-size: 1.8rem">
       📋 Buying Process
     </h2>
-  
+
     <!-- Step 1: Before Applying -->
     <div class="property-card"
       style="margin: 2rem auto; max-width: 900px; background: var(--light-cyan-bg); border-left: 5px solid var(--accent-cyan); padding: 2rem;">
       <h3 style="color: var(--primary-blue); font-size: 1.4rem;">📑 1. Before Applying for a Loan</h3>
-      <p>💰 Budget for more than just a down payment — include inspections, closing costs, appraisals, and emergency maintenance.</p>
+      <p>💰 Budget for more than just a down payment — include inspections, closing costs, appraisals, and emergency
+        maintenance.</p>
       <p>🔧 Set aside funds for tools, repairs, and new appliances after move-in.</p>
-      <p>📉 <strong>PMI Tip:</strong> 20% down avoids PMI, but 3.5% FHA options exist. PMI can be removed once you reach 20% equity.</p>
+      <p>📉 <strong>PMI Tip:</strong> 20% down avoids PMI, but 3.5% FHA options exist. PMI can be removed once you reach
+        20% equity.</p>
       <p>📊 <strong>Credit Score Matters:</strong></p>
       <p>🔴 Poor: 579 or below</p>
       <p>🟠 Fair: 580–669</p>
@@ -894,7 +900,7 @@
       <p>💚 Excellent: 800+</p>
       <p>✅ Higher scores mean lower interest rates and reduced monthly payments.</p>
     </div>
-  
+
     <!-- Step 2: Additional Steps -->
     <div class="property-card"
       style="margin: 2rem auto; max-width: 900px; background: var(--light-bg); border-left: 5px solid var(--accent-gold); padding: 2rem;">
@@ -904,16 +910,17 @@
       <p>⛔ Avoid taking on new debt, changing jobs, or making large purchases before closing.</p>
       <p>📝 When Ready, Make an Offer: Submit earnest money (typically 1–3%) to show you're serious.</p>
       <p>🔍 Schedule Inspections: General, termite, sewer, radon, and others can strengthen negotiations.</p>
-      <p>🏁 Closing Day Prep: Bring your ID, certified funds, and confirm utilities are transferred before you get the keys!</p>
+      <p>🏁 Closing Day Prep: Bring your ID, certified funds, and confirm utilities are transferred before you get the
+        keys!</p>
     </div>
   </section>
-  
+
 
   <section id="sellingProcess" class="listings" style="padding-top: 2rem;">
     <h2 style="color: var(--accent-cyan); text-align: center; font-size: 1.8rem;">
       🏡 Selling Process
     </h2>
-  
+
     <!-- Step 1: Preparing Your Home -->
     <div class="property-card"
       style="margin: 2rem auto; max-width: 900px; background: var(--light-cyan-bg); border-left: 5px solid var(--accent-gold); padding: 2rem;">
@@ -924,7 +931,7 @@
       <p>🌳 Enhance curb appeal — tidy landscaping, clean driveways, and welcoming entryways.</p>
       <p>🛋️ We offer walkthrough staging tips — or can refer a professional stager for maximum impact.</p>
     </div>
-  
+
     <!-- Step 2: Pricing & Marketing -->
     <div class="property-card"
       style="margin: 2rem auto; max-width: 900px; background: var(--light-bg); border-left: 5px solid var(--accent-cyan); padding: 2rem;">
@@ -938,11 +945,12 @@
         📞 <strong>Phone:</strong> 913-306-5216 &nbsp;|&nbsp;
         🏢 <strong>Office:</strong> 888-220-0988 &nbsp;|&nbsp;
         ✉️ <strong>Email:</strong>
-        <a href="mailto:shignya.sm@gmail.com" style="color: var(--accent-gold); text-decoration: underline;">shignya.sm@gmail.com</a>
+        <a href="mailto:shignya.sm@gmail.com"
+          style="color: var(--accent-gold); text-decoration: underline;">shignya.sm@gmail.com</a>
       </p>
     </div>
   </section>
-  
+
 
   <section id="lenders" class="listings" style="padding-top: 2rem;">
     <h2 style="color: var(--accent-cyan); text-align: center;">
@@ -1086,7 +1094,7 @@
     <h2 style="color: var(--accent-gold); text-align: center; font-size: 1.8rem">
       🚫 What Not To Do & Final Steps
     </h2>
-  
+
     <!-- Common Mistakes -->
     <div class="property-card"
       style="margin: 2rem auto; max-width: 900px; background: var(--light-cyan-bg); border-left: 5px solid var(--accent-gold); padding: 2rem;">
@@ -1097,12 +1105,13 @@
       <p>🛋️ Wait to buy furniture or large items until after you close</p>
       <p>🔗 Confirm that your rate is locked with your lender</p>
     </div>
-  
+
     <!-- Inspections & Offers -->
     <div class="property-card"
       style="margin: 2rem auto; max-width: 900px; background: var(--light-bg); border-left: 5px solid var(--accent-cyan); padding: 2rem;">
       <h3 style="color: var(--primary-blue); font-size: 1.4rem;">🔍 Inspections & Offers</h3>
-      <p>Once your offer is accepted and earnest money (typically 1%–3%) is submitted, it’s time to schedule key inspections:</p>
+      <p>Once your offer is accepted and earnest money (typically 1%–3%) is submitted, it’s time to schedule key
+        inspections:</p>
       <p>🏚️ General Home Inspection</p>
       <p>🐜 Termite Inspection</p>
       <p>🚽 Sewer or Septic Inspection</p>
@@ -1110,13 +1119,15 @@
       <p>☢️ Radon Test</p>
       <p>Use the results to negotiate repairs or credits before closing.</p>
     </div>
-  
+
     <!-- Final Steps -->
     <div class="property-card"
       style="margin: 2rem auto; max-width: 900px; background: var(--light-cyan-bg); border-left: 5px solid var(--accent-gold); padding: 2rem;">
       <h3 style="color: var(--primary-blue); font-size: 1.4rem;">🏁 Appraisal, Closing & Final Safety Tips</h3>
-      <p>🔍 Your lender will order an appraisal. If the home appraises lower than expected, we’ll discuss renegotiation or out-of-pocket options.</p>
-      <p>🚨 <strong>Security Tip:</strong> Always verify wire instructions by phone — wire fraud is real. Call before sending any funds.</p>
+      <p>🔍 Your lender will order an appraisal. If the home appraises lower than expected, we’ll discuss renegotiation
+        or out-of-pocket options.</p>
+      <p>🚨 <strong>Security Tip:</strong> Always verify wire instructions by phone — wire fraud is real. Call before
+        sending any funds.</p>
       <p>💡 Before closing, be sure to:</p>
       <p>🔌 Transfer utilities to your name</p>
       <p>🪪 Prepare your government-issued photo ID</p>
@@ -1126,12 +1137,12 @@
       </p>
     </div>
   </section>
-  
- 
+
+
 
   <section id="trustedLenders" class="listings" style="padding-top: 2rem;">
     <h2 style="color: var(--accent-cyan); text-align: center; font-size: 1.8rem">
-       Trusted Loan Experts
+      Trusted Loan Experts
     </h2>
 
     <!-- Lance Richards -->
@@ -1341,21 +1352,24 @@
 
 
 
-  <footer style="background: var(--primary-blue); color: var(--light-text); padding: 2rem; text-align: center; font-size: 0.95rem;">
-    <p style="margin: 0.5rem 0;">&copy; 2025 <strong style="color: var(--accent-gold);">MITIKEKC.COM</strong> — All rights reserved.</p>
+  <footer
+    style="background: var(--primary-blue); color: var(--light-text); padding: 2rem; text-align: center; font-size: 0.95rem;">
+    <p style="margin: 0.5rem 0;">&copy; 2025 <strong style="color: var(--accent-gold);">MITIKEKC.COM</strong> — All
+      rights reserved.</p>
     <p style="margin: 0.5rem 0;">
       <a href="#homeIntro" style="color: var(--accent-gold); text-decoration: none;">Home</a> |
       <a href="#listings" style="color: var(--accent-gold); text-decoration: none;">Listings</a> |
       <a href="#contact" style="color: var(--accent-gold); text-decoration: none;">Contact</a>
     </p>
-    <p style="margin: 0.5rem 0;">📞 <strong>Phone:</strong> 913-306-5216 &nbsp;|&nbsp; 🏢 <strong>Office:</strong> 888-220-0988</p>
+    <p style="margin: 0.5rem 0;">📞 <strong>Phone:</strong> 913-306-5216 &nbsp;|&nbsp; 🏢 <strong>Office:</strong>
+      888-220-0988</p>
     <p style="margin: 0.5rem 0;">✉️ <strong>Email:</strong>
       <a href="mailto:shignya.sm@gmail.com" style="color: var(--accent-gold); text-decoration: underline;">
         shignya.sm@gmail.com
       </a>
     </p>
   </footer>
-  
+
   <!-- Accessibility & Contrast: - All text is set in colors with sufficient contrast against backgrounds (at least 4.5:1 for normal text). - Navigation uses color and an underline to indicate the current page, not relying on color alone. - Active nav item indicated both visually (underline)&#8203;:contentReference[oaicite:1]{index=1} and via aria-current for screen readers. - Each section has a distinct background (blue/cyan gradient, white, light cyan, gold, dark blue) to create clear visual separation. - Sections separated by color difference, borders, or shadows for clarity. Responsive Design: - The layout is mobile-first and adapts to different screen sizes (navigation stacks on small screens)&#8203;:contentReference[oaicite:2]{index=2}. - The design maintains readability on all devices with legible font sizes and adequate spacing. -->
 
 
@@ -1495,7 +1509,7 @@
       const sectionIds = [
         'services', 'sellingProcess', 'about',
         'lenders', 'programs', 'whatNotToDo', 'trustedLenders',
-         'affordabilityCalculator', 'joinTeamSection'
+        'affordabilityCalculator', 'joinTeamSection'
       ];
 
       sectionIds.forEach(secId => {
