@@ -110,7 +110,7 @@
       flex-direction: column;
       align-items: flex-start;
       background: var(--light-bg);
-      
+
       /* Strong separation: bottom border in accent color */
       border-bottom: 4px solid var(--accent-cyan);
     }
@@ -493,9 +493,10 @@
     <!-- Video Header -->
     <div class="header-video-wrapper">
       <video autoplay muted loop class="header-video">
-        <source src="https://video.wixstatic.com/video/11062b_8f14374b6fe149aab751d12c94c2676f/720p/mp4/file.mp4" type="video/mp4">
+        <source src="https://video.wixstatic.com/video/11062b_8f14374b6fe149aab751d12c94c2676f/720p/mp4/file.mp4"
+          type="video/mp4">
       </video>
-  
+
       <!-- Logo and Navbar -->
       <a href="#" class="logo logo-absolute">MITIKE</a>
       <div class="nav-container">
@@ -523,7 +524,8 @@
               <a onclick="toggleMenu('more-submenu')">More</a>
               <ul id="more-submenu" class="submenu">
                 <li><a href="#contact" onclick="goToSection('contact')">Contact</a></li>
-                <li><a href="#affordabilityCalculator" onclick="goToSection('affordabilityCalculator')">Calculator</a></li>
+                <li><a href="#affordabilityCalculator" onclick="goToSection('affordabilityCalculator')">Calculator</a>
+                </li>
                 <li><a href="#zillowProfile" onclick="goToSection('zillowProfile')">Zillow Profile</a></li>
                 <li><a href="#joinTeamSection" onclick="goToSection('joinTeamSection')">Join Our Team</a></li>
               </ul>
@@ -538,7 +540,8 @@
                 <li><a href="#whatNotToDo" onclick="goToSection('whatNotToDo')">What Not To Do</a></li>
                 <li><a href="#trustedLenders" onclick="goToSection('trustedLenders')">Trusted Lenders</a></li>
                 <li><a href="#contact" onclick="goToSection('contact')">Contact</a></li>
-                <li><a href="#affordabilityCalculator" onclick="goToSection('affordabilityCalculator')">Calculator</a></li>
+                <li><a href="#affordabilityCalculator" onclick="goToSection('affordabilityCalculator')">Calculator</a>
+                </li>
                 <li><a href="#zillowProfile" onclick="goToSection('zillowProfile')">Zillow Profile</a></li>
                 <li><a href="#joinTeamSection" onclick="goToSection('joinTeamSection')">Join Our Team</a></li>
               </ul>
@@ -548,14 +551,14 @@
       </div>
     </div>
   </header>
-  
+
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-  
+
     .header-video-wrapper {
       position: relative;
       width: 100vw;
@@ -563,7 +566,7 @@
       overflow: visible;
       z-index: 10;
     }
-  
+
     .header-video {
       width: 100vw;
       height: 100%;
@@ -573,7 +576,7 @@
       left: 0;
       z-index: 0;
     }
-  
+
     .nav-container {
       position: absolute;
       bottom: 0;
@@ -584,7 +587,7 @@
       justify-content: flex-start;
       z-index: 1;
     }
-  
+
     .logo-absolute {
       position: absolute;
       top: 1rem;
@@ -596,7 +599,7 @@
       z-index: 2;
       text-decoration: none;
     }
-  
+
     #about,
     #services,
     #sellingProcess,
@@ -608,6 +611,7 @@
     #joinTeamSection {
       display: none;
     }
+
     nav ul {
       list-style: none;
       display: flex;
@@ -617,19 +621,19 @@
       justify-content: flex-start;
       padding-left: 0;
     }
-  
+
     nav li {
       position: relative;
       text-align: left;
     }
-  
+
     nav a {
       text-decoration: none;
       color: #0b5394;
       font-weight: 600;
       cursor: pointer;
     }
-  
+
     .submenu {
       display: none;
       position: absolute;
@@ -643,25 +647,26 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       z-index: 9999;
     }
-  
+
     .submenu li {
       padding: 0 1rem;
       margin: 0.3rem 0;
       white-space: nowrap;
     }
-  
+
     .submenu li:last-child {
       margin-bottom: 0.3rem;
     }
-  
+
     .submenu.show {
       display: block;
     }
-  
+
     @media (min-width: 768px) {
       .mobile-only {
         display: none;
       }
+
       .nav-container {
         flex-direction: row;
         align-items: center;
@@ -669,21 +674,21 @@
         padding: 1rem 10rem;
       }
     }
-  
+
     @media (max-width: 767px) {
       .desktop-only {
         display: none;
       }
     }
   </style>
-  
+
   <script>
     const sectionIds = [
       'homeIntro', 'about', 'services', 'sellingProcess',
       'lenders', 'programs', 'whatNotToDo', 'trustedLenders',
       'contact', 'affordabilityCalculator', 'zillowProfile', 'joinTeamSection'
     ];
-  
+
     function toggleMenu(id) {
       document.querySelectorAll('.submenu').forEach(menu => {
         if (menu.id !== id) menu.classList.remove('show');
@@ -691,29 +696,29 @@
       const submenu = document.getElementById(id);
       if (submenu) submenu.classList.toggle('show');
     }
-  
+
     function goToSection(id) {
       sectionIds.forEach(secId => {
         const sec = document.getElementById(secId);
         if (sec) sec.style.display = 'none';
       });
-  
+
       const selected = document.getElementById(id);
       if (selected) {
         selected.style.display = 'block';
         selected.scrollIntoView({ behavior: 'smooth' });
       }
-  
+
       document.querySelectorAll('.submenu').forEach(menu => menu.classList.remove('show'));
     }
-  
+
     document.addEventListener('click', function (event) {
       if (!event.target.closest('nav')) {
         document.querySelectorAll('.submenu').forEach(menu => menu.classList.remove('show'));
       }
     });
   </script>
-  
+
 
 
   <!-- Hero Section: rich background, high-contrast text -->
@@ -861,7 +866,8 @@
     </div>
   </section>
 
-  <section id="zillowProfile" class="listings" style="padding-top: 3rem; background: #f9fafa;">
+  <section id="zillowProfile" class="listings"
+    style="padding-top: 3rem; background: linear-gradient(to right, #f9fafa 60%, #e8f7ff 100%);">
     <h2 style="color: var(--primary-blue); text-align: center; font-size: 1.8rem; margin-bottom: 2.5rem;">
       📇 Connect with <span style="color: var(--accent-gold);">Shignya S.M</span> on Zillow
     </h2>
@@ -871,9 +877,9 @@
 
       <!-- Profile Card -->
       <div
-        style="flex: 1; min-width: 300px; max-width: 420px; background: white; border-radius: 12px; padding: 2rem; text-align: center; box-shadow: 0 8px 20px rgba(0,0,0,0.05);">
+        style="flex: 1; min-width: 300px; max-width: 420px; background: white; border-radius: 12px; padding: 2rem; text-align: center; box-shadow: 0 8px 20px rgba(0,0,0,0.05); background-image: url('image/realty-bg.png'); background-size: cover; background-position: center; background-blend-mode: lighten;">
         <img src="image/Screenshot.png" alt="Shignya Profile"
-          style="width: 160px; height: 160px; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent-cyan); box-shadow: 0 0 12px rgba(100, 255, 218, 0.25); margin-bottom: 1rem;" />
+          style="width: 160px; height: 160px; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent-cyan); box-shadow: 0 0 12px rgba(100, 255, 218, 0.25); margin-bottom: 1rem; background: white;" />
 
         <h3 style="color: var(--primary-blue); font-size: 1.4rem; margin-bottom: 0.3rem;">Shignya S.M</h3>
         <p style="color: #666; font-weight: 500; margin-bottom: 1rem;">Real Estate Agent | First-Time Buyer Specialist
@@ -887,6 +893,30 @@
               style="color: var(--accent-cyan); text-decoration: underline;">shignya.sm@gmail.com</a></p>
         </div>
 
+        <button onclick="$('#zillowBio').slideToggle()" style="
+          margin-top: 1.5rem;
+          background: none;
+          border: 2px solid var(--accent-cyan);
+          color: var(--primary-blue);
+          padding: 0.5rem 1rem;
+          border-radius: 8px;
+          font-weight: 600;
+          cursor: pointer;
+          transition: background 0.3s ease;">
+          🔽 Click here to learn more
+        </button>
+
+        <div id="zillowBio"
+          style="display: none; margin-top: 1.5rem; text-align: left; font-size: 0.95rem; line-height: 1.7; color: #444; background: #f0f9ff; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+          <h4 style="color: var(--primary-blue); margin-bottom: 0.5rem;">🏡 About Shignya Mitike</h4>
+          <p>I am proud to call Kansas City my home for the past 23+ years. I’m more than optimistic that I can find a
+            place you will call home.</p>
+          <p>With years of sales experience, I am committed to giving my clients the best home-buying and selling
+            experience possible.</p>
+          <p>I continue to volunteer in a number of community initiatives and charities, and I am excited to continue
+            doing my part to make Kansas City a great place for families and businesses.</p>
+        </div>
+
         <a href="https://www.zillow.com/profile/shignya" target="_blank" style="
             display: inline-block;
             margin-top: 1.5rem;
@@ -898,8 +928,8 @@
             font-weight: 600;
             font-size: 0.95rem;
             box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
-            transition: transform 0.3s ease;
-          " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+            transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'"
+          onmouseout="this.style.transform='scale(1)';">
           🔗 View Zillow Profile
         </a>
       </div>
@@ -911,6 +941,8 @@
       </div>
     </div>
   </section>
+
+
 
 
 
