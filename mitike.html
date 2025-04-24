@@ -186,6 +186,7 @@
       position: relative;
       /* Subtle shadow to emphasize separation from next section */
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    
     }
 
     .hero h1 {
@@ -342,7 +343,7 @@
       list-style: none;
       padding: 0.5rem;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      z-index: 10;
+      z-index: 9999;
       min-width: 200px;
     }
 
@@ -389,6 +390,7 @@
       .hero {
         text-align: left;
         padding: 6rem 4rem;
+        
       }
 
       .hero h1 {
@@ -487,35 +489,107 @@
 </head>
 
 <body> <!-- Header with Logo and Navigation -->
-  <header> <a href="#" class="logo">MITIKE</a>
+  <header>
+    <!-- Video Header -->
+    <div class="header-video-wrapper">
+      <video autoplay muted loop class="header-video">
+        <source src="https://video.wixstatic.com/video/11062b_8f14374b6fe149aab751d12c94c2676f/720p/mp4/file.mp4" type="video/mp4">
+      </video>
+  
+      <!-- Logo and Navbar -->
+      <div class="nav-container">
+        <a href="#" class="logo">MITIKE</a>
+        <nav>
+          <ul>
+            <li>
+              <a onclick="toggleMenu('home-submenu')">Home</a>
+              <ul id="home-submenu" class="submenu">
+                <li><a href="#homeIntro" onclick="goToSection('homeIntro')">Home Intro</a></li>
+                <li><a href="#about" onclick="goToSection('about')">About</a></li>
+              </ul>
+            </li>
+            <li><a href="#services" onclick="goToSection('services')">Buying</a></li>
+            <li><a href="#sellingProcess" onclick="goToSection('sellingProcess')">Selling</a></li>
+            <li>
+              <a onclick="toggleMenu('lenders-submenu')">Lenders</a>
+              <ul id="lenders-submenu" class="submenu">
+                <li><a href="#lenders" onclick="goToSection('lenders')">Lenders</a></li>
+                <li><a href="#programs" onclick="goToSection('programs')">Loan Programs</a></li>
+                <li><a href="#whatNotToDo" onclick="goToSection('whatNotToDo')">What Not To Do</a></li>
+                <li><a href="#trustedLenders" onclick="goToSection('trustedLenders')">Trusted Lenders</a></li>
+              </ul>
+            </li>
+            <li>
+              <a onclick="toggleMenu('more-submenu')">More</a>
+              <ul id="more-submenu" class="submenu">
+                <li><a href="#contact" onclick="goToSection('contact')">Contact</a></li>
+                <li><a href="#affordabilityCalculator" onclick="goToSection('affordabilityCalculator')">Calculator</a></li>
+                <li><a href="#zillowProfile" onclick="goToSection('zillowProfile')">Zillow Profile</a></li>
+                <li><a href="#joinTeamSection" onclick="goToSection('joinTeamSection')">Join Our Team</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  
     <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+  
+      .header-video-wrapper {
+        position: relative;
+        width: 100%;
+        height: 400px; /* Standard header height */
+        overflow: visible; /* allow dropdowns to overflow */
+        z-index: 10;
+        
+      }
+  
+      .header-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+      }
+  
+      .nav-container {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 1rem 10rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1;
+      }
+  
+      .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #0b5394;
+        text-decoration: none;
+      }
+  
       nav ul {
         list-style: none;
         display: flex;
         flex-direction: row;
         gap: 1.5rem;
-        padding: 0;
-        margin: 0;
       }
-
-
-      #services,
-      #sellingProcess,
-      #lenders,
-      #programs,
-      #whatNotToDo,
-      #trustedLenders,
-
-      #affordabilityCalculator,
-      #zillowProfile,
-      #joinTeamSection {
-        display: none;
-      }
-
+  
       nav li {
         position: relative;
+        text-align: left;
       }
-
+  
       nav a {
         text-decoration: none;
         color: #0b5394;
@@ -529,135 +603,80 @@
         top: 100%;
         left: 0;
         min-width: 200px;
-        /* Ensures equal width */
         background-color: #ffffff;
         border: 1px solid #ccc;
         padding: 0.5rem 0;
         border-radius: 8px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        z-index: 1000;
-        text-align: left;
+        z-index: 9999;
       }
-
+  
       .submenu li {
         padding: 0 1rem;
         margin: 0.3rem 0;
         white-space: nowrap;
       }
-
+  
       .submenu li:last-child {
         margin-bottom: 0.3rem;
       }
-
-      nav li {
-        position: relative;
-        text-align: left;
-      }
-
-
+  
       .submenu.show {
         display: block;
       }
+  
+      #services,
+      #sellingProcess,
+      #lenders,
+      #programs,
+      #whatNotToDo,
+      #trustedLenders,
+      #affordabilityCalculator,
+      #joinTeamSection {
+        display: none;
+      }
     </style>
-
-    <nav style="padding-right: 10rem;">
-      <ul>
-        <!-- Home Menu -->
-        <li>
-          <a onclick="toggleMenu('home-submenu')">Home</a>
-          <ul id="home-submenu" class="submenu">
-            <li><a href="#homeIntro" onclick="goToSection('homeIntro')">Home Intro</a></li>
-            <li><a href="#about" onclick="goToSection('about')">About</a></li>
-          </ul>
-        </li>
-    
-        <!-- Buying -->
-        <li>
-          <a href="#services" onclick="goToSection('services')">Buying</a>
-        </li>
-    
-        <!-- Selling -->
-        <li>
-          <a href="#sellingProcess" onclick="goToSection('sellingProcess')">Selling</a>
-        </li>
-    
-        <!-- Lenders Menu -->
-        <li>
-          <a onclick="toggleMenu('lenders-submenu')">Lenders</a>
-          <ul id="lenders-submenu" class="submenu">
-            <li><a href="#lenders" onclick="goToSection('lenders')">Lenders</a></li>
-            <li><a href="#programs" onclick="goToSection('programs')">Loan Programs</a></li>
-            <li><a href="#whatNotToDo" onclick="goToSection('whatNotToDo')">What Not To Do</a></li>
-            <li><a href="#trustedLenders" onclick="goToSection('trustedLenders')">Trusted Lenders</a></li>
-          </ul>
-        </li>
-    
-        <!-- More Menu -->
-        <li>
-          <a onclick="toggleMenu('more-submenu')">More</a>
-          <ul id="more-submenu" class="submenu">
-            <li><a href="#contact" onclick="goToSection('contact')">Contact</a></li>
-            <li><a href="#affordabilityCalculator" onclick="goToSection('affordabilityCalculator')">Calculator</a></li>
-            <li><a href="#zillowProfile" onclick="goToSection('zillowProfile')">Zillow Profile</a></li>
-            <li><a href="#joinTeamSection" onclick="goToSection('joinTeamSection')">Join Our Team</a></li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
-    
-
-
-
+  
     <script>
       const sectionIds = [
         'homeIntro', 'about', 'services', 'sellingProcess',
         'lenders', 'programs', 'whatNotToDo', 'trustedLenders',
-        'contact', 'affordabilityCalculator', 'zillowProfile', 'joinTeamSection'
+        'contact', 'affordabilityCalculator', 'joinTeamSection'
       ];
-
+  
       function toggleMenu(id) {
-        // Close other open menus
         document.querySelectorAll('.submenu').forEach(menu => {
-          if (menu.id !== id) {
-            menu.classList.remove('show');
-          }
+          if (menu.id !== id) menu.classList.remove('show');
         });
-
-        // Toggle the clicked submenu
         const submenu = document.getElementById(id);
         if (submenu) submenu.classList.toggle('show');
       }
-
+  
       function goToSection(id) {
-        // Hide ALL sections
         sectionIds.forEach(secId => {
           const sec = document.getElementById(secId);
           if (sec) sec.style.display = 'none';
         });
-
-        // Show selected
+  
         const selected = document.getElementById(id);
         if (selected) {
           selected.style.display = 'block';
           selected.scrollIntoView({ behavior: 'smooth' });
         }
-
-        // Close all submenus
+  
         document.querySelectorAll('.submenu').forEach(menu => menu.classList.remove('show'));
       }
-
-      // Optional: hide all submenus if clicking outside nav
+  
       document.addEventListener('click', function (event) {
         if (!event.target.closest('nav')) {
           document.querySelectorAll('.submenu').forEach(menu => menu.classList.remove('show'));
         }
       });
     </script>
-
-
-
-
-  </header> <!-- Hero Section: rich background, high-contrast text -->
+  </header>
+  
+  
+   <!-- Hero Section: rich background, high-contrast text -->
   <section class="hero" id="dynamicHero">
     <img id="heroImage" src="" alt="Section Image"
       style="width: 100%; max-height: 360px; object-fit: cover; border-radius: 10px; margin-bottom: 1.5rem; display: none;" />
@@ -801,6 +820,58 @@
       </div>
     </div>
   </section>
+
+  <section id="zillowProfile" class="listings" style="padding-top: 3rem; background: #f9fafa;">
+    <h2 style="color: var(--primary-blue); text-align: center; font-size: 1.8rem; margin-bottom: 2.5rem;">
+      📇 Connect with <span style="color: var(--accent-gold);">Shignya S.M</span> on Zillow
+    </h2>
+
+    <div class="listing-grid"
+      style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; align-items: center; max-width: 1100px; margin: auto;">
+
+      <!-- Profile Card -->
+      <div
+        style="flex: 1; min-width: 300px; max-width: 420px; background: white; border-radius: 12px; padding: 2rem; text-align: center; box-shadow: 0 8px 20px rgba(0,0,0,0.05);">
+        <img src="image/Screenshot.png" alt="Shignya Profile"
+          style="width: 160px; height: 160px; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent-cyan); box-shadow: 0 0 12px rgba(100, 255, 218, 0.25); margin-bottom: 1rem;" />
+
+        <h3 style="color: var(--primary-blue); font-size: 1.4rem; margin-bottom: 0.3rem;">Shignya S.M</h3>
+        <p style="color: #666; font-weight: 500; margin-bottom: 1rem;">Real Estate Agent | First-Time Buyer Specialist
+        </p>
+
+        <div
+          style="text-align: left; margin: 0 auto; max-width: 300px; font-size: 0.95rem; line-height: 1.8; color: #444;">
+          <p><strong>📞 Phone:</strong> 913-306-5216</p>
+          <p><strong>🏢 Office:</strong> 888-220-0988</p>
+          <p><strong>📧 Email:</strong> <a href="mailto:shignya.sm@gmail.com"
+              style="color: var(--accent-cyan); text-decoration: underline;">shignya.sm@gmail.com</a></p>
+        </div>
+
+        <a href="https://www.zillow.com/profile/shignya" target="_blank" style="
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.6rem 1.4rem;
+            background: linear-gradient(to right, var(--accent-cyan), var(--primary-blue));
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+          " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+          🔗 View Zillow Profile
+        </a>
+      </div>
+
+      <!-- Listing Image or Example -->
+      <div style="flex: 1; min-width: 300px; max-width: 480px;">
+        <img src="image/house.jpg" alt="Sample Listing"
+          style="width: 100%; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.15); object-fit: cover;" />
+      </div>
+    </div>
+  </section>
+
 
 
   <section id="services" class="listings" style="padding-top: 2rem;">
@@ -1056,57 +1127,7 @@
     </div>
   </section>
   
-  <section id="zillowProfile" class="listings" style="padding-top: 3rem; background: #f9fafa;">
-    <h2 style="color: var(--primary-blue); text-align: center; font-size: 1.8rem; margin-bottom: 2.5rem;">
-      📇 Connect with <span style="color: var(--accent-gold);">Shignya S.M</span> on Zillow
-    </h2>
-
-    <div class="listing-grid"
-      style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; align-items: center; max-width: 1100px; margin: auto;">
-
-      <!-- Profile Card -->
-      <div
-        style="flex: 1; min-width: 300px; max-width: 420px; background: white; border-radius: 12px; padding: 2rem; text-align: center; box-shadow: 0 8px 20px rgba(0,0,0,0.05);">
-        <img src="image/Screenshot.png" alt="Shignya Profile"
-          style="width: 160px; height: 160px; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent-cyan); box-shadow: 0 0 12px rgba(100, 255, 218, 0.25); margin-bottom: 1rem;" />
-
-        <h3 style="color: var(--primary-blue); font-size: 1.4rem; margin-bottom: 0.3rem;">Shignya S.M</h3>
-        <p style="color: #666; font-weight: 500; margin-bottom: 1rem;">Real Estate Agent | First-Time Buyer Specialist
-        </p>
-
-        <div
-          style="text-align: left; margin: 0 auto; max-width: 300px; font-size: 0.95rem; line-height: 1.8; color: #444;">
-          <p><strong>📞 Phone:</strong> 913-306-5216</p>
-          <p><strong>🏢 Office:</strong> 888-220-0988</p>
-          <p><strong>📧 Email:</strong> <a href="mailto:shignya.sm@gmail.com"
-              style="color: var(--accent-cyan); text-decoration: underline;">shignya.sm@gmail.com</a></p>
-        </div>
-
-        <a href="https://www.zillow.com/profile/shignya" target="_blank" style="
-            display: inline-block;
-            margin-top: 1.5rem;
-            padding: 0.6rem 1.4rem;
-            background: linear-gradient(to right, var(--accent-cyan), var(--primary-blue));
-            color: white;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
-            transition: transform 0.3s ease;
-          " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-          🔗 View Zillow Profile
-        </a>
-      </div>
-
-      <!-- Listing Image or Example -->
-      <div style="flex: 1; min-width: 300px; max-width: 480px;">
-        <img src="image/house.jpg" alt="Sample Listing"
-          style="width: 100%; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.15); object-fit: cover;" />
-      </div>
-    </div>
-  </section>
-
+ 
 
   <section id="trustedLenders" class="listings" style="padding-top: 2rem;">
     <h2 style="color: var(--accent-cyan); text-align: center; font-size: 1.8rem">
@@ -1474,7 +1495,7 @@
       const sectionIds = [
         'services', 'sellingProcess', 'about',
         'lenders', 'programs', 'whatNotToDo', 'trustedLenders',
-         'affordabilityCalculator', 'zillowProfile', 'joinTeamSection'
+         'affordabilityCalculator', 'joinTeamSection'
       ];
 
       sectionIds.forEach(secId => {
