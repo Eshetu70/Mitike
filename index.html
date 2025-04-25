@@ -4,2209 +4,1600 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Guidance for First-Time Homebuyers | Mitike Realty Group" />
-  <title>Mitike Realty Group</title>
-
-  <link rel="icon" type="image/png" href="image/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="image/favicon.svg" />
-  <link rel="shortcut icon" href="image/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="image/apple-touch-icon.png" />
-  <link rel="manifest" href="image/site.webmanifest" />
-
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/fontawesome.min.css">
+  <title>MITIKE – Find Your Dream Home</title>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
   <style>
+    /* Base Styles and Color Scheme */
+    :root {
+      --primary-blue: #0b5394;
+      /* Dark blue (branding) */
+      --accent-cyan: #17a2b8;
+      --accent-red: #e53935;
+      /* Bright material-style red */
+      /* Cyan accent (branding) */
+      --accent-gold: #FFD700;
+      /* Gold accent (branding) */
+      --dark-text: #343a40;
+      /* Dark gray text for light backgrounds */
+      --light-text: #ffffff;
+      /* Light text for dark backgrounds */
+      --light-bg: #ffffff;
+      /* White background */
+      --light-cyan-bg: #e8f7ff;
+      /* Very light cyan background for contrast */
+    }
+
+    .hero h1,
+    .hero p {
+      transition: all 0.4s ease-in-out;
+    }
+
+
+    .btn-link {
+      background: #0b5394;
+      color: white;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: background 0.3s ease;
+    }
+
+    .btn-link:hover {
+      background: #083a70;
+    }
+
+
+
+    /* Make Google Translate look like a button */
+    .cta-translate {
+      min-width: 160px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      padding: 0 1rem;
+      font-weight: 600;
+      font-size: 1rem;
+      border-radius: 6px;
+      border: 2px solid var(--accent-gold);
+      background: #0b5394;
+      color: var(--primary-blue);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Target Google Translate dropdown inside */
+    #google_translate_element select {
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      background: transparent;
+      color: var(--primary-blue);
+      outline: none;
+      cursor: pointer;
+    }
+
+
+    html {
+      font-size: 100%;
+    }
+
     body {
       margin: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: #8b949e;
-      color: #333;
-      position: relative;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--dark-text);
+      background-color: var(--light-bg);
     }
 
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin: 0.5em 0;
+      font-weight: 600;
+    }
+
+    p {
+      margin: 0.5em 0 1em;
+    }
+
+    /* Header and Navigation */
     header {
-      position: relative;
-      height: 500px;
-      overflow: hidden;
-      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      background: var(--light-bg);
 
-
-
-
+      /* Strong separation: bottom border in accent color */
+      border-bottom: 4px solid var(--accent-cyan);
     }
 
-    header video {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 100%;
-      height: 100%;
-      transform: translate(-50%, -50%);
-      object-fit: cover;
-      z-index: -1;
-    }
-
-    header .overlay {
-      position: relative;
-      text-align: center;
-      padding: 8rem 2rem;
-      background: rgba(0, 0, 0, 0.4);
-      height: 100%;
-    }
-
-    header h1 {
-      font-size: 3rem;
+    header .logo {
+      font-size: 1.5rem;
+      color: var(--primary-blue);
+      text-decoration: none;
       margin-bottom: 0.5rem;
     }
 
-    .topbar {
-      position: absolute;
-      top: 0;
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
       width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(0, 0, 0, 0.5);
-      padding: 1rem;
-      z-index: 2;
     }
 
-    .menu-icon {
-      font-size: 1.5rem;
-      color: white;
-      cursor: pointer;
-      padding: 0.5rem;
+    nav li {
+      /* Provide visual separation between nav items on mobile */
+      /* border-top: 1px solid #ddd;*/
+
+      border-top: none;
+
+
+
     }
 
-    .dropdown {
-      display: none;
-      position: absolute;
-      top: 60px;
-      left: 10px;
-      background: #fff;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      padding: 1rem;
-      border-radius: 6px;
-      z-index: 99999;
-    }
-
-    .dropdown a {
-      display: block;
-      padding: 0.5rem 1rem;
-      color: #1a73e8;
-      text-decoration: none;
-      font-weight: 600;
-      z-index: 999;
-    }
-
-    .dropdown a:hover {
-      background-color: #f1f1f1;
-    }
-
-    .google-translate {
-      background: white;
-      border-radius: 5px;
-      padding: 0.2rem 0.5rem;
-      margin-right: 20px;
-    }
-
-    nav {
-      background-color: #fff;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      padding: 1rem;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    nav li:first-child {
+      border-top: none;
     }
 
     nav a {
-      margin: 0.5rem 1rem;
+      display: block;
+      padding: 0.5rem;
       text-decoration: none;
-      color: #1a73e8;
-      font-weight: 600;
-      cursor: pointer;
-      transition: color 0.3s ease;
+      font-weight: 500;
+      color: var(--primary-blue);
     }
 
     nav a:hover {
-      color: #0c47a1;
+      background: rgba(0, 115, 200, 0.1);
+      /* light blue hover highlight */
     }
 
-    section {
-      padding: 2rem;
-      max-width: 1000px;
-      margin: auto;
-      display: none;
-      animation: fadeIn 0.5s ease;
-      z-index: 10;
+    /* Highlight the active page in the navigation for better UX&#8203;:contentReference[oaicite:0]{index=0} */
+    nav a.active {
+      position: relative;
+      font-weight: 600;
+      /* Gold underline to indicate active page, per branding */
+      color: var(--primary-blue);
     }
 
-    section.active {
+    nav a.active::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 3px;
+      background: var(--accent-gold);
+    }
+
+    /* Hero Section Styles */
+    .hero {
+      /* Rich background with brand color gradient for visual impact */
+      background: linear-gradient(to right, var(--primary-blue) 70%, var(--accent-cyan) 100%);
+      color: var(--light-text);
+      padding: 4rem 2rem;
+      text-align: left;
+      position: relative;
+      /* Subtle shadow to emphasize separation from next section */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      /* Ensure text remains readable over background via shadow */
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      max-width: 600px;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero .cta-button {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--light-text);
+      background: var(--primary-blue);
+      text-decoration: none;
+      border: 2px solid var(--accent-gold);
+      border-radius: 4px;
+    }
+
+    .hero .cta-button:hover {
+      background: var(--accent-cyan);
+      /* On hover, ensure button text contrast remains high against new background */
+      color: var(--light-text);
+    }
+
+    /* Featured Listings Section */
+    .listings {
+      background: var(--light-bg);
+      padding: 3rem 2rem;
+      /* Use a top border in a light color for separation from hero if needed */
+    }
+
+    .listings h2 {
+      font-size: 2rem;
+      color: var(--primary-blue);
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .listing-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+
+    .property-card {
+      background: var(--light-cyan-bg);
+      /* Provide clear separation with a border and subtle shadow */
+      border: 1px solid #ccc;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      border-radius: 4px;
+      overflow: hidden;
+      max-width: 300px;
+      text-align: left;
+    }
+
+    .property-card img {
+      width: 100%;
       display: block;
     }
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .property-card .property-info {
+      padding: 1rem;
     }
 
-    h2 {
-      border-bottom: 2px solid #1a73e8;
-      padding-bottom: 0.5rem;
-      margin-bottom: 1rem;
+    .property-card h3 {
+      font-size: 1.25rem;
+      color: var(--primary-blue);
+      margin: 0 0 0.5rem;
     }
 
-    ul {
-      list-style-type: square;
-      padding-left: 1.5rem;
+    .property-card p {
+      margin: 0.25rem 0;
+      color: var(--dark-text);
     }
 
-    footer {
-      background: linear-gradient(135deg, #0a1f3c, #1f2d50);
-      color: white;
+    /* Call-to-Action Section */
+    .cta-section {
+      background: var(--accent-gold);
+      color: var(--dark-text);
+      padding: 2.5rem 2rem;
       text-align: center;
-      padding: 2rem 1rem;
-      margin-top: 4rem;
-      font-size: 0.95rem;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      /* Strong separation: top border in brand blue */
+      border-top: 4px solid var(--primary-blue);
+    }
+
+    .cta-section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      /* Use brand blue for heading text on gold background for contrast */
+      color: var(--primary-blue);
+    }
+
+    .cta-section p {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-section .cta-link {
+      display: inline-block;
+      background: var(--primary-blue);
+      color: var(--light-text);
+      text-decoration: none;
+      padding: 0.75rem 1.5rem;
+      font-weight: 600;
+      border-radius: 4px;
+      /* Ensure button text vs background contrast ≥ 4.5:1 (WCAG AA) */
+    }
+
+    .cta-section .cta-link:hover {
+      background: var(--accent-cyan);
+      color: var(--light-text);
+    }
+
+    /* Footer Styles */
+    footer {
+      background: var(--primary-blue);
+      color: var(--light-text);
+      padding: 2rem 2rem;
+      text-align: center;
+      /* Visual separation from previous section with a subtle shadow or border */
+      box-shadow: 0 -3px 6px rgba(0, 0, 0, 0.3) inset;
     }
 
     footer p {
-      margin: 0.3rem 0;
-    }
-  </style>
-
-
-
-  <!-- Responsive Styles -->
-  <style>
-    .contact-bar {
-      background: #0a1f3c;
-      color: #8b949e;
-      text-align: center;
-      padding: 0.5rem;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      border-bottom: 1px solid #1f6feb;
-      font-size: 0.95rem;
+      margin: 0.5rem 0;
     }
 
-    .contact-bar a {
-      color: #79c0ff;
+    footer a {
+      color: var(--accent-gold);
+      text-decoration: none;
+    }
+
+    footer a:hover {
       text-decoration: underline;
     }
 
-    .topbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: rgba(10, 31, 60, 0.8);
-
-      backdrop-filter: blur(5px);
-    }
-
-    .menu-icon {
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: white;
-    }
-
-    .dropdown {
+    .submenu {
       display: none;
-      flex-direction: column;
-      background: #0a1f3c;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      border: 1px solid #ccc;
+      list-style: none;
       padding: 0.5rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      z-index: 9999;
+      min-width: 200px;
+    }
+
+    .submenu li a {
+      display: block;
+      padding: 0.5rem;
+      color: var(--primary-blue);
+      text-decoration: none;
+    }
+
+    .submenu li a:hover {
+      background: rgba(0, 115, 200, 0.1);
+    }
+
+    ul li {
+      text-decoration: none;
+    }
+
+    /* Responsive Design: Adjust layout for larger screens */
+    @media (min-width: 600px) {
+      header {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      header .logo {
+        margin-bottom: 0;
+      }
+
+      nav ul {
+        flex-direction: row;
+        width: auto;
+      }
+
+      nav li {
+        border: none;
+      }
+
+      nav li+li {
+        margin-left: 1rem;
+      }
+
+      .hero {
+        text-align: left;
+        padding: 6rem 4rem;
+
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+      }
+
+      .hero p {
+        font-size: 1.5rem;
+      }
+
+      .listings {
+        padding: 4rem 3rem;
+      }
+
+      .listing-grid {
+        justify-content: space-around;
+      }
+    }
+
+    /* Responsive Design: Further layout tweaks for very large screens */
+    @media (min-width: 992px) {
+      .listing-grid {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+    }
+
+    .flex-responsive {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    /* Children stack vertically on mobile */
+    .flex-responsive>div,
+    .flex-responsive>img,
+    .flex-responsive>video,
+    .flex-responsive>iframe {
+      flex: 1 1 100%;
+      max-width: 100%;
+    }
+
+    /* Side-by-side on tablets/desktops */
+    @media (min-width: 768px) {
+      .flex-responsive {
+        flex-wrap: nowrap;
+      }
+
+      .flex-responsive>div,
+      .flex-responsive>img,
+      .flex-responsive>video,
+      .flex-responsive>iframe {
+        flex: 1 1 50%;
+        max-width: 50%;
+      }
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: 800;
+      text-decoration: none;
+      color: var(--primary-blue);
+      /* Strong brand color for contrast */
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      position: relative;
+      transition: all 0.3s ease-in-out;
+    }
+
+    /* Optional underline or glow */
+    .logo::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 100%;
+      height: 3px;
+      background: var(--accent-gold);
+      /* Golden underline for premium feel */
+      border-radius: 2px;
+      transition: width 0.3s ease-in-out;
+    }
+
+    .logo:hover {
+      color: var(--accent-cyan);
+      transform: scale(1.03);
+    }
+
+    .logo:hover::after {
+      width: 60%;
+    }
+  </style>
+</head>
+
+<body> <!-- Header with Logo and Navigation -->
+  <header>
+    <!-- Video Header -->
+    <div class="header-video-wrapper">
+      <video autoplay muted loop class="header-video">
+        <source src="https://video.wixstatic.com/video/11062b_8f14374b6fe149aab751d12c94c2676f/720p/mp4/file.mp4"
+          type="video/mp4">
+      </video>
+
+      <!-- Logo and Navbar -->
+      <a href="#" class="logo logo-absolute">MITIKE</a>
+      <div class="nav-container">
+        <nav>
+          <ul class="main-nav">
+            <li>
+              <a onclick="toggleMenu('home-submenu')">Home</a>
+              <ul id="home-submenu" class="submenu">
+                <li><a href="#homeIntro" onclick="goToSection('homeIntro')">Home Intro</a></li>
+                <li><a href="#about" onclick="goToSection('about')">About</a></li>
+              </ul>
+            </li>
+            <li><a href="#services" onclick="goToSection('services')">Buying</a></li>
+            <li><a href="#sellingProcess" onclick="goToSection('sellingProcess')">Selling</a></li>
+            <li class="desktop-only">
+              <a onclick="toggleMenu('lenders-submenu')">Lenders</a>
+              <ul id="lenders-submenu" class="submenu">
+                <li><a href="#lenders" onclick="goToSection('lenders')">Lenders</a></li>
+                <li><a href="#programs" onclick="goToSection('programs')">Loan Programs</a></li>
+                <li><a href="#whatNotToDo" onclick="goToSection('whatNotToDo')">What Not To Do</a></li>
+              <!--  <li><a href="#trustedLenders" onclick="goToSection('trustedLenders')">Trusted Lenders</a></li> -->
+              <li><a href="#joinTeamSection" onclick="goToSection('joinTeamSection')">Loan Partners</a></li>
+              </ul>
+            </li>
+            <li class="desktop-only">
+              <a onclick="toggleMenu('more-submenu')">More</a>
+              <ul id="more-submenu" class="submenu">
+                <li><a href="#contact" onclick="goToSection('contact')">Contact</a></li>
+                <li><a href="#affordabilityCalculator" onclick="goToSection('affordabilityCalculator')">Calculator</a>
+                </li>
+                <li><a href="#zillowProfile" onclick="goToSection('zillowProfile')">Zillow Profile</a></li>
+               <!-- <li><a href="#joinTeamSection" onclick="goToSection('joinTeamSection')">Loan Partners</a></li> -->
+              </ul>
+            </li>
+            <li class="mobile-only">
+              <a onclick="toggleMenu('mobileMenu')">☰ Menu</a>
+              <ul id="mobileMenu" class="submenu">
+                <li><a href="#homeIntro" onclick="goToSection('homeIntro')">Home Intro</a></li>
+                <li><a href="#about" onclick="goToSection('about')">About</a></li>
+                <li><a href="#lenders" onclick="goToSection('lenders')">Lenders</a></li>
+                <li><a href="#programs" onclick="goToSection('programs')">Loan Programs</a></li>
+                <li><a href="#whatNotToDo" onclick="goToSection('whatNotToDo')">What Not To Do</a></li>
+               <!-- <li><a href="#trustedLenders" onclick="goToSection('trustedLenders')">Trusted Lenders</a></li> -->
+                <li><a href="#contact" onclick="goToSection('contact')">Contact</a></li>
+                <li><a href="#affordabilityCalculator" onclick="goToSection('affordabilityCalculator')">Calculator</a>
+                </li>
+                <li><a href="#zillowProfile" onclick="goToSection('zillowProfile')">Zillow Profile</a></li>
+                <li><a href="#joinTeamSection" onclick="goToSection('joinTeamSection')"> Loan Partners</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .header-video-wrapper {
+      position: relative;
+      width: 100vw;
+      height: 400px;
+      overflow: visible;
+      z-index: 10;
+    }
+
+    .header-video {
+      width: 100vw;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+
+    .nav-container {
+      position: absolute;
+      bottom: 0;
+      width: 100vw;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 0.5rem 0rem;
+      display: flex;
+      justify-content: flex-start;
+      z-index: 1;
+    }
+
+    .logo-absolute {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+      z-index: 2;
+      text-decoration: none;
+    }
+
+    #about,
+    #services,
+    #sellingProcess,
+    #lenders,
+    #programs,
+    #whatNotToDo,
+    #trustedLenders,
+    #affordabilityCalculator,
+    #joinTeamSection {
+      display: none;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-direction: row;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      padding-left: 0;
+    }
+
+    nav li {
+      position: relative;
+      text-align: left;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #0b5394;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .submenu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 200px;
+      background-color: #ffffff;
+      border: 1px solid #ccc;
+      padding: 0.5rem 0;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       z-index: 9999;
     }
 
-    .dropdown a {
-      color: #79c0ff;
-      text-decoration: none;
-      padding: 0.5rem 0;
-      border-bottom: 1px solid #1f6feb;
-      z-index: 999;
+    .submenu li {
+      padding: 0 1rem;
+      margin: 0.3rem 0;
+      white-space: nowrap;
     }
 
-    .dropdown a:last-child {
-      border-bottom: none;
+    .submenu li:last-child {
+      margin-bottom: 0.3rem;
     }
 
-    .header-video video {
-      width: 100%;
-      height: auto;
-      margin-top: -67px;
-      /* Adjust for header height */
-      /* Adjust for header height */
+    .submenu.show {
+      display: block;
     }
 
-    section:first-of-type {
-      margin-top: 0 !important;
-    }
-
-    .overlay {
-      position: absolute;
-      top: 30%;
-      left: 50%;
-      transform: translate(-50%, -30%);
-      text-align: center;
-      width: 100%;
-      pointer-events: none;
-      /* prevents it from affecting layout */
-      z-index: 2;
-    }
-
-
-    .overlay h1 {
-      font-size: 2.5rem;
-      font-weight: bold;
-      text-shadow: 0 0 15px #1f6feb;
-      margin-bottom: 4rem;
-
-    }
-
-    .overlay p {
-      font-size: 1rem;
-      color: #79c0ff;
-      text-shadow: 0 0 10px black;
-      text-align: center;
-      margin-top: -10px;
-
-
-    }
-
-    .contact-footer {
-      background: linear-gradient(135deg, #0a1f3c, #1f2d50);
-      padding: 1rem;
-      text-align: center;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: #79c0ff;
-      font-size: 1rem;
-      border-bottom: 1px solid rgba(121, 192, 255, 0.4);
-      box-shadow: 0 0 10px rgba(121, 192, 255, 0.2);
-      animation: glowPulse 5s infinite ease-in-out;
-    }
-
-    .contact-footer a {
-      color: #58a6ff;
-    }
-
-    .powered {
-      color: #8b949e;
-      font-size: 0.9rem;
-      margin-top: 0.5rem;
-    }
-
-    @keyframes glowPulse {
-      0% {
-        box-shadow: 0 0 5px rgba(121, 192, 255, 0.2);
-      }
-
-      50% {
-        box-shadow: 0 0 15px rgba(121, 192, 255, 0.5);
-      }
-
-      100% {
-        box-shadow: 0 0 5px rgba(121, 192, 255, 0.2);
-      }
-    }
-
-
-
-    @media screen and (max-width: 768px) {
-      #SITE_HEADER>div {
-        flex-direction: column !important;
-        align-items: center;
-        text-align: center;
-        padding: 1rem 0.5rem !important;
-      }
-
-      #SITE_HEADER>div>div {
-        width: 100%;
-        margin: 0.3rem 0;
-      }
-
-      #SITE_HEADER a {
-        word-break: break-word;
-      }
-
-      #SITE_HEADER {
-        font-size: 0.9rem;
-      }
-    }
-  </style>
-
-
-
-  <style>
-    @media screen and (max-width: 480px) {
-      .overlay {
-        top: 40% !important;
-      }
-    }
-  </style>
-
-
-</head>
-
-<body>
-
-  <!-- jQuery CDN -->
-
-
-  <header id="SITE_HEADER">
-
-    <!-- Top Contact Bar -->
-    <div style="
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.8rem 1.2rem;
-    background: linear-gradient(135deg, #0a1f3c, #1f2d50);
-    font-family: 'Segoe UI', Tahoma, sans-serif;
-    color: #79c0ff;
-    font-size: 1rem;
-    box-shadow: 0 0 10px rgba(121,192,255,0.2);
-    border-bottom: 1px solid rgba(121, 192, 255, 0.4);
-    animation: glowPulse 5s infinite ease-in-out;
-    position: relative;
-    z-index: 999;
-    min-height: 67px;
-  ">
-      <!-- Left: Menu Icon -->
-      <div style="flex: 0 0 auto; font-size: 1.6rem; cursor: pointer;" onclick="toggleDropdown()">☰</div>
-
-      <!-- Center: Contact Info -->
-      <div style="flex: 1 1 auto; text-align: center; padding: 0 1rem;">
-        📞 <strong style="color: white;">Phone:</strong> <span style="color: gold;">913-306-5216</span> &nbsp;|&nbsp;
-        🏢 <strong style="color: white;">Office:</strong> <span style="color: gold;">888-220-0988</span> &nbsp;|&nbsp;
-        ✉️ <strong style="color: white;">Email:</strong>
-        <a href="mailto:shignya.sm@gmail.com" style="color: gold; text-decoration: underline;">shignya.sm@gmail.com</a>
-      </div>
-
-      <!-- Right: Google Translate -->
-      <!-- Right: Google Translate -->
-      <div style="flex: 0 0 auto;">
-        <div style="
-    display: inline-block;
-    background: linear-gradient(135deg, rgba(255,215,0,0.05), rgba(255,215,0,0.1));
-    border: 1px solid gold;
-    border-radius: 10px;
-    padding: 0.4rem 0.7rem;
-    color: gold;
-    font-weight: bold;
-    font-size: 0.95rem;
-    box-shadow: 0 0 10px rgba(255,215,0,0.3);
-    transition: all 0.3s ease;
-    cursor: pointer;
-  " onmouseover="this.style.boxShadow='0 0 15px gold'"
-          onmouseout="this.style.boxShadow='0 0 10px rgba(255,215,0,0.3)'">
-          🌐 Language:
-          <span id="google_translate_element" style="margin-left: 0.4rem;"></span>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Dropdown Menu -->
-    <style>
-      .dropdown {
-        background: #1e2a38;
-        padding: 0.5rem;
-        border-radius: 12px;
-        width: 100%;
-        max-width: 320px;
-        font-family: 'Segoe UI', sans-serif;
-        color: #d0e8f2;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-        box-sizing: border-box;
-        margin: 1rem auto 0 auto;
+    @media (min-width: 768px) {
+      .mobile-only {
         display: none;
       }
 
-      .dropdown a {
-        display: flex;
+      .nav-container {
+        flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        padding: 0.5rem 0.8rem;
-        color: inherit;
-        text-decoration: none;
-        border-radius: 6px;
-        transition: background 0.3s ease;
-        cursor: pointer;
-        font-size: 0.95rem;
-        text-align: left;
+        padding: 1rem 10rem;
       }
+    }
 
-      .dropdown a:hover {
-        background: #2f3e54;
-      }
-
-      .main-menu,
-      .submenu-wrapper {
+    @media (max-width: 767px) {
+      .desktop-only {
         display: none;
-        flex-direction: column;
-        gap: 0.2rem;
       }
+    }
+  </style>
 
-      .back-button {
-        padding: 0.4rem 0.8rem;
-        font-size: 0.85rem;
-        color: #89c9ff;
-        cursor: pointer;
-        width: fit-content;
-        margin-bottom: 0.3rem;
-      }
-
-      .arrow {
-        transition: transform 0.3s ease;
-        font-size: 0.8rem;
-        margin-left: 6px;
-      }
-
-      .rotated {
-        transform: rotate(90deg);
-      }
-
-      @media (max-width: 480px) {
-        .dropdown {
-          max-width: 70vw;
-          min-width: 240px;
-        }
-        
-        .dropdown a {
-          font-size: 1.1rem;
-          padding: 0.4rem 0.6rem;
-        }
-
-        .back-button {
-          font-size: 0.8rem;
-        }
-      }
-
-      @keyframes glowPulse {
-        0% {
-          box-shadow: 0 0 5px rgba(121, 192, 255, 0.2);
-        }
-
-        50% {
-          box-shadow: 0 0 15px rgba(121, 192, 255, 0.5);
-        }
-
-        100% {
-          box-shadow: 0 0 5px rgba(121, 192, 255, 0.2);
-        }
-      }
-    </style>
-
-    <div class="dropdown" id="dropdownMenu">
-      <!-- Main Menu -->
-      <div class="main-menu" id="mainMenu" style="display: flex;">
-        <a onclick="showSubmenu('home')">🏠 Home <span id="arrow-home" class="arrow">▶</span></a>
-        <a onclick="showSubmenu('lender')">🏦 Lenders <span id="arrow-lender" class="arrow">▶</span></a>
-        <a onclick="selectTab('zillowSearch')">🔍 Search Listings</a>
-        <a onclick="selectTab('mortgageCalculator')">🧮 Calculator</a>
-        <a onclick="selectTab('zillowProfile')">📇 Zillow Profile</a>
-        <a onclick="selectTab('trustedLenders')">🤝 Loan Partners</a>
-        <a onclick="selectTab('contact')">📞 Contact</a>
-      </div>
-
-      <!-- Home Submenu -->
-      <div class="submenu-wrapper" id="homeSubmenu">
-        <div class="back-button" onclick="backToMain()">⬅ Back</div>
-        <a onclick="selectTab('homeIntro')">🏡 Home Intro</a>
-        <a onclick="selectTab('about')">ℹ️ About Us</a>
-        <a onclick="selectTab('services')">🛒 Buying Process</a>
-        <a onclick="selectTab('sellingProcess')">📤 Selling Process</a>
-      </div>
-
-      <!-- Lenders Submenu -->
-      <div class="submenu-wrapper" id="lenderSubmenu">
-        <div class="back-button" onclick="backToMain()">⬅ Back</div>
-        <a onclick="selectTab('lenders')">🏛️ Lenders</a>
-        <a onclick="selectTab('programs')">📋 Loan Programs</a>
-        <a onclick="selectTab('whatNotToDo')">❌ What Not To Do</a>
-        <a onclick="selectTab('mortgageListings')">📊 Listings</a>
-      </div>
-    </div>
-
-    <!-- Background Video -->
-    <div>
-      <video autoplay muted loop playsinline style="width: 100%; height: auto;">
-        <source src="https://video.wixstatic.com/video/11062b_8f14374b6fe149aab751d12c94c2676f/720p/mp4/file.mp4"
-          type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-    </div>
-
-    <!-- Overlay Content -->
-    <div class="overlay" style="
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    color: #fff;
-    width: 100%;
-  ">
-      <h1 style="font-size: 3rem; font-weight: bold; text-shadow: 0 0 15px #1f6feb;">MITIKE</h1>
-
-      <!--  <div class="quote-rotator">
-        <p id="quoteText" class="glow-quote"></p>
-      </div>  -->
-    </div>
-
-    <style>
-      #quoteText.glow-quote {
-        font-size: 1.2rem;
-        color: cyan;
-        text-shadow: 0 0 10px #000;
-        transition: opacity 0.6s ease-in-out;
-        font-weight: 500;
-        padding: 0 1rem;
-      }
-
-      .quote-rotator {
-        min-height: 2.4rem;
-        padding-top: 1rem;
-        animation: fadeIn 1s ease-in-out;
-        text-align: center;
-      }
-
-      @media screen and (max-width: 768px) {
-        .hide-on-mobile {
-          display: none !important;
-        }
-      }
-
-      @media screen and (max-width: 480px) {
-        .glow-quote {
-          font-size: 0.95rem;
-        }
-      }
-    </style>
-
-  </header>
-
-  <!-- jQuery Script for dropdown menu logic -->
   <script>
-    function toggleDropdown() {
-      $('#dropdownMenu').slideToggle(200);
-    }
+    const sectionIds = [
+      'homeIntro', 'about', 'services', 'sellingProcess',
+      'lenders', 'programs', 'whatNotToDo', 'trustedLenders',
+      'contact', 'affordabilityCalculator', 'zillowProfile', 'joinTeamSection'
+    ];
 
-    function showSubmenu(type) {
-      $('#mainMenu').slideUp(200, function () {
-        $('.submenu-wrapper').hide();
-        $('#' + type + 'Submenu').slideDown(200);
+    function toggleMenu(id) {
+      document.querySelectorAll('.submenu').forEach(menu => {
+        if (menu.id !== id) menu.classList.remove('show');
       });
-      $('.arrow').removeClass('rotated');
-      $('#arrow-' + type).addClass('rotated');
+      const submenu = document.getElementById(id);
+      if (submenu) submenu.classList.toggle('show');
     }
 
-    function backToMain() {
-      $('.submenu-wrapper').slideUp(200, function () {
-        $('#mainMenu').slideDown(200);
+    function goToSection(id) {
+      sectionIds.forEach(secId => {
+        const sec = document.getElementById(secId);
+        if (sec) sec.style.display = 'none';
       });
-      $('.arrow').removeClass('rotated');
+
+      const selected = document.getElementById(id);
+      if (selected) {
+        selected.style.display = 'block';
+        selected.scrollIntoView({ behavior: 'smooth' });
+      }
+
+      document.querySelectorAll('.submenu').forEach(menu => menu.classList.remove('show'));
     }
 
-    function selectTab(tabId) {
-      console.log("Navigating to:", tabId);
-      backToMain();
-      $('#dropdownMenu').slideUp(200);
-    }
-
-    // Optional: close dropdown if clicked outside
-    $(document).on('click', function (e) {
-      if (!$(e.target).closest('#SITE_HEADER').length) {
-        $('#dropdownMenu').slideUp(200);
+    document.addEventListener('click', function (event) {
+      if (!event.target.closest('nav')) {
+        document.querySelectorAll('.submenu').forEach(menu => menu.classList.remove('show'));
       }
     });
   </script>
 
-  <!-- Quote Rotator Script -->
-  <script>
-    const quotes = [
-      "🌐 Multilingual Support for Every Homebuyer",
-      "🏡 Your Trusted Real Estate Partner",
-      "💡 Guiding You Through the Homebuying Journey",
-      "📈 Tech-Driven Strategies for Modern Home Sellers",
-      "🔍 Personalized Listings & Local Expertise",
-      "📋 Smart Decisions Start with the Right Guidance",
-      "🤝 Connecting You with the Right Loan Experts",
-      "🧠 Educating Buyers with the Power of Technology",
-      "💰 Discover Grants & Smart Mortgage Options",
-      "🧭 Navigate Every Step with Confidence"
-    ];
-
-    let currentIndex = 0;
-    const quoteElement = document.getElementById("quoteText");
-
-    function rotateQuote() {
-      quoteElement.style.opacity = 0;
-      setTimeout(() => {
-        quoteElement.textContent = quotes[currentIndex];
-        quoteElement.style.opacity = 1;
-        currentIndex = (currentIndex + 1) % quotes.length;
-      }, 500);
-    }
-
-    rotateQuote();
-    setInterval(rotateQuote, 6000);
-  </script>
-
-  </header>
 
 
+  <!-- Hero Section: rich background, high-contrast text -->
+  <section class="hero" id="dynamicHero">
+    <img id="heroImage" src="" alt="Section Image"
+      style="width: 100%; max-height: 360px; object-fit: cover; border-radius: 10px; margin-bottom: 1.5rem; display: none;" />
 
-  <section id="homeIntro" class="active"
-    style="padding: 2rem 2rem; background: radial-gradient(circle at top right, #0f2027, #203a43, #2c5364); color: white; font-family: 'Inter', sans-serif;">
+    <h1 id="heroTitle" style="font-size: 1.8rem">Find Your Dream Home</h1>
+    <p id="heroSubtitle">
+      Discover the best properties with our trusted real estate experts. We offer homes that fit your lifestyle and
+      budget with ease.
+    </p>
 
-    <h2
-      style="text-align: center; font-size: 2.0rem; margin-bottom: 2rem; color: #00fff7; letter-spacing: 1px; text-shadow: 0 2px 10px rgba(0, 255, 247, 0.3);">
-      🏡 Welcome to <span style="color: gold;">MITIKEKC.COM</span>
+    <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-top: 1.5rem;">
+      <div id="google_translate_element" class="cta-translate"></div>
+    </div>
+  </section>
+
+
+  <section id="listings" class="listings">
+    <h2 style="font-size: 1.8rem">Featured Listings</h2>
+    <div class="listing-grid">
+      <!-- Property Card 1 -->
+      <div class="property-card">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80"
+          alt="Maple Street Mansion - exterior view" />
+        <div class="property-info">
+          <h3>Maple Street Mansion</h3>
+          <p>4 Bed, 3 Bath – $850,000</p>
+          <p>Kansas City, MO</p>
+        </div>
+      </div>
+      <!-- Property Card 2 -->
+      <div class="property-card">
+        <img src="image/house3.png" alt="Oakwood Family Home - exterior view" />
+        <div class="property-info">
+          <h3>Oakwood Family Home</h3>
+          <p>3 Bed, 2 Bath – $420,000</p>
+          <p>Mission, KS</p>
+        </div>
+      </div>
+      <!-- Property Card 3 -->
+      <div class="property-card">
+        <img src="image/house2.png" alt="Pine Ridge Estate - exterior view" />
+        <div class="property-info">
+          <h3>Pine Ridge Estate</h3>
+          <p>5 Bed, 4 Bath – $1,250,000</p>
+          <p>Overland Park, KS</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="cta-section">
+    <h2 style="font-size: 1.8rem">Your New Home Awaits</h2>
+    <p>Ready to take the next step? Our team is here to guide you through the process. Get in touch today to
+      schedule a viewing or ask any questions.</p> <a href="mailto:shignya.sm@gmail.com" class="cta-link">Contact
+      Us</a>
+  </section> <!-- Footer: dark background with light text for contrast -->
+
+  <section id="homeIntro" class="listings" style="padding-top: 2rem;">
+    <h2 style="color: var(--accent-cyan); text-align: center; font-size: 1.8rem">
+      🏡 Welcome to <span style="color: var(--accent-gold);">MITIKEKC.COM</span>
     </h2>
 
-    <div
-      style="display: flex; flex-wrap: wrap; align-items: center; gap: 2rem; background: linear-gradient(145deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); padding: 2rem; border-radius: 18px; box-shadow: 0 12px 32px rgba(0,0,0,0.35);">
+    <div class="listing-block" style="max-width: 1000px; margin: auto;">
       <img src="image/homesss.jpg" alt="Helping Community"
-        style="width: 300px; border-radius: 16px; box-shadow: 0 0 12px rgba(0,0,0,0.3); object-fit: cover;">
+        style="width: 100%; height: auto; max-height: 360px; object-fit: cover; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.2);" />
 
-      <div style="flex: 1;">
-        <h3 style="color: #00bcd4; font-size: 1.6rem; margin-bottom: 1rem;">
-          <span style="color: gold;">Empowering</span> Communities Through Real Estate
-        </h3>
-        <p style="line-height: 1.8; color: #d0e8f2;">
-          <span style="color: #00fff7;">MITIKEKC.COM</span> is more than a <span
-            style="color: #00fff7;">platform</span>—it’s a
-          <span style="color: gold;">trusted partner</span> for homebuyers, sellers, and families navigating the real
-          estate journey.
-          We connect our community with valuable resources including
-          <span style="color: #00fff7;">mortgage guidance</span>, <span style="color: #00fff7;">bank</span> and
-          consultant info,
-          <span style="color: #00fff7;">loan programs</span>, and tailored real estate strategies.
+      <div style="margin-top: 1.5rem;">
+        <h3 style="color: var(--primary-blue); font-size: 1.5rem;">Empowering Communities Through Real Estate</h3>
+        <p>
+          <strong style="color: var(--accent-cyan);">MITIKEKC.COM</strong> is more than a platform—it's your trusted
+          partner for homebuyers, sellers, and families navigating the real estate journey. We connect the community
+          with
+          valuable resources like mortgage guidance, bank consultants, and custom loan programs.
         </p>
-        <p style="line-height: 1.8; color: #d0e8f2;">
-          Whether you're <span style="color: gold;">buying your first home</span> or planning to sell, we offer
-          <span style="color: gold;">personalized insights</span> and curated tools designed to make your experience
-          <span style="color: gold;">smoother</span> and more <span style="color: gold;">successful</span>.
+        <p>
+          Whether you're buying your first home or selling, we offer
+          <span style="color: var(--accent-gold);">personalized insights</span> and tools to make the process smoother
+          and more successful.
         </p>
       </div>
     </div>
 
-    <style>
-      @media (max-width: 768px) {
-        .responsive-flex {
-          flex-direction: column !important;
-        }
-      }
-    </style>
+    <div class="listing-block" style="margin-top: 2rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
+      <img src="image/lan.png" alt="Language Support Visual"
+        style="width: 100%; height: auto; max-height: 360px; object-fit: cover; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.25);" />
 
-    <div class="responsive-flex"
-      style="margin-top: 2rem; display: flex; flex-wrap: wrap; align-items: flex-start; gap: 2rem; background: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015)); padding: 2rem; border-radius: 18px; box-shadow: 0 12px 30px rgba(0,0,0,0.3);">
-
-      <!-- Text Column -->
-      <div style="flex: 1;">
-        <h3 style="color: #00bcd4; font-size: 1.6rem; margin-bottom: 1rem;">
-          <span style="color: gold;">Multilingual Support</span> for Every Buyer
-        </h3>
-        <p style="line-height: 1.8; color: #d0e8f2;">
-          We believe that <span style="color: gold;">language</span> should never be a barrier when making one of the
-          biggest decisions of your life. That’s why our site integrates
-          <span style="color: #00fff7;">smart translation tools</span>, allowing every user to read content in their
-          preferred language.
+      <div style="margin-top: 1.5rem;">
+        <h3 style="color: var(--primary-blue); font-size: 1.5rem;">🌐 Multilingual Support</h3>
+        <p>
+          We believe <strong>language</strong> should never be a barrier to buying a home. That’s why our site
+          integrates
+          smart translation tools, allowing everyone to read in their preferred language with confidence.
         </p>
-        <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 1rem;">
-          <img src="image/lan.png" alt="Language Support Visual"
-            style="width: 100%; max-width: 480px; border-radius: 16px; box-shadow: 0 0 16px rgba(0,0,0,0.3);" />
-
-          <p style="line-height: 1.8; color: #d0e8f2;">
-            This ensures <span style="color: gold;">full understanding</span> of every step—no guesswork, no
-            confusion—just <span style="color: gold;">confident</span>, <span style="color: gold;">informed
-              decisions</span>.
-          </p>
-        </div>
-
-        <!-- Right Column: Images + Video -->
-
-
-        <!-- Image -->
-
-
-        <!-- Video -->
-
-
+        <p>This ensures <strong>full understanding</strong>—no guesswork, just informed, confident decisions.</p>
       </div>
     </div>
-
-
-
-
 
     <div
-      style="margin-top: 2rem; background: rgba(255,255,255,0.04); border-radius: 16px; padding: 2rem; text-align: center;">
-      <h3 style="color: #00bcd4; font-size: 1.5rem;">💡 Our Mission</h3>
-      <p style="color: #c2e9fb; font-size: 1.1rem; line-height: 1.8; max-width: 800px; margin: auto;">
-        To <span style="color: gold;">empower every family</span> with <span style="color: gold;">knowledge</span>,
-        <span style="color: gold;">confidence</span>, and the right connections to navigate real estate—
-        whether buying, selling, or just exploring the journey. Your <span style="color: #00fff7;">success</span> is our
+      style="margin-top: 3rem; text-align: center; background: var(--light-cyan-bg); border-radius: 8px; padding: 2rem; max-width: 900px; margin-left: auto; margin-right: auto;">
+      <h3 style="color: var(--primary-blue); font-size: 1.5rem;">💡 Our Mission</h3>
+      <p style="max-width: 800px; margin: auto;">
+        To <span style="color: var(--accent-red);">empower every family</span> with
+        <span style="color: var(--accent-red);">knowledge</span>,
+        <span style="color: var(--accent-red);">confidence</span>, and the right connections to navigate real estate.
+        Whether buying, selling, or just exploring, your <span style="color: var(--accent-cyan);">success</span> is our
         purpose.
       </p>
     </div>
   </section>
 
+  <section class="listings" id="about" style="padding-top: 2rem;">
+    <h2 style="text-align: center; color: var(--accent-cyan); font-size: 1.8rem; margin-bottom: 2rem;">
+      🏠 About Us
+    </h2>
 
-  <section id="about"
-    style="padding: 4rem 2rem; background: radial-gradient(circle at top left, #0f2027, #203a43, #2c5364); color: white; font-family: 'Inter', sans-serif;">
-
-    <h2
-      style="text-align: center; font-size: 2.8rem; margin-bottom: 2.5rem; color: #00fff7; letter-spacing: 1px; text-shadow: 0 2px 10px rgba(0, 255, 247, 0.3);">
-      🏠 About Us</h2>
-
-    <!-- Block 1 -->
-    <div
-      style="display: flex; flex-wrap: wrap; align-items: center; gap: 2rem; background: linear-gradient(145deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03)); padding: 2rem; border-radius: 18px; box-shadow: 0 12px 32px rgba(0,0,0,0.4);">
-
+    <div class="listing-block" style="max-width: 1000px; margin: auto;">
+      <!-- Video on top -->
       <video autoplay muted loop playsinline
-        style="width: 280px; border-radius: 16px; box-shadow: 0 0 12px rgba(0,0,0,0.3); object-fit: cover;">
+        style="width: 100%; height: auto; max-height: 360px; border-radius: 8px; object-fit: cover; box-shadow: 0 2px 10px rgba(0,0,0,0.25); margin-bottom: 1.5rem;">
         <source src="image/3773486-hd_1920_1080_30fps.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
-      <div style="flex: 1;">
-        <h3 style="color: #00bcd4; font-size: 1.6rem;">Welcome to Your <span
-            style="color: #00ffff; font-weight: 600;">Homebuying Journey</span></h3>
-        <p>Hello, my name is <span style="color: #00ffff; font-weight: 600;">Shig</span>, and I’ve had the privilege of
-          working with
-          <span style="color: #00ffff; font-weight: 600;">first-time homebuyers</span> for over four years. I’m excited
-          to help guide you on this journey toward <span style="color: #00ffff; font-weight: 600;">purchasing your first
-            home</span>.
+      <!-- Text Content Below -->
+      <div>
+        <h3 style="color: var(--primary-blue); font-size: 1.5rem; margin-bottom: 1rem;">
+          Welcome to Your <span style="color: var(--accent-cyan); font-weight: bold;">Homebuying Journey</span>
+        </h3>
+        <p>
+          Hello, my name is <span style="color: var(--accent-cyan); font-weight: bold;">Shig</span>, and I’ve had the
+          privilege of working with <span style="color: var(--accent-cyan); font-weight: bold;">first-time
+            homebuyers</span> for over
+          four years. I’m excited to help guide you on this journey toward <span
+            style="color: var(--accent-cyan); font-weight: bold;">purchasing your first home</span>.
         </p>
-        <p>Whether you're <span style="color: #00ffff; font-weight: 600;">curious about the process</span>, already
-          preparing, or just
-          exploring — this platform was built with you in mind to offer <span
-            style="color: #00ffff; font-weight: 600;">guidance and clarity</span>.</p>
-      </div>
-    </div>
-
-    <!-- Block 2 -->
-    <div
-      style="margin-top: 2rem; display: flex; flex-wrap: wrap; align-items: center; gap: 2rem; background: linear-gradient(145deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); padding: 2rem; border-radius: 18px; box-shadow: 0 12px 32px rgba(0,0,0,0.35);">
-
-      <div style="flex: 1;">
-        <h3 style="color: #00bcd4; font-size: 1.6rem;">Empowering Your <span
-            style="color: #00ffff; font-weight: 600;">Decisions</span></h3>
-        <p>Many first-time buyers ask me questions like:
-          <span style="color: #00ffff; font-weight: 600;">“Is now a good time to buy?”</span>,
-          <span style="color: #00ffff; font-weight: 600;">“Should I wait for rates to drop?”</span>, and
-          <span style="color: #00ffff; font-weight: 600;">“Are there programs to help with down payments?”</span>
-        </p>
-        <p>These are <span style="color: #00ffff; font-weight: 600;">great questions</span>, and while there’s no
-          universal answer,
-          <span style="color: #00ffff; font-weight: 600;">being informed</span> and ready is always the best move.
-        </p>
-        <p><span style="color: #00ffff; font-weight: 600;">You’re not limited</span> to any specific lender — feel free
-          to
-          <span style="color: #00ffff; font-weight: 600;">shop around</span> and choose what suits your needs best.
-        </p>
-      </div>
-
-      <!-- YouTube Video Embed -->
-      <iframe width="280" height="157" src="https://www.youtube.com/embed/-mBcMD1rLLk"
-        title="How AI Will Revolutionize Home Buying" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
-      encrypted-media; gyroscope; picture-in-picture" allowfullscreen
-        style="border-radius: 16px; box-shadow: 0 0 12px rgba(0,0,0,0.3);">
-      </iframe>
-
-    </div>
-
-
-    <!-- Block 3 -->
-    <div
-      style="margin-top: 2rem; display: flex; flex-wrap: wrap; align-items: center; gap: 2rem; background: linear-gradient(145deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); padding: 2rem; border-radius: 18px; box-shadow: 0 12px 32px rgba(0,0,0,0.35);">
-      <img src="image/key.jpg" alt="Receiving House Keys"
-        style="width: 280px; border-radius: 16px; box-shadow: 0 0 12px rgba(0,0,0,0.3);" />
-      <div style="flex: 1;">
-        <h3 style="color: #00bcd4; font-size: 1.6rem;">What This Site <span
-            style="color: #00ffff; font-weight: 600;">Covers</span></h3>
-        <p>This platform walks you through <span style="color: #00ffff; font-weight: 600;">each step</span> — from
-          <span style="color: #00ffff; font-weight: 600;">choosing your agent and lender</span>, to
-          <span style="color: #00ffff; font-weight: 600;">submitting an offer</span>,
-          <span style="color: #00ffff; font-weight: 600;">inspections</span>, and finally
-          <span style="color: #00ffff; font-weight: 600;">closing on your dream home</span>.
-        </p>
-        <p>Your journey to <span style="color: #00ffff; font-weight: 600;">homeownership</span> starts right here —
-          and I’m honored to be part of it. Let’s make it <span
-            style="color: #00ffff; font-weight: 600;">stress-free</span> and
-          <span style="color: #00ffff; font-weight: 600;">successful</span>.
+        <p>
+          Whether you're <span style="color: var(--accent-cyan); font-weight: bold;">curious about the process</span>,
+          already preparing, or just exploring — this platform was built with you in mind to offer
+          <span style="color: var(--accent-cyan); font-weight: bold;">guidance and clarity</span>.
         </p>
       </div>
     </div>
   </section>
 
-
-
-  <section id="services"
-    style="padding: 4rem 2rem; background: radial-gradient(circle at top left, #0f2027, #203a43, #2c5364); color: white; font-family: 'Inter', sans-serif;">
-    <h2
-      style="text-align: center; font-size: 2.6rem; margin-bottom: 2.5rem; color: #00fff7; letter-spacing: 1px; text-shadow: 0 2px 10px rgba(0, 255, 247, 0.25);">
-      📋 Buying Process</h2>
-
-    <!-- Block 1 with video -->
-    <div
-      style="display: flex; flex-wrap: wrap; align-items: center; gap: 2rem; background: linear-gradient(145deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03)); padding: 2rem; border-radius: 18px; box-shadow: 0 12px 32px rgba(0,0,0,0.4);">
-
-      <div style="flex: 1;">
-        <h3 style="color: #00bcd4; font-size: 1.6rem;">1. Before Applying for a Loan</h3>
-        <p style="color: #d0e8f2; line-height: 1.7; font-size: 1.05rem;">Buying a home involves more than just a down
-          payment. It’s important to budget for inspections, closing costs, appraisals, and unexpected home maintenance.
-          Consider putting aside funds for essential tools, appliances, and emergency repairs.</p>
-        <p style="color: #d0e8f2;">Most of my clients aim to put <strong style="color: #00ffff;">20%</strong> down to
-          avoid
-          PMI, though <strong style="color: #00ffff;">3.5%</strong> options exist. PMI can often be removed once you’ve
-          paid off 20%.</p>
-        <p style="color: #ffffff; font-weight: bold;">Credit score is also critical:</p>
-        <ul style="color: #c2e9fb; line-height: 1.8; padding-left: 1.2rem;">
-          <li><strong>Poor:</strong> 579 or below</li>
-          <li><strong>Fair:</strong> 580–669</li>
-          <li><strong>Good:</strong> 670–739</li>
-          <li><strong>Very Good:</strong> 740–799</li>
-          <li><strong>Excellent:</strong> 800+</li>
-        </ul>
-        <p style="color: #d0e8f2;">By knowing your score and improving it, you unlock better rates and lower monthly
-          payments.</p>
-      </div>
-
-      <!-- Video 1 -->
-      <iframe width="320" height="180" src="https://www.youtube.com/embed/l4J5RvGB-iM"
-        title="Mortgage Explained | Personal Finance 101" frameborder="0"
-        style="border-radius: 16px; box-shadow: 0 0 12px rgba(0,0,0,0.3);"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>
-    </div>
-
-    <!-- Block 2 with second video -->
-    <div
-      style="margin-top: 2rem; display: flex; flex-wrap: wrap; align-items: center; gap: 2rem; background: linear-gradient(145deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); padding: 2rem; border-radius: 18px; box-shadow: 0 12px 32px rgba(0,0,0,0.35);">
-
-      <!-- Video 2 -->
-      <iframe width="320" height="180" src="https://www.youtube.com/embed/fBP2E8J6SZ0"
-        title="How To Buy A House (STEP BY STEP)" frameborder="0"
-        style="border-radius: 16px; box-shadow: 0 0 12px rgba(0,0,0,0.3);"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>
-
-      <div style="flex: 1;">
-        <h3 style="color: #00bcd4; font-size: 1.6rem;">2. Additional Steps</h3>
-        <ul style="line-height: 1.8; color: #d0e8f2; padding-left: 1.2rem;">
-          <li><strong>Improving Credit Score:</strong> Crucial for qualifying better rates and terms.</li>
-          <li><strong>Loan Documents Required:</strong> Tax returns, pay stubs, W2s/1099s, bank statements, ID, and
-            more.</li>
-          <li><strong>What Not To Do:</strong> Avoid job changes, large financial moves, new debt, or changing marital
-            status before closing.</li>
-          <li><strong>Finding Your Home & Making an Offer:</strong> Your agent will help strategize your offer. Earnest
-            money (typically 1%-3%) is submitted after acceptance and held by the title company.</li>
-          <li><strong>Inspections:</strong> Types include General, Termite, Sewer, Foundation, and Radon. Use findings
-            to negotiate repairs or credits.</li>
-          <li><strong>Title & Closing:</strong> The title company clears liens and coordinates closing. You’ll bring a
-            cashier’s check and ID. Utilities should be transferred 3–4 days ahead.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <style>
-    #sellingProcess ul,
-    li {
-      list-style-type: none;
-
-
-    }
-  </style>
-  <section id="sellingProcess"
-    style="padding: 4rem 2rem; background: radial-gradient(circle at top left, #0f2027, #203a43, #2c5364); color: white; font-family: 'Inter', sans-serif;">
-    <h2
-      style="text-align: center; font-size: 2.6rem; margin-bottom: 2.5rem; color: #00fff7; letter-spacing: 1px; text-shadow: 0 2px 10px rgba(0, 255, 247, 0.25);">
-      🏡 Selling Process</h2>
-
-    <!-- Block 1: Preparing Your Home -->
-    <div
-      style="display: flex; flex-wrap: wrap; align-items: center; gap: 2rem; background: linear-gradient(145deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03)); padding: 2rem; border-radius: 18px; box-shadow: 0 12px 32px rgba(0,0,0,0.4);">
-
-      <div style="flex: 1;">
-        <h3 style="color: #00bcd4; font-size: 1.6rem;">1. Preparing Your Home for Sale</h3>
-        <p style="color: #d0e8f2; font-size: 1.05rem; line-height: 1.7;">First impressions matter. Start with cleaning,
-          decluttering, and making necessary repairs. Small upgrades can also boost your home’s value.</p>
-        <ul style="color: #c2e9fb; padding-left: 1.2rem;">
-          <li>🏠 Clean and declutter each room</li>
-          <li>🧰 Complete any minor repairs</li>
-          <li>🎨 Consider neutral paint colors</li>
-          <li>🌿 Enhance curb appeal</li>
-        </ul>
-        <p style="color: #d0e8f2;">We’ll walk through your home together and give staging tips or refer a stager if
-          needed.</p>
-      </div>
-
-      <!-- Video 1 -->
-      <iframe width="320" height="180" src="https://www.youtube.com/embed/mUc1NEGalRU"
-        title="How to Sell Your Home | The 5 Biggest Mistakes People Make" frameborder="0"
-        style="border-radius: 16px; box-shadow: 0 0 12px rgba(0,0,0,0.3);"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-      </iframe>
-    </div>
-
-    <!-- Block 2: Pricing, Marketing & Closing -->
-    <div
-      style="margin-top: 2rem; display: flex; flex-wrap: wrap; align-items: center; gap: 2rem; background: linear-gradient(145deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); padding: 2rem; border-radius: 18px; box-shadow: 0 12px 32px rgba(0,0,0,0.35);">
-
-      <!-- Video 2 -->
-      <iframe width="320" height="180" src="https://www.youtube.com/embed/1Zg5fx9_Sf0"
-        title="A Step-by-Step Guide to Selling Your Home - The Timeline" frameborder="0"
-        style="border-radius: 16px; box-shadow: 0 0 12px rgba(0,0,0,0.3);"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-      </iframe>
-
-      <div style="flex: 1;">
-        <h3 style="color: #00bcd4; font-size: 1.6rem;">2. Pricing, Marketing & Closing</h3>
-        <ul style="line-height: 1.8; color: #d0e8f2; padding-left: 1.2rem;">
-          <li><strong>🏷️ Pricing:</strong> We analyze local comps and market trends to set a competitive price.</li>
-          <li><strong>📸 Marketing:</strong> Includes professional photography, online listings, and open houses.</li>
-          <li><strong>📝 Offers:</strong> I’ll help you evaluate and negotiate offers to get the best deal.</li>
-          <li><strong>🏁 Closing:</strong> We work with the title company to ensure a smooth closing and final
-            walkthrough.</li>
-        </ul>
-        <p style="color: #d0e8f2;">Let’s schedule a free consultation and see how much your home is worth today.</p>
-        <p style="color: #79c0ff;">📞 <strong>Phone:</strong> 913-306-5216 | 🏢 <strong>Office:</strong> 888-220-0988 |
-          ✉️ <strong>Email:</strong> <a href="mailto:shignya.sm@gmail.com"
-            style="color: #00ffff;">shignya.sm@gmail.com</a></p>
-      </div>
-    </div>
-  </section>
-
-
-
-  <section id="lenders" style="
-    padding: 4rem 1rem;
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-    color: #e0f7fa;
-    font-family: 'Segoe UI', sans-serif;
-    background-attachment: fixed;
-    background-size: cover;
-  ">
-    <h2 style="
-      text-align: center;
-      font-size: 2.5rem;
-      color: #66fcf1;
-      margin-bottom: 2rem;
-      text-shadow: 0 1px 6px rgba(102, 252, 241, 0.3);
-    ">
-      💼 Finding a Lender
+  <section id="zillowProfile" class="listings"
+    style="padding-top: 3rem; background: linear-gradient(to right, #f9fafa 60%, #e8f7ff 100%);">
+    <h2 style="color: var(--primary-blue); text-align: center; font-size: 1.8rem; margin-bottom: 2.5rem;">
+      📇 Connect with <span style="color: var(--accent-gold);">Shignya S.M</span> on Zillow
     </h2>
 
+    <div class="listing-grid"
+      style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; align-items: center; max-width: 1100px; margin: auto;">
+
+      <!-- Profile Card -->
+      <div
+        style="flex: 1; min-width: 300px; max-width: 420px; background: white; border-radius: 12px; padding: 2rem; text-align: center; box-shadow: 0 8px 20px rgba(0,0,0,0.05); background-image: url('image/realty-bg.png'); background-size: cover; background-position: center; background-blend-mode: lighten;">
+        <img src="image/Screenshot.png" alt="Shignya Profile"
+          style="width: 160px; height: 160px; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent-cyan); box-shadow: 0 0 12px rgba(100, 255, 218, 0.25); margin-bottom: 1rem; background: white;" />
+
+        <h3 style="color: var(--primary-blue); font-size: 1.4rem; margin-bottom: 0.3rem;">Shignya S.M</h3>
+        <p style="color: #666; font-weight: 500; margin-bottom: 1rem;">Real Estate Agent | First-Time Buyer Specialist
+        </p>
+
+        <div
+          style="text-align: left; margin: 0 auto; max-width: 300px; font-size: 0.95rem; line-height: 1.8; color: #444;">
+          <p><strong>📞 Phone:</strong> 913-306-5216</p>
+          <p><strong>🏢 Office:</strong> 888-220-0988</p>
+          <p><strong>📧 Email:</strong> <a href="mailto:shignya.sm@gmail.com"
+              style="color: var(--accent-cyan); text-decoration: underline;">shignya.sm@gmail.com</a></p>
+        </div>
+
+        <button onclick="$('#zillowBio').slideToggle()" style="
+          margin-top: 1.5rem;
+          background: none;
+          border: 2px solid var(--accent-cyan);
+          color: var(--primary-blue);
+          padding: 0.5rem 1rem;
+          border-radius: 8px;
+          font-weight: 600;
+          cursor: pointer;
+          transition: background 0.3s ease;">
+          🔽 Click here to learn more
+        </button>
+
+        <div id="zillowBio"
+          style="display: none; margin-top: 1.5rem; text-align: left; font-size: 0.95rem; line-height: 1.7; color: #444; background: #f0f9ff; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+          <h4 style="color: var(--primary-blue); margin-bottom: 0.5rem;">🏡 About Shignya Mitike</h4>
+          <p>I am proud to call Kansas City my home for the past 23+ years. I’m more than optimistic that I can find a
+            place you will call home.</p>
+          <p>With years of sales experience, I am committed to giving my clients the best home-buying and selling
+            experience possible.</p>
+          <p>I continue to volunteer in a number of community initiatives and charities, and I am excited to continue
+            doing my part to make Kansas City a great place for families and businesses.</p>
+        </div>
+
+        <a href="https://www.zillow.com/profile/shignya" target="_blank" style="
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.6rem 1.4rem;
+            background: linear-gradient(to right, var(--accent-cyan), var(--primary-blue));
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'"
+          onmouseout="this.style.transform='scale(1)';">
+          🔗 View Zillow Profile
+        </a>
+      </div>
+
+      <!-- Listing Image or Example -->
+      <div style="flex: 1; min-width: 300px; max-width: 480px;">
+        <img src="image/house.jpg" alt="Sample Listing"
+          style="width: 100%; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.15); object-fit: cover;" />
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <section id="services" class="listings" style="padding-top: 2rem;">
+    <h2 style="color: var(--accent-cyan); text-align: center; font-size: 1.8rem">
+      📋 Buying Process
+    </h2>
+
+    <!-- Step 1: Before Applying -->
+    <div class="property-card"
+      style="margin: 2rem auto; max-width: 900px; background: var(--light-cyan-bg); border-left: 5px solid var(--accent-cyan); padding: 2rem;">
+      <h3 style="color: var(--primary-blue); font-size: 1.4rem;">📑 1. Before Applying for a Loan</h3>
+      <p>💰 Budget for more than just a down payment — include inspections, closing costs, appraisals, and emergency
+        maintenance.</p>
+      <p>🔧 Set aside funds for tools, repairs, and new appliances after move-in.</p>
+      <p>📉 <strong>PMI Tip:</strong> 20% down avoids PMI, but 3.5% FHA options exist. PMI can be removed once you reach
+        20% equity.</p>
+      <p>📊 <strong>Credit Score Matters:</strong></p>
+      <p>🔴 Poor: 579 or below</p>
+      <p>🟠 Fair: 580–669</p>
+      <p>🟡 Good: 670–739</p>
+      <p>🟢 Very Good: 740–799</p>
+      <p>💚 Excellent: 800+</p>
+      <p>✅ Higher scores mean lower interest rates and reduced monthly payments.</p>
+    </div>
+
+    <!-- Step 2: Additional Steps -->
+    <div class="property-card"
+      style="margin: 2rem auto; max-width: 900px; background: var(--light-bg); border-left: 5px solid var(--accent-gold); padding: 2rem;">
+      <h3 style="color: var(--primary-blue); font-size: 1.4rem;">🧾 2. Additional Steps</h3>
+      <p>📈 Improve your credit for better terms and stronger loan approval chances.</p>
+      <p>📝 Documents You’ll Need: Tax returns, W-2s/1099s, pay stubs, government-issued ID, and bank statements.</p>
+      <p>⛔ Avoid taking on new debt, changing jobs, or making large purchases before closing.</p>
+      <p>📝 When Ready, Make an Offer: Submit earnest money (typically 1–3%) to show you're serious.</p>
+      <p>🔍 Schedule Inspections: General, termite, sewer, radon, and others can strengthen negotiations.</p>
+      <p>🏁 Closing Day Prep: Bring your ID, certified funds, and confirm utilities are transferred before you get the
+        keys!</p>
+    </div>
+  </section>
+
+
+  <section id="sellingProcess" class="listings" style="padding-top: 2rem;">
+    <h2 style="color: var(--accent-cyan); text-align: center; font-size: 1.8rem;">
+      🏡 Selling Process
+    </h2>
+
+    <!-- Step 1: Preparing Your Home -->
+    <div class="property-card"
+      style="margin: 2rem auto; max-width: 900px; background: var(--light-cyan-bg); border-left: 5px solid var(--accent-gold); padding: 2rem;">
+      <h3 style="color: var(--primary-blue); font-size: 1.4rem;">🧼 1. Preparing Your Home for Sale</h3>
+      <p>🧹 Clean and organize every room — first impressions truly matter.</p>
+      <p>🛠️ Make key repairs, even minor ones, to boost overall appeal.</p>
+      <p>🎨 Apply fresh, neutral paint to create a clean, inviting feel.</p>
+      <p>🌳 Enhance curb appeal — tidy landscaping, clean driveways, and welcoming entryways.</p>
+      <p>🛋️ We offer walkthrough staging tips — or can refer a professional stager for maximum impact.</p>
+    </div>
+
+    <!-- Step 2: Pricing & Marketing -->
+    <div class="property-card"
+      style="margin: 2rem auto; max-width: 900px; background: var(--light-bg); border-left: 5px solid var(--accent-cyan); padding: 2rem;">
+      <h3 style="color: var(--primary-blue); font-size: 1.4rem;">💼 2. Pricing, Marketing & Closing</h3>
+      <p>🏷️ We set a competitive price using market data and comps.</p>
+      <p>📸 Professional photos, MLS listings, open houses, and social media campaigns maximize exposure.</p>
+      <p>📩 We’ll review and negotiate offers together — always with your goals in mind.</p>
+      <p>🔐 Closing includes title coordination, lien clearance, and final walkthrough prep.</p>
+      <p>📈 Curious what your home is worth? Let’s connect for a no-obligation consultation.</p>
+      <p style="color: var(--accent-cyan); font-size: 0.95rem;">
+        📞 <strong>Phone:</strong> 913-306-5216 &nbsp;|&nbsp;
+        🏢 <strong>Office:</strong> 888-220-0988 &nbsp;|&nbsp;
+        ✉️ <strong>Email:</strong>
+        <a href="mailto:shignya.sm@gmail.com"
+          style="color: var(--accent-gold); text-decoration: underline;">shignya.sm@gmail.com</a>
+      </p>
+    </div>
+  </section>
+
+
+  <section id="lenders" class="listings" style="padding-top: 2rem;">
+    <h2 style="color: var(--accent-cyan); text-align: center;">
+      💼 Finding a <span style="color: var(--accent-gold);">Lender</span>
+    </h2>
+    <img src="image/len.png" alt="Finding a Lender Guide"
+    s style="width: 90%; height: auto; display: block; margin: 2rem auto; object-fit: contain; border-radius: 12px;" />
+
     <!-- Trusted Lending Partners -->
-    <div style="
-      background: rgba(255,255,255,0.04);
-      backdrop-filter: blur(10px);
-      border-left: 5px solid #66bb6a;
-      padding: 2rem;
-      border-radius: 16px;
-      margin-bottom: 2rem;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.4);
-      color: #d0e8f2;
-    ">
-      <h3 style="color: #81c784; font-size: 1.6rem;">🤝 Trusted Lending Partners</h3>
-      <p>These are lenders I’ve worked with, closed deals with, and trust based on consistent positive results for my
-        clients. However, you’re always free to compare and choose your own.</p>
-      <p>🧠 <strong>Tip:</strong> Terms vary by lender and state. I’ll guide you toward professionals you can rely on —
-        and provide contact info for confidence and clarity.</p>
-      <p>✅ Going beyond pre-qualification with a <strong>pre-approval</strong> shows sellers you're financially ready,
-        making your offer stronger and more credible.</p>
+    <div class="listing-grid" style="margin-top: 2rem;">
+      <div style="flex: 1;">
+        <h3 style="color: var(--primary-blue); font-size: 1.5rem;">🤝 Trusted Lending Partners</h3>
+        <p>These are lenders I’ve worked with, closed deals with, and trust based on consistent positive results for my
+          clients. However, you’re always free to compare and choose your own.</p>
+        <p><strong>🧠 Tip:</strong> Terms vary by lender and state. I’ll guide you toward professionals you can rely on
+          — and provide contact info for confidence and clarity.</p>
+        <p>✅ Going beyond pre-qualification with a <strong>pre-approval</strong> shows sellers you're financially ready,
+          making your offer stronger and more credible.</p>
+      </div>
     </div>
 
     <!-- Required Documents -->
-    <div style="
-      background: rgba(255,255,255,0.04);
-      backdrop-filter: blur(10px);
-      border-left: 5px solid #aed581;
-      padding: 2rem;
-      border-radius: 16px;
-      margin-bottom: 2rem;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.4);
-      color: #d0e8f2;
-    ">
-      <h3 style="color: #aee571; font-size: 1.6rem;">📑 Required Documents</h3>
-      <ul style="line-height: 1.8; padding-left: 1.2rem;">
-        <li>🪪 <strong>Personal Info:</strong> Full name, address, birthdate, SSN</li>
-        <li>📄 <strong>Income:</strong> Pay stubs, W-2s/1099s, tax returns (2 yrs)</li>
-        <li>🏦 <strong>Bank Records:</strong> 2–3 months of statements</li>
-      </ul>
-      <p style="margin-top: 1rem;"><strong>⚠️ Important:</strong> Avoid unsourced deposits or large cash movements —
-        sources like EKUBE, EDIR, etc. may cause underwriting delays.</p>
-      <p>🛑 Avoid new credit cards, auto loans, or large purchases during the process — these affect your credit profile
-        and approval chances.</p>
+    <div class="listing-grid" style="margin-top: 2rem;">
+      <div style="flex: 1;">
+        <h3 style="color: var(--primary-blue); font-size: 1.5rem;">📑 Required Documents</h3>
+        <ul style="line-height: 1.8; padding-left: 1.2rem;">
+          <li>🪪 <strong>Personal Info:</strong> Full name, address, birthdate, SSN</li>
+          <li>📄 <strong>Income:</strong> Pay stubs, W-2s/1099s, tax returns (2 yrs)</li>
+          <li>🏦 <strong>Bank Records:</strong> 2–3 months of statements</li>
+        </ul>
+        <p><strong>⚠️ Important:</strong> Avoid unsourced deposits or large cash movements — sources like EKUBE, EDIR,
+          etc. may cause underwriting delays.</p>
+        <p>🛑 Avoid new credit cards, auto loans, or large purchases during the process — these affect your credit
+          profile and approval chances.</p>
+      </div>
     </div>
 
     <!-- Loan Programs -->
-    <div style="
-      background: rgba(255,255,255,0.04);
-      backdrop-filter: blur(10px);
-      border-left: 5px solid #81c784;
-      padding: 2rem;
-      border-radius: 16px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.4);
-      color: #d0e8f2;
-    ">
-      <h3 style="color: #66fcf1; font-size: 1.6rem;">🏡 Available Loan Programs</h3>
-      <p>You are free to choose your lender — whether it's one I refer or one you’ve researched. Getting pre-qualified
-        and then pre-approved improves your position dramatically.</p>
-      <ul style="line-height: 1.8; padding-left: 1.2rem;">
-        <li>🎖️ <strong>VA Loans:</strong> For veterans and active military</li>
-        <li>🏠 <strong>FHA Loans:</strong> Ideal for lower credit or small down payments</li>
-        <li>💰 <strong>Conventional Loans:</strong> For stronger credit and larger down payments</li>
-        <li>🏦 <strong>Portfolio Loans:</strong> Offered by private banks outside conventional standards</li>
-        <li>📍 <strong>Local Programs:</strong> MHDC (MO), KHRC (KS) — assistance for down payment & closing costs</li>
-        <li>🧾 <strong>MCC:</strong> Mortgage Credit Certificate — tax credit for first-time buyers</li>
-        <li>📊 <strong>Down Payment Toward Equity Act:</strong> Up to $25K — pending federal legislation</li>
-        <li>🎁 <strong>Gift Funds:</strong> From family — must include proper documentation and gift letter</li>
-      </ul>
+    <div class="listing-grid" style="margin-top: 2rem;">
+      <div style="flex: 1;">
+        <h3 style="color: var(--primary-blue); font-size: 1.5rem;">🏡 Available Loan Programs</h3>
+        <p>You are free to choose your lender — whether it's one I refer or one you’ve researched. Getting pre-qualified
+          and then pre-approved improves your position dramatically.</p>
+        <ul style="line-height: 1.8; padding-left: 1.2rem;">
+          <li>🎖️ <strong>VA Loans:</strong> For veterans and active military</li>
+          <li>🏠 <strong>FHA Loans:</strong> Ideal for lower credit or small down payments</li>
+          <li>💰 <strong>Conventional Loans:</strong> For stronger credit and larger down payments</li>
+          <li>🏦 <strong>Portfolio Loans:</strong> Offered by private banks outside conventional standards</li>
+          <li>📍 <strong>Local Programs:</strong> MHDC (MO), KHRC (KS) — assistance for down payment & closing costs
+          </li>
+          <li>🧾 <strong>MCC:</strong> Mortgage Credit Certificate — tax credit for first-time buyers</li>
+          <li>📊 <strong>Down Payment Toward Equity Act:</strong> Up to $25K — pending federal legislation</li>
+          <li>🎁 <strong>Gift Funds:</strong> From family — must include proper documentation and gift letter</li>
+        </ul>
+      </div>
     </div>
   </section>
 
-
-
-
-  <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-  <section id="programs"
-    style="padding: 4rem 1rem; background: radial-gradient(circle at top right, #0a192f, #0c1c36); color: #e0f7fa; font-family: 'Segoe UI', sans-serif;">
-    <h2
-      style="text-align: center; font-size: 2.5rem; color: #64ffda; margin-bottom: 2.5rem; text-shadow: 0 0 15px rgba(100, 255, 218, 0.3);">
-      💡 Loan Programs for Future-Ready Buyers
+  <section id="programs" class="listings" style="padding-top: 2rem;">
+    <h2 style="color: var(--accent-cyan); text-align: center;">
+      💡 Loan Programs for <span style="color: var(--accent-gold);">Future-Ready Buyers</span>
     </h2>
 
-    <div
-      style="max-width: 900px; margin: auto; backdrop-filter: blur(12px); background: rgba(255,255,255,0.06); border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 8px 32px rgba(0,0,0,0.3); padding: 2rem;">
-      <ul style="list-style: none; padding-left: 0; line-height: 2; font-size: 1.1rem;">
-        <li>🎖️ <strong style="color: #80cbc4;">VA Loans:</strong> For veterans & active military</li>
-        <li>🏠 <strong style="color: #80cbc4;">FHA Loans:</strong> Lower credit & down payment</li>
-        <li>💰 <strong style="color: #80cbc4;">Conventional Loans:</strong> Higher credit & more down</li>
-        <li>📍 <strong style="color: #80cbc4;">MHDC / KHRC:</strong> Down payment help (MO/KS)</li>
-        <li>🧾 <strong style="color: #80cbc4;">MCC:</strong> Tax credits for 1st-time buyers</li>
-        <li>🏦 <strong style="color: #80cbc4;">Portfolio Loans:</strong> Private non-traditional options</li>
-        <li>🎁 <strong style="color: #80cbc4;">Grants & Assistance:</strong> Gift funds, state & federal help</li>
+    <div class="property-card"
+      style="margin: 2rem auto; max-width: 900px; background: var(--light-cyan-bg); border-left: 5px solid var(--accent-gold); padding: 2rem;">
+      <h3 style="color: var(--primary-blue); font-size: 1.4rem;">🔎 Available Loan Types</h3>
+      <ul style="list-style: none; padding-left: 0; line-height: 2; font-size: 1rem;">
+        <li>🎖️ <strong style="color: var(--primary-blue);">VA Loans:</strong> For veterans and active duty</li>
+        <li>🏠 <strong style="color: var(--primary-blue);">FHA Loans:</strong> Lower credit & down payment</li>
+        <li>💰 <strong style="color: var(--primary-blue);">Conventional Loans:</strong> Stronger credit, more down</li>
+        <li>📍 <strong style="color: var(--primary-blue);">MHDC / KHRC:</strong> Local assistance (MO/KS)</li>
+        <li>🧾 <strong style="color: var(--primary-blue);">MCC:</strong> First-time buyer tax credits</li>
+        <li>🏦 <strong style="color: var(--primary-blue);">Portfolio Loans:</strong> Flexible private lending</li>
+        <li>🎁 <strong style="color: var(--primary-blue);">Grants & Assistance:</strong> Gift funds and programs</li>
       </ul>
+    </div>
 
-      <!-- FHA Loan Collapsible Sections -->
-      <h3 class="toggle-title" style="cursor:pointer; margin-top:2rem; color:#4dd0e1;">📘 Types Of FHA Loans</h3>
+    <div class="property-card"
+      style="margin: 2rem auto; max-width: 900px; background: var(--light-bg); padding: 1.5rem; box-shadow: 0 2px 10px rgba(0,0,0,0.15);">
+      <h3 class="toggle-title" style="cursor:pointer; color: var(--primary-blue);">📘 Types Of FHA Loans</h3>
       <div class="toggle-content" style="display:none;">
-        Both fixed-rate and adjustable-rate options are available for FHA loans—which one fits you best will depend on
-        your situation. You can also get an FHA refinance or take on renovation projects with an FHA 203K loan.
+        Fixed and adjustable-rate FHA loans are available, including refinance and renovation options (203K).
       </div>
 
-      <h3 class="toggle-title" style="cursor:pointer; margin-top:1.5rem; color:#4dd0e1;">🏗️ Fixed-Rate FHA Loans</h3>
+      <h3 class="toggle-title" style="cursor:pointer; margin-top: 1.2rem; color: var(--primary-blue);">🏗️ Fixed-Rate
+        FHA Loans</h3>
       <div class="toggle-content" style="display:none;">
-        Building a 3D-printed house can take 30% less time than the construction time of a traditionally built home.
-        <ul>
-          <li>30-year fixed-rate FHA</li>
-          <li>25-year fixed-rate FHA</li>
-          <li>20-year fixed-rate FHA</li>
-          <li>15-year fixed-rate FHA</li>
+        <ul style="padding-left: 1.2rem;">
+          <li>30-year fixed</li>
+          <li>25-year fixed</li>
+          <li>20-year fixed</li>
+          <li>15-year fixed</li>
         </ul>
-        These options offer rate stability. Shorter terms work best if you’ll move soon, longer terms offer lower
-        monthly payments.
+        These offer stable rates. Shorter terms = less interest. Longer terms = lower payments.
       </div>
 
-      <h3 class="toggle-title" style="cursor:pointer; margin-top:1.5rem; color:#4dd0e1;">🔄 Adjustable-Rate FHA Loans
-      </h3>
+      <h3 class="toggle-title" style="cursor:pointer; margin-top: 1.2rem; color: var(--primary-blue);">🔄
+        Adjustable-Rate FHA Loans</h3>
       <div class="toggle-content" style="display:none;">
-        Adjustable FHA mortgages offer a low intro rate for a few years. After that, rates adjust with the market. Ideal
-        if you’ll move before the rate changes.
-        <br><br>PrimeLending offers a 5-year hybrid ARM.
+        Lower initial rate for a few years, then adjusts. Best if you plan to move or refinance early.
       </div>
 
-      <h3 class="toggle-title" style="cursor:pointer; margin-top:1.5rem; color:#4dd0e1;">♻️ FHA Refinance Loan</h3>
+      <h3 class="toggle-title" style="cursor:pointer; margin-top: 1.2rem; color: var(--primary-blue);">♻️ FHA Refinance
+        Loan</h3>
       <div class="toggle-content" style="display:none;">
-        Already have an FHA loan but want different terms? You can refinance!
-        <ul>
-          <li>Fixed-rate FHA refinance</li>
-          <li>Adjustable-rate FHA refinance</li>
+        <ul style="padding-left: 1.2rem;">
+          <li>FHA fixed refinance</li>
+          <li>FHA ARM refinance</li>
           <li>FHA cash-out refinance*</li>
         </ul>
-        You may also refinance non-FHA loans into FHA if eligible.
+        Also allows refinancing from conventional into FHA.
       </div>
 
-      <h3 class="toggle-title" style="cursor:pointer; margin-top:1.5rem; color:#4dd0e1;">🔧 FHA 203K Renovation Loan
-      </h3>
+      <h3 class="toggle-title" style="cursor:pointer; margin-top: 1.2rem; color: var(--primary-blue);">🔧 FHA 203K
+        Renovation Loan</h3>
       <div class="toggle-content" style="display:none;">
-        Want to upgrade a home or renovate a fixer-upper? FHA 203K loans finance both purchase and improvement costs.
-        <br><br><strong>FHA 203K Full/Standard:</strong>
-        <ul>
-          <li>Add a room or open layout</li>
-          <li>Replace foundation, roof, or plumbing</li>
-          <li>Energy-efficient upgrades</li>
+        Finance both purchase and home improvements:
+        <br><br><strong>Standard 203K:</strong>
+        <ul style="padding-left: 1.2rem;">
+          <li>Add new rooms or open layout</li>
+          <li>Major plumbing, roof, foundation</li>
+          <li>Energy upgrades</li>
         </ul>
-        <strong>FHA 203K Limited:</strong>
-        <ul>
-          <li>Update HVAC, electrical or plumbing</li>
-          <li>Non-structural basement remodel</li>
-          <li>Install efficient windows, appliances, or insulation</li>
+        <strong>Limited 203K:</strong>
+        <ul style="padding-left: 1.2rem;">
+          <li>Minor HVAC or electrical fixes</li>
+          <li>Non-structural remodeling</li>
+          <li>Energy-efficient installations</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- jQuery Accordion Script -->
   <script>
-    $(document).ready(function () {
-      $('.toggle-title').click(function () {
-        const content = $(this).next('.toggle-content');
-        content.slideToggle(300);
-        $('.toggle-title').not(this).next('.toggle-content').slideUp(300); // close others
-      });
+    $('.toggle-title').on('click', function () {
+      $(this).next('.toggle-content').slideToggle();
+      $(this).toggleClass('active');
     });
   </script>
 
 
-
-
-  <section id="whatNotToDo"
-    style="padding: 4rem 1rem; background: linear-gradient(135deg, #1c2331, #0f172a); color: #e0f2f1; font-family: 'Segoe UI', sans-serif;">
-    <h2
-      style="text-align: center; font-size: 2.5rem; color: #ffb74d; margin-bottom: 2.5rem; text-shadow: 0 0 10px rgba(255, 183, 77, 0.4);">
+  <section id="whatNotToDo" class="listings" style="padding-top: 2rem;">
+    <h2 style="color: var(--accent-gold); text-align: center; font-size: 1.8rem">
       🚫 What Not To Do & Final Steps
     </h2>
 
-    <!-- Mistakes -->
-    <div
-      style="max-width: 900px; margin: auto; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-left: 5px solid #ff9800; border-radius: 16px; padding: 2rem; backdrop-filter: blur(10px); box-shadow: 0 6px 30px rgba(0,0,0,0.4); margin-bottom: 2rem;">
-      <h3 style="color: #ffcc80;">⚠️ Avoid These Common Mistakes</h3>
-      <ul style="line-height: 2;">
-        <li>💼 Don’t switch jobs mid-process</li>
-        <li>💳 Avoid opening new credit or maxing out cards</li>
-        <li>💸 Don’t make unexplained deposits/withdrawals</li>
-        <li>🏠 Don’t buy furniture until you close!</li>
-        <li>🔗 Always confirm rate lock status</li>
-      </ul>
+    <!-- Common Mistakes -->
+    <div class="property-card"
+      style="margin: 2rem auto; max-width: 900px; background: var(--light-cyan-bg); border-left: 5px solid var(--accent-gold); padding: 2rem;">
+      <h3 style="color: var(--primary-blue); font-size: 1.4rem;">⚠️ Avoid These Common Mistakes</h3>
+      <p>💼 Do not switch jobs during the mortgage process</p>
+      <p>💳 Avoid opening new credit accounts or maxing out cards</p>
+      <p>💸 Don’t deposit or withdraw large amounts without documentation</p>
+      <p>🛋️ Wait to buy furniture or large items until after you close</p>
+      <p>🔗 Confirm that your rate is locked with your lender</p>
     </div>
 
-    <!-- Inspection Steps -->
-    <div
-      style="max-width: 900px; margin: auto; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-left: 5px solid #ffca28; border-radius: 16px; padding: 2rem; backdrop-filter: blur(10px); box-shadow: 0 6px 30px rgba(0,0,0,0.4); margin-bottom: 2rem;">
-      <h3 style="color: #ffe082;">🔍 Inspections & Offers</h3>
-      <p>After submitting your offer and earnest deposit (1–3%), schedule key inspections:</p>
-      <ul style="line-height: 1.8;">
-        <li>🏚️ Home</li>
-        <li>🐜 Termite</li>
-        <li>🚽 Sewer/Septic</li>
-        <li>🏗️ Foundation</li>
-        <li>☢️ Radon</li>
-      </ul>
-      <p>Negotiate repairs and credits after results.</p>
+    <!-- Inspections & Offers -->
+    <div class="property-card"
+      style="margin: 2rem auto; max-width: 900px; background: var(--light-bg); border-left: 5px solid var(--accent-cyan); padding: 2rem;">
+      <h3 style="color: var(--primary-blue); font-size: 1.4rem;">🔍 Inspections & Offers</h3>
+      <p>Once your offer is accepted and earnest money (typically 1%–3%) is submitted, it’s time to schedule key
+        inspections:</p>
+      <p>🏚️ General Home Inspection</p>
+      <p>🐜 Termite Inspection</p>
+      <p>🚽 Sewer or Septic Inspection</p>
+      <p>🏗️ Foundation Check</p>
+      <p>☢️ Radon Test</p>
+      <p>Use the results to negotiate repairs or credits before closing.</p>
     </div>
 
-    <!-- Appraisal & Final Steps -->
-    <div
-      style="max-width: 900px; margin: auto; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-left: 5px solid #4caf50; border-radius: 16px; padding: 2rem; backdrop-filter: blur(10px); box-shadow: 0 6px 30px rgba(0,0,0,0.4);">
-      <h3 style="color: #a5d6a7;">🏁 Appraisal, Closing & Safety</h3>
-      <p>Your lender will order an appraisal. If the value’s low, we’ll renegotiate or discuss gap coverage.</p>
-      <p>🚨 <strong>Tech Alert:</strong> Be cautious of wire fraud. Always call your lender before sending money!</p>
-      <p>✅ Transfer utilities, prep your photo ID, and bring your certified funds to closing. Then — you own your home!
+    <!-- Final Steps -->
+    <div class="property-card"
+      style="margin: 2rem auto; max-width: 900px; background: var(--light-cyan-bg); border-left: 5px solid var(--accent-gold); padding: 2rem;">
+      <h3 style="color: var(--primary-blue); font-size: 1.4rem;">🏁 Appraisal, Closing & Final Safety Tips</h3>
+      <p>🔍 Your lender will order an appraisal. If the home appraises lower than expected, we’ll discuss renegotiation
+        or out-of-pocket options.</p>
+      <p>🚨 <strong>Security Tip:</strong> Always verify wire instructions by phone — wire fraud is real. Call before
+        sending any funds.</p>
+      <p>💡 Before closing, be sure to:</p>
+      <p>🔌 Transfer utilities to your name</p>
+      <p>🪪 Prepare your government-issued photo ID</p>
+      <p>💵 Bring certified closing funds (cashier’s check or wire)</p>
+      <p style="margin-top: 1.5rem; font-weight: bold; font-size: 1.1rem; color: var(--accent-cyan);">
+        🎉 Congratulations — welcome to homeownership powered by confidence, clarity, and smart decisions!
       </p>
-      <p style="margin-top: 1.5rem; font-weight: bold; font-size: 1.1rem; color: #64ffda;">🎉 Welcome to homeownership —
-        powered by smart technology and smarter decisions!</p>
     </div>
   </section>
 
 
 
-
-  <section id="zillowProfile"
-    style="padding: 4rem 1rem; background: radial-gradient(circle at top right, #0a192f, #0c1c36); font-family: 'Segoe UI', sans-serif;">
-    <h2
-      style="text-align: center; font-size: 2.5rem; color: #64ffda; margin-bottom: 2.5rem; text-shadow: 0 0 12px rgba(100, 255, 218, 0.4);">
-      📇 Connect with Shignya on Zillow
+  <section id="trustedLenders" class="listings" style="padding-top: 2rem;">
+    <h2 style="color: var(--accent-cyan); text-align: center; font-size: 1.8rem">
+      Trusted Loan Experts
     </h2>
 
-    <div style="
-    max-width: 1000px;
-    margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 20px;
-    padding: 2rem;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
-    border: 1px solid rgba(255,255,255,0.1);
-    backdrop-filter: blur(12px);
-  ">
-
-      <!-- Profile Image -->
-      <img src="image/Screenshot.png" alt="Shignya Profile" style="
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin: 1rem;
-      border: 2px solid #64ffda;
-      box-shadow: 0 0 12px rgba(100, 255, 218, 0.3);
-    ">
-
-      <!-- Agent Info -->
-      <div style="flex: 1; min-width: 280px; color: #e0f7fa; padding: 1rem;">
-        <h3 style="margin: 0; color: #64ffda;">Shignya S.M</h3>
-        <p style="margin: 0.2rem 0 1rem; color: #b2ebf2;">Real Estate Agent | First-Time Buyer Specialist</p>
-
-        <!-- Contact Info -->
-        <p style="margin: 0.3rem 0;"><strong>📞 Phone:</strong> 913-306-5216 | <strong>Office:</strong> 888-220-0988</p>
-        <p style="margin: 0.3rem 0;"><strong>📧 Email:</strong> <a href="mailto:shignya.sm@gmail.com"
-            style="color: #58a6ff; text-decoration: underline;">shignya.sm@gmail.com</a></p>
-
-        <!-- CTA Button -->
-        <a href="https://www.zillow.com/profile/shignya" target="_blank" style="
-        display: inline-block;
-        margin-top: 1rem;
-        padding: 0.7rem 1.4rem;
-        background: linear-gradient(to right, #64ffda, #1a73e8);
-        color: #0a192f;
-        border-radius: 10px;
-        text-decoration: none;
-        font-weight: bold;
-        transition: all 0.3s ease;
-        box-shadow: 0 0 10px rgba(100, 255, 218, 0.4);
-      " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-          🔗 View Zillow Profile
-        </a>
+    <!-- Lance Richards -->
+    <div class="property-card"
+      style="margin: 2rem auto; max-width: 900px; background: var(--light-cyan-bg); border-left: 5px solid var(--accent-gold); padding: 2rem;">
+      <img src="image/fedility5.png" alt="First Fidelis Logo" style="width: 140px; margin-bottom: 1rem;">
+      <h3 style="color: var(--primary-blue); margin-bottom: 0.5rem;">Lance Richards</h3>
+      <p style="color: var(--dark-text); margin-bottom: 0.5rem;">Mortgage Specialist | NMLS# 991357</p>
+      <p style="line-height: 1.7;">
+        📍 KS: 6025 Metcalf Ln, Suite 210A<br>
+        📍 MO: 4520 Main St, Suite 700<br>
+        📞 913-205-9978 | 📰 913-384-1806<br>
+        📧 <a href="mailto:lancerichards@live.com" style="color: var(--accent-cyan);">lancerichards@live.com</a>
+      </p>
+      <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem;">
+        <a href="https://www.firstfidelis.com" target="_blank"
+          style="background: var(--primary-blue); color: white; padding: 0.5rem 1rem; border-radius: 6px; text-decoration: none; font-weight: 600;">🌐
+          Website</a>
+        <a href="https://nftydoor.com/remn/first-fidelis-llc/lance-richards/signup" target="_blank"
+          style="background: var(--accent-cyan); color: white; padding: 0.5rem 1rem; border-radius: 6px; text-decoration: none; font-weight: 600;">📝
+          Apply</a>
+        <a href="https://popl.co/card/OenF7Nun/2/txt" target="_blank"
+          style="background: var(--accent-gold); color: #1c1c1c; padding: 0.5rem 1rem; border-radius: 6px; text-decoration: none; font-weight: 600;">📲
+          Digital Card</a>
       </div>
+    </div>
 
-      <!-- House Image (replace src) -->
-      <img src="image/house.jpg" alt="Sample Listing" style="
-      width: 280px;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 16px;
-      margin: 1rem;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-      border: 1px solid rgba(255,255,255,0.1);
-    ">
+    <!-- Dusty Manuel -->
+    <div class="property-card"
+      style="margin: 2rem auto; max-width: 900px; background: var(--light-bg); border-left: 5px solid var(--accent-cyan); padding: 2rem;">
+      <img src="image/bells.png" alt="Bell Bank Logo" style="width: 140px; margin-bottom: 1rem;">
+      <h3 style="color: var(--primary-blue); margin-bottom: 0.5rem;">Dusty Manuel</h3>
+      <p style="color: var(--dark-text); margin-bottom: 0.5rem;">Mortgage Loan Officer | NMLS# 1205453</p>
+      <p style="line-height: 1.7;">
+        🏢 Bell Bank Mortgage<br>
+        📍 11095 Metcalf Ave, Overland Park, KS 66211
+      </p>
+      <a href="https://bell.bank/mortgage/loan-officer/manuelmortgages" target="_blank"
+        style="display: inline-block; margin-top: 1rem; background: var(--accent-cyan); color: white; padding: 0.5rem 1rem; border-radius: 6px; text-decoration: none; font-weight: 600;">🔗
+        Bell Bank Mortgage</a>
+    </div>
 
+  </section>
+
+  <section id="affordabilityCalculator" class="listings" style="padding-top: 2rem;">
+    <h2 style="color: var(--accent-cyan); text-align: center;">
+      🏠 Home Financing Tool — <span style="color: var(--accent-gold);">Affordability Calculator</span>
+    </h2>
+
+    <!-- Image centered, real estate standard -->
+    <div style="margin: 2rem auto; max-width: 900px;">
+      <img src="image/cal.png" alt="Home Affordability Calculator"
+        style="width: 100%; height: auto; border-radius: 12px; object-fit: cover; box-shadow: 0 8px 18px rgba(0,0,0,0.15);" />
+    </div>
+
+    <!-- Form section with soft background -->
+    <div
+      style="max-width: 960px; margin: auto; background: var(--light-cyan-bg); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+      <h3 class="calc-title" style="color: var(--primary-blue); font-size: 1.4rem; margin-bottom: 1rem;">
+        📊 Click to Calculate: How Much Home Can I Afford?
+      </h3>
+
+      <div class="calc-content" style="display: block;">
+        <form id="homeAffordForm">
+          <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
+            <!-- Left Column -->
+            <div style="flex: 1 1 300px; min-width: 260px;">
+              <label>Highest monthly payment ($)<br>
+                <input type="number" id="maxPayment" required value="2100" />
+              </label><br>
+              <label>Monthly insurance + costs ($)<br>
+                <input type="number" id="monthlyInsurance" required value="80" />
+              </label><br>
+              <label>Property tax (%)<br>
+                <input type="number" id="propertyTaxRate" required value="1.25" />
+              </label><br>
+              <label>Monthly association dues ($)<br>
+                <input type="number" id="monthlyDues" required value="0" />
+              </label>
+            </div>
+
+            <!-- Right Column -->
+            <div style="flex: 1 1 300px; min-width: 260px;">
+              <label>Down payment (%)<br>
+                <input type="number" id="downPaymentPercent" required value="10" />
+              </label><br>
+              <label>Loan term (years)<br>
+                <input type="number" id="loanTermYears" required value="30" />
+              </label><br>
+              <label>Interest rate (%)<br>
+                <input type="number" id="interestRate" required value="5" />
+              </label><br>
+              <label>Tax rate (state + federal %)<br>
+                <input type="number" id="taxRate" required value="25" />
+              </label>
+            </div>
+          </div>
+
+          <button type="submit"
+            style="margin-top: 1.5rem; background: var(--primary-blue); color: white; padding: 0.6rem 1.5rem; border-radius: 6px; font-weight: bold;">
+            💡 Calculate Affordability
+          </button>
+        </form>
+
+        <div id="affordabilityResult" style="margin-top: 1rem; font-weight: bold;"></div>
+      </div>
     </div>
   </section>
 
-  <section id="trustedLenders"
-    style="padding: 3rem 1.5rem; background: linear-gradient(145deg, #0f2027, #203a43, #2c5364); color: white; font-family: 'Inter', sans-serif;">
-    <h2 style="text-align: center; font-size: 2.4rem; margin-bottom: 2.5rem; color: #66fcf1; letter-spacing: 1px;">🚀
-      Trusted Loan Experts</h2>
 
-    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2.5rem;">
+
+  <section id="joinTeamSection" class="listings"
+    style="padding: 3rem 1.5rem; background-color: #f5f7fa; font-family: 'Inter', sans-serif;">
+    <h2 style="text-align: center; color: #0b5394; font-size: 1.8rem; margin-bottom: 2.5rem;">
+      Meet Our Trusted Real Estate & Lending Team
+    </h2>
+
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;">
 
       <!-- Lance Richards -->
-      <div style="
-        background: radial-gradient(circle at top left, #1a1a2e, #16213e);
-        border: 1px solid rgba(255,255,255,0.1);
-        border-radius: 20px;
-        padding: 2rem;
-        max-width: 480px;
-        box-shadow: 0 20px 30px rgba(0,0,0,0.4);
-        transition: all 0.3s ease;
-      " onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
-
-        <img src="image/fedility5.png" alt="First Fidelis Logo" style="width: 140px; margin-bottom: 1rem;">
-
-        <h3 style="color: #66fcf1; margin-bottom: 0.4rem;">Lance Richards</h3>
-        <p style="color: #c5c6c7; font-weight: 500;">Mortgage Specialist | NMLS# 991357</p>
-
-        <p style="margin: 1rem 0; color: #dcdde1; line-height: 1.7; font-size: 0.95rem;">
-          📍 Kansas: 6025 Metcalf Ln, Suite 210A<br>
-          📍 Missouri: 4520 Main St, Suite 700<br>
-          📞 913-205-9978 | 📠 913-384-1806<br>
-          📧 <a href="mailto:lancerichards@live.com" style="color: #45aaf2;">lancerichards@live.com</a>
-        </p>
-
-        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-          <a href="https://www.firstfidelis.com" target="_blank"
-            style="background: #0abde3; color: white; padding: 0.5rem 1rem; border-radius: 8px; font-weight: 600; text-decoration: none;">🌐
-            Website</a>
+      <div
+        style="background: white; border-radius: 12px; width: 300px; padding: 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.1); text-align: center;">
+        <img src="image/fedility5.png" alt="Lance Richards"
+          style="width: 100px; margin-bottom: 1rem; object-fit: contain;" />
+        <h3 style="color: #0b5394;">Lance Richards</h3>
+        <p style="color: #666;">Mortgage Specialist | NMLS# 991357</p>
+        <p style="font-size: 0.9rem; color: #444;">Kansas & Missouri<br>📞 913-205-9978</p>
+        <div style="margin-top: 0.5rem;">
+          <a href="mailto:lancerichards@live.com" style="color: #1a73e8; text-decoration: underline;">Email</a>
+        </div>
+        <div style="margin-top: 1rem; display: flex; justify-content: center; gap: 0.5rem; flex-wrap: wrap;">
+          <a href="https://www.firstfidelis.com" target="_blank" class="btn-link">🌐 Website</a>
           <a href="https://nftydoor.com/remn/first-fidelis-llc/lance-richards/signup" target="_blank"
-            style="background: #10ac84; color: white; padding: 0.5rem 1rem; border-radius: 8px; font-weight: 600; text-decoration: none;">📝
-            Apply</a>
-          <a href="https://popl.co/card/OenF7Nun/2/txt" target="_blank"
-            style="background: #341f97; color: white; padding: 0.5rem 1rem; border-radius: 8px; font-weight: 600; text-decoration: none;">📲
-            Digital Card</a>
+            class="btn-link">📝 Apply</a>
+        </div>
+      </div>
+
+      <!-- Shignya S.M -->
+      <div
+        style="background: white; border-radius: 12px; width: 300px; padding: 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.1); text-align: center;">
+        <img src="image/Screenshot.png" alt="Shignya S.M"
+          style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%; margin-bottom: 1rem;" />
+        <h3 style="color: #0b5394;">Shignya S.M</h3>
+        <p style="color: #666;">Real Estate Agent</p>
+        <p style="font-size: 0.9rem; color: #444;">Specialist: First-Time Buyers<br>📞 913-306-5216</p>
+        <div style="margin-top: 0.5rem;">
+          <a href="mailto:shignya.sm@gmail.com" style="color: #1a73e8; text-decoration: underline;">Email</a>
+        </div>
+        <div style="margin-top: 1rem;">
+          <a href="https://www.zillow.com/profile/shignya" target="_blank" class="btn-link">📇 Zillow Profile</a>
+        </div>
+      </div>
+
+      <!-- Alex Zere -->
+      <div
+        style="background: white; border-radius: 12px; width: 300px; padding: 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.1); text-align: center;">
+        <img src="image/alex.png" alt="Alex Zere"
+          style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%; margin-bottom: 1rem;" />
+        <h3 style="color: #0b5394;">Alex Zere</h3>
+        <p style="color: #666;">Loan Originator | NMLS# 484494</p>
+        <p style="font-size: 0.9rem; color: #444;">Gilbert, AZ<br>📞 (619) 519-6316</p>
+        <div style="margin-top: 0.5rem;">
+          <a href="mailto:zere@barrettfinancial.com" style="color: #1a73e8; text-decoration: underline;">Email</a>
+        </div>
+        <div style="margin-top: 1rem; display: flex; justify-content: center; gap: 0.5rem; flex-wrap: wrap;">
+          <a href="https://www.barrettfinancial.com/alex-zere" target="_blank" class="btn-link">🌐 Website</a>
+          <a href="https://www.instagram.com/azsandiego/" target="_blank" class="btn-link">📲 Instagram</a>
         </div>
       </div>
 
       <!-- Dusty Manuel -->
-      <div style="
-        background: radial-gradient(circle at bottom right, #1f4068, #16213e);
-        border: 1px solid rgba(255,255,255,0.1);
-        border-radius: 20px;
-        padding: 2rem;
-        max-width: 480px;
-        box-shadow: 0 20px 30px rgba(0,0,0,0.4);
-        transition: all 0.3s ease;
-      " onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
-
-        <img src="image/bells.png" alt="Bell Bank Logo" style="width: 140px; margin-bottom: 1rem;">
-
-        <h3 style="color: #66fcf1; margin-bottom: 0.4rem;">Dusty Manuel</h3>
-        <p style="color: #c5c6c7; font-weight: 500;">Mortgage Loan Officer | NMLS# 1205453</p>
-
-        <p style="margin: 1rem 0; color: #dcdde1; line-height: 1.7; font-size: 0.95rem;">
-          🏢 Bell Bank Mortgage<br>
-          📍 11095 Metcalf Ave, Overland Park, KS 66211
-        </p>
-
-        <a href="https://bell.bank/mortgage/loan-officer/manuelmortgages" target="_blank"
-          style="background: #0fbcf9; color: white; padding: 0.5rem 1rem; border-radius: 8px; font-weight: 600; text-decoration: none;">🔗
-          Bell Bank Mortgage</a>
-      </div>
-
-    </div>
-
-    <!-- Chris Vick -->
-    <div
-      style="background: radial-gradient(circle at top right, #15202b, #1c2e4a); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 2rem; max-width: 480px; box-shadow: 0 20px 30px rgba(0,0,0,0.4); transition: all 0.3s ease;"
-      onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
-      <img src="image/chris.png" alt="Chris Vick"
-        style="width: 140px; height: 140px; object-fit: cover; border-radius: 50%; margin-bottom: 1rem;">
-      <h3 style="color: #66fcf1; margin-bottom: 0.4rem;">Chris Vick</h3>
-      <p style="color: #c5c6c7; font-weight: 500;">Mortgage Loan Officer | NMLS# 2254340</p>
-      <p style="margin: 1rem 0; color: #dcdde1; line-height: 1.7; font-size: 0.95rem;">
-        📱 M: (816) 805-6434<br>
-        ☎️ O: (816) 805-6434<br>
-        📧 <a href="mailto:cvick1@arvest.com" style="color: #45aaf2;">cvick1@arvest.com</a><br>
-        🌐 <a href="http://www.arvest.com" target="_blank" style="color: #45aaf2;">www.arvest.com</a><br>
-        📍 6300 Nall Ave, Mission, KS 66202
-      </p>
-      <a href="https://homeloan.arvest.com/homehub/signup/cvick1@arvest.com" target="_blank"
-        style="background: #00cec9; color: white; padding: 0.5rem 1rem; border-radius: 8px; font-weight: 600; text-decoration: none;">📝
-        Apply with Chris</a>
-    </div>
-
-    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2.5rem;">
-      <!-- Shignya S.M -->
       <div
-        style="background: radial-gradient(circle at bottom left, #16213e, #1f4068); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 2rem; max-width: 480px; box-shadow: 0 20px 30px rgba(0,0,0,0.4); transition: all 0.3s ease;"
-        onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
-        <img src="image/Screenshot.png" alt="Shignya S.M"
-          style="width: 140px; height: 140px; object-fit: cover; border-radius: 50%; margin-bottom: 1rem;">
-        <h3 style="color: #66fcf1; margin-bottom: 0.4rem;">Shignya S.M</h3>
-        <p style="color: #c5c6c7; font-weight: 500;">Real Estate Agent | First-Time Buyer Specialist</p>
-        <p style="margin: 1rem 0; color: #dcdde1; line-height: 1.7; font-size: 0.95rem;">
-          📞 Phone: 913-306-5216<br>
-          🏢 Office: 888-220-0988<br>
-          📧 <a href="mailto:shignya.sm@gmail.com" style="color: #45aaf2;">shignya.sm@gmail.com</a>
-        </p>
-        <a href="https://www.zillow.com/profile/shignya" target="_blank"
-          style="background: #0984e3; color: white; padding: 0.5rem 1rem; border-radius: 8px; font-weight: 600; text-decoration: none;">📇
-          View Zillow Profile</a>
+        style="background: white; border-radius: 12px; width: 300px; padding: 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.1); text-align: center;">
+        <img src="image/dust.png" alt="Dusty Manuel" style="width: 100px; margin-bottom: 1rem; object-fit: contain;" />
+        <h3 style="color: #0b5394;">Dusty Manuel</h3>
+        <p style="color: #666;">Mortgage Loan Officer | NMLS# 1205453</p>
+        <p style="font-size: 0.9rem; color: #444;">Overland Park, KS<br>📍 Bell Bank Mortgage</p>
+        <div style="margin-top: 0.5rem;">
+          <a href="mailto:" style="color: #1a73e8; text-decoration: underline;">Contact</a>
+        </div>
+        <div style="margin-top: 1rem;">
+          <a href="https://bell.bank/mortgage/loan-officer/manuelmortgages" target="_blank" class="btn-link">🔗 Bell
+            Bank</a>
+        </div>
       </div>
-      <!-- Alex Zere -->
-      <div style="
-background: radial-gradient(circle at top left, #1a1a2e, #16213e);
-border: 1px solid rgba(255,255,255,0.1);
-border-radius: 20px;
-padding: 2rem;
-max-width: 480px;
-box-shadow: 0 20px 30px rgba(0,0,0,0.4);
-transition: all 0.3s ease;
-" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
 
-        <img src="image/alex.png" alt="Alex Zere"
-          style="width: 140px; height: 140px; object-fit: cover; border-radius: 50%; margin-bottom: 1rem;">
-
-        <h3 style="color: #66fcf1; margin-bottom: 0.4rem;">Alex Zere</h3>
-        <p style="color: #c5c6c7; font-weight: 500;">Loan Originator | NMLS# 484494</p>
-
-        <p style="margin: 1rem 0; color: #dcdde1; line-height: 1.7; font-size: 0.95rem;">
-          📍 275 E Rivulon Blvd, Suite 200, Gilbert, AZ 85297<br>
-          📞 (619) 519-6316<br>
-          📧 <a href="mailto:zere@barrettfinancial.com" style="color: #45aaf2;">zere@barrettfinancial.com</a><br>
-          🌐 <a href="https://www.barrettfinancial.com/alex-zere" target="_blank"
-            style="color: #45aaf2;">barrettfinancial.com/alex-zere</a>
-        </p>
-
-        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-          <a href="https://www.barrettfinancial.com/alex-zere" target="_blank"
-            style="background: #0abde3; color: white; padding: 0.5rem 1rem; border-radius: 8px; font-weight: 600; text-decoration: none;">🌐
-            Website</a>
-          <a href="https://www.barrettfinancial.com/alex-zere" target="_blank"
-            style="background: #10ac84; color: white; padding: 0.5rem 1rem; border-radius: 8px; font-weight: 600; text-decoration: none;">📝
+      <!-- Chris Vick -->
+      <div
+        style="background: white; border-radius: 12px; width: 300px; padding: 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.1); text-align: center;">
+        <img src="image/chris.png" alt="Chris Vick"
+          style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%; margin-bottom: 1rem;" />
+        <h3 style="color: #0b5394;">Chris Vick</h3>
+        <p style="color: #666;">Mortgage Loan Officer | NMLS# 2254340</p>
+        <p style="font-size: 0.9rem; color: #444;">Mission, KS<br>📞 (816) 805-6434</p>
+        <div style="margin-top: 0.5rem;">
+          <a href="mailto:cvick1@arvest.com" style="color: #1a73e8; text-decoration: underline;">Email</a>
+        </div>
+        <div style="margin-top: 1rem;">
+          <a href="https://homeloan.arvest.com/homehub/signup/cvick1@arvest.com" target="_blank" class="btn-link">📝
             Apply</a>
-          <a href="https://www.instagram.com/azsandiego/" target="_blank"
-            style="background: #341f97; color: white; padding: 0.5rem 1rem; border-radius: 8px; font-weight: 600; text-decoration: none;">📲
-            Instagram</a>
         </div>
       </div>
 
     </div>
   </section>
-
-
-
-  <!-- Contact Section -->
-  <section id="contact" style="
-  padding: 3rem 1rem;
-  background: linear-gradient(135deg, #141e30, #243b55);
-  color: #fff;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-">
-    <h2 style="
-    font-size: 2.5rem;
-    color: #79c0ff;
-    margin-bottom: 1.5rem;
-    text-shadow: 0 0 15px rgba(121,192,255,0.5);
-  ">📞 Contact Us</h2>
-
-    <p style="font-size: 1.2rem; margin-bottom: 0.5rem;">
-      ✉️ Email: <a href="mailto:shignya.sm@gmail.com"
-        style="color: #a2d2ff; text-decoration: underline;">shignya.sm@gmail.com</a>
-    </p>
-    <p style="font-size: 1.2rem;">
-      📱 Phone (C): <span style="color: #a2d2ff;">913-306-5216</span> | ☎️ (O): <span
-        style="color: #a2d2ff;">888-220-0988</span>
-    </p>
-  </section>
-
-  <!-- Mortgage Listings Section -->
-  <section id="mortgageListings" style="
-  padding: 3rem 1rem;
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  color: #fff;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-size: cover;
-  overflow: hidden;
-">
-    <h2 style="
-    text-align: center;
-    font-size: 2.3rem;
-    color: #79c0ff;
-    margin-bottom: 2rem;
-    text-shadow: 0 0 15px rgba(121,192,255,0.5);
-  ">
-      🏠 Featured Mortgage Listings & Estimated Monthly Payments
-    </h2>
-
-    <div id="listingsContainer" style="
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-  ">
-      <!-- Example Listing Card -->
-      <div style="
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(8px);
-      border-radius: 16px;
-      padding: 1.5rem;
-      width: 300px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.4), inset 0 0 1px rgba(121,192,255,0.2);
-      transition: transform 0.3s ease;
-    " onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
-        <h3 style="color: #a2d2ff; margin-bottom: 0.5rem;">1234 Elm St, KS</h3>
-        <p style="margin: 0.3rem 0;">💵 Price: $320,000</p>
-        <p style="margin: 0.3rem 0;">📅 Est. Monthly: $2,050</p>
-        <p style="margin: 0.3rem 0;">📐 3 Bed · 2 Bath · 1,800 sqft</p>
-      </div>
-      <!-- End Card -->
-    </div>
-  </section>
-
-
-  <section id="mortgageListings" style="padding: 2rem;">
-    <h2 style="color: #1a73e8;">🏠 Featured Mortgage Listings & Estimated Monthly Payments</h2>
-    <div id="listingsContainer" style="display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 2rem;"></div>
-  </section>
-
-  <section id="zillowSearch" style="
-  margin-top: 3rem;
-  padding: 3rem 2rem;
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  color: #e0f7fa;
-  font-family: 'Segoe UI', sans-serif;
-  border-radius: 20px;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.5);
-  backdrop-filter: blur(12px);
-">
-    <h2 style="
-    text-align: center;
-    font-size: 2.4rem;
-    color: #66fcf1;
-    margin-bottom: 1rem;
-    text-shadow: 0 0 12px rgba(102, 252, 241, 0.3);
-  ">
-      🔍 Zillow Home Search
-    </h2>
-
-    <p style="text-align: center; color: #cdeefa; font-size: 1.1rem; margin-bottom: 1.5rem;">
-      Instantly explore available homes on Zillow based on your city or ZIP code.
-    </p>
-
-    <form onsubmit="searchZillow(event)" style="
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-bottom: 2rem;
-  ">
-      <input type="text" id="zillowQuery" placeholder="Enter city or ZIP code..." style="
-      padding: 0.75rem 1rem;
-      width: 260px;
-      border-radius: 10px;
-      border: none;
-      background: rgba(255,255,255,0.1);
-      color: #ffffff;
-      font-size: 1rem;
-      outline: none;
-    " />
-      <button type="submit" style="
-      padding: 0.75rem 1.5rem;
-      background: linear-gradient(90deg, #1a73e8, #64ffda);
-      color: #0a1f3c;
-      border: none;
-      border-radius: 10px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
-    " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-        🔎 Search Zillow
-      </button>
-    </form>
-
-    <p style="text-align: center;">
-      <a href="https://www.zillow.com/" target="_blank" style="
-      color: #58a6ff;
-      font-weight: bold;
-      text-decoration: underline;
-    ">🌐 Visit Zillow Homepage</a>
-    </p>
-
-    <!-- Shignya Profile Card -->
-    <div style="
-    margin-top: 3rem;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 16px;
-    padding: 2rem;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    border: 1px solid rgba(255,255,255,0.1);
-    backdrop-filter: blur(10px);
-  ">
-      <img src="image/Screenshot.png" alt="Shignya Profile" style="
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid #64ffda;
-      box-shadow: 0 0 12px rgba(100, 255, 218, 0.3);
-    ">
-
-      <div style="flex: 1; min-width: 260px;">
-        <h3 style="margin: 0 0 0.5rem; color: #64ffda;">📇 Shignya S.M</h3>
-        <p style="color: #cdeefa; font-weight: 500;">Real Estate Agent | First-Time Buyer Specialist</p>
-        <p style="color: #d3eaff; line-height: 1.6;">
-          With over 4 years of experience guiding homebuyers and a passion for serving our community, I’m proud to
-          assist you through every step of your real estate journey.
-        </p>
-        <a href="https://www.zillow.com/profile/shignya" target="_blank" style="
-        display: inline-block;
-        margin-top: 0.5rem;
-        padding: 0.6rem 1.4rem;
-        background: linear-gradient(to right, #64ffda, #1a73e8);
-        color: #0a192f;
-        border-radius: 10px;
-        text-decoration: none;
-        font-weight: bold;
-        transition: all 0.3s ease;
-        box-shadow: 0 0 10px rgba(100, 255, 218, 0.4);
-      " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-          🔗 View Zillow Profile
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <script>
-    function searchZillow(event) {
-      event.preventDefault();
-      const query = document.getElementById("zillowQuery").value.trim();
-      if (query) {
-        const url = `https://www.zillow.com/homes/${encodeURIComponent(query)}_rb/`;
-        window.open(url, "_blank");
-      } else {
-        alert("Please enter a city or ZIP code.");
-      }
-    }
-  </script>
-
-
-  <script>
-    // Local featured listings (can be replaced with API later)
-    const propertyListings = [
-      {
-        title: "3 Bed, 2 Bath – Overland Park, KS",
-        price: 330000,
-        sqft: 1800,
-        built: 2016,
-        rate: 6.25
-      },
-      {
-        title: "4 Bed, 3 Bath – Olathe, KS",
-        price: 395000,
-        sqft: 2300,
-        built: 2020,
-        rate: 6.5
-      },
-      {
-        title: "2 Bed, 1 Bath – Kansas City, KS",
-        price: 250000,
-        sqft: 1400,
-        built: 2013,
-        rate: 5.99
-      }
-    ];
-
-    // Calculate monthly mortgage payment
-    function calculateMonthlyPayment(P, rate, years = 30) {
-      const r = (rate / 100) / 12;
-      const n = years * 12;
-      const monthly = P * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1);
-      return Math.round(monthly);
-    }
-
-    // Render featured listings dynamically
-    function renderListings() {
-      const container = document.getElementById("listingsContainer");
-      container.innerHTML = "";
-
-      propertyListings.forEach(listing => {
-        const monthly = calculateMonthlyPayment(listing.price, listing.rate);
-        const card = `
-          <div style="
-            flex: 1 1 300px;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(12px);
-            border-radius: 16px;
-            padding: 1.8rem;
-            color: #fff;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5), inset 0 0 1px rgba(121,192,255,0.2);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            border: 1px solid rgba(255,255,255,0.1);
-            overflow: hidden;
-          "
-          onmouseover="this.style.transform='scale(1.04)'; this.style.boxShadow='0 12px 30px rgba(0,0,0,0.6)'"
-          onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.5)'">
-            <h3 style="
-              color: #79c0ff;
-              font-size: 1.4rem;
-              margin-bottom: 0.7rem;
-              text-shadow: 0 0 8px rgba(121,192,255,0.6);
-            ">${listing.title}</h3>
-    
-            <p style="margin: 0.2rem 0;"><strong style="color:#a2d2ff;">💰 Price:</strong> $${listing.price.toLocaleString()}</p>
-            <p style="margin: 0.2rem 0;"><strong style="color:#a2d2ff;">📅 Est. Monthly:</strong> $${monthly.toLocaleString()} @ ${listing.rate}%</p>
-    
-            <ul style="
-              padding-left: 1.2rem; 
-              margin-top: 1rem; 
-              line-height: 1.6; 
-              list-style: none;
-            ">
-              <li>📏 ${listing.sqft} sq ft</li>
-              <li>🏗️ Built in ${listing.built}</li>
-              <li>📃 30-Year Fixed Mortgage</li>
-            </ul>
-          </div>
-        `;
-        container.innerHTML += card;
-      });
-    }
-
-
-    // Zillow search redirect
-    function searchZillow(event) {
-      event.preventDefault();
-      const query = document.getElementById("zillowQuery").value.trim();
-      if (query) {
-        const url = `https://www.zillow.com/homes/${encodeURIComponent(query)}_rb/`;
-        window.open(url, "_blank");
-      } else {
-        alert("Please enter a city or ZIP code.");
-      }
-    }
-
-    // Initialize on page load
-    document.addEventListener("DOMContentLoaded", renderListings);
-  </script>
-
-
-
-  <section id="mortgageConsultant" style="margin-top: 3rem;">
-    <h2 style="color: #1a73e8;">💼 Meet Your Mortgage Experts</h2>
-    <div
-      style="background: linear-gradient(to right, #e3f2fd, #ffffff); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-      <p>We proudly partner with the <strong>Your Kansas City Mortgage Experts</strong> team at <strong>PHM
-          Loans</strong> to support our buyers with trusted financing options and personalized loan guidance.</p>
-      <p>Whether you’re a first-time homebuyer or exploring refinancing, their team offers professional advice,
-        competitive rates, and clear communication every step of the way.</p>
-      <a href="https://www.phmloans.com/branch/your-kansas-city-mortgage-experts" target="_blank"
-        style="display: inline-block; margin-top: 1rem; padding: 0.75rem 1.5rem; background: #1a73e8; color: white; font-weight: bold; border-radius: 8px; text-decoration: none; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-        🔗 Visit PHM Loans - Kansas City Branch
-      </a>
-    </div>
-  </section>
-
-
-
-  <!-- Chart.js CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-  <section id="mortgageCalculator" style="
-  padding: 3rem 1rem; 
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); 
-  color: #fff; 
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-size: cover;
-  background-repeat: no-repeat;
-  position: relative;
-  overflow: hidden;
-">
-    <h2 style="
-    color: #79c0ff; 
-    text-align: center; 
-    font-size: 2.5rem; 
-    margin-bottom: 2rem; 
-    text-shadow: 0 0 15px rgba(121,192,255,0.5);
-  ">
-      📊 Mortgage Payment Calculator
-    </h2>
-
-    <div style="
-    max-width: 720px; 
-    margin: auto; 
-    background: rgba(255, 255, 255, 0.05); 
-    padding: 2rem; 
-    border-radius: 16px; 
-    backdrop-filter: blur(10px); 
-    box-shadow: 0 10px 30px rgba(0,0,0,0.4), inset 0 0 2px rgba(121,192,255,0.2);
-    transition: transform 0.3s ease;
-  " onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
-
-      <form onsubmit="calculateMortgage(event)">
-        <label>Home Price ($):</label>
-        <input type="number" id="homePrice" value="300000"
-          style="width:100%; margin-bottom:1rem; padding:0.5rem; border-radius:8px; border:none;" />
-
-        <label>Loan Term (years):</label>
-        <select id="loanTerm" style="width:100%; margin-bottom:1rem; padding:0.5rem; border-radius:8px; border:none;">
-          <option>10</option>
-          <option>15</option>
-          <option>20</option>
-          <option selected>30</option>
-        </select>
-
-        <label>Down Payment ($):</label>
-        <input type="number" id="downPayment" value="60000"
-          style="width:100%; margin-bottom:1rem; padding:0.5rem; border-radius:8px; border:none;" />
-
-        <label>Interest Rate (%):</label>
-        <input type="number" id="interestRate" value="6.5" step="0.01"
-          style="width:100%; margin-bottom:1rem; padding:0.5rem; border-radius:8px; border:none;" />
-
-        <label>Home Insurance (yearly, $):</label>
-        <input type="number" id="insurance" value="1200"
-          style="width:100%; margin-bottom:1rem; padding:0.5rem; border-radius:8px; border:none;" />
-
-        <label>Property Tax (yearly, $):</label>
-        <input type="number" id="taxes" value="0"
-          style="width:100%; margin-bottom:1rem; padding:0.5rem; border-radius:8px; border:none;" />
-
-        <label>PMI Rate (e.g., 0.005 for 0.5%):</label>
-        <input type="number" id="pmi" step="0.001" value="0.005"
-          style="width:100%; margin-bottom:1rem; padding:0.5rem; border-radius:8px; border:none;" />
-
-        <label>HOA Dues ($/month):</label>
-        <input type="number" id="hoa" value="0"
-          style="width:100%; margin-bottom:1rem; padding:0.5rem; border-radius:8px; border:none;" />
-
-        <button type="submit" style="
-        background: #79c0ff; 
-        color: #0f1c2e; 
-        padding: 0.75rem 1.5rem; 
-        border: none; 
-        border-radius: 8px; 
-        cursor: pointer; 
-        font-weight: bold;
-        width: 100%;
-        transition: background 0.3s;
-      " onmouseover="this.style.background='#a2d2ff'" onmouseout="this.style.background='#79c0ff'">
-          Calculate
-        </button>
-      </form>
-
-      <div id="result" style="margin-top:2rem; font-weight:bold; color: #79c0ff;"></div>
-      <canvas id="mortgageChart" style="margin-top:2rem;"></canvas>
-    </div>
-  </section>
-
-
-  <script>
-    let chart;
-
-    function calculateMortgage(e) {
-      e.preventDefault();
-
-      const price = parseFloat(document.getElementById("homePrice").value);
-      const down = parseFloat(document.getElementById("downPayment").value);
-      const loan = price - down;
-      const term = parseInt(document.getElementById("loanTerm").value);
-      const rate = parseFloat(document.getElementById("interestRate").value) / 100 / 12;
-      const months = term * 12;
-
-      const yearlyInsurance = parseFloat(document.getElementById("insurance").value);
-      const yearlyTaxes = parseFloat(document.getElementById("taxes").value);
-      const pmiRate = parseFloat(document.getElementById("pmi").value);
-      const hoa = parseFloat(document.getElementById("hoa").value);
-
-      // Monthly P&I
-      const monthlyPI = loan * rate * Math.pow(1 + rate, months) / (Math.pow(1 + rate, months) - 1);
-      const monthlyInsurance = yearlyInsurance / 12;
-      const monthlyTaxes = yearlyTaxes / 12;
-      const monthlyPMI = loan * pmiRate / 12;
-      const monthlyTotal = monthlyPI + monthlyInsurance + monthlyTaxes + monthlyPMI + hoa;
-
-      // Output
-      document.getElementById("result").innerHTML = `Monthly Payment: <strong>$${monthlyTotal.toFixed(2)}</strong>`;
-
-      // Pie chart
-      const ctx = document.getElementById("mortgageChart").getContext("2d");
-
-      if (chart) chart.destroy(); // Destroy previous chart if exists
-
-      chart = new Chart(ctx, {
-        type: "pie",
-        data: {
-          labels: ["Principal & Interest", "Insurance", "Taxes", "PMI", "HOA"],
-          datasets: [{
-            data: [monthlyPI, monthlyInsurance, monthlyTaxes, monthlyPMI, hoa],
-            backgroundColor: ["#1a73e8", "#43a047", "#fbc02d", "#ef6c00", "#9e9e9e"],
-          }]
-        },
-        options: {
-          responsive: true,
-          plugins: {
-            legend: {
-              position: "bottom"
-            },
-            title: {
-              display: true,
-              text: "Monthly Payment Breakdown"
-            }
-          }
-        }
-      });
-    }
-  </script>
 
 
 
 
   <footer
-    style="background: linear-gradient(135deg, #0a1f3c, #1f2d50); color: white; padding: 3rem 1rem 1rem; text-align: center; font-family: 'Inter', sans-serif;">
-    <div style="max-width: 1100px; margin: auto;">
-
-      <!-- ⭐️ Zillow Profile Section -->
-      <style>
-        .zillow-card {
-          background: linear-gradient(135deg, rgba(10, 25, 47, 0.95), rgba(25, 55, 109, 0.9));
-          backdrop-filter: blur(10px);
-          -webkit-backdrop-filter: blur(10px);
-          border-radius: 20px;
-          padding: 2rem;
-          margin-bottom: 3rem;
-          display: flex;
-          flex-wrap: wrap;
-          align-items: center;
-          box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3), inset 0 0 1px rgba(255, 255, 255, 0.2);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .zillow-card:hover {
-          transform: scale(1.015);
-          box-shadow: 0 14px 40px rgba(0, 0, 0, 0.4);
-        }
-
-        .zillow-img {
-          width: 160px;
-          height: 160px;
-          border-radius: 50%;
-          object-fit: cover;
-          border: 4px solid #1a73e8;
-          box-shadow: 0 0 12px rgba(26, 115, 232, 0.6);
-          margin-bottom: 1rem;
-          cursor: pointer;
-          transition: transform 0.3s ease;
-        }
-
-        .zillow-info {
-          flex: 1;
-          text-align: left;
-          display: none;
-          animation: fadeIn 0.3s ease;
-        }
-
-        .zillow-info.show {
-          display: block;
-        }
-
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(10px);
-          }
-
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @media (max-width: 768px) {
-          .zillow-card {
-            flex-direction: column;
-            text-align: center;
-            padding: 1.5rem;
-          }
-
-          .zillow-info {
-            text-align: center;
-          }
-
-          p {
-            text-align: left;
-          }
-        }
-      </style>
-
-      <div class="zillow-card">
-        <div style="width: 100%; text-align: center;">
-          <img src="image/Screenshot 2025-04-17 110636.png" alt="Shignya Mitike Profile" class="zillow-img"
-            onclick="toggleZillowInfo()" />
-        </div>
-
-        <div class="zillow-info" id="zillowDetails">
-          <h3 style="margin: 0 0 0.5rem; color: #58a6ff; font-size: 1.6rem;">📇 Connect with Shignya Mitike on Zillow
-          </h3>
-          <p style="margin: 0 0 0.5rem; color: #cbd5e1; font-weight: 500;">Real Estate Agent | First-Time Buyer
-            Specialist</p>
-          <p style="margin-bottom: 1rem; color: #d1d5db; line-height: 1.6; font-size: 1rem; text-align: left;">
-            I am proud to call Kansas City my home for the past 23+ years. I’m more than optimistic that I can find a
-            place you will call home.
-            With years of sales experience, I am committed to giving my clients the best home-buying and selling
-            experience possible.
-            I continue to volunteer in a number of community initiatives and charities, and I am excited to continue
-            doing my part
-            to make Kansas City a great place for families and businesses.
-          </p>
-          <a href="https://www.zillow.com/profile/shignya" target="_blank" style="
-          display: inline-block;
-          padding: 0.75rem 1.5rem;
-          background: linear-gradient(90deg, #1a73e8, #1976d2);
-          color: white;
-          border-radius: 10px;
-          font-weight: 600;
-          text-decoration: none;
-          box-shadow: 0 4px 12px rgba(26, 115, 232, 0.4);
-          transition: background 0.3s ease, transform 0.3s ease;
-        " onmouseover="this.style.background='linear-gradient(90deg, #1976d2, #0d47a1)'; this.style.transform='scale(1.05)'"
-            onmouseout="this.style.background='linear-gradient(90deg, #1a73e8, #1976d2)'; this.style.transform='scale(1)'">
-            🔗 View Zillow Profile
-          </a>
-        </div>
-      </div>
-
-      <script>
-        function toggleZillowInfo() {
-          const info = document.getElementById('zillowDetails');
-          info.classList.toggle('show');
-        }
-      </script>
-
-
-
-
-      <!-- Mission Statement -->
-      <h2 style="font-size: 1.8rem; margin-bottom: 0.5rem; color: white;">Rooted in Culture. United by Purpose.</h2>
-      <p
-        style="font-size: 1.05rem; margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto; color: #c9d1d9;">
-        A vibrant fusion of Ethiopian heritage and American opportunity — empowering our community through real estate,
-        culture, and trust.
-      </p>
-
-      <!-- Vertical Navigation List -->
-      <ul class="footer-nav">
-        <li><a onclick="selectTab('homeIntro')">🏡 Home Intro</a></li>
-        <li><a onclick="selectTab('about')">📘 About Us</a></li>
-        <li><a onclick="selectTab('services')">🛒 Buying Process</a></li>
-        <li><a onclick="selectTab('sellingProcess')">📤 Selling Process</a></li>
-        <li><a onclick="selectTab('lenders')">🏦 Lenders</a></li>
-        <li><a onclick="selectTab('programs')">📂 Loan Programs</a></li>
-        <li><a onclick="selectTab('whatNotToDo')">🚫 What Not To Do</a></li>
-        <li><a onclick="selectTab('mortgageListings')">📋 Mortgage Listings</a></li>
-        <li><a onclick="selectTab('zillowSearch')">🔍 Search Listings</a></li>
-        <li><a onclick="selectTab('mortgageCalculator')">🧮 Mortgage Calculator</a></li>
-        <li><a onclick="selectTab('zillowProfile')">📇 Zillow Profile</a></li>
-        <li><a onclick="selectTab('trustedLenders')">🤝 Trusted Loan Partners</a></li>
-        <li><a onclick="selectTab('contact')">📨 Contact</a></li>
-      </ul>
-      <style>
-        .footer-nav {
-          list-style: none;
-          padding: 0;
-          margin: 2rem auto;
-          text-align: center;
-          max-width: 600px;
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: center;
-          gap: 1rem;
-        }
-
-        .footer-nav li {
-          flex: 1 1 45%;
-          text-align: left;
-        }
-
-        .footer-nav a {
-          color: whitesmoke;
-          text-decoration: none;
-          font-size: 1.05rem;
-          font-weight: 500;
-          display: inline-block;
-          padding: 0.4rem 0.6rem;
-          border-radius: 10px;
-          background: rgba(255, 255, 255, 0.02);
-          box-shadow: 0 0 0 transparent;
-          transition: all 0.3s ease;
-          position: relative;
-        }
-
-        .footer-nav a::after {
-          content: '';
-          position: absolute;
-          left: 0;
-          top: 0;
-          width: 100%;
-          height: 100%;
-          border-radius: 10px;
-          background: radial-gradient(circle, #58a6ff33 0%, transparent 70%);
-          opacity: 0;
-          transition: opacity 0.4s ease;
-          z-index: -1;
-        }
-
-        .footer-nav a:hover {
-          color: #ffd700;
-          background: rgba(255, 255, 255, 0.04);
-          box-shadow: 0 0 12px rgba(88, 166, 255, 0.3);
-        }
-
-        .footer-nav a:hover::after {
-          opacity: 1;
-        }
-
-        .footer-nav a:active {
-          transform: scale(0.96);
-        }
-      </style>
-
-
-
-
-
-      <!-- Divider -->
-      <div style="height: 1px; width: 60%; background: #166bcd; margin: 2rem auto;"></div>
-
-      <!-- Social Icons -->
-      <div style="margin-bottom: 2rem;">
-        <!--<a href="https://www.instagram.com/azsandiego" target="_blank"
-          style="margin: 0 10px; color: #79c0ff; font-size: 1.5rem;" title="Instagram"><i
-            class="fab fa-instagram"></i></a>   -->
-        <a href="https://www.facebook.com/share/1NqSaFCf7i/?mibextid=wwXIfr
-" target="_blank" style="margin: 0 10px; color: #79c0ff; font-size: 1.5rem;" title="Facebook"><i
-            class="fab fa-facebook"></i></a>
-        <!--  <a href="https://www.linkedin.com/in/azsandiego" target="_blank"
-          style="margin: 0 10px; color: #79c0ff; font-size: 1.5rem;" title="LinkedIn"><i
-            class="fab fa-linkedin"></i></a>
-        <a href="https://www.tiktok.com/@yourmortgageanswer" target="_blank"
-          style="margin: 0 10px; color: #79c0ff; font-size: 1.5rem;" title="TikTok"><i class="fab fa-tiktok"></i></a>   -->
-      </div>
-
-      <!-- Contact Info -->
-      <p style="margin-bottom: 0.3rem; color: #8b949e;">Developed by <strong>Next Synergy Tech</strong> | Mitike Realty
-        Group © 2025</p>
-      <p style="margin-bottom: 0.3rem; color: #8b949e;">Phone: 913-306-5216 | Office: 888-220-0988</p>
-      <p style="color: #8b949e;">Email: <a href="mailto:shignya.sm@gmail.com"
-          style="color: #79c0ff; text-decoration: underline;">shignya.sm@gmail.com</a></p>
-    </div>
+    style="background: var(--primary-blue); color: var(--light-text); padding: 2rem; text-align: center; font-size: 0.95rem;">
+    <p style="margin: 0.5rem 0;">&copy; 2025 <strong style="color: var(--accent-gold);">MITIKEKC.COM</strong> — All
+      rights reserved.</p>
+    <p style="margin: 0.5rem 0;">
+      <a href="#homeIntro" style="color: var(--accent-gold); text-decoration: none;">Home</a> |
+      <a href="#listings" style="color: var(--accent-gold); text-decoration: none;">Listings</a> |
+      <a href="#contact" style="color: var(--accent-gold); text-decoration: none;">Contact</a>
+    </p>
+    <p style="margin: 0.5rem 0;">📞 <strong>Phone:</strong> 913-306-5216 &nbsp;|&nbsp; 🏢 <strong>Office:</strong>
+      888-220-0988</p>
+    <p style="margin: 0.5rem 0;">✉️ <strong>Email:</strong>
+      <a href="mailto:shignya.sm@gmail.com" style="color: var(--accent-gold); text-decoration: underline;">
+        shignya.sm@gmail.com
+      </a>
+    </p>
   </footer>
 
-
-
-
-
+  <!-- Accessibility & Contrast: - All text is set in colors with sufficient contrast against backgrounds (at least 4.5:1 for normal text). - Navigation uses color and an underline to indicate the current page, not relying on color alone. - Active nav item indicated both visually (underline)&#8203;:contentReference[oaicite:1]{index=1} and via aria-current for screen readers. - Each section has a distinct background (blue/cyan gradient, white, light cyan, gold, dark blue) to create clear visual separation. - Sections separated by color difference, borders, or shadows for clarity. Responsive Design: - The layout is mobile-first and adapts to different screen sizes (navigation stacks on small screens)&#8203;:contentReference[oaicite:2]{index=2}. - The design maintains readability on all devices with legible font sizes and adequate spacing. -->
 
 
   <script>
-    function showTab(id) {
-      document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
-    }
-    function selectTab(id) {
-      showTab(id);
-      document.getElementById('dropdownMenu').style.display = 'none';
-    }
-    function toggleDropdown() {
-      const dropdown = document.getElementById('dropdownMenu');
-      dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+    function goToSection(id) {
+      // List all toggleable sections
+      const sectionIds = [
+        'services', 'sellingProcess', 'about',
+        'lenders', 'programs', 'whatNotToDo', 'trustedLenders'
+      ];
+
+      // Hide all of them first
+      sectionIds.forEach(secId => {
+        const sec = document.getElementById(secId);
+        if (sec) sec.style.display = 'none';
+      });
+
+      // Show the clicked one
+      const sectionToShow = document.getElementById(id);
+      if (sectionToShow) {
+        sectionToShow.style.display = 'block';
+        sectionToShow.scrollIntoView({ behavior: 'smooth' });
+      }
+
+      // Close all dropdowns
+      document.querySelectorAll('.submenu').forEach(menu => menu.classList.remove('show'));
     }
   </script>
+
   <script type="text/javascript">
     function googleTranslateElementInit() {
       new google.translate.TranslateElement({
         pageLanguage: 'en',
-        includedLanguages: 'en,es,om,am,ti', // English, Spanish, Oromo, Amharic, Tigrinya
+        includedLanguages: 'en,es,am, ar,fr,om,ti',
         layout: google.translate.TranslateElement.InlineLayout.SIMPLE
       }, 'google_translate_element');
     }
   </script>
-  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+  <script type="text/javascript"
+    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(".calc-title").click(function () {
+      $(this).next(".calc-content").slideToggle(300);
+    });
+
+    $("#homeAffordForm").on("submit", function (e) {
+      e.preventDefault();
+
+      const maxPayment = parseFloat($("#maxPayment").val());
+      const insurance = parseFloat($("#monthlyInsurance").val());
+      const dues = parseFloat($("#monthlyDues").val());
+      const taxRate = parseFloat($("#propertyTaxRate").val()) / 100;
+      const interestRate = parseFloat($("#interestRate").val()) / 100 / 12;
+      const termMonths = parseInt($("#loanTermYears").val()) * 12;
+      const downPaymentPercent = parseFloat($("#downPaymentPercent").val()) / 100;
+
+      const availablePayment = maxPayment - insurance - dues;
+      const monthlyTax = taxRate / 12;
+
+      const monthlyFactor = interestRate / (1 - Math.pow(1 + interestRate, -termMonths));
+      const loanAmount = availablePayment / (monthlyFactor + monthlyTax);
+      const downPayment = loanAmount * downPaymentPercent;
+      const housePrice = loanAmount + downPayment;
+
+      $("#affordabilityResult").html(`🏡 Estimated home price you can afford: <span style="color: green;">$${housePrice.toFixed(2)}</span>`);
+    });
+  </script>
+
+
+
+  <script>
+    const heroContent = {
+      homeIntro: {
+        title: "Find Your Dream Home",
+        subtitle: "Discover the best properties with our trusted real estate experts. We offer homes that fit your lifestyle and budget with ease.",
+        image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80"
+      },
+      services: {
+        title: "Start Your Buying Journey",
+        subtitle: "We guide you through each step of the homebuying process—from pre-approval to moving day.",
+        image: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=900&q=80"
+      },
+      sellingProcess: {
+        title: "Sell with Confidence",
+        subtitle: "Maximize your home's value with expert guidance, strategic marketing, and smooth closings.",
+        image: "https://images.unsplash.com/photo-1599423300746-b62533397364?auto=format&fit=crop&w=900&q=80"
+      },
+      lenders: {
+        title: "Connect with Trusted Lenders",
+        subtitle: "Explore loan options and get pre-approved with lenders who prioritize your financial success.",
+        image: "image/leen.png"
+      },
+      programs: {
+        title: "Explore Loan & Grant Programs",
+        subtitle: "Discover FHA, VA, conventional, and local first-time buyer programs designed to support your purchase.",
+        image: "https://plus.unsplash.com/premium_photo-1661723116501-f2adcf2a6dc5?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      },
+      whatNotToDo: {
+        title: "Avoid Common Mistakes",
+        subtitle: "Protect your approval and closing timeline with essential tips for what *not* to do before closing.",
+        image: "https://images.unsplash.com/photo-1593642634367-d91a135587b5?auto=format&fit=crop&w=900&q=80"
+      },
+      trustedLenders: {
+        title: "Meet Our Trusted Experts",
+        subtitle: "Connect with vetted mortgage professionals ready to help you secure your dream home.",
+        image: "https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?auto=format&fit=crop&w=900&q=80"
+      }
+    };
+
+    function updateHero(sectionId) {
+      const content = heroContent[sectionId];
+      const heroImg = document.getElementById("heroImage");
+
+      if (content) {
+        document.getElementById("heroTitle").textContent = content.title;
+        document.getElementById("heroSubtitle").textContent = content.subtitle;
+
+        // If image exists, show it
+        if (content.image) {
+          heroImg.src = content.image;
+          heroImg.style.display = "block";
+        } else {
+          heroImg.style.display = "none";
+        }
+      }
+    }
+
+
+    // Call updateHero when a nav section is clicked
+    function goToSection(id) {
+      // Hide other sections
+      const sectionIds = [
+        'services', 'sellingProcess', 'about',
+        'lenders', 'programs', 'whatNotToDo', 'trustedLenders',
+        'affordabilityCalculator', 'joinTeamSection'
+      ];
+
+      sectionIds.forEach(secId => {
+        const sec = document.getElementById(secId);
+        if (sec) sec.style.display = 'none';
+      });
+
+      const sectionToShow = document.getElementById(id);
+      if (sectionToShow) {
+        sectionToShow.style.display = 'block';
+        sectionToShow.scrollIntoView({ behavior: 'smooth' });
+      }
+
+      updateHero(id); // Update hero content
+      document.querySelectorAll('.submenu').forEach(menu => menu.classList.remove('show'));
+    }
+  </script>
 
 
 </body>
