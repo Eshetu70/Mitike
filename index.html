@@ -506,10 +506,9 @@
     <!-- Video Header -->
     <div class="header-video-wrapper">
       <video autoplay muted loop class="header-video">
-        <source src="https://video.wixstatic.com/video/11062b_8f14374b6fe149aab751d12c94c2676f/720p/mp4/file.mp4"
-          type="video/mp4">
+        <source src="https://video.wixstatic.com/video/11062b_8f14374b6fe149aab751d12c94c2676f/720p/mp4/file.mp4" type="video/mp4">
       </video>
-
+  
       <!-- Logo and Navbar -->
       <a href="#" class="logo logo-absolute">MITIKE</a>
       <div class="nav-container">
@@ -522,28 +521,28 @@
                 <li><a href="#about" onclick="goToSection('about')">About</a></li>
               </ul>
             </li>
-            <li><a href="#services" onclick="goToSection('services')">Buying</a></li>
-            <li><a href="#sellingProcess" onclick="goToSection('sellingProcess')">Selling</a></li>
-            <li class="desktop-only">
+            <li><a href="#services" onclick="goToSection('services')">Buy</a></li>
+            <li><a href="#sellingProcess" onclick="goToSection('sellingProcess')">Sell</a></li>
+            <!-- Lenders visible for both desktop and mobile -->
+            <li>
               <a onclick="toggleMenu('lenders-submenu')">Lenders</a>
               <ul id="lenders-submenu" class="submenu">
                 <li><a href="#lenders" onclick="goToSection('lenders')">Lenders</a></li>
                 <li><a href="#programs" onclick="goToSection('programs')">Loan Programs</a></li>
                 <li><a href="#whatNotToDo" onclick="goToSection('whatNotToDo')">What Not To Do</a></li>
-              <!--  <li><a href="#trustedLenders" onclick="goToSection('trustedLenders')">Trusted Lenders</a></li> -->
-              <li><a href="#joinTeamSection" onclick="goToSection('joinTeamSection')">Loan Partners</a></li>
+                <li><a href="#joinTeamSection" onclick="goToSection('joinTeamSection')">Loan Partners</a></li>
               </ul>
             </li>
+            <!-- More section stays desktop-only -->
             <li class="desktop-only">
               <a onclick="toggleMenu('more-submenu')">More</a>
               <ul id="more-submenu" class="submenu">
                 <li><a href="#contact" onclick="goToSection('contact')">Contact</a></li>
-                <li><a href="#affordabilityCalculator" onclick="goToSection('affordabilityCalculator')">Calculator</a>
-                </li>
+                <li><a href="#affordabilityCalculator" onclick="goToSection('affordabilityCalculator')">Calculator</a></li>
                 <li><a href="#zillowProfile" onclick="goToSection('zillowProfile')">Zillow Profile</a></li>
-               <!-- <li><a href="#joinTeamSection" onclick="goToSection('joinTeamSection')">Loan Partners</a></li> -->
               </ul>
             </li>
+            <!-- Simple mobile menu if needed -->
             <li class="mobile-only">
               <a onclick="toggleMenu('mobileMenu')">☰ Menu</a>
               <ul id="mobileMenu" class="submenu">
@@ -552,19 +551,19 @@
                 <li><a href="#lenders" onclick="goToSection('lenders')">Lenders</a></li>
                 <li><a href="#programs" onclick="goToSection('programs')">Loan Programs</a></li>
                 <li><a href="#whatNotToDo" onclick="goToSection('whatNotToDo')">What Not To Do</a></li>
-               <!-- <li><a href="#trustedLenders" onclick="goToSection('trustedLenders')">Trusted Lenders</a></li> -->
                 <li><a href="#contact" onclick="goToSection('contact')">Contact</a></li>
-                <li><a href="#affordabilityCalculator" onclick="goToSection('affordabilityCalculator')">Calculator</a>
-                </li>
+                <li><a href="#affordabilityCalculator" onclick="goToSection('affordabilityCalculator')">Calculator</a></li>
                 <li><a href="#zillowProfile" onclick="goToSection('zillowProfile')">Zillow Profile</a></li>
-                <li><a href="#joinTeamSection" onclick="goToSection('joinTeamSection')"> Loan Partners</a></li>
+                <li><a href="#joinTeamSection" onclick="goToSection('joinTeamSection')">Loan Partners</a></li>
               </ul>
             </li>
+            
           </ul>
         </nav>
       </div>
     </div>
   </header>
+  
 
   <style>
     * {
