@@ -392,6 +392,9 @@
       box-shadow: 0 -3px 6px rgba(0, 0, 0, 0.3) inset;
     }
 
+
+    
+
     footer p {
       margin: 0.5rem 0;
     }
@@ -941,82 +944,59 @@
     </div>
   </section>
 
-  <section id="zillowProfile" class="listings"
-    style="padding-top: 3rem; background: linear-gradient(to right, #f9fafa 60%, #e8f7ff 100%);">
+  <section id="zillowProfile" class="listings" style="padding: 3rem 1rem; background: linear-gradient(to right, #f9fafa 60%, #e8f7ff 100%);">
     <h2 style="color: var(--primary-blue); text-align: center; font-size: 1.8rem; margin-bottom: 2.5rem;">
       📇 Connect with <span style="color: var(--accent-gold);">Shignya S.M</span> on Zillow
     </h2>
-
-    <div class="listing-grid"
-      style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; align-items: center; max-width: 1100px; margin: auto;">
-
-      <!-- Profile Card -->
-      <div
-        style="flex: 1; min-width: 300px; max-width: 420px; background: white; border-radius: 12px; padding: 2rem; text-align: center; box-shadow: 0 8px 20px rgba(0,0,0,0.05); background-image: url('image/realty-bg.png'); background-size: cover; background-position: center; background-blend-mode: lighten;">
-        <img src="image/Screenshot.png" alt="Shignya Profile"
-          style="width: 160px; height: 160px; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent-cyan); box-shadow: 0 0 12px rgba(100, 255, 218, 0.25); margin-bottom: 1rem; background: white;" />
-
-        <h3 style="color: var(--primary-blue); font-size: 1.4rem; margin-bottom: 0.3rem;">Shignya S.M</h3>
-        <p style="color: #666; font-weight: 500; margin-bottom: 1rem;">Real Estate Agent | First-Time Buyer Specialist
-        </p>
-
-        <div
-          style="text-align: left; margin: 0 auto; max-width: 300px; font-size: 0.95rem; line-height: 1.8; color: #444;">
-          <p><strong>📞 Phone:</strong> 913-306-5216</p>
-          <p><strong>🏢 Office:</strong> 888-220-0988</p>
-          <p><strong>📧 Email:</strong> <a href="mailto:shignya.sm@gmail.com"
-              style="color: var(--accent-cyan); text-decoration: underline;">shignya.sm@gmail.com</a></p>
-        </div>
-
-        <button onclick="$('#zillowBio').slideToggle()" style="
-          margin-top: 1.5rem;
-          background: none;
-          border: 2px solid var(--accent-cyan);
-          color: var(--primary-blue);
-          padding: 0.5rem 1rem;
-          border-radius: 8px;
-          font-weight: 600;
-          cursor: pointer;
-          transition: background 0.3s ease;">
-          🔽 Click here to learn more
-        </button>
-
-        <div id="zillowBio"
-          style="display: none; margin-top: 1.5rem; text-align: left; font-size: 0.95rem; line-height: 1.7; color: #444; background: #f0f9ff; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
-          <h4 style="color: var(--primary-blue); margin-bottom: 0.5rem;">🏡 About Shignya Mitike</h4>
-          <p>I am proud to call Kansas City my home for the past 23+ years. I’m more than optimistic that I can find a
-            place you will call home.</p>
-          <p>With years of sales experience, I am committed to giving my clients the best home-buying and selling
-            experience possible.</p>
-          <p>I continue to volunteer in a number of community initiatives and charities, and I am excited to continue
-            doing my part to make Kansas City a great place for families and businesses.</p>
-        </div>
-
-        <a href="https://www.zillow.com/profile/shignya" target="_blank" style="
-            display: inline-block;
-            margin-top: 1.5rem;
-            padding: 0.6rem 1.4rem;
-            background: linear-gradient(to right, var(--accent-cyan), var(--primary-blue));
-            color: white;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
-            transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'"
-          onmouseout="this.style.transform='scale(1)';">
-          🔗 View Zillow Profile
-        </a>
-      </div>
-
-      <!-- Listing Image or Example -->
-      <div style="flex: 1; min-width: 300px; max-width: 480px;">
-        <img src="image/house.jpg" alt="Sample Listing"
-          style="width: 100%; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.15); object-fit: cover;" />
+  
+    <!-- Agent Info Card -->
+    <div class="agent-card" style="display: flex; flex-direction: column; align-items: center; margin-bottom: 2rem;">
+      <img src="image/shig.png" alt="Shignya S.M. Contact Info" style="max-width: 300px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
+      <div class="agent-info" style="text-align: center; margin-top: 1rem;">
+        <h3 style="font-size: 1.5rem; color: var(--primary-blue); margin-bottom: 0.2rem;">Shignya S.M</h3>
+        <p style="margin: 0.2rem 0;">Real Estate Agent | First-Time Buyer Specialist</p>
+        <p>📞 <strong>Phone:</strong> 913-306-5216</p>
+        <p>🏢 <strong>Office:</strong> 888-220-0988</p>
       </div>
     </div>
+  
+    <!-- Profile + Bio + Link -->
+    <div class="listing-grid" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; max-width: 1100px; margin: auto; align-items: flex-start;">
+  
+      <!-- Profile Card -->
+      <div style="flex: 1; min-width: 300px; max-width: 420px; background: white; border-radius: 12px; padding: 2rem; text-align: center; box-shadow: 0 8px 20px rgba(0,0,0,0.05); background-image: url('image/realty-bg.png'); background-size: cover; background-position: center;">
+        <img src="image/Screenshot.png" alt="Shignya Profile" style="width: 160px; height: 160px; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent-cyan); box-shadow: 0 0 12px rgba(100, 255, 218, 0.25); background: white; margin-bottom: 1rem;" />
+        <h3 style="color: var(--primary-blue); font-size: 1.4rem; margin-bottom: 0.3rem;">Shignya S.M</h3>
+        <p style="color: #666; font-weight: 500;">Real Estate Agent | First-Time Buyer Specialist</p>
+  
+        <div style="text-align: left; margin: 1rem auto; max-width: 300px; font-size: 0.95rem; line-height: 1.8; color: #444;">
+          <p><strong>📞 Phone:</strong> 913-306-5216</p>
+          <p><strong>🏢 Office:</strong> 888-220-0988</p>
+          <p><strong>📧 Email:</strong> <a href="mailto:shignya.sm@gmail.com" style="color: var(--accent-cyan); text-decoration: underline;">shignya.sm@gmail.com</a></p>
+        </div>
+  
+        <!-- Bio Toggle -->
+        <button onclick="document.getElementById('zillowBio').classList.toggle('visible')" style="margin-top: 1rem; background: none; border: 2px solid var(--accent-cyan); color: var(--primary-blue); padding: 0.5rem 1rem; border-radius: 8px; font-weight: 600; cursor: pointer; transition: background 0.3s ease;">🔽 Click here to learn more</button>
+  
+        <div id="zillowBio" style="display: none; margin-top: 1.5rem; text-align: left; font-size: 0.95rem; line-height: 1.7; color: #444; background: #f0f9ff; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+          <h4 style="color: var(--primary-blue); margin-bottom: 0.5rem;">🏡 About Shignya Mitike</h4>
+          <p>I am proud to call Kansas City my home for the past 23+ years. I’m more than optimistic that I can find a place you will call home.</p>
+          <p>With years of sales experience, I am committed to giving my clients the best home-buying and selling experience possible.</p>
+          <p>I continue to volunteer in a number of community initiatives and charities, and I am excited to continue doing my part to make Kansas City a great place for families and businesses.</p>
+        </div>
+  
+        <!-- Zillow Link -->
+        <a href="https://www.zillow.com/profile/shignya" target="_blank" style="display: inline-block; margin-top: 1.5rem; padding: 0.6rem 1.4rem; background: linear-gradient(to right, var(--accent-cyan), var(--primary-blue)); color: white; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.95rem; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15); transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">🔗 View Zillow Profile</a>
+      </div>
+  
+      <!-- Listing Sample Image -->
+      <div style="flex: 1; min-width: 300px; max-width: 480px;">
+        <img src="image/house.jpg" alt="Sample Listing" style="width: 100%; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.15); object-fit: cover;" />
+      </div>
+  
+    </div>
   </section>
-
+  
 
 
 
