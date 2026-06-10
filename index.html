@@ -37,7 +37,7 @@
     function googleTranslateElementInit() {
       new google.translate.TranslateElement({
         pageLanguage: 'en',
-        includedLanguages: 'en,es,am,so,fr',
+        includedLanguages: 'en,es,am,om,so,fr',
         layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
         autoDisplay: false
       }, 'google_translate_element');
@@ -151,6 +151,62 @@
     }
     .lang-btn:hover { background: var(--gold); color: var(--navy-dark); border-color: var(--gold); }
     .lang-btn.active { background: var(--gold); color: var(--navy-dark); border-color: var(--gold); }
+
+
+
+    .language-select-wrap {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 999px;
+      padding: 5px 10px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    }
+    .language-select-wrap::before {
+      content: '🌐';
+      font-size: 0.9rem;
+      line-height: 1;
+    }
+    #languageSelect {
+      appearance: none;
+      -webkit-appearance: none;
+      min-width: 155px;
+      background: transparent;
+      color: var(--white);
+      border: none;
+      outline: none;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      cursor: pointer;
+      padding: 3px 20px 3px 0;
+      font-family: var(--font-body);
+    }
+    #languageSelect option {
+      color: var(--gray-900);
+      background: var(--white);
+    }
+    .language-select-wrap::after {
+      content: '⌄';
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-55%);
+      color: var(--gold);
+      pointer-events: none;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+    #languageStatus {
+      font-size: 0.68rem;
+      color: rgba(255,255,255,0.55);
+      min-width: 58px;
+      text-align: left;
+    }
+    .notranslate { unicode-bidi: isolate; }
 
     /* Hide Google Translate toolbar/banner */
     .goog-te-banner-frame, .goog-te-gadget-icon { display: none !important; }
@@ -1304,13 +1360,19 @@
       </a>
     </div>
     <div class="topbar-right">
-      <div class="lang-switcher">
-        <span class="lang-switcher-label">🌐</span>
-        <button class="lang-btn active" onclick="switchLang('en','this')" id="lb-en" title="English">EN</button>
-        <button class="lang-btn" onclick="switchLang('es','this')" id="lb-es" title="Español">ES</button>
-        <button class="lang-btn" onclick="switchLang('am','this')" id="lb-am" title="አማርኛ">አማ</button>
-        <button class="lang-btn" onclick="switchLang('so','this')" id="lb-so" title="Soomaali">SO</button>
-        <button class="lang-btn" onclick="switchLang('fr','this')" id="lb-fr" title="Français">FR</button>
+      <div class="lang-switcher notranslate" aria-label="Website language selector">
+        <span class="lang-switcher-label">Language</span>
+        <span class="language-select-wrap">
+          <select id="languageSelect" onchange="switchLang(this.value)" aria-label="Choose website language">
+            <option value="en">English</option>
+            <option value="om">Afaan Oromoo</option>
+            <option value="am">አማርኛ</option>
+            <option value="so">Soomaali</option>
+            <option value="es">Español</option>
+            <option value="fr">Français</option>
+          </select>
+        </span>
+        <span id="languageStatus">Ready</span>
       </div>
     </div>
   </div>
@@ -2243,55 +2305,88 @@
   calcUpdate();
 
   /* ── LANGUAGE SWITCHER ── */
-  const LANG_CODES = { en: 'en', es: 'es', am: 'am', so: 'so', fr: 'fr' };
+  const SITE_LANGS = ['en', 'om', 'am', 'so', 'es', 'fr'];
+
+  function setLanguageStatus(text) {
+    const status = document.getElementById('languageStatus');
+    if (status) status.textContent = text;
+  }
+
+  function setTranslateCookie(langCode) {
+    const value = '/en/' + langCode;
+    document.cookie = 'googtrans=' + value + '; path=/';
+    document.cookie = 'googtrans=' + value + '; path=/; domain=' + location.hostname;
+    if (location.hostname.includes('.')) {
+      const rootDomain = '.' + location.hostname.split('.').slice(-2).join('.');
+      document.cookie = 'googtrans=' + value + '; path=/; domain=' + rootDomain;
+    }
+  }
+
+  function clearTranslateCookie() {
+    const expired = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    document.cookie = expired;
+    document.cookie = expired + ' domain=' + location.hostname + ';';
+    if (location.hostname.includes('.')) {
+      const rootDomain = '.' + location.hostname.split('.').slice(-2).join('.');
+      document.cookie = expired + ' domain=' + rootDomain + ';';
+    }
+    localStorage.removeItem('mitikekc_lang');
+  }
 
   function switchLang(langCode) {
-    // Update active button state
-    ['en','es','am','so','fr'].forEach(l => {
-      const btn = document.getElementById('lb-' + l);
-      if (btn) btn.classList.toggle('active', l === langCode);
-    });
+    if (!SITE_LANGS.includes(langCode)) langCode = 'en';
+
+    const selectBox = document.getElementById('languageSelect');
+    if (selectBox) selectBox.value = langCode;
 
     if (langCode === 'en') {
-      // Restore original English — reload without translate cookie
-      const frame = document.querySelector('.goog-te-menu-frame');
-      if (frame) {
-        // try clicking the "Show original" option
-      }
-      // Simplest reliable method: remove cookie and reload
-      document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-      document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=' + location.hostname + ';';
+      setLanguageStatus('English');
+      clearTranslateCookie();
       window.location.reload();
       return;
     }
 
-    // Set Google Translate cookie and trigger translation
-    const cookieVal = '/en/' + langCode;
-    document.cookie = 'googtrans=' + cookieVal + '; path=/';
-    document.cookie = 'googtrans=' + cookieVal + '; path=/; domain=' + location.hostname;
+    const languageNames = {
+      om: 'Oromo',
+      am: 'Amharic',
+      so: 'Somali',
+      es: 'Spanish',
+      fr: 'French'
+    };
 
-    // Trigger via the hidden select element Google Translate injects
+    localStorage.setItem('mitikekc_lang', langCode);
+    setTranslateCookie(langCode);
+    setLanguageStatus('Loading…');
+
     const tryTranslate = (attempts) => {
-      const select = document.querySelector('.goog-te-combo');
-      if (select) {
-        select.value = langCode;
-        select.dispatchEvent(new Event('change'));
-      } else if (attempts > 0) {
-        setTimeout(() => tryTranslate(attempts - 1), 300);
+      const combo = document.querySelector('.goog-te-combo');
+      if (combo) {
+        combo.value = langCode;
+        combo.dispatchEvent(new Event('change'));
+        setTimeout(() => setLanguageStatus(languageNames[langCode] || 'Translated'), 900);
+        return;
+      }
+      if (attempts > 0) {
+        setTimeout(() => tryTranslate(attempts - 1), 350);
+      } else {
+        // Cookie is already set; refresh lets Google Translate read it on hosted sites.
+        setLanguageStatus('Reloading…');
+        window.location.reload();
       }
     };
-    tryTranslate(10);
+
+    tryTranslate(20);
   }
 
-  // Restore active lang button on page load if cookie set
-  (function() {
-    const match = document.cookie.match(/googtrans=\/en\/([a-z]+)/);
-    if (match) {
-      const lang = match[1];
-      ['en','es','am','so','fr'].forEach(l => {
-        const btn = document.getElementById('lb-' + l);
-        if (btn) btn.classList.toggle('active', l === lang);
-      });
+  // Restore selected language on page load.
+  (function restoreLanguageChoice() {
+    const cookieMatch = document.cookie.match(/googtrans=\/en\/([a-z-]+)/);
+    const saved = localStorage.getItem('mitikekc_lang');
+    const lang = (cookieMatch && cookieMatch[1]) || saved || 'en';
+    const selectBox = document.getElementById('languageSelect');
+    if (selectBox && SITE_LANGS.includes(lang)) selectBox.value = lang;
+    if (lang !== 'en' && SITE_LANGS.includes(lang)) {
+      setLanguageStatus('Ready');
     }
   })();
 
