@@ -1333,6 +1333,71 @@
       .hero-stats-inner { flex-wrap: wrap; }
       .stat-item { flex: 0 0 50%; }
     }
+
+    /* ── MOBILE ABOUT SECTION FIX ──────────────────────────
+       Keeps the statement/content visible first on phones and prevents
+       the fixed navigation from covering the section heading. */
+    @media (max-width: 900px) {
+      #about {
+        padding-top: 8.5rem;
+      }
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .about-content {
+        order: 1;
+        width: 100%;
+      }
+      .about-card {
+        order: 2;
+        position: relative;
+        top: auto;
+        max-width: 420px;
+        width: 100%;
+        margin: 0 auto;
+      }
+    }
+
+    @media (max-width: 600px) {
+      #about {
+        padding: 8rem 1.15rem 4rem;
+      }
+      .about-content .section-heading {
+        font-size: 2rem;
+        line-height: 1.15;
+        margin-bottom: 1rem;
+      }
+      .about-content blockquote {
+        font-size: 1.15rem;
+        line-height: 1.55;
+        padding-left: 1rem;
+        margin-bottom: 1.5rem;
+      }
+      .about-content p {
+        font-size: 0.98rem;
+        line-height: 1.75;
+      }
+      .about-stats {
+        display: grid !important;
+        grid-template-columns: 1fr;
+        gap: 0.85rem;
+        margin: 1.75rem 0;
+      }
+      .about-stat {
+        padding: 1.15rem;
+      }
+      .about-stat strong {
+        font-size: 1.8rem;
+      }
+      .about-card {
+        margin-top: 1rem;
+      }
+      .about-card > div:first-child {
+        aspect-ratio: 16 / 10 !important;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -1461,7 +1526,7 @@
         <span class="stat-label">Zillow Rating</span>
       </div>
       <div class="stat-item">
-        <span class="stat-number">10+</span>
+        <span class="stat-number">5+</span>
         <span class="stat-label">Years Experience</span>
       </div>
       <div class="stat-item">
@@ -1533,7 +1598,7 @@
             <span>Homes Closed</span>
           </div>
           <div class="about-stat">
-            <strong>10+</strong>
+            <strong>5+</strong>
             <span>Years Active</span>
           </div>
           <div class="about-stat">
